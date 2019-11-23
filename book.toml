@@ -1,0 +1,6 @@
+[book]
+title = "PLCnext Control"
+author = "Martin Boers"
+
+[output.html]
+additional-css = ["theme/first-edition.css"]
