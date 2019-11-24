@@ -22,6 +22,10 @@ using these steps should work as expected with the content of this book.
 > command. Lines that don’t start with `$` typically show the output of the
 > previous command. Additionally, PowerShell-specific examples will use `>`
 > rather than `$`.
+> Commands on the controller (in a secure shell session) examples will use `#`
+> rather than `$`.
+
+
 
 ### Installing `rustup` on Linux or macOS
 

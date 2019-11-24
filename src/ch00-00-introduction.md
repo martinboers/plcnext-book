@@ -7,92 +7,69 @@
 [nsprust]: https://nostarch.com/rust
 [nsp]: https://nostarch.com/
 
-Welcome to *The Rust Programming Language*, an introductory book about Rust.
-The Rust programming language helps you write faster, more reliable software.
-High-level ergonomics and low-level control are often at odds in programming
-language design; Rust challenges that conflict. Through balancing powerful
-technical capacity and a great developer experience, Rust gives you the option
-to control low-level details (such as memory usage) without all the hassle
-traditionally associated with such control.
+Welcome to *PLCnext Control for Programmers*, an introductory book about programming on the PLCnext Control platform.
 
-## Who Rust Is For
+## What Is PLCnext Control?
 
-Rust is ideal for many people for a variety of reasons. Let’s look at a few of
-the most important groups.
+PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with single-board computers like Raspberry Pi and Arduino, but PLCnext Control includes features that make it particularly suitable for industrial applications.
 
-### Teams of Developers
+The PLCnext Control range includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
 
-Rust is proving to be a productive tool for collaborating among large teams of
-developers with varying levels of systems programming knowledge. Low-level code
-is prone to a variety of subtle bugs, which in most other languages can be
-caught only through extensive testing and careful code review by experienced
-developers. In Rust, the compiler plays a gatekeeper role by refusing to
-compile code with these elusive bugs, including concurrency bugs. By working
-alongside the compiler, the team can spend their time focusing on the program’s
-logic rather than chasing down bugs.
+- AXC F 1152 (Cortex ARM)
+- AXC F 2152 (Cortex ARM )
+- AXC F 3152 (Cortex ARM )
+- RFC 4072S (Intel i5)
 
-Rust also brings contemporary developer tools to the systems programming world:
+A comparison of these controllers is available ... (where)
 
-* Cargo, the included dependency manager and build tool, makes adding,
-  compiling, and managing dependencies painless and consistent across the Rust
-  ecosystem.
-* Rustfmt ensures a consistent coding style across developers.
-* The Rust Language Server powers Integrated Development Environment (IDE)
-  integration for code completion and inline error messages.
+Each of these hardware platforms runs custom firmware that is based on a standard Linux kernel. Over time, this firmware can be upgraded by the user, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.
 
-By using these and other tools in the Rust ecosystem, developers can be
-productive while writing systems-level code.
+## Who PLCnext Control Is For
 
-### Students
+PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.
 
-Rust is for students and those who are interested in learning about systems
-concepts. Using Rust, many people have learned about topics like operating
-systems development. The community is very welcoming and happy to answer
-student questions. Through efforts such as this book, the Rust teams want to
-make systems concepts more accessible to more people, especially those new to
-programming.
+Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.
 
-### Companies
+### IEC 61131-3 software developers
 
-Hundreds of companies, large and small, use Rust in production for a variety of
-tasks. Those tasks include command line tools, web services, DevOps tooling,
-embedded devices, audio and video analysis and transcoding, cryptocurrencies,
-bioinformatics, search engines, Internet of Things applications, machine
-learning, and even major parts of the Firefox web browser.
+Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides PLCnext Engineer software.
 
-### Open Source Developers
+### Matlab Simulink software developers
 
-Rust is for people who want to build the Rust programming language, community,
-developer tools, and libraries. We’d love to have you contribute to the Rust
-language.
+(something here)
 
-### People Who Value Speed and Stability
+### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, ....
 
-Rust is for people who crave speed and stability in a language. By speed, we
-mean the speed of the programs that you can create with Rust and the speed at
-which Rust lets you write them. The Rust compiler’s checks ensure stability
-through feature additions and refactoring. This is in contrast to the brittle
-legacy code in languages without these checks, which developers are often
-afraid to modify. By striving for zero-cost abstractions, higher-level features
-that compile to lower-level code as fast as code written manually, Rust
-endeavors to make safe code be fast code as well.
+(something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).
 
-The Rust language hopes to support many other users as well; those mentioned
-here are merely some of the biggest stakeholders. Overall, Rust’s greatest
-ambition is to eliminate the trade-offs that programmers have accepted for
-decades by providing safety *and* productivity, speed *and* ergonomics. Give
-Rust a try and see if its choices work for you.
+### Systems engineers and systems administrators
+
+It is possible to simply install and configure pre-built applications on a PLCnext Control, without any major software engineering effort.
+
+### Project teams with some or all of the above skills
+
+PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single application.
 
 ## Who This Book Is For
 
-This book assumes that you’ve written code in another programming language but
-doesn’t make any assumptions about which one. We’ve tried to make the material
-broadly accessible to those from a wide variety of programming backgrounds. We
-don’t spend a lot of time talking about what programming *is* or how to think
-about it. If you’re entirely new to programming, you would be better served by
-reading a book that specifically provides an introduction to programming.
+This book is not for IEC 61131-3 programmers (sorry). These programmers will find a familiar environment in PLCnext Engineer, and there are resources from Phoenix Contact that will help you get started with PLCnext Engineer software.
+
+This book is for software engineers with more general programming experience. The book starts with a small python program, but otherwise uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
+
+## What You Will Need
+
+Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. A good option is the PLCnext Starter Kit, which includes a 24 VDC power supply unit and digital and analog I/O modules.
+
+Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
+
+The PLCnext Control is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
+
+The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
 ## How to Use This Book
+
+
+
 
 In general, this book assumes that you’re reading it in sequence from front to
 back. Later chapters build on concepts in earlier chapters, and earlier
@@ -189,3 +166,9 @@ The source files from which this book is generated can be found on
 [GitHub][book].
 
 [book]: https://github.com/rust-lang/book/tree/master/src
+
+---
+
+<sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*, so named because the I/O modules are assembled in a linear arrangement.
+
+<sup>2</sup> *RFC* is short for *Remote Field Controller*. Unlike Axioline controllers, RFCs can only control *remote* I/O modules over a *field bus* like Profinet.
