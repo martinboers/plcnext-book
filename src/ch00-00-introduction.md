@@ -58,7 +58,7 @@ This book is for software engineers with more general programming experience. Th
 
 ## What You Will Need
 
-Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. A good option is the PLCnext Starter Kit, which includes a 24 VDC power supply unit and digital and analog I/O modules.
+Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the PLCnext Starter Kit, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.
 
 Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
 
@@ -67,6 +67,7 @@ The PLCnext Control is a *target* (in embedded programming terminology), and it 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
 ## How to Use This Book
+
 
 
 
