@@ -52,6 +52,7 @@ PLCnext Control includes unique features - such as the Global Data Space (GDS) a
 
 ## Who This Book Is For
 
+(change the next sentence - we will mention PLCnext Engineer)
 This book is not for IEC 61131-3 programmers (sorry). These programmers will find a familiar environment in PLCnext Engineer, and there are resources from Phoenix Contact that will help you get started with PLCnext Engineer software.
 
 This book is for software engineers with more general programming experience. The book starts with a small python program, but otherwise uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
@@ -66,16 +67,24 @@ The PLCnext Control is a *target* (in embedded programming terminology), and it 
 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
+> Note: Throughout this book, the PLCnext Control will be referred to as either *PLC*, or *controller*, or *target*. In this book, these terms all refer to precisely the same device.
+
 ## How to Use This Book
 
+This book should be read from front to back. It is not intended to be an authoritative reference; that is provided by the [PLCnext Technology Info Centre](http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm). Instead, this book will draw on material in relevant sections of the Info Center to build up the readers knowledge in small steps.
+
+(something about skipping chapters, if they are not relevant)
+
+> ### Command Line Notation
+>
+> Throughout this book, you will see commands that must be entered into a terminal on either the host or the target. Commands in a terminal on the host all start with `$` (you don’t need to enter the `$` character).
+> Commands in a terminal on the target all start with `#` instead of `$` (you don’t need to enter the `#` character).
+> Lines that don’t start with `$` or `#` typically show the output of the previous command.
 
 
 
 
-In general, this book assumes that you’re reading it in sequence from front to
-back. Later chapters build on concepts in earlier chapters, and earlier
-chapters might not delve into details on a topic; we typically revisit the
-topic in a later chapter.
+
 
 You’ll find two kinds of chapters in this book: concept chapters and project
 chapters. In concept chapters, you’ll learn about an aspect of Rust. In project

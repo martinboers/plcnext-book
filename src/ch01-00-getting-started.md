@@ -1,8 +1,8 @@
 # Getting Started
 
-Let’s start your Rust journey! There’s a lot to learn, but every journey starts
-somewhere. In this chapter, we’ll discuss:
+This chapter includes:
 
-* Installing Rust on Linux, macOS, and Windows
+* Setting the PLC's IP address
 * Writing a program that prints `Hello, world!`
-* Using `cargo`, Rust’s package manager and build system
+* Updating the firmware
+* System administration
