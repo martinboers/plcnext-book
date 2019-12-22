@@ -22,7 +22,7 @@ The PLCnext Control range includes the following hardware variants from the AXC<
 
 A comparison of these controllers is available ... (where)
 
-Each of these hardware platforms runs custom firmware that is based on a standard Linux kernel. Over time, this firmware can be upgraded by the user, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.
+Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch](https://wiki.linuxfoundation.org/realtime/start).
 
 ## Who PLCnext Control Is For
 
@@ -74,6 +74,9 @@ The controller must be connected to a local area network with access to both the
 This book should be read from front to back. It is not intended to be an authoritative reference; that is provided by the [PLCnext Technology Info Centre](http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm). Instead, this book will draw on material in relevant sections of the Info Center to build up the readers knowledge in small steps.
 
 (something about skipping chapters, if they are not relevant)
+
+(something about terminology and abbreviations - link to Glossary in the Info Centre)
+
 
 > ### Command Line Notation
 >
