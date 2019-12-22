@@ -54,11 +54,3 @@ To install `plcncli` on your host:
    ```
 
 If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use `plcncli` to install multiple SDKs on the host. To do this, simply repeat the SDK installation procedure for each additional SDK. There is no need to install `plcncli` again.
-
-### C++ and Rust
-
-(include links to Github)
-
-### Building on target
-
-The software development process for PLCnext Control - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.
