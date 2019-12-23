@@ -11,7 +11,6 @@ Every PLCnext Control comes with Python already installed.
 Python 3.7.2 (default, Nov 12 2019, 23:37:48)
 [GCC 8.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>>
 ```
 
 Here, you can see the version of Python that is installed on the PLC. The Python command prompt `>>>` is now waiting for further input. Enter the following command:
@@ -19,7 +18,6 @@ Here, you can see the version of Python that is installed on the PLC. The Python
 ```text
 >>> print ("Hello, World!")
 Hello, World!
->>>
 ```
 
 Press Ctrl-D to exit from the Python interpreter and return to the PLC command prompt.
