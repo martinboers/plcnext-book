@@ -54,7 +54,7 @@ PLCnext Control includes unique features - such as the Global Data Space (GDS) a
 
 This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contain program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
 
-This book does not cover PLCnext Engineer or programming in IEC 61131-3 languages, and in fact it is not necessary to read this book in order to become proficient in PLCnext Control programming using PLCnext Engineer. For IEC 61131-3 programmers, there are resources from Phoenix Contact that will help you get started with PLCnext Engineer.
+This book does not cover PLCnext Engineer or programming in IEC 61131-3 languages, and in fact it is not necessary to read this book in order to become proficient in PLCnext Control programming using PLCnext Engineer. For IEC 61131-3 programmers, there are other resources from Phoenix Contact that will help you get started with PLCnext Engineer.
 
 For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the "Installing Software" topic.
 
