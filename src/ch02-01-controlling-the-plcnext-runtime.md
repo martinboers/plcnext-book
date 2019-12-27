@@ -1,8 +1,8 @@
-## PLCnext Runtime
+## Controlling the PLCnext Runtime
 
-When the PLC boots, it automatically starts an application called `Arp.System.Application`<sup>1</sup>, using the script in `/etc/init.d/plcnext`. This is called the *PLCnext runtime*.
+When the PLC boots, it automatically runs the script in the file `/etc/init.d/plcnext`. This starts the *PLCnext runtime*.
 
-We can stop the PLCnext runtime any time, also using the script in the `/etc/init.d` directory:
+We can stop the PLCnext runtime any time, using the same script:
 
 ```text
 # /etc/init.d/plcnext stop
@@ -20,7 +20,7 @@ You can see lots of activity in the `Output.log` file when the PLCnext Runtime s
 
 But what does the PLCnext Runtime do? Basically, the PLCnext runtime turns an otherwise ordinary device into a PLC, and at the same time turns that PLC into much more than an ordinary PLC.
 
-You have already used one feature of the PLCnext Runtime, when you set the IP address using `netnames`. Netnames is used to manage Profinet devices, and the PLCnext Runtime starts a component that makes the controller behave like a Profinet device. See what happens when we try to use netnames when the PLCnext Runtime is stopped:
+You have already used one feature of the PLCnext Runtime, when you set the IP address using `netnames`. Netnames is used to manage Profinet devices, and the PLCnext Runtime starts a component that makes the controller behave like a Profinet device. See what happens when we try to use `netnames` when the PLCnext Runtime is stopped:
 
 ```text
 # /etc/init.d/plcnext stop

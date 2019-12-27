@@ -1,4 +1,4 @@
-# PLCnext Components
+## PLCnext Components
 
 PLCnext Control firmware was introduced briefly in the previous chapter. PLCnext Control firmware features can be broadly categorised as either:
 
@@ -21,16 +21,14 @@ Before we look at how the PLCnext runtime instantiates components, lets look at 
 
 ### I/O Components
 
-| Library file               | Component type                           | Function           |
-|:---------------------------|:-----------------------------------------|:-------------------|
-| libArp.Io.Axioline.so      | Arp::Io::Axioline::AxiolineComponent     | Axioline master    |
-| libArp.Io.Interbus.so      | Arp::Io::Interbus::InterbusComponent     | Interbus master    |
-| libArp.Io.EthernetIP.so    | Arp::Io::EthernetIP::EthernetIPComponent | Ethernet/IP device |
+| Library file               | Component type                           | Function                       |
+|:---------------------------|:-----------------------------------------|:-------------------------------|
+| libArp.Io.Axioline.so      | Arp::Io::Axioline::AxiolineComponent     | Axioline master<sup>1</sup>    |
+| libArp.Io.Interbus.so      | Arp::Io::Interbus::InterbusComponent     | Interbus master<sup>1</sup>    |
+| libArp.Io.EthernetIP.so    | Arp::Io::EthernetIP::EthernetIPComponent | Ethernet/IP device<sup>1</sup> |
 | libArp.Io.ProfinetStack.so | Arp::Io::ProfinetStack::System::SystemComponent<br/>Arp::Io::ProfinetStack::Controller::ControllerComponent<br/>Arp::Io::ProfinetStack::Device::DeviceComponent | Profinet system<br/>Profinet controller<br/>Profinet device |
 
-
-1. Only available on AXC devices.
-
+<sup>1</sup> Only available on AXC devices.
 
 ### Service Components
 

@@ -1,6 +1,6 @@
-## Disabling Components
+## Disabling Features
 
-By default, the PLCnext runtime starts a large number of components, each implementing a different feature on the PLC. In some circumstances it may be desirable to disable some of these features - for example, you want to free the resources that unused components would otherwise consume.
+By default, the PLCnext runtime starts a large number of components. These components implement features on the PLC. In some circumstances it may be desirable to disable some of these features - for example, you want to free the resources that unused features would otherwise consume.
 
 In this section, you will learn how to disable specific features of the PLCnext runtime.
 
@@ -23,7 +23,8 @@ Next, edit the `Custom.acf.settings` file, using either the `nano` or `vi` (vim)
 
 The features controlled by the remaining environment variables are ones that you can disable, if required.
 
-* Add an `overridden` attribute to each `<EnvironmentVariable>` element.
+* Delete any `<EnvironmentVariables>` elements that you want to leave at the default value.
+* Add an `overridden` attribute to each remaining `<EnvironmentVariable>` element.
 
 The resulting file should look like this:
 
@@ -66,19 +67,23 @@ Save the file, and restart the PLCnext runtime:
 (result)
 ```
 
-If you carefully examine the latest entries in the `Output.log` file, you will notice that there are no messages relating to the startup of components that were disabled in the `.acf.settings` file.
+If you carefully examine the latest entries in the `Output.log` file, you will notice that there are no messages relating to the startup of components that implement the features that were disabled in the `.acf.settings` file.
 
-There are many components that cannot be disabled, and which do not have an entry in the `.acf.settings` file - you will still see entries for these components in the the `Output.log` file.
+### Components Included in each Feature Set
 
-> ### Components Required by PLCnext Engineer
->
-> By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:
->
->* ARP_ECLR_SUPPORT
->* ARP_PROFINET_SUPPORT
->* ARP_ETHERNETIP_SUPPORT
->
->Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these three components.
+You have probably noticed that the environment variables in your custom `.acf.settings` file are the same as those listed in the tables in the previous section. Those tables provide a reference for which components will be instantiated (or not) depending on the value of a specific environment variable. In some cases, the library implementing that feature will not even be loaded by the PLCnext runtime.
+
+> On AXC devices, the values of the environment variables `ARP_AXIOLINE_SUPPORT` and `ARP_INTERBUS_SUPPORT` are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own `.acf.settings` file.
+
+### Components Required by PLCnext Engineer
+
+By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:
+
+* ARP_ECLR_SUPPORT
+* ARP_PROFINET_SUPPORT
+* ARP_ETHERNETIP_SUPPORT
+
+Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these components.
 
 ### ACF Settings File Name(s)
 
@@ -91,31 +96,3 @@ The name of the custom settings file does not need to be `Custom.acf.settings`. 
 As you can see, this directive will include *all* files that match the pattern specified in the `path` attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:
 
 (TODO: How are conflicts resolved?)
-
-(TODO: APPENDIX - Cross reference all the "SUPPORT" env variables to components - are the components just not started, are they just configured differenty?)
-
-### Components Included in each Support Category
-
-You may be wondering what (for example) *Profinet Support* actually is, and how this relates to the ARP_PROFINET_SUPPORT environment variable.
-
-Here is a list of the PLCnext components that are affected by each environment variable.
-
-| Environment Variable        | Component(s) affected           | Description      |
-|:----------------------------|:--------------------------------|:-----------------|
-| ARP_TSM_SUPPORT             | ???                             | ???              |
-| ARP_PROFINET_SUPPORT        | Arp.Io.FbIo.PnC<br/>Arp.Io.FbIo.PnD<br/>Arp.Io.PnS<br/>Arp.Io.PnC<br/>Arp.Io.PnC | Profinet Controller<br/>Profinet Device |
-| ARP_PROFICLOUD_SUPPORT      | Arp.Services.ProfiCloud         | Publishes data to the Proficloud Time-Series Data (TSD) service |
-| ARP_ETHERNETIP_SUPPORT      | Arp.Io.FbIo.EthernetIP<br/>Arp.Io.EthernetIP | Ethernet/IP device |
-| ARP_OPC_UA_SUPPORT          | Arp.Services.OpcUAServer        | OPC UA Server |
-| ARP_EHMI_SUPPORT            | Arp.Services.Ehmi               | Embedded Human-Machine Interface |
-| ARP_WBM_SUPPORT             | Arp.Services.Wbm                | Web-based management |
-| ARP_FWM_SUPPORT             | Arp.Services.Fwm                | Firmware manager (?) |
-| ARP_TRACECONTROLLER_SUPPORT | Arp.Services.TraceController    |                  |
-| ARP_DATALOGGER_SUPPORT      | Arp.Services.DataLogger         | Datalogger included with the PLCnext firmware |
-| ARP_APPMANAGER_SUPPORT      | Arp.Services.AppManager         | Manages PLCnext Store app installation & removal |
-| ARP_RETAIN_SUPPORT          | Arp.Plc.Retain                  | Manages variables marked as *retentive* |
-| ARP_ECLR_SUPPORT            | Arp.Plc.Eclr<br/>Arp.Plc.EclrServices<br/>Arp.Plc.Eclr.ArpDomain | Embedded Common Language Runtime, for executing C# and IEC 61131-3 software |
-| ARP_SYSTEM_WATCHDOG_SUPPORT | Arp.System.Watchdog.MainProcess | System Watchdog |
-| ARP_NETLOAD_LIMITER_SUPPORT | Arp.Hardware.Nim                | |
-
-In the remainder of this chapter, you will learn more about what each of these components does.

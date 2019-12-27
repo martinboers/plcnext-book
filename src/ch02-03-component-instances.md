@@ -14,9 +14,9 @@ Libraries can be loaded conditionally, based on the value of a boolean environme
 
 | Library file                          | Name assigned by PLCnext runtime        | Condition                   |
 |:--------------------------------------|:----------------------------------------|:----------------------------|
-| libArp.Io.Axioline.so                 | Arp.Io.Axl.Library                      | ARP_AXIOLINE_SUPPORT        |
-| libArp.Io.Interbus.so                 | Arp.Io.IbM.Library                      | ARP_INTERBUS_SUPPORT        |
-| libArp.Io.EthernetIP.so               | Arp.Io.EthernetIP.Library               | ARP_ETHERNETIP_SUPPORT      |
+| libArp.Io.Axioline.so<sup>1</sup>     | Arp.Io.Axl.Library                      | ARP_AXIOLINE_SUPPORT        |
+| libArp.Io.Interbus.so<sup>1</sup>     | Arp.Io.IbM.Library                      | ARP_INTERBUS_SUPPORT        |
+| libArp.Io.EthernetIP.so<sup>1</sup>   | Arp.Io.EthernetIP.Library               | ARP_ETHERNETIP_SUPPORT      |
 | libArp.Io.ProfinetStack.so            | Arp.Io.Pn.Library                       | ARP_PROFINET_SUPPORT        |
 | libArp.Services.Fwm.so                | Arp.Services.Fwm.Library                |                             |
 | libArp.Services.Wbm.so                | Arp.Services.Wbm.Library                |                             |
@@ -49,7 +49,7 @@ Libraries can be loaded conditionally, based on the value of a boolean environme
 | libArp.Plc.Fbm.so                     | Arp.Plc.Fbm.Library                     |                             |
 | libArp.Plc.Retain.so                  | Arp.Plc.Retain.Library                  | ARP_RETAIN_SUPPORT          |
 
-> Some of the environment variables listed in the above table can be manipulated by the user, using a procedure described later in this chapter.
+<sup>1</sup> Only available on AXC devices.
 
 ### Component Instances
 
@@ -60,9 +60,9 @@ Each component created by the PLCnext runtime:
 
 | Instance name | Type | Settings information | Condition |
 |:--------------|:-----|:---------------------|:----------|
-| Arp.Io.AxlC | Arp::Io::Axioline::AxiolineComponent | Io/AxlC/AxlC.settings | ARP_AXIOLINE_SUPPORT |
-| Arp.Io.IbM | Arp::Io::Interbus::InterbusComponent | Io/IbM/IbM.settings | ARP_INTERBUS_SUPPORT |
-| Arp.Io.EthernetIP | Arp::Io::EthernetIP::EthernetIPComponent | Io/EthernetIP/EthernetIP.settings | ARP_ETHERNETIP_SUPPORT |
+| Arp.Io.AxlC<sup>1</sup> | Arp::Io::Axioline::AxiolineComponent | Io/AxlC/AxlC.settings | ARP_AXIOLINE_SUPPORT |
+| Arp.Io.IbM<sup>1</sup> | Arp::Io::Interbus::InterbusComponent | Io/IbM/IbM.settings | ARP_INTERBUS_SUPPORT |
+| Arp.Io.EthernetIP<sup>1</sup> | Arp::Io::EthernetIP::EthernetIPComponent | Io/EthernetIP/EthernetIP.settings | ARP_ETHERNETIP_SUPPORT |
 | Arp.Io.PnS | Arp::Io::ProfinetStack::System::SystemComponent | Io/PnS/PnS.settings | ARP_PROFINET_SUPPORT |
 | Arp.Io.PnC | Arp::Io::ProfinetStack::Controller::ControllerComponent | Io/PnC/PnC.settings | ARP_PROFINET_SUPPORT |
 | Arp.Io.PnD | Arp::Io::ProfinetStack::Device::DeviceComponent | Io/PnD/PnD.settings | ARP_PROFINET_SUPPORT |
@@ -99,19 +99,19 @@ Each component created by the PLCnext runtime:
 | Arp.Plc.EsmController | Arp::Plc::Esm::EsmControllerComponent |
 | Arp.Plc.Meta | Arp::Plc::Meta::MetaComponent | lc/Meta/Meta.settings |
 | Arp.Plc.Gds | Arp::Plc::Gds::GdsComponent | Plc/Gds/Gds.settings |
-| Arp.Plc.DomainProxy.LocalIoProcess | Arp::Plc::Domain::PlcDomainProxyComponent |
+| Arp.Plc.DomainProxy.LocalIoProcess<sup>1</sup> | Arp::Plc::Domain::PlcDomainProxyComponent |
 | Arp.Plc.DomainProxy.ExternalIoProcess | Arp::Plc::Domain::PlcDomainProxyComponent |
 | Arp.Plc.Manager | Arp::Plc::Domain::PlcManagerComponent |
 | Arp.Plc.Domain | Arp::Plc::Domain::PlcDomainComponent | Plc/Domain/PlcDomain.settings |
-| Arp.Io.FbIo.AxlC | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.AxlC/FbIo.settings |
-| Arp.Io.FbIo.IbM | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.IbM/FbIo.settings |
-| Arp.Io.FbIo.EthernetIP | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.EthernetIP/FbIo.settings | ARP_ETHERNETIP_SUPPORT |
+| Arp.Io.FbIo.AxlC<sup>1</sup> | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.AxlC/FbIo.settings |
+| Arp.Io.FbIo.IbM<sup>1</sup> | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.IbM/FbIo.settings |
+| Arp.Io.FbIo.EthernetIP<sup>1</sup> | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.EthernetIP/FbIo.settings | ARP_ETHERNETIP_SUPPORT |
 | Arp.Plc.Fbm | Arp::Plc::Fbm::FbmComponent | Plc/Fbm/Fbm.settings |
 | Arp.Io.FbIo.PnC | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.PnC/FbIo.settings | ARP_PROFINET_SUPPORT |
 | Arp.Io.FbIo.PnD | Arp::Plc::Fbm::FbIoComponent | Plc/FbIo.PnD/FbIo.settings | ARP_PROFINET_SUPPORT |
 | Arp.Plc.Retain | Arp::Plc::Retain::RetainComponent | Plc/Retain/Retain.settings | ARP_RETAIN_SUPPORT |
 
-> Some of the environment variables listed in the above table can be manipulated by the user, using a procedure described later in this chapter.
+<sup>1</sup> Only on AXC devices.
 
 ### Runtime Processes
 
