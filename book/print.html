@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>PLCnext Control</title>
+        <title>The PLCnext Runtime</title>
         
         <meta name="robots" content="noindex" />
         
@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">2.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">2.1.</strong> A - RSC Services</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -117,7 +117,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">PLCnext Control</h1>
+                        <h1 class="menu-title">The PLCnext Runtime</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -153,36 +153,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
-<blockquote>
-<p>Note: This edition of the book is the same as <a href="https://nostarch.com/rust">The Rust Programming
-Language</a> available in print and ebook format from <a href="https://nostarch.com/">No Starch
-Press</a>.</p>
-</blockquote>
 <p>Welcome to <em>The PLCnext Runtime</em>, an introductory book about programming on the PLCnext Control platform.</p>
 <h2><a class="header" href="#what-is-plcnext-control" id="what-is-plcnext-control">What Is PLCnext Control?</a></h2>
-<p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control includes features that make it particularly suitable for industrial applications.</p>
-<p>The PLCnext Control range includes the following hardware variants from the <a href="about:blank" title="AXC is short for &quot;Axioline Controller&quot;, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. &quot;Axioline&quot; is derived from the terms &quot;AutomationWorx&quot; (AX), a brand name used by Phoenix Contact, and &quot;I/O&quot;, meaning &quot;Input/Output&quot;. The term &quot;line&quot; can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called &quot;Inline&quot;.">AXC</a><sup>1</sup> and RFC<sup>2</sup> range:</p>
+<p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
+<p>The PLCnext Control range includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
 <ul>
-<li>AXC F 1152 (Cortex ARM)</li>
-<li>AXC F 2152 (Cortex ARM )</li>
-<li>AXC F 3152 (Cortex ARM )</li>
-<li>RFC 4072S (Intel i5)</li>
+<li><a href="http://www.phoenixcontact.net/qr/1151412">AXC F 1152</a> (ARM® Cortex®-A9 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/qr/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/qr/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
-<p>A comparison of these controllers is available ... (where)</p>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
 <p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
-<h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 software developers</a></h3>
-<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides PLCnext Engineer software.</p>
-<h3><a class="header" href="#matlab-simulink-software-developers" id="matlab-simulink-software-developers">Matlab Simulink software developers</a></h3>
-<p>(something here)</p>
+<h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
+<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/qr/1046008"><em>PLCnext Engineer</em></a> software.</p>
+<h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
+<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/qr/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
 <h3><a class="header" href="#software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-" id="software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-">Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, ....</a></h3>
 <p>(something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).</p>
 <h3><a class="header" href="#systems-integrators-and-network-administrators" id="systems-integrators-and-network-administrators">Systems integrators and network administrators</a></h3>
-<p>It is possible to simply install and configure pre-built applications on a PLCnext Control, without any major software engineering effort.</p>
+<p>It is possible to simply install and configure pre-built applications on a PLCnext Control, without any software engineering effort.</p>
 <h3><a class="header" href="#project-teams-with-some-or-all-of-the-above-skills" id="project-teams-with-some-or-all-of-the-above-skills">Project teams with some or all of the above skills</a></h3>
-<p>PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single application.</p>
+<p>PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single project.</p>
 <h2><a class="header" href="#who-this-book-is-for" id="who-this-book-is-for">Who This Book Is For</a></h2>
 <p>This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contain program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.</p>
 <p>This book does not cover PLCnext Engineer or programming in IEC 61131-3 languages, and in fact it is not necessary to read this book in order to become proficient in PLCnext Control programming using PLCnext Engineer. For IEC 61131-3 programmers, there are other resources from Phoenix Contact that will help you get started with PLCnext Engineer.</p>
@@ -197,33 +190,38 @@ Press</a>.</p>
 <p>Note: Throughout this book, the PLCnext Control device will be referred to as either <em>PLC</em>, or <em>controller</em>, or <em>target</em>. In this book, these terms all refer to precisely the same device.</p>
 </blockquote>
 <h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to Use This Book</a></h2>
-<p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge step by step.</p>
-<p>Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first &quot;Hello, World&quot; programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext components that are installed with the firmware. Chapter 3 looks at PLCnext runtime middleware, including the Global Data Space.</p>
-<p>In Chapter 4, you will write your own PLCnext component in C++ and run it on the PLC. (using other services on the PLC) (Program components) (Writing RSC services.)</p>
-<p>Chapter 5 looks at how to build and execute other runtimes on a PLCnext Control device, alongside the PLCnext runtime.</p>
-<p>(chapters 6, 7, 8 - will these stay?)</p>
-<p>(something about terminology and abbreviations - link to Glossary in the Info Centre)</p>
+<p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.</p>
+<p>Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first &quot;Hello, World!&quot; programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.</p>
+<p>In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.</p>
+<p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the PLC.</p>
+<p>Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.</p>
+<p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the PLC I/O, and how they can continue to utilise services provided by the PLCnext runtime.</p>
+<p>A glossary of terms used in this book is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary">PLCnext Technology Info Center</a>.</p>
 <blockquote>
 <h3><a class="header" href="#command-line-notation" id="command-line-notation">Command Line Notation</a></h3>
-<p>Throughout this book, you will see commands that must be entered into a terminal on either the host or the target. Commands in a terminal on the host all start with <code>$</code> (you don’t need to enter the <code>$</code> character).
-Commands in a terminal on the target all start with <code>#</code> instead of <code>$</code> (you don’t need to enter the <code>#</code> character).
-Commands in a terminal running the python interpreter all start with <code>&gt;&gt;&gt;</code> (you don’t need to enter the <code>&gt;&gt;&gt;</code> characters).
-Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&gt;</code> typically show the output of the previous command.</p>
+<p>Throughout this book, you will see commands that must be entered into a terminal on either the host or the target.</p>
+<p>Commands in a terminal on the host all start with <code>$</code> (you don’t need to enter the <code>$</code> character).</p>
+<p>Commands in a terminal on the target all start with <code>#</code> instead of <code>$</code> (you don’t need to enter the <code>#</code> character).</p>
+<p>Commands in a terminal running the python interpreter all start with <code>&gt;&gt;&gt;</code> (you don’t need to enter the <code>&gt;&gt;&gt;</code> characters).</p>
+<p>Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&gt;</code> typically show the output of the previous command.</p>
 </blockquote>
 <h2><a class="header" href="#source-code" id="source-code">Source Code</a></h2>
 <p>The source files from which this book is generated can be found on
-<a href="https://github.com/rust-lang/book/tree/master/src">GitHub</a>.</p>
+<a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>
 <hr />
-<p><sup>1</sup> <em>AXC</em> is short for <em>Axioline Controller</em>, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. <em>Axioline</em> is derived from the terms <em>AutomationWorx</em> (AX), a brand name used by Phoenix Contact, and <em>I/O</em>, meaning <em>Input/Output</em>. The term <em>line</em> can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called <em>Inline</em>, so named because the I/O modules are assembled in a linear arrangement.</p>
+<p><sup>1</sup> <em>AXC</em> is short for <em>Axioline Controller</em>, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. <em>Axioline</em> is derived from the terms <em>AutomationWorx</em> (AX), a brand name used by Phoenix Contact, and <em>I/O</em>, meaning <em>Input/Output</em>. The term <em>line</em> can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called <em>Inline</em>.</p>
 <p><sup>2</sup> <em>RFC</em> is short for <em>Remote Field Controller</em>. Unlike Axioline controllers, RFCs can only control <em>remote</em> I/O modules over a <em>field bus</em> like Profinet.</p>
 <p><sup>3</sup> <em>PLC</em> is short for <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller"><em>Programmable Logic Controller</em></a>.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>This chapter includes:</p>
 <ul>
 <li>Setting the PLC's IP address</li>
-<li>Writing a program that prints <code>Hello, world!</code></li>
 <li>Updating the firmware</li>
-<li>System administration</li>
+<li>Exploring the file system</li>
+<li>Installing software</li>
+<li>Writing a program that prints <code>Hello, world!</code> in Python</li>
+<li>Installing a software development kit</li>
+<li>Writing programs that print <code>Hello, world!</code> in C++ and Rust</li>
 </ul>
 <h2><a class="header" href="#setting-the-ip-address" id="setting-the-ip-address">Setting the IP Address</a></h2>
 <p>Once you have assembled <a href="ch00-00-introduction.html#what-you-will-need">everything you need to get started</a>, your PLC will be powered up and plugged in to an Ethernet network with access to the internet. On an AXC PLC it doesn't matter which of the two Ethernet ports are used; these are switched internally.</p>
@@ -233,26 +231,33 @@ Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&g
 </blockquote>
 <p>Here are two possible ways to change the IP address of the PLC:</p>
 <h3><a class="header" href="#use-netnames" id="use-netnames">Use <code>netnames</code></a></h3>
-<p>Netnames is a utility from Phoenix Contact that assists with the management of <a href="https://www.profibus.com/technology/profinet/">Profinet</a> devices. Netnames for Linux 64 bit systems is available here.</p>
+<p>Netnames is a utility from Phoenix Contact that assists with the management of <a href="https://www.profibus.com/technology/profinet/">Profinet</a> devices. Netnames is available for Linux 64 bit and <a href="http://www.phoenixcontact.net/qr/2316390/softw">Windows</a> operating systems. The remainder of this section uses the Linux version of Netnames.</p>
 <p>By default, each PLCnext Control acts as a Profinet device, and so can be assigned an IP address using <code>netnames</code>.</p>
-<p>From the <code>netnames</code> installation directory, run the following command, substituting <code>eth0</code> with the name of your Ethernet adapter with. You should get a response similar to the one shown.</p>
-<pre><code class="language-text">$ sudo ./netnames -i eth01 -c identify
+<p>From the <code>netnames</code> installation directory, run the following command, substituting <code>eth0</code> with the name of your Ethernet adapter. You should get a response similar to the one shown.</p>
+<pre><code class="language-text">$ sudo ./netnames -i eth0 -c identify
 axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255.0.0   0.0.0.0
 </code></pre>
-<p>The current address details of the PLC are shown in the response. The IP address, subnet mask and default gateway can be changed using a command similar to the following:</p>
-<pre><code class="language-text">$ sudo ./netnames -i eth01 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.0.0 -sg 192.168.178.1
+<p>The MAC address and current IP address details of the PLC are shown in the response. The IP address, subnet mask and default gateway can be changed using a command similar to the following:</p>
+<pre><code class="language-text">$ sudo ./netnames -i eth0 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.0.0 -sg 192.168.178.1
 (todo: response)
 </code></pre>
-<p>Obviously the above command will need to include parameters that suit your own network. The IP address of the PLC should be in the same subnet as the host, and the default gateway should give the PLC access to the internet.</p>
+<p>Obviously the above command will need to include parameters that suit your own device and network. The IP address of the PLC should be in the same subnet as the host, and the default gateway should give the PLC access to the internet.</p>
 <p>Your PLC should now be accessible from your host machine, which can be verified using <code>ping</code>:</p>
 <pre><code class="language-text">$ ping -c 3 192.168.178.10
-(todo: response)
+PING 192.168.178.10 (192.168.178.221) 56(84) bytes of data.
+64 bytes from 192.168.178.10: icmp_seq=1 ttl=64 time=5.73 ms
+64 bytes from 192.168.178.10: icmp_seq=2 ttl=64 time=4.87 ms
+64 bytes from 192.168.178.10: icmp_seq=3 ttl=64 time=18.4 ms
+
+--- 192.168.178.10 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2010ms
+rtt min/avg/max/mdev = 4.877/9.690/18.464/6.214 ms
 </code></pre>
 <h3><a class="header" href="#use-plcnext-engineer" id="use-plcnext-engineer">Use PLCnext Engineer</a></h3>
-<p>For Windows users, it is possible to set the IP address of the PLC using <a href="http://www.phoenixcontact.com/qr/1046008/downloads">PLCnext Engineer</a>.</p>
-<p>Refer to the PLCnext Engineer user guide for help with this.</p>
+<p>For Windows users, it is also possible to set the IP address of the PLC using <a href="http://www.phoenixcontact.com/qr/1046008">PLCnext Engineer</a> software.</p>
+<p>Refer to the PLCnext Engineer user guide for instructions on how to do this.</p>
 <h2><a class="header" href="#starting-a-shell-session" id="starting-a-shell-session">Starting a Shell Session</a></h2>
-<p>The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, we can go ahead and open a shell session on the PLC from the host:</p>
+<p>The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, you can go ahead and open a shell session on the PLC from the host:</p>
 <pre><code class="language-text">$ ssh admin@192.168.178.10
 (todo: response))
 </code></pre>
@@ -269,18 +274,18 @@ axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255
 <pre><code class="language-text">admin@axcf2152:~$
 </code></pre>
 <h2><a class="header" href="#firmware" id="firmware">Firmware</a></h2>
-<p>The PLC firmware includes the Linux kernel and factory-installed services that are specific to the PLCnext Control. The PLC can be updated to a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.</p>
+<p>The PLCnext Control firmware includes both the Linux kernel and factory-installed software from Phoenix Contact. A PLCnext Control device can be updated with a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.</p>
 <h3><a class="header" href="#checking-the-firmware-version" id="checking-the-firmware-version">Checking the Firmware Version</a></h3>
 <p>It is important to know the firmware version that is running on the PLC for a number of reasons:</p>
 <ul>
 <li>
-<p>When building native applications, you must use a software development kit (SDK) that is compatible with the firmware version of the PLCnext Control that will run the application.</p>
+<p>When building native applications, you must use a software development kit (SDK) that is compatible with the firmware version that will run the application.</p>
 </li>
 <li>
-<p>When installing third-party applications that have been built specifically for PLCnext Control, you may need to select a version that is compatible with the firmware running on your PLC.</p>
+<p>When installing third-party applications that have been built specifically for PLCnext Control devices, you may need to select a version that is compatible with the firmware running on your PLC.</p>
 </li>
 <li>
-<p>When looking for assistance in the PLCnext Community, it will often help to know what firmware version is currently running on the PLC.</p>
+<p>When looking for assistance in the <a href="https://www.plcnext-community.net">PLCnext Community</a>, it will often help to know what firmware version is currently running on the PLC.</p>
 </li>
 </ul>
 <p>You can check the version of firmware currently running on the PLC by listing the contents of the <code>arpversion</code> file in the <code>/etc/plcnext/</code> directory.</p>
@@ -326,16 +331,237 @@ Build Job: &quot;jenkins-PLCnext-Yocto_AXCF2152-release%2F20.0.x-57&quot;
 <p>The PLC will take some time to install the new firmware, and the PLC will restart.</p>
 <p>After the PLC restarts, open a new shell session and check the firmware version.</p>
 <h3><a class="header" href="#other-ways-to-upgrade-firmware" id="other-ways-to-upgrade-firmware">Other Ways to Upgrade Firmware</a></h3>
-<p>There are two other ways to upgrade the firmware on the controller:</p>
+<p>There are three other ways to upgrade the firmware on the controller:</p>
 <ul>
 <li>
-<p>Using web-based management (WBM).</p>
+<p>Through <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_Firmware_Update.htm">web-based management</a> (WBM).</p>
 </li>
 <li>
-<p>Using OPC UA.</p>
+<p>Using an OPC UA client (link???).</p>
+</li>
+<li>
+<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html"><em>Device Control</em></a> PLCnext runtime service.</p>
 </li>
 </ul>
-<p>Both WBM and OPC UA will be introduced later in this book.</p>
+<p>These features will all be introduced later in this book.</p>
+<h2><a class="header" href="#file-system" id="file-system">File System</a></h2>
+<p>Files in a PLCnext Control are arranged in an <a href="https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works">overlay file system</a>.</p>
+<p>The firmware is installed in the lower (read only) directory. All files created by users, and any changes to files in the lower directory, are stored in the upper (read/write) directory.</p>
+<h3><a class="header" href="#storage-media" id="storage-media">Storage Media</a></h3>
+<p>Each PLCnext Control device includes internal, non-volatile, solid-state memory. The PLC is also supplied with an empty SD card slot.</p>
+<blockquote>
+<p>The firmware will only recognise SD cards specifically designed for PLCnext Control devices.</p>
+</blockquote>
+<p>The firmware file system, mounted as the read-only lower directory, is <em>always</em> stored in internal memory. Information on the firmware file system is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Firmware_directories.htm">PLCnext Technology Info Centre</a>.</p>
+<p>If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.</p>
+<blockquote>
+<p>Please note the SD card handling guidelines in the user manual.</p>
+</blockquote>
+<p>In relation to the upper directory, the behaviour of the system when booting depends on the presence or absence of an external SD card, and the presence or absence of a user file system on the primary storage media:</p>
+<table><thead><tr><th align="left"></th><th align="left">User file system absent on primary media</th><th align="left">User file system present on primary media</th></tr></thead><tbody>
+<tr><td align="left"><strong>SD card absent</strong></td><td align="left">User file system is created in internal memory<br/>and mounted as upper directory.</td><td align="left">Existing file system in internal memory<br/>is mounted as upper directory.</td></tr>
+<tr><td align="left"><strong>SD card present</strong></td><td align="left">User file system is moved from internal memory to<br/>the SD card and mounted as upper directory.</td><td align="left">Existing user file system on SD card<br/>is mounted as upper directory.<br/><em>Any internal user file system is deleted.</em></td></tr>
+</tbody></table>
+<blockquote>
+<p>Note that in the case shown in the lower right corner of the above table, data loss may occur.</p>
+</blockquote>
+<p>More information on this topic is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_SD_Card.htm">PLCnext Technology Info Centre</a>.</p>
+<h3><a class="header" href="#deleting-and-restoring-file-systems" id="deleting-and-restoring-file-systems">Deleting and Restoring File Systems</a></h3>
+<p>The following procedures will affect the complete firmware and/or user file system in a PLCnext Control device:</p>
+<h4><a class="header" href="#firmware-update" id="firmware-update">Firmware Update</a></h4>
+<p>During a firmware update, the contents of the firmware file system are replaced with new firmware files. The user file system remains unaffected, and so (for example) the IP address of the PLC will be retained, passwords will be unaffected, and user-installed files will not be deleted.</p>
+<blockquote>
+<p>Note: Since manual changes to firmware files are stored in the upper directory, any firmware files that were changed manually before a firmware update will remain in the upper directory and will continue to mask the corresponding file in the new firmware file system. This may adversely affect the operation of the PLC after a firmware update.</p>
+</blockquote>
+<h4><a class="header" href="#type-1-reset" id="type-1-reset">Type 1 Reset</a></h4>
+<p>A type 1 reset deletes the entire contents of the user file system on the primary storage device. The contents of the firmware file system remain unaffected.</p>
+<p>To perform a type 1 reset, open a secure shell session on the PLC, and issue the following command:</p>
+<pre><code class="language-text"># sudo recover-plcnext 1
+</code></pre>
+<h4><a class="header" href="#type-2-reset" id="type-2-reset">Type 2 Reset</a></h4>
+<p>A type 2 reset:</p>
+<ul>
+<li>
+<p>Deletes the entire contents of the user file system on the primary storage device, just like a type 1 reset.</p>
+</li>
+<li>
+<p>Replaces the firmware file system with a factory-default firmware version.</p>
+</li>
+</ul>
+<p>To perform a type 2 reset, open a secure shell session on the PLC, and issue the following command:</p>
+<pre><code class="language-text"># sudo recover-plcnext 2
+</code></pre>
+<blockquote>
+<p>Warning: After either a type 1 or a type 2 reset, all user data will be deleted and the PLC's IP address and <code>admin</code> password will be restored to factory defaults.</p>
+</blockquote>
+<p>It is also possible to perform a type 1 or a type 2 reset using a button on the front of the PLCnext Control. See the user manual for details.</p>
+<h3><a class="header" href="#backups" id="backups">Backups</a></h3>
+<p>It is highly recommended to take regular backups of the user file system.</p>
+<p>(how to back up)</p>
+<p>(how to restore)</p>
+<h2><a class="header" href="#system-administration" id="system-administration">System Administration</a></h2>
+<p>The firmware on a PLCnext Control includes standard Linux features that will be familiar to systems and network administrators. These features are described in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Operating_system.htm">PLCnext Technology Info Centre</a>.</p>
+<h3><a class="header" href="#security" id="security">Security</a></h3>
+<p>As is the case with all computer systems, it is ultimately the responsibility of the end user to protect their equipment against all potential threats.</p>
+<p>General information on how to secure Ethernet devices is available here (WHERE?).</p>
+<p>The security tools provided with PLCnext Control firmware are described in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Security/Security.htm">PLCnext Technology Info Centre</a>. Again, these tools will be familiar to administrators of Linux devices.</p>
+<h2><a class="header" href="#installing-software" id="installing-software">Installing Software</a></h2>
+<p>Now that you are familiar with some of the features of the Linux operating system on the PLCnext Control, lets see how you can extend the functionality of the controller by installing third-party software.</p>
+<p>OPTIONS:</p>
+<ul>
+<li>
+<p>Use a package manager - which one? Which repository?</p>
+</li>
+<li>
+<p>If there is no suitable repository, directly install a pre-built binary, if available. This must be built for a compatible architecture (e.g. armv7 32 bit).</p>
+</li>
+<li>
+<p>Cross-compile an open-source project using a PLCnext Control SDK. This will be covered later in the book.</p>
+</li>
+</ul>
+<p>(mention Docker, somewhere)</p>
+<h2><a class="header" href="#hello-world" id="hello-world">Hello, World!</a></h2>
+<p>OK, enough of software written by other people. You're a programmer. So let's start programming!</p>
+<h3><a class="header" href="#your-first-program" id="your-first-program">Your First Program</a></h3>
+<p>Every PLCnext Control comes with Python already installed.</p>
+<pre><code class="language-text"># python3
+Python 3.7.2 (default, Nov 12 2019, 23:37:48)
+[GCC 8.3.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</code></pre>
+<p>Here, you can see the version of Python that is installed on the PLC. The Python command prompt <code>&gt;&gt;&gt;</code> is now waiting for further input. Enter the following command:</p>
+<pre><code class="language-text">&gt;&gt;&gt; print (&quot;Hello, World!&quot;)
+Hello, World!
+</code></pre>
+<p>Press Ctrl-D to exit from the Python interpreter and return to the PLC command prompt.</p>
+<p>Close the shell session on the PLC:</p>
+<pre><code class="language-text"># exit
+</code></pre>
+<p>You have just written your first PLCnext Control program!</p>
+<h3><a class="header" href="#your-second-program" id="your-second-program">Your Second Program</a></h3>
+<p>You probably don't want to be limited to Python when building applications for a PLCnext Control. Python scripts are quick and easy to run on a PLCnext Control because the firmware includes a Python interpreter. Other interpreted languages (like Javascript) need their own interpreter. Similarly, Java bytecode and .NET CLI code need their own runtimes. It is beyond the scope of this book to describe how to program a PLCnext Control device in every language. However, there is a diversity of skills and interests among members of the PLCnext Community, and there are excellent contributions from community members on the use of various programming languages and frameworks. Here are a few examples:</p>
+<p>(TODO: Fill in)</p>
+<ul>
+<li>C#</li>
+<li>Node.js, including Node-red.</li>
+<li>Python</li>
+<li>Java (also information on Java programming in the Info Center)</li>
+</ul>
+<p>Native applications can also be built for a PLCnext Control using C/C++ or Rust, for example, with the help of the appropriate Software Development Kit (SDK). Next, we will see how to install the SDK for a PLCnext Control on your host machine, and then write &quot;Hello, World!&quot; programs for a PLCnext Control in C/C++ and Rust.</p>
+<h2><a class="header" href="#installing-a-software-development-kit" id="installing-a-software-development-kit">Installing a Software Development Kit</a></h2>
+<p>You can build native applications for a PLCnext Control - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control. The SDK contains the build tools and other resources required to create native applications for the target.</p>
+<h3><a class="header" href="#plcnext-command-line-interface" id="plcnext-command-line-interface">PLCnext Command Line Interface</a></h3>
+<p>Software development kits for PLCnext Control targets are installed and managed using a command-line interface (CLI), called the <em>PLCnext CLI</em> or <code>plcncli</code>. It is possible to install SDKs on the host without using <code>plcncli</code>, but <code>plcncli</code> provides important features that will be required in later chapters of this book. For this reason, it is highly recommended to install and manage SDKs using <code>plcncli</code>.</p>
+<p>To install <code>plcncli</code> on your host:</p>
+<ul>
+<li>
+<p>Download the file <em>PLCnext Technology C ++ Toolchain für Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2020.0_Linux_AXC_F_2152.zip</code> is for the AXC F 2152 running firmware version 2020.0.</p>
+</li>
+<li>
+<p>Extract the files from the archive.</p>
+</li>
+<li>
+<p>In a terminal window, navigate to the directory where the files were extracted.</p>
+</li>
+<li>
+<p>Run the script to set up <code>plcncli</code> on the host, specifying the directory where the package should be installed.</p>
+<pre><code class="language-text">$ ./PLCnCLI_Setup.sh --target ~/plcncli
+(todo: response))
+</code></pre>
+</li>
+<li>
+<p>Create a symbolic link to the <code>plcncli</code> executable, as suggested by the installation message.</p>
+</li>
+<li>
+<p>Check that the installation has been successful.</p>
+<pre><code class="language-text">$ plcncli
+(todo: response))
+</code></pre>
+</li>
+</ul>
+<h3><a class="header" href="#plcnext-sdk" id="plcnext-sdk">PLCnext SDK</a></h3>
+<ul>
+<li>
+<p>In a terminal window, navigate to the directory where the files were extracted from the archive.</p>
+</li>
+<li>
+<p>Use plcncli to install the SDK. You are free to specify any destination directory you want, using the <code>-d</code> option.</p>
+<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2020.0.sh -d /opt/pxc/sdk/AXCF2152/2020.0
+(todo: response))
+</code></pre>
+</li>
+<li>
+<p>Check what SDKs and targets have been installed.</p>
+<pre><code class="language-text">$ plcncli get sdks
+(todo: response))
+</code></pre>
+<pre><code class="language-text">$ plcncli get targets
+(todo: response))
+</code></pre>
+</li>
+</ul>
+<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the SDK installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
+<h2><a class="header" href="#hello-again-world" id="hello-again-world">Hello Again, World!</a></h2>
+<p>Once you have an SDK installed on your host machine, your PLC can greet the world in C++ or Rust.</p>
+<h3><a class="header" href="#c" id="c">C++</a></h3>
+<p>(include links to Github)</p>
+<h3><a class="header" href="#rust" id="rust">Rust</a></h3>
+<p>(include links to Github)</p>
+<h3><a class="header" href="#building-on-target" id="building-on-target">Building on target</a></h3>
+<p>The software development process for PLCnext Control - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.</p>
+<h3><a class="header" href="#accessing-plc-io" id="accessing-plc-io">Accessing PLC I/O</a></h3>
+<p>One of the first questions most PLCnext Control programmers ask is: How can a program read and write inputs and outputs from/to the I/O modules attached to the PLC?</p>
+<p>Before you learn how to do this, you must learn about PLCnext Control <em>components</em>.</p>
+<h1><a class="header" href="#plcnext-runtime" id="plcnext-runtime">PLCnext Runtime</a></h1>
+<p>PLCnext Control firmware was introduced briefly in the previous chapter. PLCnext Control firmware features can be broadly categorised as either:</p>
+<ol>
+<li>Features commonly available on general-purpose Linux distributions, or</li>
+<li>Features developed by Phoenix Contact, that are not available on other Linux distributions.</li>
+</ol>
+<p>The second group of features includes:</p>
+<ul>
+<li>commands like <code>update-plcnext</code> and <code>recover-plcnext</code> that you saw previously, and</li>
+<li>software components that are started and controlled by the <em>PLCnext runtime</em>.</li>
+</ul>
+<p>This chapter will look at:</p>
+<ul>
+<li>Controlling the PLCnext runtime</li>
+<li>PLCnext components</li>
+<li>Component instances</li>
+<li>Disabling features of the PLCnext runtime</li>
+</ul>
+<h2><a class="header" href="#controlling-the-plcnext-runtime" id="controlling-the-plcnext-runtime">Controlling the PLCnext Runtime</a></h2>
+<p>When the PLC boots, it automatically runs the script in the file <code>/etc/init.d/plcnext</code>. This starts the <em>PLCnext runtime</em>.</p>
+<p>We can stop the PLCnext runtime any time, using the same script:</p>
+<pre><code class="language-text"># /etc/init.d/plcnext stop
+(result)
+</code></pre>
+<p>Start the PLCnext runtime, and watch entries being added to the default log file:</p>
+<pre><code class="language-text"># /etc/init.d/plcnext start &amp;&amp; tail -f -n 0 /opt/plcnext/logs/Output.log
+(result)
+</code></pre>
+<p>You can see lots of activity in the <code>Output.log</code> file when the PLCnext Runtime starts up. The <code>Output.log</code> file is an important source of information - for example, if your PLC ever behaves unexpectedly, the <code>Output.log</code> file will often help you to identify the problem.</p>
+<p>But what does the PLCnext Runtime do? Basically, the PLCnext runtime turns an otherwise ordinary device into a PLC, and at the same time turns that PLC into much more than an ordinary PLC.</p>
+<p>You have already used one feature of the PLCnext Runtime, when you set the IP address using <code>netnames</code>. Netnames is used to manage Profinet devices, and the PLCnext Runtime starts a component that makes the controller behave like a Profinet device. See what happens when we try to use <code>netnames</code> when the PLCnext Runtime is stopped:</p>
+<pre><code class="language-text"># /etc/init.d/plcnext stop
+(result)
+</code></pre>
+<p>On the host machine:</p>
+<pre><code class="language-text">$ netnames
+(no result)
+</code></pre>
+<p>We can still ping the PLC:</p>
+<pre><code class="language-text">$ ping 192.168.1.10
+(result)
+</code></pre>
+<p>... because ICMP messages are handled by the Linux operating system, not by the PLCnext runtime. This is also why we can maintain a remote shell session on the PLC, regardless of whether the PLCnext runtime is running or stopped.</p>
+<p>Start the PLCnext Runtime again:</p>
+<pre><code class="language-text"># /etc/init.d/plcnext start
+(result)
+</code></pre>
+<p>... and <code>netnames</code> will again be able to discover the PLC. You may need to wait for up to a minute for the PLCnext runtime to finish starting before <code>netnames</code> will see it.</p>
+<hr />
+<p><sup>1</sup> <em>Arp</em> is an acronym for <em>Automation Runtime Platform</em>.</p>
 <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
 <h2><a class="header" href="#appendix-a-list-of-rsc-services" id="appendix-a-list-of-rsc-services">Appendix A: List of RSC Services</a></h2>
 <p>The following table lists the RSC services that are available in the PLCnext runtime, including links to more information and API documentation:</p>

@@ -1,6 +1,6 @@
 ## File System
 
-Files in a PLCnext Control are arranged in an [overlay file system](https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works).
+Files in a PLCnext Control are arranged in an [overlay file system][overlay].
 
 The firmware is installed in the lower (read only) directory. All files created by users, and any changes to files in the lower directory, are stored in the upper (read/write) directory.
 
@@ -10,7 +10,7 @@ Each PLCnext Control device includes internal, non-volatile, solid-state memory.
 
 > The firmware will only recognise SD cards specifically designed for PLCnext Control devices.
 
-The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. Information on the firmware file system is available in the [PLCnext Technology Info Centre](http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Firmware_directories.htm).
+The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. Information on the firmware file system is available in the [PLCnext Technology Info Centre][fw-dirs-info].
 
 If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.
 
@@ -25,7 +25,7 @@ In relation to the upper directory, the behaviour of the system when booting dep
 
 > Note that in the case shown in the lower right corner of the above table, data loss may occur.
 
-More information on this topic is available in the [PLCnext Technology Info Centre](http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_SD_Card.htm).
+More information on this topic is available in the [PLCnext Technology Info Centre][sd-card-info].
 
 ### Deleting and Restoring File Systems
 
@@ -72,3 +72,7 @@ It is highly recommended to take regular backups of the user file system.
 (how to back up)
 
 (how to restore)
+
+[overlay]: https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works
+[fw-dirs-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Firmware_directories.htm
+[sd-card-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_SD_Card.htm

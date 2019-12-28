@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Appendix - The PLCnext Runtime</title>
+        <title>System Administration - The PLCnext Runtime</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html" class="active"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html" class="active"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,20 +150,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
+                        <h2><a class="header" href="#system-administration" id="system-administration">System Administration</a></h2>
+<p>The firmware on a PLCnext Control includes standard Linux features that will be familiar to systems and network administrators. These features are described in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Operating_system.htm">PLCnext Technology Info Centre</a>.</p>
+<h3><a class="header" href="#security" id="security">Security</a></h3>
+<p>As is the case with all computer systems, it is ultimately the responsibility of the end user to protect their equipment against all potential threats.</p>
+<p>General information on how to secure Ethernet devices is available here (WHERE?).</p>
+<p>The security tools provided with PLCnext Control firmware are described in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Security/Security.htm">PLCnext Technology Info Centre</a>. Again, these tools will be familiar to administrators of Linux devices.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="ch02-01-controlling-the-plcnext-runtime.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ch01-04-file-system.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="appendix-01-list-of-rsc-services.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ch01-06-installing-software.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -175,13 +180,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="ch02-01-controlling-the-plcnext-runtime.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="ch01-04-file-system.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="appendix-01-list-of-rsc-services.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="ch01-06-installing-software.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

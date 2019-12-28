@@ -1,16 +1,16 @@
 ## Firmware
 
-The PLC firmware includes the Linux kernel and factory-installed services that are specific to the PLCnext Control. The PLC can be updated to a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.
+The PLCnext Control firmware includes both the Linux kernel and factory-installed software from Phoenix Contact. A PLCnext Control device can be updated with a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.
 
 ### Checking the Firmware Version
 
 It is important to know the firmware version that is running on the PLC for a number of reasons:
 
-* When building native applications, you must use a software development kit (SDK) that is compatible with the firmware version of the PLCnext Control that will run the application.
+* When building native applications, you must use a software development kit (SDK) that is compatible with the firmware version that will run the application.
 
-* When installing third-party applications that have been built specifically for PLCnext Control, you may need to select a version that is compatible with the firmware running on your PLC.
+* When installing third-party applications that have been built specifically for PLCnext Control devices, you may need to select a version that is compatible with the firmware running on your PLC.
 
-* When looking for assistance in the PLCnext Community, it will often help to know what firmware version is currently running on the PLC.
+* When looking for assistance in the [PLCnext Community][plcnext-community], it will often help to know what firmware version is currently running on the PLC.
 
 You can check the version of firmware currently running on the PLC by listing the contents of the `arpversion` file in the `/etc/plcnext/` directory.
 
@@ -61,10 +61,16 @@ After the PLC restarts, open a new shell session and check the firmware version.
 
 ### Other Ways to Upgrade Firmware
 
-There are two other ways to upgrade the firmware on the controller:
+There are three other ways to upgrade the firmware on the controller:
 
-* Using web-based management (WBM).
+* Through [web-based management][wbm] (WBM).
 
-* Using OPC UA.
+* Using an OPC UA client (link???).
 
-Both WBM and OPC UA will be introduced later in this book.
+* Using the `StartFirmwareUpdate` method on the [*Device Control*][service] PLCnext runtime service.
+
+These features will all be introduced later in this book.
+
+[plcnext-community]: https://www.plcnext-community.net
+[wbm]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_Firmware_Update.htm
+[service]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html

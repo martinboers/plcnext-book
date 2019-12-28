@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Appendix - The PLCnext Runtime</title>
+        <title>File System - The PLCnext Runtime</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html" class="active"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html" class="active"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,20 +150,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
+                        <h2><a class="header" href="#file-system" id="file-system">File System</a></h2>
+<p>Files in a PLCnext Control are arranged in an <a href="https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works">overlay file system</a>.</p>
+<p>The firmware is installed in the lower (read only) directory. All files created by users, and any changes to files in the lower directory, are stored in the upper (read/write) directory.</p>
+<h3><a class="header" href="#storage-media" id="storage-media">Storage Media</a></h3>
+<p>Each PLCnext Control device includes internal, non-volatile, solid-state memory. The PLC is also supplied with an empty SD card slot.</p>
+<blockquote>
+<p>The firmware will only recognise SD cards specifically designed for PLCnext Control devices.</p>
+</blockquote>
+<p>The firmware file system, mounted as the read-only lower directory, is <em>always</em> stored in internal memory. Information on the firmware file system is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Firmware_directories.htm">PLCnext Technology Info Centre</a>.</p>
+<p>If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.</p>
+<blockquote>
+<p>Please note the SD card handling guidelines in the user manual.</p>
+</blockquote>
+<p>In relation to the upper directory, the behaviour of the system when booting depends on the presence or absence of an external SD card, and the presence or absence of a user file system on the primary storage media:</p>
+<table><thead><tr><th align="left"></th><th align="left">User file system absent on primary media</th><th align="left">User file system present on primary media</th></tr></thead><tbody>
+<tr><td align="left"><strong>SD card absent</strong></td><td align="left">User file system is created in internal memory<br/>and mounted as upper directory.</td><td align="left">Existing file system in internal memory<br/>is mounted as upper directory.</td></tr>
+<tr><td align="left"><strong>SD card present</strong></td><td align="left">User file system is moved from internal memory to<br/>the SD card and mounted as upper directory.</td><td align="left">Existing user file system on SD card<br/>is mounted as upper directory.<br/><em>Any internal user file system is deleted.</em></td></tr>
+</tbody></table>
+<blockquote>
+<p>Note that in the case shown in the lower right corner of the above table, data loss may occur.</p>
+</blockquote>
+<p>More information on this topic is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_SD_Card.htm">PLCnext Technology Info Centre</a>.</p>
+<h3><a class="header" href="#deleting-and-restoring-file-systems" id="deleting-and-restoring-file-systems">Deleting and Restoring File Systems</a></h3>
+<p>The following procedures will affect the complete firmware and/or user file system in a PLCnext Control device:</p>
+<h4><a class="header" href="#firmware-update" id="firmware-update">Firmware Update</a></h4>
+<p>During a firmware update, the contents of the firmware file system are replaced with new firmware files. The user file system remains unaffected, and so (for example) the IP address of the PLC will be retained, passwords will be unaffected, and user-installed files will not be deleted.</p>
+<blockquote>
+<p>Note: Since manual changes to firmware files are stored in the upper directory, any firmware files that were changed manually before a firmware update will remain in the upper directory and will continue to mask the corresponding file in the new firmware file system. This may adversely affect the operation of the PLC after a firmware update.</p>
+</blockquote>
+<h4><a class="header" href="#type-1-reset" id="type-1-reset">Type 1 Reset</a></h4>
+<p>A type 1 reset deletes the entire contents of the user file system on the primary storage device. The contents of the firmware file system remain unaffected.</p>
+<p>To perform a type 1 reset, open a secure shell session on the PLC, and issue the following command:</p>
+<pre><code class="language-text"># sudo recover-plcnext 1
+</code></pre>
+<h4><a class="header" href="#type-2-reset" id="type-2-reset">Type 2 Reset</a></h4>
+<p>A type 2 reset:</p>
+<ul>
+<li>
+<p>Deletes the entire contents of the user file system on the primary storage device, just like a type 1 reset.</p>
+</li>
+<li>
+<p>Replaces the firmware file system with a factory-default firmware version.</p>
+</li>
+</ul>
+<p>To perform a type 2 reset, open a secure shell session on the PLC, and issue the following command:</p>
+<pre><code class="language-text"># sudo recover-plcnext 2
+</code></pre>
+<blockquote>
+<p>Warning: After either a type 1 or a type 2 reset, all user data will be deleted and the PLC's IP address and <code>admin</code> password will be restored to factory defaults.</p>
+</blockquote>
+<p>It is also possible to perform a type 1 or a type 2 reset using a button on the front of the PLCnext Control. See the user manual for details.</p>
+<h3><a class="header" href="#backups" id="backups">Backups</a></h3>
+<p>It is highly recommended to take regular backups of the user file system.</p>
+<p>(how to back up)</p>
+<p>(how to restore)</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="ch02-01-controlling-the-plcnext-runtime.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ch01-03-firmware.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="appendix-01-list-of-rsc-services.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ch01-05-system-administration.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -175,13 +229,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="ch02-01-controlling-the-plcnext-runtime.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="ch01-03-firmware.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="appendix-01-list-of-rsc-services.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="ch01-05-system-administration.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

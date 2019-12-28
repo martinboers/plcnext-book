@@ -18,7 +18,7 @@ Start the PLCnext runtime, and watch entries being added to the default log file
 
 You can see lots of activity in the `Output.log` file when the PLCnext Runtime starts up. The `Output.log` file is an important source of information - for example, if your PLC ever behaves unexpectedly, the `Output.log` file will often help you to identify the problem.
 
-But what does the PLCnext Runtime do? Basically, the PLCnext runtime turns an otherwise ordinary device into a PLC, and at the same time turns that PLC into much more than an ordinary PLC.
+But what does the PLCnext Runtime do? Basically, the PLCnext runtime turns an otherwise ordinary device into a PLC, and at the same time turns that device into much more than an ordinary PLC.
 
 You have already used one feature of the PLCnext Runtime, when you set the IP address using `netnames`. Netnames is used to manage Profinet devices, and the PLCnext Runtime starts a component that makes the controller behave like a Profinet device. See what happens when we try to use `netnames` when the PLCnext Runtime is stopped:
 

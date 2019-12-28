@@ -1,26 +1,16 @@
 # Introduction
 
-> Note: This edition of the book is the same as [The Rust Programming
-> Language][nsprust] available in print and ebook format from [No Starch
-> Press][nsp].
-
-[nsprust]: https://nostarch.com/rust
-[nsp]: https://nostarch.com/
-
 Welcome to *The PLCnext Runtime*, an introductory book about programming on the PLCnext Control platform.
 
 ## What Is PLCnext Control?
 
-PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control includes features that make it particularly suitable for industrial applications.
+PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.
 
-The PLCnext Control range includes the following hardware variants from the [AXC](about:blank "AXC is short for \"Axioline Controller\", indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. \"Axioline\" is derived from the terms \"AutomationWorx\" (AX), a brand name used by Phoenix Contact, and \"I/O\", meaning \"Input/Output\". The term \"line\" can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called \"Inline\".")<sup>1</sup> and RFC<sup>2</sup> range:
+The PLCnext Control range includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
 
-- AXC F 1152 (Cortex ARM)
-- AXC F 2152 (Cortex ARM )
-- AXC F 3152 (Cortex ARM )
-- RFC 4072S (Intel i5)
-
-A comparison of these controllers is available ... (where)
+* [AXC F 1152][axcf1152] (ARM® Cortex®-A9 800 MHz)
+* [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz)
+* [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
 
 Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch][preempt].
 
@@ -30,13 +20,13 @@ PLCnext Control is ideal for software and systems engineers involved in the auto
 
 Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.
 
-### IEC 61131-3 software developers
+### IEC 61131-3 Software Developers
 
-Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides PLCnext Engineer software.
+Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides [*PLCnext Engineer*][plcnext-engineer] software.
 
-### Matlab Simulink software developers
+### Simulink® Software Developers
 
-(something here)
+Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the [*PC Worx Target for Simulink*][simulink-add-on] software add-on.
 
 ### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, ....
 
@@ -44,11 +34,11 @@ Traditional PLCs generally can be programmed using any language defined by the I
 
 ### Systems integrators and network administrators
 
-It is possible to simply install and configure pre-built applications on a PLCnext Control, without any major software engineering effort.
+It is possible to simply install and configure pre-built applications on a PLCnext Control, without any software engineering effort.
 
 ### Project teams with some or all of the above skills
 
-PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single application.
+PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single project.
 
 ## Who This Book Is For
 
@@ -74,23 +64,30 @@ The controller must be connected to a local area network with access to both the
 
 ## How to Use This Book
 
-This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the [PLCnext Technology Info Centre][info-center]. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge step by step.
+This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the [PLCnext Technology Info Centre][info-center]. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.
 
-Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first "Hello, World" programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext components that are installed with the firmware. Chapter 3 looks at PLCnext runtime middleware, including the Global Data Space.
+Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first "Hello, World!" programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.
 
-In Chapter 4, you will write your own PLCnext component in C++ and run it on the PLC. (using other services on the PLC) (Program components) (Writing RSC services.)
+In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.
 
-Chapter 5 looks at how to build and execute other runtimes on a PLCnext Control device, alongside the PLCnext runtime.
+Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the PLC.
 
-(chapters 6, 7, 8 - will these stay?)
+Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.
 
-(something about terminology and abbreviations - link to Glossary in the Info Centre)
+Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the PLC I/O, and how they can continue to utilise services provided by the PLCnext runtime.
+
+A glossary of terms used in this book is available in the [PLCnext Technology Info Center][glossary].
 
 > ### Command Line Notation
 >
-> Throughout this book, you will see commands that must be entered into a terminal on either the host or the target. Commands in a terminal on the host all start with `$` (you don’t need to enter the `$` character).
+> Throughout this book, you will see commands that must be entered into a terminal on either the host or the target.
+>
+> Commands in a terminal on the host all start with `$` (you don’t need to enter the `$` character).
+>
 > Commands in a terminal on the target all start with `#` instead of `$` (you don’t need to enter the `#` character).
+>
 > Commands in a terminal running the python interpreter all start with `>>>` (you don’t need to enter the `>>>` characters).
+>
 > Lines that don’t start with `$`, `#` or `>>>` typically show the output of the previous command.
 
 ## Source Code
@@ -100,12 +97,18 @@ The source files from which this book is generated can be found on
 
 ---
 
-<sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*, so named because the I/O modules are assembled in a linear arrangement.
+<sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*.
 
 <sup>2</sup> *RFC* is short for *Remote Field Controller*. Unlike Axioline controllers, RFCs can only control *remote* I/O modules over a *field bus* like Profinet.
 
 <sup>3</sup> *PLC* is short for [*Programmable Logic Controller*](https://en.wikipedia.org/wiki/Programmable_logic_controller).
 
+[axcf1152]: http://www.phoenixcontact.net/qr/1151412
+[axcf2152]: http://www.phoenixcontact.net/qr/2404267
+[rfc4072s]: http://www.phoenixcontact.net/qr/1051328
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
+[plcnext-engineer]: http://www.phoenixcontact.net/qr/1046008
+[simulink-add-on]: http://www.phoenixcontact.net/qr/2400041
 [info-center]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm
-[book]: https://github.com/rust-lang/book/tree/master/src
+[glossary]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary
+[book]: https://github.com/martinboers/plcnext-book/tree/master/src

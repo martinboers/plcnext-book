@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Appendix - The PLCnext Runtime</title>
+        <title>Installing a Software Development Kit - The PLCnext Runtime</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html" class="active"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
+                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li><li class="expanded "><a href="ch01-04-file-system.html"><strong aria-hidden="true">1.4.</strong> File System</a></li><li class="expanded "><a href="ch01-05-system-administration.html"><strong aria-hidden="true">1.5.</strong> System Administration</a></li><li class="expanded "><a href="ch01-06-installing-software.html"><strong aria-hidden="true">1.6.</strong> Installing Software</a></li><li class="expanded "><a href="ch01-07-hello-world.html"><strong aria-hidden="true">1.7.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-08-installing-a-software-development-kit.html" class="active"><strong aria-hidden="true">1.8.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-09-hello-again-world.html"><strong aria-hidden="true">1.9.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-plcnext-runtime.html"><strong aria-hidden="true">2.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">2.1.</strong> Controlling the PLCnext Runtime</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">3.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html"><strong aria-hidden="true">3.1.</strong> A - RSC Services</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,20 +150,72 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
+                        <h2><a class="header" href="#installing-a-software-development-kit" id="installing-a-software-development-kit">Installing a Software Development Kit</a></h2>
+<p>You can build native applications for a PLCnext Control - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control. The SDK contains the build tools and other resources required to create native applications for the target.</p>
+<h3><a class="header" href="#plcnext-command-line-interface" id="plcnext-command-line-interface">PLCnext Command Line Interface</a></h3>
+<p>Software development kits for PLCnext Control targets are installed and managed using a command-line interface (CLI), called the <em>PLCnext CLI</em> or <code>plcncli</code>. It is possible to install SDKs on the host without using <code>plcncli</code>, but <code>plcncli</code> provides important features that will be required in later chapters of this book. For this reason, it is highly recommended to install and manage SDKs using <code>plcncli</code>.</p>
+<p>To install <code>plcncli</code> on your host:</p>
+<ul>
+<li>
+<p>Download the file <em>PLCnext Technology C ++ Toolchain für Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2020.0_Linux_AXC_F_2152.zip</code> is for the AXC F 2152 running firmware version 2020.0.</p>
+</li>
+<li>
+<p>Extract the files from the archive.</p>
+</li>
+<li>
+<p>In a terminal window, navigate to the directory where the files were extracted.</p>
+</li>
+<li>
+<p>Run the script to set up <code>plcncli</code> on the host, specifying the directory where the package should be installed.</p>
+<pre><code class="language-text">$ ./PLCnCLI_Setup.sh --target ~/plcncli
+(todo: response))
+</code></pre>
+</li>
+<li>
+<p>Create a symbolic link to the <code>plcncli</code> executable, as suggested by the installation message.</p>
+</li>
+<li>
+<p>Check that the installation has been successful.</p>
+<pre><code class="language-text">$ plcncli
+(todo: response))
+</code></pre>
+</li>
+</ul>
+<h3><a class="header" href="#plcnext-sdk" id="plcnext-sdk">PLCnext SDK</a></h3>
+<ul>
+<li>
+<p>In a terminal window, navigate to the directory where the files were extracted from the archive.</p>
+</li>
+<li>
+<p>Use plcncli to install the SDK. You are free to specify any destination directory you want, using the <code>-d</code> option.</p>
+<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2020.0.sh -d /opt/pxc/sdk/AXCF2152/2020.0
+(todo: response))
+</code></pre>
+</li>
+<li>
+<p>Check what SDKs and targets have been installed.</p>
+<pre><code class="language-text">$ plcncli get sdks
+(todo: response))
+</code></pre>
+<pre><code class="language-text">$ plcncli get targets
+(todo: response))
+</code></pre>
+</li>
+</ul>
+<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the SDK installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="ch02-01-controlling-the-plcnext-runtime.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ch01-07-hello-world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="appendix-01-list-of-rsc-services.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ch01-09-hello-again-world.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -175,13 +227,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="ch02-01-controlling-the-plcnext-runtime.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="ch01-07-hello-world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="appendix-01-list-of-rsc-services.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="ch01-09-hello-again-world.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

@@ -1,6 +1,6 @@
 ## Starting a Shell Session
 
-The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, we can go ahead and open a shell session on the PLC from the host:
+The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, you can go ahead and open a shell session on the PLC from the host:
 
 ```text
 $ ssh admin@192.168.178.10

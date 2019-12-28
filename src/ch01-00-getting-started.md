@@ -3,6 +3,9 @@
 This chapter includes:
 
 * Setting the PLC's IP address
-* Writing a program that prints `Hello, world!`
 * Updating the firmware
-* System administration
+* Exploring the file system
+* Installing software
+* Writing a program that prints `Hello, world!` in Python
+* Installing a software development kit
+* Writing programs that print `Hello, world!` in C++ and Rust
