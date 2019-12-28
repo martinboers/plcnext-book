@@ -10,6 +10,8 @@ Includes the following features:
 - Write programs in IEC 61131 languages and C#, which run on the ECLR
 - Integrates with Matlab Simulink
 - Import C++ programs
+- Tabular configuration of I/O
 - Tabular configuration of ESM Tasks and program instances, using both IEC and C++ programs
 - Tabular configuration of GDS variable connections.
-- Automatically generates the following configuration files: plm.config, esm.config and gds.config
+- Automatically generates the following configuration files: .tic, gds.config, esm.config and plm.config.
+- Debugging features including GDS variable "Watch" window, Force variables, notification viewer.
