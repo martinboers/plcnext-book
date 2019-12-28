@@ -1,0 +1,13 @@
+# Configuring I/O
+
+We want to start the Axioline, Interbus and/or Profinet bus and create GDS variables for all process data.
+
+This process uses Technology Independent Configuration (`.tic`) files. These are in a proprietary XML format.
+
+Offline configuration:
+- Use PLCnext Engineer (boo!)
+- Use NetCI tool (yay!)
+
+Automatic and/or dynamic configuration:
+- Use AxioMaster service, for example (BusConductor example in Github)
+- Use Peer-Michael's Audi project

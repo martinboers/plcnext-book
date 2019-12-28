@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A - RSC Services - PLCnext Control</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="theme/first-edition.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-firmware.html"><strong aria-hidden="true">1.3.</strong> Firmware</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">2.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-list-of-rsc-services.html" class="active"><strong aria-hidden="true">2.1.</strong> A - RSC Services</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">PLCnext Control</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#appendix-a-list-of-rsc-services" id="appendix-a-list-of-rsc-services">Appendix A: List of RSC Services</a></h2>
+<p>The following table lists the RSC services that are available in the PLCnext runtime, including links to more information and API documentation:</p>
+<table><thead><tr><th align="left">Service (links to more information)</th><th align="left">Class (links to API documentation)</th><th align="left">Methods</th></tr></thead><tbody>
+<tr><td align="left">Device control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html">Arp::Device::Interface::Services::IDeviceControlService</a></td><td align="left">RestartDevice()<br/>StartFirmwareUpdate()<br/>ResetToFactoryDefaults()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#ideviceinfoserv">Device information</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceInfoService.html">Arp::Device::Interface::Services::IDeviceInfoService</a></td><td align="left">GetItem()<br/>GetItems()</td></tr>
+<tr><td align="left">Device settings</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceSettingsService.html">Arp::Device::Interface::Services::IDeviceSettingsService</a></td><td align="left">ReadValue()<br/>ReadValues()<br/>WriteValue()<br/>WriteValues()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#idevicestatusse">Device status</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceStatusService.html">Arp::Device::Interface::Services::IDeviceStatusService</a></td><td align="left">GetItem()<br/>GetItems()</td></tr>
+<tr><td align="left">Network load limiter control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html">Arp::Hardware::Nim::Services::INetloadLimiterService</a></td><td align="left">GetSettings()<br/>SetSettings()<br/>SetByteLimit()<br/>SetPacketLimit()<br/>EnableByteLimiter()<br/>DisableByteLimiter()<br/>EnablePacketLimiter()<br/>DisablePacketLimiter()<br/>GetState()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_Axioline_Services.htm#iacycliccommuni">Acyclic Axioline communication</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAcyclicCommunicationService.html">Arp::Io::Axioline::Services::IAcyclicCommunicationService</a></td><td align="left">PdiRead()<br/>PdiWrite()</td></tr>
+<tr><td align="left">Axioline master access</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAxioMasterService.html">Arp::Io::Axioline::Services::IAxioMasterService</a></td><td align="left">AxioControl()<br/>CreateConfiguration()<br/>ReadConfiguration()<br/>WriteConfiguration()<br/>ActivateConfiguration()<br/>DeactivateConfiguration()<br/>ResetMaster()</td></tr>
+<tr><td align="left">Interbus master access</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Interbus_1_1Services_1_1IInterbusMasterService.html">Arp::Io::Interbus::Services::IInterbusMasterService</a></td><td align="left">InterbusControl()<br/>CreateConfiguration()<br/>ReadConfiguration()<br/>WriteConfiguration()<br/>ActivateConfiguration()<br/>DeactivateConfiguration()<br/>StartDataTransfer()<br/>StopDataTransfer()<br/>AlarmStop()</td></tr>
+<tr><td align="left">PCP device communication</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Interbus_1_1Services_1_1IPcpService.html">Arp::Io::Interbus::Services::IPcpService</a></td><td align="left">PcpInitiate()<br/>PcpAbort()<br/>PcpIdentify()<br/>PcpStatus()<br/>PcpRead()<br/>PcpWrite()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_PROFINET_Services.htm">Acyclic Profinet communication</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAcyclicCommunicationService.html">Arp::Io::ProfinetStack::Controller::Services::IAcyclicCommunicationService</a></td><td align="left">RecordRead()<br/>RecordWrite()</td></tr>
+<tr><td align="left">Conversion of Profinet addresses and node IDs</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAddressConversionService.html">Arp::Io::ProfinetStack::Controller::Services::IAddressConversionService</a></td><td align="left">AddressToId()<br/>IdToAddress()</td></tr>
+<tr><td align="left">Profinet alarm receiver</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAlarmService.html">Arp::Io::ProfinetStack::Controller::Services::IAlarmService</a></td><td align="left">ReceiveAlarm()<br/>EnableAutoAlarmAcknowledge()</td></tr>
+<tr><td align="left">Profinet Application Relationships (AR) info</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArDataService.html">Arp::Io::ProfinetStack::Controller::Services::IArDataService</a></td><td align="left">GetAllArInfo()<br/>GetAllArAttributeNames()<br/>GetAttributeValue()<br/>GetAttributeValues()<br/>GetArDiagnosis()</td></tr>
+<tr><td align="left">Profinet Application Relationships (AR) manager</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArManagementService.html">Arp::Io::ProfinetStack::Controller::Services::IArManagementService</a></td><td align="left">GetArState()<br/>StartAr()<br/>StopAr()</td></tr>
+<tr><td align="left">Profinet Application Relationships (AR) statistics</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArStatisticService.html">Arp::Io::ProfinetStack::Controller::Services::IArStatisticService</a></td><td align="left">Read()<br/>ReadChanges()<br/>ReadMissedFramesGlobal()<br/>Reset()</td></tr>
+<tr><td align="left">Profinet system configuration</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1System_1_1Services_1_1IConfigurationService.html">Arp::Io::ProfinetStack::System::Services::IConfigurationService</a></td><td align="left">Read()<br/>Write()<br/>GetControllerName()<br/>GetDeviceNames()</td></tr>
+<tr><td align="left">PLC manager (deprectated)</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService.html">Arp::Plc::Domain::Services::IPlcManagerService</a></td><td align="left">Load()<br/>Start()<br/>Stop()<br/>Reset()<br/>GetPlcState()</td></tr>
+<tr><td align="left">PLC manager</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService2.html">Arp::Plc::Domain::Services::IPlcManagerService2</a></td><td align="left">Load()<br/>Start()<br/>Stop()<br/>Reset()<br/>GetPlcState()<br/>Change()<br/>Restart()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#idataaccessserv">Global Data Space variable access</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1IDataAccessService.html">Arp::Plc::Gds::Services::IDataAccessService</a></td><td align="left">ReadSingle()<br/>Read()<br/>WriteSingle()<br/>Write()</td></tr>
+<tr><td align="left">Global Data Space variable force control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1IForceService.html">Arp::Plc::Gds::Services::IForceService</a></td><td align="left">AddVariable()<br/>RemoveVariable()<br/>GetVariables()<br/>Reset()<br/>IsForcable()<br/>IsActive()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#isubscriptionse">Global Data Space variable subscription</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1ISubscriptionService.html">Arp::Plc::Gds::Services::ISubscriptionService</a></td><td align="left">CreateSubscription()<br/>CreateRecordingSubscription()<br/>AddVariable()<br/>AddVariables()<br/>RemoveVariable()<br/>Subscribe()<br/>Resubscribe()<br/>Unsubscribe()<br/>DeleteSubscription()<br/>GetVariableInfos()<br/>GetTimeStampedVariableInfos()<br/>GetRecordInfos()<br/>ReadValues()<br/>ReadTimeStampedValues()<br/>ReadRecords()</td></tr>
+<tr><td align="left">Enumerate GDS variables</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Meta_1_1Services_1_1IDataTraverserService.html">Arp::Plc::Meta::Services::IDataTraverserService</a></td><td align="left">FindInstancesByTypename()</td></tr>
+<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/Querying_notifications_via_RSC.htm">Notification logger</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Services_1_1NotificationLogger_1_1Services_1_1INotificationLoggerService.html">Arp::Services::NotificationLogger::Services::INotificationLoggerService</a></td><td align="left">QueryStoredNotifications()<br/>QueryNotifications()<br/>DeleteNotifications()<br/>ListArchives()<br/>GetArchiveConfiguration()<br/>SetArchiveConfiguration()<br/>ResetArchiveConfigurationToFiles()</td></tr>
+<tr><td align="left">LTTng trace controller</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Services_1_1TraceController_1_1Services_1_1ITraceControllerService.html">Arp::Services::TraceController::Services::ITraceControllerService</a></td><td align="left">IsSessionDaemonAlive()<br/>LoadSessionConfiguration()<br/>ListSessions()<br/>StartSession()<br/>StopSession()<br/>DestroySession()<br/>LoadTracepointLib()<br/>UnloadTracepointLib()<br/>TriggerSavingTraceOutputs()<br/>IsSessionInSnapshotMode()<br/>IsSessionEnabled()<br/>IsSessionLoaded()</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="appendix-00.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="appendix-00.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
