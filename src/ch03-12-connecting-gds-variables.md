@@ -12,3 +12,6 @@ The following is an example of a `gds.config` file:
 
 - Advantage: Very simple to set up. No code required. Can access I/O variables (this is not possible using RSC services)
 - Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.
+
+
+(NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)

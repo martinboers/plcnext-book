@@ -51,7 +51,3 @@ Start the PLCnext Runtime again:
 ```
 
 ... and `netnames` will again be able to discover the PLC. You may need to wait for up to a minute for the PLCnext runtime to finish starting before `netnames` will see it.
-
----
-
-<sup>1</sup> *Arp* is an acronym for *Automation Runtime Platform*.

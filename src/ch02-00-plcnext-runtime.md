@@ -16,3 +16,5 @@ This chapter will look at:
 * PLCnext components
 * Component instances
 * Disabling features of the PLCnext runtime
+
+> You will see the acronym *Arp* used extensively throughout this chapter. *Arp* is short for *Automation Runtime Platform*, and is another name for the PLCnext runtime.

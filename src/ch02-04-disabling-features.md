@@ -6,14 +6,14 @@ In this section, you will learn how to disable specific features of the PLCnext 
 
 First, take a copy of the system file `Device.acf.settings`:
 
-> The `/etc/plcnext/Device.acf.settings` file is installed as part of the firmware file system and should not be edited, for reasons given in the "Firmware" section of this book.
-
 ```text
 # cp /etc/plcnext/Device.acf.settings /opt/plcnext/appshome/Custom.acf.settings
 (result)
 ```
 
-> The acronym *acf* is short for *Application Component Framework*, which is the framework used by all PLCnext components. You will learn more about this framework later, when you start writing your own PLCnext runtime components.
+> The `/etc/plcnext/Device.acf.settings` file is installed as part of the firmware file system and should not be edited, for reasons given in the "Firmware" section of this book.
+
+> The acronym *acf* is short for [*Application Component Framework*][acf-info], which is the framework used by all PLCnext components. You will learn more about this framework later, when you start writing your own PLCnext runtime components.
 
 Next, edit the `Custom.acf.settings` file, using either the `nano` or `vi` (vim) editor on the PLC, as follows:
 
@@ -96,3 +96,5 @@ The name of the custom settings file does not need to be `Custom.acf.settings`. 
 As you can see, this directive will include *all* files that match the pattern specified in the `path` attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:
 
 (TODO: How are conflicts resolved?)
+
+[acf-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Cpp/Cpp_program_structure/ACF_Application_Component_Framework.htm
