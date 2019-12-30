@@ -1,4 +1,4 @@
-## Connecting GDS variables
+## Connecting GDS Variables
 
 You have previously seen how your component instance can create its own GDS variables, and read and write other GDS variables using RSC services like the Data Access service.
 
@@ -8,6 +8,8 @@ The following is an example of a `gds.config` file:
 
 ...
 
+- Link to [PLCnext Technology Info Center][gds-info].
+
 - Example showing how to transfer data into / out of a component (e.g. from system variables) using a gds.config file.
 
 - Advantage: Very simple to set up. No code required. Can access I/O variables (this is not possible using RSC services)
@@ -15,3 +17,5 @@ The following is an example of a `gds.config` file:
 
 
 (NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)
+
+[gds-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Global_Data_Space_configuration.htm#gds_configurati

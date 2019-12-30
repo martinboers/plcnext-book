@@ -1,6 +1,10 @@
-## ECLR
+## IEC 61131-3 Programs
 
-As the name suggests, the Embedded Common Language Runtime (ECLR) is based on Microsoft's Common Language Runtime (CLR), which is required to run C# and other .NET programs on Windows platforms. Unlike the CLR, the ECLR is specifically designed to run real-time, deterministic programs on embedded devices. The ECLR contains a sub-set of ECLR libraries, along with specialised libraries added by Phoenix Contact.
+Real-time programs can be written in the four languages defined by the IEC standard - Ladder (LD), Function Block Diagram (FBD), Structured Text (ST) and Sequential Function Chart (SFC). Programs written in these languages run on the [Embedded Common Language Runtime][eclr-info] (ECLR).
+
+### ECLR
+
+As the name suggests, the Embedded Common Language Runtime is based on Microsoft's Common Language Runtime (CLR), which is required to run C# and other .NET programs on Windows platforms. Unlike the CLR, the ECLR is specifically designed to run real-time, deterministic programs on embedded devices. The ECLR contains a sub-set of ECLR libraries, along with specialised libraries added by Phoenix Contact.
 
 ### PLCnext Engineer
 
@@ -15,3 +19,5 @@ Includes the following features:
 - Tabular configuration of GDS variable connections.
 - Automatically generates the following configuration files: .tic, gds.config, esm.config and plm.config.
 - Debugging features including GDS variable "Watch" window, Force variables, notification viewer.
+
+[eclr-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Csharp/eCLR_Programming_System.htm

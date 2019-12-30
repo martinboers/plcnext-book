@@ -1,4 +1,4 @@
-# Real time programming
+# Real Time Programming
 
 Define real-time.
 (this is familiar to PLC programmers)

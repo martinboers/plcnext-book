@@ -1,8 +1,10 @@
 ## C++ Programs
 
-PLCnext programs created in C++ must inherit from ...
+PLCnext programs created in C++ must inherit from ProgramBase.
 
 Program instances are created using a special type of PLCnext component. This component must inherit ProgramComponentBase, and the corresponding library singleton must inherit ProgramLibraryBase. When the PLCnext runtime starts, this library is loaded not by the ACF, but by the *Program Library Manager* (PLM). The PLM creates non-real-time component instances in a similar way to the ACF, but it also has the ability to create instances of real-time programs.
+
+A high-level comparison of the ACF and the PLM is given in the [PLCnext Technology Info Center][comparison].
 
 We can again use plcncli to help us with this project.
 
@@ -28,6 +30,9 @@ We can again use plcncli to help us with this project.
 
 ### Configuring
 
+- plm.config instead of acf.config file, since the component must be loaded by the PLM rather than the ACF.
 - esm.config file.
 
 ### Running
+
+[comparison]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Managing_of_components.htm

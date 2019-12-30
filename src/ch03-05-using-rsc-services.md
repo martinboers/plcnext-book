@@ -1,4 +1,4 @@
-## Using RSC services
+## Using RSC Services
 
 Create a simple component that reads and writes GDS variables using the ReadSingle and WriteSingle methods at startup.
 
