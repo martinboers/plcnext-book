@@ -10,7 +10,7 @@ Here are two possible ways to change the IP address of the PLC:
 
 ### Use `netnames`
 
-Netnames is a utility from Phoenix Contact that assists with the management of [Profinet][profinet] devices. Netnames is available for Linux 64 bit and [Windows][netnames-win] operating systems. The remainder of this section uses the Linux version of Netnames.
+Netnames is a utility from Phoenix Contact that assists with the management of [Profinet][profinet] devices. Netnames is available for [Linux 64 bit][netnames-linux] and [Windows][netnames-win] operating systems. The remainder of this section uses the Linux version of Netnames.
 
 By default, each PLCnext Control acts as a Profinet device, and so can be assigned an IP address using `netnames`.
 
@@ -52,5 +52,6 @@ Refer to the PLCnext Engineer user guide for instructions on how to do this.
 
 [what-you-will-need]: ch00-00-introduction.md#what-you-will-need
 [profinet]: https://www.profibus.com/technology/profinet/
+[netnames-linux]: http://plcnext-runtime.com/downloads/netnames/linux-x64/netnames
 [netnames-win]: http://www.phoenixcontact.net/qr/2316390/softw
 [plcnext-eng]: http://www.phoenixcontact.com/qr/1046008

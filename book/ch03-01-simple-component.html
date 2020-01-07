@@ -171,73 +171,55 @@
 </li>
 <li>
 <p>In the project root directory, create a CMakeLists.txt file containing the following text:</p>
-<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.13)
+<pre><code class="language-cmake">﻿cmake_minimum_required(VERSION 3.13)
 
-project(MyProject)
-
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
-endif()
-
-################# create target #######################################################
-
-set (WILDCARD_SOURCE *.cpp)
-set (WILDCARD_HEADER *.h *.hpp *.hxx)
-
-file(GLOB_RECURSE Headers CONFIGURE_DEPENDS src/${WILDCARD_HEADER})
-file(GLOB_RECURSE Sources CONFIGURE_DEPENDS src/${WILDCARD_SOURCE})
-add_library(MyProject SHARED ${Headers} ${Sources})
-
-#######################################################################################
-
-################# project include-paths ###############################################
-
-target_include_directories(MyProject
-    PUBLIC
-    $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src&gt;)
-
-#######################################################################################
-
-################# include arp cmake module path #######################################
-
-list(INSERT CMAKE_MODULE_PATH 0 &quot;${ARP_TOOLCHAIN_CMAKE_MODULE_PATH}&quot;)
-
-#######################################################################################
-
-################# set link options ####################################################
-# WARNING: Without --no-undefined the linker will not check, whether all necessary    #
-#          libraries are linked. When a library which is necessary is not linked,     #
-#          the firmware will crash and there will be NO indication why it crashed.    #
-#######################################################################################
-
-target_link_options(MyProject PRIVATE LINKER:--no-undefined)
-
-#######################################################################################
-
-################# add link targets ####################################################
-
-find_package(ArpDevice REQUIRED)
-find_package(ArpProgramming REQUIRED)
-
-target_link_libraries(MyProject PRIVATE ArpDevice ArpProgramming)
-
-#######################################################################################
-
-################# install ############################################################
-
-string(REGEX REPLACE &quot;^.*\\(([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).*$&quot; &quot;\\1&quot; _ARP_SHORT_DEVICE_VERSION ${ARP_DEVICE_VERSION})
-install(TARGETS MyProject
-    LIBRARY DESTINATION ${ARP_DEVICE}_${_ARP_SHORT_DEVICE_VERSION}/$&lt;CONFIG&gt;/lib
-    ARCHIVE DESTINATION ${ARP_DEVICE}_${_ARP_SHORT_DEVICE_VERSION}/$&lt;CONFIG&gt;/lib
-    RUNTIME DESTINATION ${ARP_DEVICE}_${_ARP_SHORT_DEVICE_VERSION}/$&lt;CONFIG&gt;/bin)
-unset(_ARP_SHORT_DEVICE_VERSION)
-
-#######################################################################################
 </code></pre>
 </li>
-<li>
-<p>In the project <code>tools</code> directory, create a file named <code>build.sh</code> containing the following text:</p>
-<pre><code class="language-bash">#!/bin/bash
+</ol>
+<p>project(MyProject)</p>
+<p>if(NOT CMAKE_BUILD_TYPE)
+set(CMAKE_BUILD_TYPE Release)
+endif()</p>
+<p>################# create target #######################################################</p>
+<p>set (WILDCARD_SOURCE *.cpp)
+set (WILDCARD_HEADER *.h *.hpp *.hxx)</p>
+<p>file(GLOB_RECURSE Headers CONFIGURE_DEPENDS src/${WILDCARD_HEADER})
+file(GLOB_RECURSE Sources CONFIGURE_DEPENDS src/${WILDCARD_SOURCE})
+add_library(MyProject SHARED ${Headers} ${Sources})</p>
+<p>#######################################################################################</p>
+<p>################# project include-paths ###############################################</p>
+<p>target_include_directories(MyProject
+PUBLIC
+$&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src&gt;)</p>
+<p>#######################################################################################</p>
+<p>################# include arp cmake module path #######################################</p>
+<p>list(INSERT CMAKE_MODULE_PATH 0 &quot;${ARP_TOOLCHAIN_CMAKE_MODULE_PATH}&quot;)</p>
+<p>#######################################################################################</p>
+<p>################# set link options ####################################################</p>
+<h1><a class="header" href="#warning-without---no-undefined-the-linker-will-not-check-whether-all-necessary" id="warning-without---no-undefined-the-linker-will-not-check-whether-all-necessary">WARNING: Without --no-undefined the linker will not check, whether all necessary</a></h1>
+<h1><a class="header" href="#libraries-are-linked-when-a-library-which-is-necessary-is-not-linked" id="libraries-are-linked-when-a-library-which-is-necessary-is-not-linked">libraries are linked. When a library which is necessary is not linked,</a></h1>
+<h1><a class="header" href="#the-firmware-will-crash-and-there-will-be-no-indication-why-it-crashed" id="the-firmware-will-crash-and-there-will-be-no-indication-why-it-crashed">the firmware will crash and there will be NO indication why it crashed.</a></h1>
+<p>#######################################################################################</p>
+<p>target_link_options(MyProject PRIVATE LINKER:--no-undefined)</p>
+<p>#######################################################################################</p>
+<p>################# add link targets ####################################################</p>
+<p>find_package(ArpDevice REQUIRED)
+find_package(ArpProgramming REQUIRED)</p>
+<p>target_link_libraries(MyProject PRIVATE ArpDevice ArpProgramming)</p>
+<p>#######################################################################################</p>
+<p>################# install ############################################################</p>
+<p>string(REGEX REPLACE &quot;^.<em>\(([0-9]+.[0-9]+.[0-9]+.[0-9]+).</em>$&quot; &quot;\1&quot; <em>ARP_SHORT_DEVICE_VERSION ${ARP_DEVICE_VERSION})
+install(TARGETS MyProject
+LIBRARY DESTINATION ${ARP_DEVICE}</em>${<em>ARP_SHORT_DEVICE_VERSION}/$<CONFIG>/lib
+ARCHIVE DESTINATION ${ARP_DEVICE}</em>${<em>ARP_SHORT_DEVICE_VERSION}/$<CONFIG>/lib
+RUNTIME DESTINATION ${ARP_DEVICE}</em>${_ARP_SHORT_DEVICE_VERSION}/$<CONFIG>/bin)
+unset(_ARP_SHORT_DEVICE_VERSION)</p>
+<p>#######################################################################################</p>
+<pre><code>
+1. In the project `tools` directory, create a file named `build.sh` containing the following text:
+
+```bash
+#!/bin/bash
 #//
 #// Copyright (c) 2020 Phoenix Contact GmbH &amp; Co. KG. All rights reserved.
 #// Licensed under the MIT. See LICENSE file in the project root for full license information.
@@ -281,7 +263,7 @@ cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 --config Debug --target install -- -j 3
 </code></pre>
-</li>
+<ol>
 <li>
 <p>From the project root directory, execute the build script:</p>
 <pre><code class="language-text">$ tools/build.sh -t &quot;/opt/pxc/sdk/AXCF2152/2020.0&quot; -a &quot;2020.0 LTS (20.0.0.24752)&quot; -n &quot;AXCF2152&quot;
@@ -310,41 +292,38 @@ CMAKE Configure
 <ol>
 <li>
 <p>On the host, in the project root directory, create a file named <code>MyProject.acf.config</code>, containing the following text:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;AcfConfigurationDocument
-  xmlns=&quot;http://www.phoenixcontact.com/schema/acfconfig&quot;
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://www.phoenixcontact.com/schema/acfconfig.xsd&quot;
-  schemaVersion=&quot;1.0&quot; &gt;
-
-  &lt;Processes&gt;
-    &lt;Process name=&quot;MyProcess&quot; settingsPath=&quot;$ARP_ACF_SETTINGS_FILE$&quot; /&gt;
-  &lt;/Processes&gt;
-
-  &lt;Libraries&gt;
-    &lt;Library name=&quot;MyProject&quot; binaryPath=&quot;$ARP_PROJECTS_DIR$/MyProject/lib/libMyProject.so&quot; /&gt;
-  &lt;/Libraries&gt;
-
-  &lt;Components&gt;
-    &lt;Component name=&quot;MyComponentInstance&quot; type=&quot;MyNamespace::MyComponent&quot; library=&quot;MyProject&quot; /&gt;
-  &lt;/Components&gt;
-
-&lt;/AcfConfigurationDocument&gt;
+<pre><code class="language-xml">﻿&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 </code></pre>
 </li>
+</ol>
+<p><AcfConfigurationDocument
+  xmlns="http://www.phoenixcontact.com/schema/acfconfig"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.phoenixcontact.com/schema/acfconfig.xsd"
+  schemaVersion="1.0" ></p>
+<Processes>
+    <Process name="MyProcess" settingsPath="$ARP_ACF_SETTINGS_FILE$" />
+  </Processes>
+<Libraries>
+    <Library name="MyProject" binaryPath="$ARP_PROJECTS_DIR$/MyProject/lib/libMyProject.so" />
+  </Libraries>
+<Components>
+    <Component name="MyComponentInstance" type="MyNamespace::MyComponent" library="MyProject" />
+  </Components>
+</AcfConfigurationDocument>
+   ```
+<ol>
 <li>
 <p>Copy this ACF configuration file from the host to the target:</p>
 <pre><code class="language-text">$ scp MyProject.acf.config admin@192.168.1.10:~/projects/Default
 </code></pre>
-</li>
-</ol>
 <p>The PLCnext runtime will automatically load this configuration file, since the <code>Default.acf.config</code> file in the same directory includes all files that match the  pattern <code>*.acf.config</code>. The ACF configuration file for <code>MyProject</code> instructs the PLCnext runtime to:</p>
 <ul>
 <li>Create a new child process called <code>MyProcess</code>. (why?)</li>
 <li>Load the shared object library and name it <code>MyProject</code>. This name can be considered an alias, or shorthand reference, to the shared object library. This name does not have any relationship to the name of the class in the shared object library that inherited <code>LibraryBase</code>.</li>
 <li>Create an instance of <code>MyNamespace::MyComponent</code>, called <code>MyComponentInstance</code>, from the library it named <code>MyProject</code>.</li>
 </ul>
-<ol>
+</li>
 <li>
 <p>Restart the PLCnext runtime:</p>
 <pre><code class="language-text"># /etc/init.d/plcnext start &amp;&amp; tail -f -n 0 /opt/plcnext/logs/Output.log

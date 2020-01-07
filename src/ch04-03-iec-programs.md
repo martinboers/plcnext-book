@@ -4,7 +4,7 @@ Real-time programs can be written in the four languages defined by the IEC stand
 
 ### ECLR
 
-As the name suggests, the Embedded Common Language Runtime is based on Microsoft's Common Language Runtime (CLR), which is required to run C# and other .NET programs on Windows platforms. Unlike the CLR, the ECLR is specifically designed to run real-time, deterministic programs on embedded devices. The ECLR contains a sub-set of ECLR libraries, along with specialised libraries added by Phoenix Contact.
+As the name suggests, the Embedded Common Language Runtime is based on [Microsoft's Common Language Runtime][clr-info] (CLR), which is required to run C# and other .NET programs on Windows platforms. Unlike the CLR, the ECLR is specifically designed to run real-time, deterministic programs on embedded devices. The ECLR contains a sub-set of CLR libraries, along with specialised libraries added by Phoenix Contact.
 
 ### PLCnext Engineer
 
@@ -21,3 +21,5 @@ Includes the following features:
 - Debugging features including GDS variable "Watch" window, Force variables, notification viewer.
 
 [eclr-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Csharp/eCLR_Programming_System.htm
+
+[clr-info]: https://docs.microsoft.com/en-us/dotnet/standard/clr

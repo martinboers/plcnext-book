@@ -158,7 +158,7 @@
 </blockquote>
 <p>Here are two possible ways to change the IP address of the PLC:</p>
 <h3><a class="header" href="#use-netnames" id="use-netnames">Use <code>netnames</code></a></h3>
-<p>Netnames is a utility from Phoenix Contact that assists with the management of <a href="https://www.profibus.com/technology/profinet/">Profinet</a> devices. Netnames is available for Linux 64 bit and <a href="http://www.phoenixcontact.net/qr/2316390/softw">Windows</a> operating systems. The remainder of this section uses the Linux version of Netnames.</p>
+<p>Netnames is a utility from Phoenix Contact that assists with the management of <a href="https://www.profibus.com/technology/profinet/">Profinet</a> devices. Netnames is available for <a href="http://plcnext-runtime.com/downloads/netnames/linux-x64/netnames">Linux 64 bit</a> and <a href="http://www.phoenixcontact.net/qr/2316390/softw">Windows</a> operating systems. The remainder of this section uses the Linux version of Netnames.</p>
 <p>By default, each PLCnext Control acts as a Profinet device, and so can be assigned an IP address using <code>netnames</code>.</p>
 <p>From the <code>netnames</code> installation directory, run the following command, substituting <code>eth0</code> with the name of your Ethernet adapter. You should get a response similar to the one shown.</p>
 <pre><code class="language-text">$ sudo ./netnames -i eth0 -c identify
