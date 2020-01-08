@@ -43,14 +43,14 @@ These components generally provide high-level features that are easily configura
 | libArp.Services.Fwm.so                | Arp::Services::Fwm::FwmComponent                                            | [Firewall manager][fwm-info] |
 | libArp.Services.Wbm.so                | Arp::Services::Wbm::WbmComponent                                            | [Web-based management][wbm-info] |
 | libArp.Services.Ehmi.so               | Arp::Services::Ehmi::EhmiComponent                                          | [Embedded HMI][ehmi-info] |
-| libArp.Services.OpcUAServer.so        | Arp::Services::OpcUAServer::OpcUAServerComponent                            | [OPC UA Server][opc-info] |
-| libArp.Services.Alarms.so             | Arp::Services::Alarms::AlarmsComponent                                      | [Alarm Dispatcher][alarms-info] |
+| libArp.Services.OpcUAServer.so        | Arp::Services::OpcUAServer::OpcUAServerComponent                            | [OPC UA server][opc-info] |
+| libArp.Services.Alarms.so             | Arp::Services::Alarms::AlarmsComponent                                      | [Alarm dispatcher][alarms-info] |
 | libArp.Services.ProfiCloud.so         | Arp::Services::ProfiCloud::ProfiCloudComponent                              | [Proficloud TSD publisher][tsd-info] |
-| libArp.Services.NotificationLogger.so | Arp::Services::NotificationLogger::NotificationLoggerComponent              | [Notification Logger][nl-info] |
-| libArp.Services.TraceController.so    | Arp::Services::TraceController::TraceControllerComponent                    | ??? |
-| libArp.Services.NmUtilities.so        | Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent | [Notification Manager][nm-info] |
-| libArp.Services.DataLogger.so         | Arp::Services::DataLogger::DataLoggerComponent                              | [Data Logger][dl-info] |
-| libArp.Services.AppManager.so         | Arp::Services::AppManager::AppManagerComponent                              | [PLCnext Store App management][app-info] |
+| libArp.Services.NotificationLogger.so | Arp::Services::NotificationLogger::NotificationLoggerComponent              | [Notification logger][nl-info] |
+| libArp.Services.TraceController.so    | Arp::Services::TraceController::TraceControllerComponent                    | [LTTng trace controller][trace-info] |
+| libArp.Services.NmUtilities.so        | Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent | [Notification manager][nm-info] |
+| libArp.Services.DataLogger.so         | Arp::Services::DataLogger::DataLoggerComponent                              | [Data logger][dl-info] |
+| libArp.Services.AppManager.so         | Arp::Services::AppManager::AppManagerComponent                              | [PLCnext Store app management][app-info] |
 
 ### System Components
 
@@ -93,6 +93,7 @@ These components implement features you would expect to find on PLCs.
 [alarms-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Alarms/Alarms.htm
 [tsd-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/PROFICLOUD/Transferring_values_to_PROFICLOUD.htm
 [nl-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_Logger.htm
+[trace-info]: https://lttng.org/
 [nm-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_manager.htm
 [dl-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/DataLogger/DataLogger.htm
 [app-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_PLCnext_Apps.htm

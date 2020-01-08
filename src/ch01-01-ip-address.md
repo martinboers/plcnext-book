@@ -4,7 +4,7 @@ Once you have assembled [everything you need to get started][what-you-will-need]
 
 The factory default IP address of every PLC is 192.168.1.10/24, but you will probably want to change this to something that suits your local network.
 
-> Note: This chapter shows how to change the IP address of the PLC from the default value. In the remainder of this book, all examples will use the default IP address (192.168.1.10).
+> This section shows how to change the IP address of the PLC from the default value. In the remainder of this book, all examples will use the default IP address (192.168.1.10).
 
 Here are two possible ways to change the IP address of the PLC:
 
@@ -18,14 +18,14 @@ From the `netnames` installation directory, run the following command, substitut
 
 ```text
 $ sudo ./netnames -i eth0 -c identify
-axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255.0.0   0.0.0.0
+axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255.255.0   0.0.0.0
 ```
 
 The MAC address and current IP address details of the PLC are shown in the response. The IP address, subnet mask and default gateway can be changed using a command similar to the following:
 
 ```text
-$ sudo ./netnames -i eth0 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.0.0 -sg 192.168.178.1
-(todo: response)
+$ sudo ./netnames -i eth0 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.255.0 -sg 192.168.178.1
+Device responded: OK
 ```
 
 Obviously the above command will need to include parameters that suit your own device and network. The IP address of the PLC should be in the same subnet as the host, and the default gateway should give the PLC access to the internet.
