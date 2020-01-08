@@ -3,17 +3,20 @@
 The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, you can go ahead and open a shell session on the PLC from the host:
 
 ```text
-$ ssh admin@192.168.178.10
-(todo: response))
+$ ssh admin@192.168.1.10
+The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
+ECDSA key fingerprint is SHA256:uUhWsqW6TQy/KDZ7rdydja8zws7zABLF5CI2/wm5owQ.
+Are you sure you want to continue connecting (yes/no)?
 ```
 
-You'll notice a few things about this command:
+You are requesting to log on to the PLC as the user *admin*. This user is set up by default on every PLCnext Control. The warning about the authenticity of the host is normal when using `ssh` to connect to a device for the first time. By answering `yes` to the question, the following appears:
 
-1. You are requesting to log on to the PLC as the user *admin*. This user is set up by default on every PLCnext Control. The default password for this user is printed on the housing of the PLC.
+```text
+Warning: Permanently added '192.168.1.10' (ECDSA) to the list of known hosts.
+admin@192.168.1.10's password:
+```
 
-1. The first time you run this command on a new PLC, it will ask you to confirm ... (todo: Finish this)
-
-Once the shell session has been established, you will see the PLC command line:
+... and after entering the default password (printed on the housing of the PLC), the PLC's command prompt will appear:
 
 ```text
 admin@axcf2152:~$
