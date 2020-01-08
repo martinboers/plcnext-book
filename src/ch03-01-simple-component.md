@@ -22,23 +22,23 @@ The following procedure uses the build tools `CMake` and `Ninja`, so make sure t
 
 Build the library as follows:
 
-1. On your host machine, create a project directory. Under this directory, create two sub-directories called `src` and `tools`.
+* On your host machine, create a project directory. Under this directory, create two sub-directories called `src` and `tools`.
 
-1. Copy the four source files to the `src` directory.
+* Copy the four source files to the `src` directory.
 
-1. In the project root directory, create a CMakeLists.txt file containing the following text:
+* In the project root directory, create a CMakeLists.txt file containing the following text:
 
-   ```cmake
-   {{#include samples/ch03-01-simple-component/MyProject/CMakeLists.txt}}
-   ```
+```cmake
+{{#include samples/ch03-01-simple-component/MyProject/CMakeLists.txt}}
+```
 
-1. In the project `tools` directory, create a file named `build.sh` containing the following text:
+* In the project `tools` directory, create a file named `build.sh` containing the following text:
 
-   ```bash
-   {{#include samples/ch03-01-simple-component/MyProject/tools/build.sh}}
-   ```
+```bash
+{{#include samples/ch03-01-simple-component/MyProject/tools/build.sh}}
+```
 
-1. From the project root directory, execute the build script:
+* From the project root directory, execute the build script:
 
    ```text
    $ tools/build.sh -t "/opt/pxc/sdk/AXCF2152/2020.0" -a "2020.0 LTS (20.0.0.24752)" -n "AXCF2152"
@@ -52,9 +52,9 @@ Build the library as follows:
 
 You can see that a shared object library, `libMyProject.so`, has been created. This contains the component called `MyNamespace::MyComponent` and the singleton called `MyNamespace::MyLibrary`.
 
-1. On the PLC, create a project directory e.g. `/opt/plcnext/projects/MyProject`, and a `lib` subdirectory.
+* On the PLC, create a project directory e.g. `/opt/plcnext/projects/MyProject`, and a `lib` subdirectory.
 
-1. Copy the shared object library from the host to the PLC:
+* Copy the shared object library from the host to the PLC:
 
    ```text
    $ scp deploy/AXCF2152_20.0.0.24752/Release/lib/libMyProject.so admin@192.168.1.10:~/projects/MyProject/lib
@@ -64,13 +64,13 @@ You can see that a shared object library, `libMyProject.so`, has been created. T
 
 Now that the shared object library containing the extension component is on the PLC, the PLCnext runtime must be instructed to create an instance of `MyComponent`.
 
-1. On the host, in the project root directory, create a file named `MyProject.acf.config`, containing the following text:
+* On the host, in the project root directory, create a file named `MyProject.acf.config`, containing the following text:
 
-   ```xml
-   {{#include samples/ch03-01-simple-component/MyProject/MyProject.acf.config}}
-   ```
+```xml
+{{#include samples/ch03-01-simple-component/MyProject/MyProject.acf.config}}
+```
 
-1. Copy this ACF configuration file from the host to the target:
+* Copy this ACF configuration file from the host to the target:
 
    ```text
    $ scp MyProject.acf.config admin@192.168.1.10:~/projects/Default
@@ -78,11 +78,11 @@ Now that the shared object library containing the extension component is on the 
 
    The PLCnext runtime will automatically load this configuration file, since the `Default.acf.config` file in the same directory includes all files that match the  pattern `*.acf.config`. The ACF configuration file for `MyProject` instructs the PLCnext runtime to:
 
-   * Create a new child process called `MyProcess`. (why?)
-   * Load the shared object library and name it `MyProject`. This name can be considered an alias, or shorthand reference, to the shared object library. This name does not have any relationship to the name of the class in the shared object library that inherited `LibraryBase`.
-   * Create an instance of `MyNamespace::MyComponent`, called `MyComponentInstance`, from the library it named `MyProject`.
+  * Create a new child process called `MyProcess`. (why?)
+  * Load the shared object library and name it `MyProject`. This name can be considered an alias, or shorthand reference, to the shared object library. This name does not have any relationship to the name of the class in the shared object library that inherited `LibraryBase`.
+  * Create an instance of `MyNamespace::MyComponent`, called `MyComponentInstance`, from the library it named `MyProject`.
 
-1. Restart the PLCnext runtime:
+* Restart the PLCnext runtime:
 
    ```text
    # /etc/init.d/plcnext start && tail -f -n 0 /opt/plcnext/logs/Output.log
