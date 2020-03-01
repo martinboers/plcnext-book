@@ -1,8 +1,4 @@
-## System Administration
-
-The firmware on a PLCnext Control includes standard Linux features that will be familiar to systems and network administrators. These features are described in the [PLCnext Technology Info Centre][os-info].
-
-### Security
+## Security
 
 As is the case with all computer systems, it is ultimately the responsibility of the end user to protect their equipment against all potential threats.
 

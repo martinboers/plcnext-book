@@ -5,7 +5,7 @@ The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on
 ```text
 $ ssh admin@192.168.1.10
 The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
-ECDSA key fingerprint is SHA256:uUhWsqW6TQy/KDZ7rdydja8zws7zABLF5CI2/wm5owQ.
+ECDSA key fingerprint is SHA256:uUhWsqX6TQy/KDZ4rdydja8zws7zCBLF5CI2/wm5owQ.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
