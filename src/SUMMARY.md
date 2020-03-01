@@ -1,6 +1,7 @@
 # The PLCnext Runtime
 
 [The PLCnext Runtime](title-page.md)
+[Copyright Notice](edition-notice.md)
 [Introduction](ch00-00-introduction.md)
 
 - [Getting Started](ch01-00-getting-started.md)

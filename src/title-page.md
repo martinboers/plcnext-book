@@ -6,5 +6,4 @@
 <br/>
 <h2><i>by Martin Boers</i></h2>
 <br/>
-<p><b>Note that this book is not produced by Phoenix Contact and is not endorsed or supported by Phoenix Contact in any way.</b></p>
 </div>
