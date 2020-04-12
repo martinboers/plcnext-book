@@ -1,25 +1,15 @@
 ## PLCnext Runtime Components
 
-PLCnext Control firmware was introduced briefly in the previous chapter. PLCnext Control firmware features can be broadly categorised as either:
-
-1. Features commonly available on general-purpose Linux distributions, or
-2. Features developed by Phoenix Contact, that are not available on other Linux distributions.
-
-The second group of features includes:
-
-* commands like `update-plcnext` and `recover-plcnext` that you saw previously, and
-* software components that are started and controlled by the `PLCnext Runtime`.
-
-This chapter will look at the factory-installed software components that make up the PLCnext Runtime, including:
+Factory-installed software components that make up the PLCnext Runtime include:
 
 * I/O and Fieldbus components
 * Service components
 * System components
 * PLC components
 
-An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info].
+An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.
 
-Before we look at how the PLCnext runtime instantiates components, lets look at what components are available in each of the above categories. Components are defined in C++ shared object libraries, which are located in the `/usr/bin` directory on the PLC. The tables below includes links to more information on each feature.
+Components are defined in C++ shared object libraries, which are located in the `/usr/bin` directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.
 
 ### I/O Components
 
