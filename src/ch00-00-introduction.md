@@ -60,6 +60,9 @@ The PLCnext Control is a *target* (in embedded programming terminology), and it 
 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
+(knowledge of Ethernet networking would be beneficial)
+https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
+
 > Note: Throughout this book, the PLCnext Control device will be referred to as either *PLC*, or *controller*, or *target*. In this book, these terms all refer to precisely the same device.
 
 ## How to Use This Book
