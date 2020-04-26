@@ -6,10 +6,11 @@ Welcome to *The PLCnext Runtime*, an introductory book about programming on the 
 
 PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.
 
-The PLCnext Control range includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
+The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
 
 * [AXC F 1152][axcf1152] (ARM® Cortex®-A9 800 MHz)
 * [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz)
+* [AXC F 3152][axcf3152] (?)
 * [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
 
 Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch][preempt].
@@ -28,21 +29,21 @@ Traditional PLCs generally can be programmed using any language defined by the I
 
 Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the [*PC Worx Target for Simulink*][simulink-add-on] software add-on.
 
-### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, ....
+### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc
 
 (something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).
 
 ### Systems integrators and network administrators
 
-It is possible to simply install and configure pre-built applications on a PLCnext Control, without any software engineering effort.
+It is possible to simply install and configure pre-built applications on a PLCnext Control device, without any software engineering effort.
 
 ### Project teams with some or all of the above skills
 
-PLCnext Control includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single project.
+PLCnext Control devices includes unique features - such as the Global Data Space (GDS) and the Execution and Synchronisation Manager (ESM) - that make it possible to combine components written in different languages into a single project.
 
 ## Who This Book Is For
 
-This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contain program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
+This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contains program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
 
 This book does not cover PLCnext Engineer or programming in IEC 61131-3 languages, and in fact it is not necessary to read this book in order to become proficient in PLCnext Control programming using PLCnext Engineer. For IEC 61131-3 programmers, there are other resources from Phoenix Contact that will help you get started with PLCnext Engineer.
 
@@ -52,18 +53,17 @@ For systems and network administrators who will be managing PLCnext Control devi
 
 ## What You Will Need
 
-Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the PLCnext Starter Kit, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.
+Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the [PLCnext Starter Kit](starter-kit), which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.
 
 Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
 
-The PLCnext Control is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
+A PLCnext Control device is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
-(knowledge of Ethernet networking would be beneficial)
-https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
+A knowledge of Ethernet networking would also be beneficial. The book "[Ethernet Basics](ethernet-basics)" by Phoenix Contact is recommended for this purpose.
 
-> Note: Throughout this book, the PLCnext Control device will be referred to as either *PLC*, or *controller*, or *target*. In this book, these terms all refer to precisely the same device.
+> Throughout this book, the PLCnext Control hardware will be referred to as either *PLCnext Control device*, or *controller*, or *target*. In this book, these terms are used interchangeably. Controllers from other manufacturers are often referred to with the term  *PLC*, but in this book the term *PLC* will only be used to refer to those firmware components on the controller that implement real-time automation functions.
 
 ## How to Use This Book
 
@@ -108,10 +108,13 @@ The source files from which this book is generated can be found on
 
 [axcf1152]: http://www.phoenixcontact.net/qr/1151412
 [axcf2152]: http://www.phoenixcontact.net/qr/2404267
+[axcf3152]: http://www.phoenixcontact.net/qr/1069208
 [rfc4072s]: http://www.phoenixcontact.net/qr/1051328
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
 [plcnext-engineer]: http://www.phoenixcontact.net/qr/1046008
 [simulink-add-on]: http://www.phoenixcontact.net/qr/2400041
+[starter-kit]: http://www.phoenixcontact.net/qr/1046568
+[ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
 [info-center]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm
 [glossary]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src
