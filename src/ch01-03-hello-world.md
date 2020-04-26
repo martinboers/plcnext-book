@@ -32,13 +32,8 @@ You have just written your first PLCnext Control program!
 
 ### Your Second Program
 
-You probably don't want to be limited to Python when building applications for a PLCnext Control. Python scripts are quick and easy to run on a PLCnext Control because the firmware includes a Python interpreter. Other interpreted languages (like Javascript) need their own interpreter. Similarly, Java bytecode and .NET CLI code need their own runtimes. It is beyond the scope of this book to describe how to program a PLCnext Control device in every language. However, there is a diversity of skills and interests among members of the PLCnext Community, and there are excellent contributions from community members on the use of various programming languages and frameworks. Here are a few examples:
+You probably don't want to be limited to Python when building applications for a PLCnext Control. Python scripts are quick and easy to run on a PLCnext Control because the firmware includes a Python interpreter. Other interpreted languages (like Javascript) need their own interpreter. Similarly, Java bytecode and .NET CLI code need their own runtimes. It is beyond the scope of this book to describe how to program a PLCnext Control device in every language. However, there is a diversity of skills and interests among members of the PLCnext Community, and there are excellent contributions from community members on the use of various programming languages and frameworks.
 
-(TODO: Fill in)
+Appendix A includes a list of resources that demonstrate how to use PLCnext Control devices with a number of popular programming languages and frameworks.
 
-* C#
-* Node.js, including Node-red.
-* Python
-* Java (also information on Java programming in the Info Center)
-
-Native applications can also be built for a PLCnext Control using C/C++ or Rust, for example, with the help of the appropriate Software Development Kit (SDK). Next, we will see how to install the SDK for a PLCnext Control on your host machine, and then write "Hello, World!" programs for a PLCnext Control in C/C++ and Rust.
+Native applications can be built for a PLCnext Control device using C/C++ or Rust, for example, with the help of the appropriate Software Development Kit (SDK). Next, we will see how to install the SDK for a PLCnext Control device on your host machine, and then write "Hello, World!" programs for that controller in C/C++ and Rust.

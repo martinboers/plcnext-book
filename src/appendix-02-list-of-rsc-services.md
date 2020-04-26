@@ -1,4 +1,4 @@
-## Appendix A: List of RSC Services
+## Appendix B: List of RSC Services
 
 The following table lists the RSC services that are available in the PLCnext runtime, including links to more information and API documentation:
 
