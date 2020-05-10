@@ -93,3 +93,8 @@
 ### Go
 
 * PLCnext Community Makers Blog post: "[Getting started with Go on PLCnext](https://www.plcnext-community.net/en/hn-makers-blog/475-getting-started-with-golang-on-plcnext.html)"
+
+### Profinet
+
+Not sure if/where this link should be included.
+http://www.wseas.us/e-library/conferences/2005prague/papers/493-349.pdf

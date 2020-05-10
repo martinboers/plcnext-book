@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PLCnext Runtime Components - The PLCnext Runtime</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="theme/first-edition.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="title-page.html">The PLCnext Runtime</a></li><li class="expanded affix "><a href="edition-notice.html">Copyright Notice</a></li><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-hello-world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-04-installing-a-software-development-kit.html"><strong aria-hidden="true">1.4.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-05-hello-again-world.html"><strong aria-hidden="true">1.5.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-system-administration.html"><strong aria-hidden="true">2.</strong> System Administration</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-security.html"><strong aria-hidden="true">2.1.</strong> Security</a></li><li class="expanded "><a href="ch02-02-users-and-privileges.html"><strong aria-hidden="true">2.2.</strong> Users and Privileges</a></li><li class="expanded "><a href="ch02-03-firmware.html"><strong aria-hidden="true">2.3.</strong> Firmware</a></li><li class="expanded "><a href="ch02-04-file-system.html"><strong aria-hidden="true">2.4.</strong> File System</a></li><li class="expanded "><a href="ch02-05-installing-software.html"><strong aria-hidden="true">2.5.</strong> Installing Software</a></li></ol></li><li class="expanded "><a href="ch03-00-plcnext-runtime.html"><strong aria-hidden="true">3.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch03-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">3.1.</strong> Controlling the PLCnext Runtime</a></li><li class="expanded "><a href="ch03-02-plcnext-runtime-components.html" class="active"><strong aria-hidden="true">3.2.</strong> PLCnext Runtime Components</a></li><li class="expanded "><a href="ch03-03-component-instances.html"><strong aria-hidden="true">3.3.</strong> Component Instances</a></li><li class="expanded "><a href="ch03-04-disabling-features.html"><strong aria-hidden="true">3.4.</strong> Disabling Features</a></li><li class="expanded "><a href="ch03-05-rsc-services.html"><strong aria-hidden="true">3.5.</strong> RSC Services</a></li></ol></li><li class="expanded "><a href="ch04-00-extension-components.html"><strong aria-hidden="true">4.</strong> Extension Components</a></li><li><ol class="section"><li class="expanded "><a href="ch04-01-simple-component.html"><strong aria-hidden="true">4.1.</strong> Simple Extension Component</a></li><li class="expanded "><a href="ch04-02-component-methods.html"><strong aria-hidden="true">4.2.</strong> Component Methods</a></li><li class="expanded "><a href="ch04-03-library-singleton.html"><strong aria-hidden="true">4.3.</strong> Component Library Singleton</a></li><li class="expanded "><a href="ch04-04-component-example.html"><strong aria-hidden="true">4.4.</strong> Component Example: TCP Server</a></li><li class="expanded "><a href="ch04-05-using-rsc-services.html"><strong aria-hidden="true">4.5.</strong> Using RSC Services</a></li><li class="expanded "><a href="ch04-06-worker-threads.html"><strong aria-hidden="true">4.6.</strong> Worker Threads</a></li><li class="expanded "><a href="ch04-07-interactive-course.html"><strong aria-hidden="true">4.7.</strong> Interactive Course</a></li><li class="expanded "><a href="ch04-08-creating-rsc-services.html"><strong aria-hidden="true">4.8.</strong> Creating RSC Services</a></li><li class="expanded "><a href="ch04-09-creating-gds-variables-1.html"><strong aria-hidden="true">4.9.</strong> Creating GDS variables - Part 1</a></li><li class="expanded "><a href="ch04-10-plcnext-cli.html"><strong aria-hidden="true">4.10.</strong> PLCnext CLI</a></li><li class="expanded "><a href="ch04-11-creating-gds-variables-2.html"><strong aria-hidden="true">4.11.</strong> Creating GDS variables - Part 2</a></li><li class="expanded "><a href="ch04-12-connecting-gds-variables.html"><strong aria-hidden="true">4.12.</strong> Connecting GDS Variables</a></li><li class="expanded "><a href="ch04-13-rest-api.html"><strong aria-hidden="true">4.13.</strong> REST API</a></li></ol></li><li class="expanded "><a href="ch05-00-real-time-programming.html"><strong aria-hidden="true">5.</strong> Real Time Programming</a></li><li><ol class="section"><li class="expanded "><a href="ch05-01-cpp-programs.html"><strong aria-hidden="true">5.1.</strong> C++ Programs</a></li><li class="expanded "><a href="ch05-02-configuring-io.html"><strong aria-hidden="true">5.2.</strong> Configuring I/O</a></li><li class="expanded "><a href="ch05-03-iec-programs.html"><strong aria-hidden="true">5.3.</strong> IEC 61131-3 Programs</a></li></ol></li><li class="expanded "><a href="ch06-00-other-tools.html"><strong aria-hidden="true">6.</strong> Other Programming Tools</a></li><li class="expanded "><a href="ch07-00-extension-processes.html"><strong aria-hidden="true">7.</strong> Extension Processes</a></li><li class="expanded "><a href="ch08-00-what-next.html"><strong aria-hidden="true">8.</strong> What Next</a></li><li><ol class="section"><li class="expanded "><a href="ch08-01-the-big-picture.html"><strong aria-hidden="true">8.1.</strong> The Big Picture</a></li><li class="expanded "><a href="ch08-02-get-involved.html"><strong aria-hidden="true">8.2.</strong> Get Involved!</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-programming-resources.html"><strong aria-hidden="true">9.1.</strong> A - Programming Resources</a></li><li class="expanded "><a href="appendix-02-list-of-rsc-services.html"><strong aria-hidden="true">9.2.</strong> B - RSC Services</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">The PLCnext Runtime</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#plcnext-runtime-components" id="plcnext-runtime-components">PLCnext Runtime Components</a></h2>
+<p>Factory-installed software components that make up the PLCnext Runtime include:</p>
+<ul>
+<li>I/O and Fieldbus components</li>
+<li>Service components</li>
+<li>System components</li>
+<li>PLC components</li>
+</ul>
+<p>An overview of these component categories is given in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Core_component.htm">PLCnext Technology Info Center</a>. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.</p>
+<p>Components are defined in C++ shared object libraries, which are located in the <code>/usr/bin</code> directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.</p>
+<h3><a class="header" href="#io-components" id="io-components">I/O Components</a></h3>
+<p>These components provide access to physical I/O modules through a variety of standard industrial networks.</p>
+<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">libArp.Io.Axioline.so</td><td align="left">Arp::Io::Axioline::AxiolineComponent</td><td align="left">Axioline master<sup>1</sup></td></tr>
+<tr><td align="left">libArp.Io.Interbus.so</td><td align="left">Arp::Io::Interbus::InterbusComponent</td><td align="left">Interbus master<sup>1</sup></td></tr>
+<tr><td align="left">libArp.Io.EthernetIP.so</td><td align="left">Arp::Io::EthernetIP::EthernetIPComponent</td><td align="left">Ethernet/IP device<sup>1</sup></td></tr>
+<tr><td align="left">libArp.Io.ProfinetStack.so</td><td align="left">Arp::Io::ProfinetStack::System::SystemComponent<br/>Arp::Io::ProfinetStack::Controller::ControllerComponent<br/>Arp::Io::ProfinetStack::Device::DeviceComponent</td><td align="left">Profinet system<br/>Profinet controller<br/>Profinet device</td></tr>
+</tbody></table>
+<p><sup>1</sup> Only available on AXC devices.</p>
+<h3><a class="header" href="#service-components" id="service-components">Service Components</a></h3>
+<p>These components generally provide high-level features that are easily configurable by end users.</p>
+<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">libArp.Services.Fwm.so</td><td align="left">Arp::Services::Fwm::FwmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_Firewall.htm">Firewall manager</a></td></tr>
+<tr><td align="left">libArp.Services.Wbm.so</td><td align="left">Arp::Services::Wbm::WbmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/WBM.htm">Web-based management</a></td></tr>
+<tr><td align="left">libArp.Services.Ehmi.so</td><td align="left">Arp::Services::Ehmi::EhmiComponent</td><td align="left"><a href="https://de89gmzz4wv9p.cloudfront.net/107838_en_01/Section05/Section05.htm">Embedded HMI</a></td></tr>
+<tr><td align="left">libArp.Services.OpcUAServer.so</td><td align="left">Arp::Services::OpcUAServer::OpcUAServerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/OPC_UA_Server/OPC_UA_server_eUA.htm">OPC UA server</a></td></tr>
+<tr><td align="left">libArp.Services.Alarms.so</td><td align="left">Arp::Services::Alarms::AlarmsComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Alarms/Alarms.htm">Alarm dispatcher</a></td></tr>
+<tr><td align="left">libArp.Services.ProfiCloud.so</td><td align="left">Arp::Services::ProfiCloud::ProfiCloudComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/PROFICLOUD/Transferring_values_to_PROFICLOUD.htm">Proficloud TSD publisher</a></td></tr>
+<tr><td align="left">libArp.Services.NotificationLogger.so</td><td align="left">Arp::Services::NotificationLogger::NotificationLoggerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_Logger.htm">Notification logger</a></td></tr>
+<tr><td align="left">libArp.Services.TraceController.so</td><td align="left">Arp::Services::TraceController::TraceControllerComponent</td><td align="left"><a href="https://lttng.org/">LTTng trace controller</a></td></tr>
+<tr><td align="left">libArp.Services.NmUtilities.so</td><td align="left">Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_manager.htm">Notification manager</a></td></tr>
+<tr><td align="left">libArp.Services.DataLogger.so</td><td align="left">Arp::Services::DataLogger::DataLoggerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/DataLogger/DataLogger.htm">Data logger</a></td></tr>
+<tr><td align="left">libArp.Services.AppManager.so</td><td align="left">Arp::Services::AppManager::AppManagerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_PLCnext_Apps.htm">PLCnext Store app management</a></td></tr>
+</tbody></table>
+<h3><a class="header" href="#system-components" id="system-components">System Components</a></h3>
+<p>These components implement low-level system features. They may provide an API, but are not generally designed to be configurable by end users.</p>
+<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">libArp.Device.Access.so</td><td align="left">Arp::Device::Access::DeviceAccessComponent</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.Device.HmiLed.so</td><td align="left">Arp::Device::HmiLed::HmiLedComponent</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.Device.Interface.so</td><td align="left">Arp::Device::Interface::DiComponent</td><td align="left">RSC service ?</td></tr>
+<tr><td align="left">libArp.Hardware.Nim.so</td><td align="left">Arp::Hardware::Nim::NimComponent</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.System.Scm.so</td><td align="left">Arp::System::Scm::ScmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/System_manager.htm#System_Manager">System control manager</a></td></tr>
+<tr><td align="left">libArp.System.Um.so</td><td align="left">Arp::System::Um::UmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_User_authentication.htm">User manager</a></td></tr>
+<tr><td align="left">libArp.System.RscGateway.so</td><td align="left">Arp::System::RscGateway::RscGatewayComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm">Remote service call gateway</a></td></tr>
+<tr><td align="left">libArp.System.Commons.Services.so</td><td align="left">Arp::System::Commons::Services::Component</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.System.Security.Services.so</td><td align="left">Arp::System::Security::Services::Component</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Security/Security.htm">???</a></td></tr>
+<tr><td align="left">libArp.System.Fwu.so</td><td align="left">Arp::System::Fwu::FwuComponent</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.System.Watchdog.so</td><td align="left">Arp::System::Watchdog::SystemWatchdogComponent</td><td align="left">???</td></tr>
+<tr><td align="left">libArp.System.SysWatchdog.so</td><td align="left">???</td><td align="left">???</td></tr>
+</tbody></table>
+<h3><a class="header" href="#plc-components" id="plc-components">PLC Components</a></h3>
+<p>These components implement features you would expect to find on PLCs.</p>
+<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">libArp.Plc.Eclr.so</td><td align="left">Arp::Plc::Eclr::EclrComponent<br/>Arp::Plc::Eclr::EclrServicesComponent<br/>Arp::Plc::Eclr::Internal::ArpDomainComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Csharp/eCLR_Programming_System.htm">Embedded Common Language Runtime</a></td></tr>
+<tr><td align="left">libArp.Plc.Plm.so</td><td align="left">Arp::Plc::Plm::PlmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm">Manages real-time C++ programs</a></td></tr>
+<tr><td align="left">libArp.Plc.Esm.so</td><td align="left">Arp::Plc::Esm::EsmComponent<br/>Arp::Plc::Esm::EsmControllerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/ESM.htm">Execution and Synchronisation Manager</a></td></tr>
+<tr><td align="left">libArp.Plc.Gds.so</td><td align="left">Arp::Plc::Meta::MetaComponent<br/>Arp::Plc::Gds::GdsComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/GDS_Global_Data_Space.htm">Manages the global data space</a></td></tr>
+<tr><td align="left">libArp.Plc.Domain.so</td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent<br/>Arp::Plc::Domain::PlcManagerComponent<br/>Arp::Plc::Domain::PlcDomainComponent</td><td align="left">???<br/>???<br/>???</td></tr>
+<tr><td align="left">libArp.Plc.Fbm.so</td><td align="left">Arp::Plc::Fbm::FbmComponent<br/>Arp::Plc::Fbm::FbIoComponent</td><td align="left">Fieldbus manager</td></tr>
+<tr><td align="left">libArp.Plc.Retain.so</td><td align="left">Arp::Plc::Retain::RetainComponent</td><td align="left">Manages retentive variables</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch03-01-controlling-the-plcnext-runtime.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch03-03-component-instances.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="ch03-01-controlling-the-plcnext-runtime.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="ch03-03-component-instances.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

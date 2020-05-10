@@ -8,9 +8,9 @@ PLCnext Control refers to a range of embedded computers from Phoenix Contact, wh
 
 The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
 
-* [AXC F 1152][axcf1152] (ARM® Cortex®-A9 800 MHz)
+* [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
 * [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz)
-* [AXC F 3152][axcf3152] (?)
+* [AXC F 3152][axcf3152] (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)
 * [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
 
 Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch][preempt].
@@ -93,10 +93,15 @@ A glossary of terms used in this book is available in the [PLCnext Technology In
 >
 > Lines that don’t start with `$`, `#` or `>>>` typically show the output of the previous command.
 
+## Versions
+
+PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed on the [PLCnext Community website][release-strategy].
+
+This book will be kept up to date with the latest version of PLCnext runtime firmware. As soon as a new version of PLCnext firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.
+
 ## Source Code
 
-The source files from which this book is generated can be found on
-[GitHub][book].
+The source files used to generate this book can be found on [GitHub][book].
 
 ---
 
@@ -117,4 +122,5 @@ The source files from which this book is generated can be found on
 [ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
 [info-center]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm
 [glossary]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary
+[release-strategy]: https://www.plcnext-community.net/en/hn-knowledge-base/hn-features-and-roadmap.html
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src
