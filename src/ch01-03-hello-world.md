@@ -1,6 +1,6 @@
 ## Hello, World!
 
-Let's write our first PLCnext Control program straight away!
+Let's write our first PLCnext Control program!
 
 ### Your First Program
 

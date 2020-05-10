@@ -29,7 +29,7 @@ axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255
 
 The MAC address and current IP address details of the PLC are shown in the response.
 
-If you get no response, then make sure the name of the Ethernet adapter is correct. Also, be aware that the [Discovery and Configuration Protocol][profinet-dcp] (DCP) used by `netnames` is a link layer protocol, and so is not routable.
+If you get no response, make sure the name of the Ethernet adapter is correct. Also, be aware that the [Discovery and Configuration Protocol][profinet-dcp] (DCP) used by `netnames` is a link layer protocol, and so is not routable.
 
 The IP address, subnet mask and default gateway can be changed using a command similar to the following:
 

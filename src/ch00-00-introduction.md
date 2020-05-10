@@ -31,7 +31,7 @@ Simulink® is software for graphical, model-based development of dynamic systems
 
 ### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc
 
-(something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).
+Custom software applications written in any popular programming language can be run on the controller. These applications can make use of PLCnext runtime services if required.
 
 ### Systems integrators and network administrators
 
@@ -53,7 +53,7 @@ For systems and network administrators who will be managing PLCnext Control devi
 
 ## What You Will Need
 
-Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the [PLCnext Starter Kit](starter-kit), which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.
+Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the [PLCnext Starter Kit](starter-kit), which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.
 
 Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
 
@@ -73,11 +73,11 @@ Chapter 1 explains how to get started with a PLCnext Control device, from settin
 
 In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.
 
-Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the PLC.
+Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.
 
 Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.
 
-Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the PLC I/O, and how they can continue to utilise services provided by the PLCnext runtime.
+Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.
 
 A glossary of terms used in this book is available in the [PLCnext Technology Info Center][glossary].
 
@@ -111,14 +111,14 @@ The source files used to generate this book can be found on [GitHub][book].
 
 <sup>3</sup> *PLC* is short for [*Programmable Logic Controller*](https://en.wikipedia.org/wiki/Programmable_logic_controller).
 
-[axcf1152]: http://www.phoenixcontact.net/qr/1151412
-[axcf2152]: http://www.phoenixcontact.net/qr/2404267
-[axcf3152]: http://www.phoenixcontact.net/qr/1069208
-[rfc4072s]: http://www.phoenixcontact.net/qr/1051328
+[axcf1152]: http://www.phoenixcontact.net/product/1151412
+[axcf2152]: http://www.phoenixcontact.net/product/2404267
+[axcf3152]: http://www.phoenixcontact.net/product/1069208
+[rfc4072s]: http://www.phoenixcontact.net/product/1051328
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
-[plcnext-engineer]: http://www.phoenixcontact.net/qr/1046008
-[simulink-add-on]: http://www.phoenixcontact.net/qr/2400041
-[starter-kit]: http://www.phoenixcontact.net/qr/1046568
+[plcnext-engineer]: http://www.phoenixcontact.net/product/1046008
+[simulink-add-on]: http://www.phoenixcontact.net/product/2400041
+[starter-kit]: http://www.phoenixcontact.net/product/1046568
 [ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
 [info-center]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm
 [glossary]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary
