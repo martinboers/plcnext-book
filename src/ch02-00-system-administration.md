@@ -10,4 +10,4 @@ This chapter describes PLCnext Control system administration features that are l
 * File system
 * Installing software
 
-[os-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Operating_system.htm
+[os-info]: https://www.plcnext.help/te/Operating_System/Operating_system.htm

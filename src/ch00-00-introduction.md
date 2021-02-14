@@ -95,7 +95,7 @@ A glossary of terms used in this book is available in the [PLCnext Technology In
 
 ## Versions
 
-PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed on the [PLCnext Community website][release-strategy].
+PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the [PLCnext Info Center][release-strategy].
 
 This book will be kept up to date with the latest version of PLCnext runtime firmware. As soon as a new version of PLCnext firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.
 
@@ -111,16 +111,16 @@ The source files used to generate this book can be found on [GitHub][book].
 
 <sup>3</sup> *PLC* is short for [*Programmable Logic Controller*](https://en.wikipedia.org/wiki/Programmable_logic_controller).
 
-[axcf1152]: http://www.phoenixcontact.net/product/1151412
-[axcf2152]: http://www.phoenixcontact.net/product/2404267
-[axcf3152]: http://www.phoenixcontact.net/product/1069208
-[rfc4072s]: http://www.phoenixcontact.net/product/1051328
+[axcf1152]: http://www.phoenixcontact.com/product/1151412
+[axcf2152]: http://www.phoenixcontact.com/product/2404267
+[axcf3152]: http://www.phoenixcontact.com/product/1069208
+[rfc4072s]: http://www.phoenixcontact.com/product/1051328
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
-[plcnext-engineer]: http://www.phoenixcontact.net/product/1046008
-[simulink-add-on]: http://www.phoenixcontact.net/product/2400041
-[starter-kit]: http://www.phoenixcontact.net/product/1046568
+[plcnext-engineer]: http://www.phoenixcontact.com/product/1046008
+[simulink-add-on]: http://www.phoenixcontact.com/product/2400041
+[starter-kit]: http://www.phoenixcontact.com/product/1046568
 [ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
-[info-center]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm
-[glossary]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary
-[release-strategy]: https://www.plcnext-community.net/en/hn-knowledge-base/hn-features-and-roadmap.html
+[info-center]: https://www.plcnext.help/te/About/Home.htm
+[glossary]: https://www.plcnext.help/te/About/Home.htm?agt=glossary
+[release-strategy]: https://www.plcnext.help/te/About/Releases.htm
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src

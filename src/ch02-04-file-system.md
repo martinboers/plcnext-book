@@ -74,5 +74,5 @@ It is highly recommended to take regular backups of the user file system.
 (how to restore)
 
 [overlay]: https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works
-[fw-dirs-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Operating_System/Firmware_directories.htm
-[sd-card-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_SD_Card.htm
+[fw-dirs-info]: https://www.plcnext.help/te/Operating_System/Firmware_directories.htm
+[sd-card-info]: https://www.plcnext.help/te/WBM/Security_SD_Card_settings.htm

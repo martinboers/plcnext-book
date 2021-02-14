@@ -18,4 +18,4 @@ The following is an example of a `gds.config` file:
 
 (NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)
 
-[gds-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Global_Data_Space_configuration.htm#gds_configurati
+[gds-info]: https://www.plcnext.help/te/PLCnext_Runtime/Global_Data_Space_configuration.htm#gds_configurati

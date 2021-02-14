@@ -20,6 +20,6 @@ Includes the following features:
 - Automatically generates the following configuration files: .tic, gds.config, esm.config and plm.config.
 - Debugging features including GDS variable "Watch" window, Force variables, notification viewer.
 
-[eclr-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Csharp/eCLR_Programming_System.htm
+[eclr-info]: https://www.plcnext.help/te/Programming/Csharp/eCLR_Programming_System.htm
 
 [clr-info]: https://docs.microsoft.com/en-us/dotnet/standard/clr

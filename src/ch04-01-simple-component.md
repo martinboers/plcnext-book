@@ -98,6 +98,6 @@ LOADED COMPONENT
 
 Your first PLCnext extension component instance is now running!
 
-[component-base-doc]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1System_1_1Acf_1_1ComponentBase.html
+[component-base-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1ComponentBase.html
 
-[library-base-doc]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1System_1_1Acf_1_1LibraryBase.html
+[library-base-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1LibraryBase.html

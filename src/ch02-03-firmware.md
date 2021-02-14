@@ -29,11 +29,7 @@ New versions of PLCnext Control firmware are released regularly. If the firmware
 
 * Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.
 
-* Extract the `.exe` file from the archive.
-
-* Run the self-extracting .exe on either a Windows host, or using `wine` on a Linux host.
-
-* Locate the `.raucb` file that was installed by the `.exe`.
+* Extract the `.raucb` file from the archive.
 
 * Copy the .raucb file to the PLC:
 
@@ -65,12 +61,12 @@ There are three other ways to upgrade the firmware on the controller:
 
 * Through [web-based management][wbm] (WBM).
 
-* Using an OPC UA client (link???).
+* Using an OPC UA client (not currently documented).
 
 * Using the `StartFirmwareUpdate` method on the [*Device Control*][service] PLCnext runtime service.
 
 These features will all be introduced later in this book.
 
 [plcnext-community]: https://www.plcnext-community.net
-[wbm]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_Firmware_Update.htm
-[service]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html
+[wbm]: https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm
+[service]: https://www.plcnext.help/te/About/#idevicecontrols

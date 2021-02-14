@@ -156,21 +156,21 @@
 <p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
 <p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
 <ul>
-<li><a href="http://www.phoenixcontact.net/qr/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/qr/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/qr/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
-<li><a href="http://www.phoenixcontact.net/qr/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
+<li><a href="http://www.phoenixcontact.net/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
+<li><a href="http://www.phoenixcontact.net/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
 <p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
 <h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
-<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/qr/1046008"><em>PLCnext Engineer</em></a> software.</p>
+<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
 <h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
-<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/qr/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
+<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/product/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
 <h3><a class="header" href="#software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc" id="software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc">Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc</a></h3>
-<p>(something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).</p>
+<p>Custom software applications written in any popular programming language can be run on the controller. These applications can make use of PLCnext runtime services if required.</p>
 <h3><a class="header" href="#systems-integrators-and-network-administrators" id="systems-integrators-and-network-administrators">Systems integrators and network administrators</a></h3>
 <p>It is possible to simply install and configure pre-built applications on a PLCnext Control device, without any software engineering effort.</p>
 <h3><a class="header" href="#project-teams-with-some-or-all-of-the-above-skills" id="project-teams-with-some-or-all-of-the-above-skills">Project teams with some or all of the above skills</a></h3>
@@ -181,7 +181,7 @@
 <p>For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the &quot;Installing Software&quot; topic.</p>
 <p>For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapter 1 useful, up to and including &quot;System Administration&quot;.</p>
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
-<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.</p>
+<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.</p>
 <p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
@@ -193,9 +193,9 @@
 <p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.</p>
 <p>Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first &quot;Hello, World!&quot; programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.</p>
 <p>In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.</p>
-<p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the PLC.</p>
+<p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.</p>
 <p>Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.</p>
-<p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the PLC I/O, and how they can continue to utilise services provided by the PLCnext runtime.</p>
+<p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.</p>
 <p>A glossary of terms used in this book is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary">PLCnext Technology Info Center</a>.</p>
 <blockquote>
 <h3><a class="header" href="#command-line-notation" id="command-line-notation">Command Line Notation</a></h3>

@@ -107,11 +107,11 @@
 
 ### C#
 
-* PLCnext Community Makers Blog post: "[Install the .NET Core runtime 3.0.0 on the AXC F 2152](https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html)".
+* Björn Sauer, PLCnext Community Makers Blog post: "[Install the .NET Core runtime 3.0.0 on the AXC F 2152](https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html)".
 
-* PLCnext Community Makers Blog post: "[Getting started with C# and .Net Core 3.0 on PLCnext](https://www.plcnext-community.net/en/hn-makers-blog/456-getting-started-with-c-and-visual-studio-code-on-plcnext.html)".
+* Kay Suttkuss, PLCnext Community Makers Blog post: "[Getting started with C# and .Net Core 3.0 on PLCnext](https://www.plcnext-community.net/en/hn-makers-blog/456-getting-started-with-c-and-visual-studio-code-on-plcnext.html)".
 
-* PLCnext Community Makers Blog post: "[Remote Debugging of a .Net Core application with VS Code on PLCnext](https://www.plcnext-community.net/en/hn-makers-blog/464-remote-debugging-of-a-net-core-application-with-vs-code-on-plcnext.html)".
+* Kay Suttkuss, PLCnext Community Makers Blog post: "[Remote Debugging of a .Net Core application with VS Code on PLCnext](https://www.plcnext-community.net/en/hn-makers-blog/464-remote-debugging-of-a-net-core-application-with-vs-code-on-plcnext.html)".
 
 ### Go
 

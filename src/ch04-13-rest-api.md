@@ -12,4 +12,4 @@ Another way to access GDS variables.
 
 (NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)
 
-[rest-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/REST_data_interface/Data_Service_API_for_PLCnext_Control.htm
+[rest-info]: https://www.plcnext.help/te/Service_Components/REST_data_interface/REST_data_interface_Introduction.htm

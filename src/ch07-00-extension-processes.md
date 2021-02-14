@@ -18,4 +18,4 @@ TODO:
 [codesys]: https://www.plcnextstore.com/#/220
 [four-zero]: https://www.plcnextstore.com/#/168
 [4diac]: https://www.eclipse.org/4diac/en_rte.php
-[comparison]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Function_extensions_for_internal_processes.htm
+[comparison]: https://www.plcnext.help/te/PLCnext_Runtime/Function_extensions_for_internal_processes.htm

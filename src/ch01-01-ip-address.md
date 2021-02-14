@@ -61,7 +61,7 @@ For Windows users, it is also possible to set the IP address of the PLC using [P
 [what-you-will-need]: ch00-00-introduction.md#what-you-will-need
 [profinet]: https://www.profibus.com/technology/profinet/
 [netnames-linux]: http://plcnext-runtime.com/downloads/netnames/linux-x64/netnames
-[netnames-win]: http://www.phoenixcontact.net/qr/2316390/softw
-[profinet-dcp]: (https://profinetuniversity.com/naming-addressing/profinet-dcp/)
-[plcnext-eng]: http://phoenixcontact.net/product/1046008
-[plcnext-eng-getting-started]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Engineer/Getting_started_with_PLCnext_Engineer.htm
+[netnames-win]: http://www.phoenixcontact.com/qr/2316390/softw
+[profinet-dcp]: https://profinetuniversity.com/naming-addressing/profinet-dcp/
+[plcnext-eng]: http://phoenixcontact.com/product/1046008
+[plcnext-eng-getting-started]: https://www.plcnext.help/te/PLCnext_Engineer/Getting_started_with_PLCnext_Engineer.htm

@@ -28,6 +28,6 @@ You will see that some of the methods we defined are called when the component i
 
 - Only one method has a parameter - this allows us to load a Settings file, like we saw for some of the components that come with the PLCnext firmware.
 
-[loggable-doc]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Loggable_3_01Derived_00_01true_01_4.html
+[loggable-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Loggable_3_01Derived_00_01true_01_4.html
 
-[log-doc]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Log.html
+[log-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Log.html

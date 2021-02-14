@@ -172,21 +172,21 @@
 <p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
 <p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
 <ul>
-<li><a href="http://www.phoenixcontact.net/qr/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/qr/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/qr/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
-<li><a href="http://www.phoenixcontact.net/qr/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
+<li><a href="http://www.phoenixcontact.net/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.net/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
+<li><a href="http://www.phoenixcontact.net/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
 <p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
 <h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
-<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/qr/1046008"><em>PLCnext Engineer</em></a> software.</p>
+<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
 <h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
-<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/qr/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
+<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/product/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
 <h3><a class="header" href="#software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc" id="software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc">Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc</a></h3>
-<p>(something here) - including support tools (SDKs, add-ins for Visual Studio and Eclipse).</p>
+<p>Custom software applications written in any popular programming language can be run on the controller. These applications can make use of PLCnext runtime services if required.</p>
 <h3><a class="header" href="#systems-integrators-and-network-administrators" id="systems-integrators-and-network-administrators">Systems integrators and network administrators</a></h3>
 <p>It is possible to simply install and configure pre-built applications on a PLCnext Control device, without any software engineering effort.</p>
 <h3><a class="header" href="#project-teams-with-some-or-all-of-the-above-skills" id="project-teams-with-some-or-all-of-the-above-skills">Project teams with some or all of the above skills</a></h3>
@@ -197,7 +197,7 @@
 <p>For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the &quot;Installing Software&quot; topic.</p>
 <p>For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapter 1 useful, up to and including &quot;System Administration&quot;.</p>
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
-<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the PLC with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog I/O modules.</p>
+<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.</p>
 <p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
@@ -209,9 +209,9 @@
 <p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.</p>
 <p>Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first &quot;Hello, World!&quot; programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.</p>
 <p>In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.</p>
-<p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the PLC.</p>
+<p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.</p>
 <p>Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.</p>
-<p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the PLC I/O, and how they can continue to utilise services provided by the PLCnext runtime.</p>
+<p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.</p>
 <p>A glossary of terms used in this book is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary">PLCnext Technology Info Center</a>.</p>
 <blockquote>
 <h3><a class="header" href="#command-line-notation" id="command-line-notation">Command Line Notation</a></h3>
@@ -233,13 +233,30 @@
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>This chapter includes:</p>
 <ul>
-<li>Setting the PLC's IP address</li>
-<li>Updating the firmware</li>
-<li>Exploring the file system</li>
-<li>Installing software</li>
-<li>Writing a program that prints <code>Hello, world!</code> in Python</li>
-<li>Installing a software development kit</li>
-<li>Writing programs that print <code>Hello, world!</code> in C++ and Rust</li>
+<li>
+<p>Setting the controller's IP address</p>
+</li>
+<li>
+<p>Starting a shell session</p>
+</li>
+<li>
+<p>Writing a Python program that prints <code>Hello, world!</code></p>
+</li>
+<li>
+<p>Installing a software development kit</p>
+</li>
+<li>
+<p>Writing a C++ program that prints <code>Hello, world!</code></p>
+</li>
+<li>
+<p>Updating the firmware</p>
+</li>
+<li>
+<p>Exploring the file system</p>
+</li>
+<li>
+<p>Installing software</p>
+</li>
 </ul>
 <h2><a class="header" href="#setting-the-ip-address" id="setting-the-ip-address">Setting the IP Address</a></h2>
 <p>Once you have assembled <a href="ch00-00-introduction.html#what-you-will-need">everything you need to get started</a>, your PLC will be powered up and plugged in to an Ethernet network with access to the internet. On an AXC PLC it doesn't matter which of the two Ethernet ports are used; these are switched internally.</p>
@@ -259,7 +276,7 @@
 axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255.255.0   0.0.0.0
 </code></pre>
 <p>The MAC address and current IP address details of the PLC are shown in the response.</p>
-<p>If you get no response, then make sure the name of the Ethernet adapter is correct. Also, be aware that the <a href="(https://profinetuniversity.com/naming-addressing/profinet-dcp/)">Discovery and Configuration Protocol</a> (DCP) used by <code>netnames</code> is a link layer protocol, and so is not routable.</p>
+<p>If you get no response, make sure the name of the Ethernet adapter is correct. Also, be aware that the <a href="(https://profinetuniversity.com/naming-addressing/profinet-dcp/)">Discovery and Configuration Protocol</a> (DCP) used by <code>netnames</code> is a link layer protocol, and so is not routable.</p>
 <p>The IP address, subnet mask and default gateway can be changed using a command similar to the following:</p>
 <pre><code class="language-text">$ sudo ./netnames -i eth0 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.255.0 -sg 192.168.178.1
 Device responded: OK
@@ -293,7 +310,7 @@ admin@192.168.1.10's password:
 <pre><code class="language-text">admin@axcf2152:~$
 </code></pre>
 <h2><a class="header" href="#hello-world" id="hello-world">Hello, World!</a></h2>
-<p>Let's write our first PLCnext Control program straight away!</p>
+<p>Let's write our first PLCnext Control program!</p>
 <h3><a class="header" href="#your-first-program" id="your-first-program">Your First Program</a></h3>
 <p>Every PLCnext Control comes with Python already installed.</p>
 <pre><code class="language-text"># python3
@@ -1398,74 +1415,98 @@ LOADED COMPONENT
 <h3><a class="header" href="#c-1" id="c-1">C++</a></h3>
 <ul>
 <li>
-<p>This book  :)</p>
+<p>PLCnext Info Center - <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp-programming.htm">C++ programming on PLCnext Technology</a>.</p>
 </li>
 <li>
-<p>Info Center</p>
+<p>PLCnext Info Center - <a href="https://www.plcnext.help/te/Programming/Cpp/PLCnext_API_documentation.htm">PLCnext API documentation</a>.</p>
 </li>
 <li>
-<p>API documentation</p>
+<p>PLCnext Technology Github projects:</p>
+<ul>
+<li>CppExamples. &quot;<a href="https://github.com/PLCnext/CppExamples">PLCnext/CppExamples</a>&quot;</li>
+<li>Real Time DataLogger. &quot;<a href="https://github.com/PLCnext/PLCnext_RT_Datalogger">PLCnext/PLCnext_RT_Datalogger</a>&quot;</li>
+<li>Bus Conductor. &quot;<a href="https://github.com/PLCnext/BusConductor">PLCnext/BusConductor</a>&quot;</li>
+<li>SampleRuntime. &quot;<a href="https://github.com/PLCnext/SampleRuntime">PLCnext/SampleRuntime</a>&quot;</li>
+</ul>
 </li>
 <li>
-<p>Github Runtime</p>
+<p>Github project: &quot;<a href="https://github.com/sdurbin-pxc/plcnext-io-drivers-cpp">sdurbin-pxc/plcnext-io-drivers-cpp</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/365-how-to-use-visual-studio-code-to-write-c-for-plcnext.html">How to use Visual Studio Code to write C++ for PLCnext</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/365-how-to-use-visual-studio-code-to-write-c-for-plcnext.html">How to use Visual Studio Code to write C++ for PLCnext</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/376-automate-your-development-workflow-with-visual-studio-code.html">Automate your development workflow with Visual Studio Code</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/376-automate-your-development-workflow-with-visual-studio-code.html">Automate your development workflow with Visual Studio Code</a>&quot;.</p>
 </li>
 <li>
-<p>How to configure Eclipse® to program and crosscompile for the AXC F 2152 on Ubuntu 18.04 LTS: &quot;<a href="https://github.com/savushkin-r-d/PLCnext-howto/tree/master/HowTo%20install%20Linux%20(Ubuntu)%20tools%20for%20C%2B%2B%20programming%20with%20Eclipse%20IDE">How to configure Eclipse® to program and crosscompile for the AXC F 2152 on Ubuntu 18.04 LTS</a>&quot;.</p>
+<p>Github project: &quot;<a href="https://github.com/savushkin-r-d/PLCnext-howto/tree/master/HowTo%20install%20Linux%20(Ubuntu)%20tools%20for%20C%2B%2B%20programming%20with%20Eclipse%20IDE">How to configure Eclipse® to program and crosscompile for the AXC F 2152 on Ubuntu 18.04 LTS</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/371-how-to-include-an-open-source-library-in-your-own-c-project.html">How to include an open-source library in your own C++ project</a>&quot;.</p>
+<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/371-how-to-include-an-open-source-library-in-your-own-c-project.html">How to include an open-source library in your own C++ project</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/408-how-to-store-data-in-sqlite-in-a-plcnext-c-project.html">How to store data in SQLite in a PLCnext C++ project</a>&quot;.</p>
+<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/408-how-to-store-data-in-sqlite-in-a-plcnext-c-project.html">How to store data in SQLite in a PLCnext C++ project</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/429-how-to-install-libcurl-on-your-axc-f-2152-controller.html">How to install libcurl on your AXC F 2152 controller</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/429-how-to-install-libcurl-on-your-axc-f-2152-controller.html">How to install libcurl on your AXC F 2152 controller</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">Tutorial: Using the AXC F 2152 controller with Microsoft Azure</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">Tutorial: Using the AXC F 2152 controller with Microsoft Azure</a>&quot;.</p>
+</li>
+<li>
+<p>Oliver Warneke, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/546-connect-plcnext-remotly-to-rs232-rs485-via-pseudo-tty.html">Connecting PLCnext PLCs to remote RS232/RS485 via pseudo TTY</a>&quot;.</p>
+</li>
+<li>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/565-use-the-ixmlserializable-interface-to-populate-a-class-from-a-xml-file.html">Use the IXMLSerializable interface to populate a class from a XML file</a>&quot;.</p>
+</li>
+<li>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/566-how-to-define-complex-gds-ports-and-connect-them-to-gds-port-in-iec-code.html">How to define complex GDS Ports and connect them to GDS Port in IEC code</a>&quot;.</p>
+</li>
+<li>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/567-pugixml-a-light-weight-xml-processing-library-with-xpath-support.html">pugixml a light-weight XML processing library with XPATH support</a>&quot;.</p>
+</li>
+<li>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/568-linq-the-list-processing-library-for-c.html">Linq the list processing library for C++</a>&quot;.</p>
+</li>
+<li>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/569-c-testing-with-catch2.html">c++ testing with catch2</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#rust-1" id="rust-1">Rust</a></h3>
 <ul>
-<li>PLCnext Community Makers Blog post: &quot;&quot;</li>
+<li>PLCnext Technology - Rust Sample Runtime. &quot;<a href="https://github.com/PLCnext/rust-sample-runtime">PLCnext/rust-sample-runtime</a>&quot;</li>
 </ul>
 <h3><a class="header" href="#docker" id="docker">Docker</a></h3>
 <ul>
 <li>
-<p>Info Center</p>
-</li>
-<li>
 <p>PLCnext Technology - Docker and Balena Engine: &quot;<a href="https://github.com/PLCnext/Docker_GettingStarted">PLCnext/Docker_GettingStarted</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/465-how-to-turn-an-axc-f-2152-into-an-aws-greengrass-device.html">How to turn an AXC F 2152 into an AWS Greengrass device</a>&quot;.</p>
+<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/465-how-to-turn-an-axc-f-2152-into-an-aws-greengrass-device.html">How to turn an AXC F 2152 into an AWS Greengrass device</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#java" id="java">Java</a></h3>
 <ul>
 <li>
-<p>Info Center</p>
+<p>PLCnext Info Center - <a href="https://www.plcnext.help/te/Programming/Java/Java_Overview.htm">Java on PLCnext Technology</a>.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/422-java-application-on-an-axc-f-2152.html">Java Application on an AXC F 2152</a>&quot;.</p>
+<p>Marcel Luhmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/422-java-application-on-an-axc-f-2152.html">Java Application on an AXC F 2152</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/423-how-to-use-the-rsc-services-out-of-a-remote-java-application.html">How to use the PLCnext RSC out of a remote Java Application</a>&quot;.</p>
+<p>Andre Niggemann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/423-how-to-use-the-rsc-services-out-of-a-remote-java-application.html">How to use the PLCnext RSC out of a remote Java Application</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#nodejs-and-node-red" id="nodejs-and-node-red">Node.js and Node-Red</a></h3>
 <ul>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/481-node-red-and-getting-started-with-docker.html">Node-RED and getting started with Docker</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/399-installing-node-js-on-rfc-4072s.html">Installing Node.js on RFC 4072S</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/482-node-red-with-docker-tips-and-best-practice.html">Node-Red with docker tips and best practice</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/481-node-red-and-getting-started-with-docker.html">Node-RED and getting started with Docker</a>&quot;.</p>
+</li>
+<li>
+<p>Stefan Brinkmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/482-node-red-with-docker-tips-and-best-practice.html">Node-Red with docker tips and best practice</a>&quot;.</p>
 </li>
 <li>
 <p>Github project: &quot;<a href="https://github.com/plcnextusa/node-red">plcnextusa/node-red</a>&quot;.</p>
@@ -1474,7 +1515,7 @@ LOADED COMPONENT
 <p>PLCnext Store apps: &quot;<a href="https://www.plcnextstore.com/#/225">Node.js v10.15.3 LTS</a>&quot; (for AXC F 2152) and &quot;<a href="https://www.plcnextstore.com/#/239">Node.js v10.16.0 - RFC 4072S</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">How to connect PLCnext to Microsoft® Azure® by Node.js SDK</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">How to connect PLCnext to Microsoft® Azure® by Node.js SDK</a>&quot;.</p>
 </li>
 <li>
 <p>Nodejs package for communicating with a Phoenix Contact TC Router: &quot;<a href="https://github.com/PhoenixContactUSA/node-tcrouter">PhoenixContactUSA/node-tcrouter</a>&quot;.</p>
@@ -1483,36 +1524,47 @@ LOADED COMPONENT
 <p>Node-red nodes for communicating with a Phoenix Contact TC Router: &quot;<a href="https://github.com/PhoenixContactUSA/node-red-contrib-tcrouter">PhoenixContactUSA/node-red-contrib-tcrouter</a>&quot;</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/337-how-to-send-a-mail-via-node-red.html">How to send a mail via Node-Red</a>&quot;.</p>
+<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/337-how-to-send-a-mail-via-node-red.html">How to send a mail via Node-Red</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/390-knx-opc-ua-gateway-with-node-red.html">KNX - OPC UA Gateway with Node-Red</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/390-knx-opc-ua-gateway-with-node-red.html">KNX - OPC UA Gateway with Node-Red</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/336-how-to-create-a-simple-mqtt-broker-on-the-axl-f-2152-with-node-red.html">How to create a simple MQTT broker on the AXC F 2152 with Node-Red</a>&quot;.</p>
+<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/336-how-to-create-a-simple-mqtt-broker-on-the-axl-f-2152-with-node-red.html">How to create a simple MQTT broker on the AXC F 2152 with Node-Red</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#python" id="python">Python</a></h3>
 <ul>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/425-installing-pip-without-ipkg.html">Installing PIP without IPKG</a>&quot;.</p>
+<p>Python-Startersguide. &quot;<a href="https://github.com/pxcbe/python-startersguide">pxcbe/python-startersguide</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/426-package-managers-for-python-on-plcnext-devices.html">Install Miniconda on PLCnext Devices</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/425-installing-pip-without-ipkg.html">Installing PIP without IPKG</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/380-modbus-tcp-with-python-on-axc-f-2152.html">Modbus TCP with Python on AXC F 2152</a>&quot;.</p>
+<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/426-package-managers-for-python-on-plcnext-devices.html">Install Miniconda on PLCnext Devices</a>&quot;.</p>
 </li>
 <li>
-<p>aiohttp for AXCF2152 (2020.0). &quot;<a href="https://github.com/Songyantao-PXCCN/aiohttp/tree/master/2020.0">Songyantao-PXCCN/aiohttp</a>&quot;.</p>
+<p>Yuri Chamarelli, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/380-modbus-tcp-with-python-on-axc-f-2152.html">Modbus TCP with Python on AXC F 2152</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext connection to the REST api. &quot;<a href="https://github.com/dclark3774/PythonRESTapi">dclark3774/PythonRESTapi</a>&quot;.</p>
+<p>Github project: aiohttp for AXCF2152 (2020.0). &quot;<a href="https://github.com/Songyantao-PXCCN/aiohttp/tree/master/2020.0">Songyantao-PXCCN/aiohttp</a>&quot;.</p>
 </li>
-</ul>
-<h3><a class="header" href="#angular" id="angular">Angular</a></h3>
-<ul>
-<li>PLCnext Community Makers Blog post: &quot;&quot;</li>
+<li>
+<p>Github project: PLCnext connection to the REST api. &quot;<a href="https://github.com/dclark3774/PythonRESTapi">dclark3774/PythonRESTapi</a>&quot;.</p>
+</li>
+<li>
+<p>Alexander Skachkov, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/549-a-simple-rest-based-library-to-use-variables-in-plcnext-axc-f-2152-plc-from-python.html">A simple REST based library to use variables in PLCnext AXC F 2152 PLC from Python</a>&quot;.</p>
+</li>
+<li>
+<p>Frederik Leempoels, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/554-use-plcnext-to-wakeonlan-wol-your-pc.html">Use PLCnext to WakeOnLan (WoL) Your PC</a>&quot;.</p>
+</li>
+<li>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/556-containerized-opencv-python-on-plcnext.html">OpenCV - Python, Red Light detection on PLCnext</a>&quot;.</p>
+</li>
+<li>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/588-machine-learning-on-plcnext.html">Machine Learning on PLCnext</a>&quot;.</p>
+</li>
 </ul>
 <h3><a class="header" href="#c-2" id="c-2">C#</a></h3>
 <ul>
@@ -1528,38 +1580,49 @@ LOADED COMPONENT
 </ul>
 <h3><a class="header" href="#go" id="go">Go</a></h3>
 <ul>
-<li>PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/475-getting-started-with-golang-on-plcnext.html">Getting started with Go on PLCnext</a>&quot;</li>
+<li>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/475-getting-started-with-golang-on-plcnext.html">Getting started with Go on PLCnext</a>&quot;.</p>
+</li>
+<li>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/526-serving-static-files-with-go.html">Serving static files with Go</a>&quot;.</p>
+</li>
 </ul>
-<h3><a class="header" href="#profinet" id="profinet">Profinet</a></h3>
-<p>Not sure if/where this link should be included.
-http://www.wseas.us/e-library/conferences/2005prague/papers/493-349.pdf</p>
 <h2><a class="header" href="#appendix-b-list-of-rsc-services" id="appendix-b-list-of-rsc-services">Appendix B: List of RSC Services</a></h2>
-<p>The following table lists the RSC services that are available in the PLCnext runtime, including links to more information and API documentation:</p>
-<table><thead><tr><th align="left">Service (links to more information)</th><th align="left">Class (links to API documentation)</th><th align="left">Methods</th></tr></thead><tbody>
-<tr><td align="left">Device control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html">Arp::Device::Interface::Services::IDeviceControlService</a></td><td align="left">RestartDevice()<br/>StartFirmwareUpdate()<br/>ResetToFactoryDefaults()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#ideviceinfoserv">Device information</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceInfoService.html">Arp::Device::Interface::Services::IDeviceInfoService</a></td><td align="left">GetItem()<br/>GetItems()</td></tr>
-<tr><td align="left">Device settings</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceSettingsService.html">Arp::Device::Interface::Services::IDeviceSettingsService</a></td><td align="left">ReadValue()<br/>ReadValues()<br/>WriteValue()<br/>WriteValues()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#idevicestatusse">Device status</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceStatusService.html">Arp::Device::Interface::Services::IDeviceStatusService</a></td><td align="left">GetItem()<br/>GetItems()</td></tr>
-<tr><td align="left">Network load limiter control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html">Arp::Hardware::Nim::Services::INetloadLimiterService</a></td><td align="left">GetSettings()<br/>SetSettings()<br/>SetByteLimit()<br/>SetPacketLimit()<br/>EnableByteLimiter()<br/>DisableByteLimiter()<br/>EnablePacketLimiter()<br/>DisablePacketLimiter()<br/>GetState()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_Axioline_Services.htm#iacycliccommuni">Acyclic Axioline communication</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAcyclicCommunicationService.html">Arp::Io::Axioline::Services::IAcyclicCommunicationService</a></td><td align="left">PdiRead()<br/>PdiWrite()</td></tr>
-<tr><td align="left">Axioline master access</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAxioMasterService.html">Arp::Io::Axioline::Services::IAxioMasterService</a></td><td align="left">AxioControl()<br/>CreateConfiguration()<br/>ReadConfiguration()<br/>WriteConfiguration()<br/>ActivateConfiguration()<br/>DeactivateConfiguration()<br/>ResetMaster()</td></tr>
-<tr><td align="left">Interbus master access</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Interbus_1_1Services_1_1IInterbusMasterService.html">Arp::Io::Interbus::Services::IInterbusMasterService</a></td><td align="left">InterbusControl()<br/>CreateConfiguration()<br/>ReadConfiguration()<br/>WriteConfiguration()<br/>ActivateConfiguration()<br/>DeactivateConfiguration()<br/>StartDataTransfer()<br/>StopDataTransfer()<br/>AlarmStop()</td></tr>
-<tr><td align="left">PCP device communication</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1Interbus_1_1Services_1_1IPcpService.html">Arp::Io::Interbus::Services::IPcpService</a></td><td align="left">PcpInitiate()<br/>PcpAbort()<br/>PcpIdentify()<br/>PcpStatus()<br/>PcpRead()<br/>PcpWrite()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_PROFINET_Services.htm">Acyclic Profinet communication</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAcyclicCommunicationService.html">Arp::Io::ProfinetStack::Controller::Services::IAcyclicCommunicationService</a></td><td align="left">RecordRead()<br/>RecordWrite()</td></tr>
-<tr><td align="left">Conversion of Profinet addresses and node IDs</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAddressConversionService.html">Arp::Io::ProfinetStack::Controller::Services::IAddressConversionService</a></td><td align="left">AddressToId()<br/>IdToAddress()</td></tr>
-<tr><td align="left">Profinet alarm receiver</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAlarmService.html">Arp::Io::ProfinetStack::Controller::Services::IAlarmService</a></td><td align="left">ReceiveAlarm()<br/>EnableAutoAlarmAcknowledge()</td></tr>
-<tr><td align="left">Profinet Application Relationships (AR) info</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArDataService.html">Arp::Io::ProfinetStack::Controller::Services::IArDataService</a></td><td align="left">GetAllArInfo()<br/>GetAllArAttributeNames()<br/>GetAttributeValue()<br/>GetAttributeValues()<br/>GetArDiagnosis()</td></tr>
-<tr><td align="left">Profinet Application Relationships (AR) manager</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArManagementService.html">Arp::Io::ProfinetStack::Controller::Services::IArManagementService</a></td><td align="left">GetArState()<br/>StartAr()<br/>StopAr()</td></tr>
-<tr><td align="left">Profinet Application Relationships (AR) statistics</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArStatisticService.html">Arp::Io::ProfinetStack::Controller::Services::IArStatisticService</a></td><td align="left">Read()<br/>ReadChanges()<br/>ReadMissedFramesGlobal()<br/>Reset()</td></tr>
-<tr><td align="left">Profinet system configuration</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Io_1_1ProfinetStack_1_1System_1_1Services_1_1IConfigurationService.html">Arp::Io::ProfinetStack::System::Services::IConfigurationService</a></td><td align="left">Read()<br/>Write()<br/>GetControllerName()<br/>GetDeviceNames()</td></tr>
-<tr><td align="left">PLC manager (deprectated)</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService.html">Arp::Plc::Domain::Services::IPlcManagerService</a></td><td align="left">Load()<br/>Start()<br/>Stop()<br/>Reset()<br/>GetPlcState()</td></tr>
-<tr><td align="left">PLC manager</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService2.html">Arp::Plc::Domain::Services::IPlcManagerService2</a></td><td align="left">Load()<br/>Start()<br/>Stop()<br/>Reset()<br/>GetPlcState()<br/>Change()<br/>Restart()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#idataaccessserv">Global Data Space variable access</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1IDataAccessService.html">Arp::Plc::Gds::Services::IDataAccessService</a></td><td align="left">ReadSingle()<br/>Read()<br/>WriteSingle()<br/>Write()</td></tr>
-<tr><td align="left">Global Data Space variable force control</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1IForceService.html">Arp::Plc::Gds::Services::IForceService</a></td><td align="left">AddVariable()<br/>RemoveVariable()<br/>GetVariables()<br/>Reset()<br/>IsForcable()<br/>IsActive()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#isubscriptionse">Global Data Space variable subscription</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Gds_1_1Services_1_1ISubscriptionService.html">Arp::Plc::Gds::Services::ISubscriptionService</a></td><td align="left">CreateSubscription()<br/>CreateRecordingSubscription()<br/>AddVariable()<br/>AddVariables()<br/>RemoveVariable()<br/>Subscribe()<br/>Resubscribe()<br/>Unsubscribe()<br/>DeleteSubscription()<br/>GetVariableInfos()<br/>GetTimeStampedVariableInfos()<br/>GetRecordInfos()<br/>ReadValues()<br/>ReadTimeStampedValues()<br/>ReadRecords()</td></tr>
-<tr><td align="left">Enumerate GDS variables</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Plc_1_1Meta_1_1Services_1_1IDataTraverserService.html">Arp::Plc::Meta::Services::IDataTraverserService</a></td><td align="left">FindInstancesByTypename()</td></tr>
-<tr><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/Querying_notifications_via_RSC.htm">Notification logger</a></td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Services_1_1NotificationLogger_1_1Services_1_1INotificationLoggerService.html">Arp::Services::NotificationLogger::Services::INotificationLoggerService</a></td><td align="left">QueryStoredNotifications()<br/>QueryNotifications()<br/>DeleteNotifications()<br/>ListArchives()<br/>GetArchiveConfiguration()<br/>SetArchiveConfiguration()<br/>ResetArchiveConfigurationToFiles()</td></tr>
-<tr><td align="left">LTTng trace controller</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Services_1_1TraceController_1_1Services_1_1ITraceControllerService.html">Arp::Services::TraceController::Services::ITraceControllerService</a></td><td align="left">IsSessionDaemonAlive()<br/>LoadSessionConfiguration()<br/>ListSessions()<br/>StartSession()<br/>StopSession()<br/>DestroySession()<br/>LoadTracepointLib()<br/>UnloadTracepointLib()<br/>TriggerSavingTraceOutputs()<br/>IsSessionInSnapshotMode()<br/>IsSessionEnabled()<br/>IsSessionLoaded()</td></tr>
+<p>The following table lists the RSC services that are available in the PLCnext runtime, including links to more information, API documentation and programming examples.</p>
+<table><thead><tr><th align="left">Service</th><th align="left">Methods</th><th align="left">More<br/>Information</th></tr></thead><tbody>
+<tr><td align="left">Device control</td><td align="left">Restart Device<br/>Start Firmware Update<br/>Reset to Factory Defaults</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Device information</td><td align="left">Get Item<br/>Get Items</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceInfoService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Device settings</td><td align="left">Read Value<br/>Read Values<br/>Write Value<br/>Write Values</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceSettingsService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceSettingsService" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Device status</td><td align="left">Get Item<br/>Get Items</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceStatusService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceStatusService" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">PLC information</td><td align="left">Get Info<br/>Get Infos</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcInfoService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">PLC manager (deprecated)</td><td align="left">Load<br/>Start<br/>Stop<br/>Reset<br/>Get PLC State</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">PLC manager</td><td align="left">Load<br/>Start<br/>Stop<br/>Reset<br/>Get PLC State<br/>Change<br/>Restart</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Domain_1_1Services_1_1IPlcManagerService2.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/PLCnext_Runtime/System_manager.htm#PLCManager" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Global Data Space<br/>variable access</td><td align="left">Read Single<br/>Read<br/>Write Single<br/>Write</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Gds_1_1Services_1_1IDataAccessService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#IDataAccessService" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/DataAccessExample/README.MD" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Global Data Space<br/>variable force control</td><td align="left">Add Variable<br/>Remove Variable<br/>Get Variables<br/>Reset<br/>Is Forcable (<em>sic</em>)<br/>Is Active</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Gds_1_1Services_1_1IForceService.html" title="API description">🔍</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/ForceExample/README.MD" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Global Data Space<br/>variable subscription</td><td align="left">Create Subscription<br/>Create Recording Subscription<br/>Add Variable<br/>Add Variables<br/>Remove Variable<br/>Subscribe<br/>Resubscribe<br/>Unsubscribe<br/>Delete Subscription<br/>Get Variable Infos<br/>Get Time Stamped Variable Infos<br/>Get Record Infos<br/>Read Values<br/>Read Time Stamped Values<br/>Read Records</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Gds_1_1Services_1_1ISubscriptionService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm#ISubscriptionService" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/SubscriptionExample/README.MD" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Retentive variable management</td><td align="left">Generate Backup File <br/>Prepare Latest Backup File For Restoring</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Retain_1_1Services_1_1IRetainManagerService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/PLCnext_Runtime/Extended_retain_handling.htm" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Enumerate GDS variables</td><td align="left">Find Instances By Typename</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Meta_1_1Services_1_1IDataTraverserService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Acyclic Axioline communication</td><td align="left">PDI Read <br/>PDI Write</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAcyclicCommunicationService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Axioline_Services.htm#IAcyclicCommunicationService" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Axioline master access</td><td align="left">Axio Control<br/>Create Configuration<br/>Read Configuration<br/>Write Configuration<br/>Activate Configuration<br/>Deactivate Configuration<br/>Reset Master</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1Axioline_1_1Services_1_1IAxioMasterService.html" title="API description">🔍</a> <a href="https://github.com/PLCnext/BusConductor" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Interbus master access</td><td align="left">Interbus Control<br/>Create Configuration<br/>Read Configuration<br/>Write Configuration<br/>Activate Configuration<br/>Deactivate Configuration<br/>Start Data Transfer<br/>Stop Data Transfer<br/>Alarm Stop</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1Interbus_1_1Services_1_1IInterbusMasterService.html" title="API description">🔍</a> <a href="https://github.com/PLCnext/BusConductor" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">PCP device communication</td><td align="left">PCP Initiate<br/>PCP Abort<br/>PCP Identify<br/>PCP Status<br/>PCP Read<br/>PCP Write</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1Interbus_1_1Services_1_1IPcpService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Acyclic Profinet communication</td><td align="left">Record Read<br/>Record Write</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAcyclicCommunicationService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_PROFINET_Services.htm" title="PLCnext Info Center">📄</a></td></tr>
+<tr><td align="left">Conversion of Profinet<br/>addresses and node IDs</td><td align="left">Address To ID<br/>ID To Address</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAddressConversionService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Profinet alarm receiver</td><td align="left">Receive Alarm<br/>Enable Auto Alarm Acknowledge</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IAlarmService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Profinet Application Relationships<br/>(AR) info</td><td align="left">Get All AR Info<br/>Get All AR Attribute Names<br/>Get Attribute Value<br/>Get Attribute Values<br/>Get AR Diagnosis</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArDataService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Profinet Application Relationships<br/>(AR) manager</td><td align="left">Get AR State<br/>Start AR<br/>Stop AR</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArManagementService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Profinet Application Relationships<br/>(AR) statistics</td><td align="left">Read<br/>Read Changes<br/>Read Missed Frames Global<br/>Reset</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1Controller_1_1Services_1_1IArStatisticService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Profinet system configuration</td><td align="left">Read<br/>Write<br/>Get Controller Name<br/>Get Device Names</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Io_1_1ProfinetStack_1_1System_1_1Services_1_1IConfigurationService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">File System Information</td><td align="left">Get Supported Traits<br/>Get Permissions<br/>Add Permissions<br/>Remove Permissions<br/>Get File System Traits Entry<br/>Get Space Info<br/>Get Root Directories<br/></td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileSystemInfoService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Directory Operations</td><td align="left">Exists<br/>Create<br/>Delete<br/>Clear<br/>Move<br/>Copy<br/>Enumerate File System Entries<br/>Enumerate File System Traits Entries</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IDirectoryService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">File Operations</td><td align="left">Exists<br/>Write<br/>Read<br/>Delete<br/>Move<br/>Copy</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Device Identity Validator</td><td align="left">Validate</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Security_1_1IDeviceIdentityValidatorService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">License Status</td><td align="left">Get License Status</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Lm_1_1Services_1_1ILicenseStatusService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Notification Manager</td><td align="left">Register Notification<br/>Unregister Notification<br/>Send Notification<br/>Get Notification Name<br/>Get Notification Name ID<br/>Get Notification Name IDs By Status<br/>Get All Known Notification Name IDs<br/>Get Notification Registration<br/>Get Payload Type ID<br/>Get Payload Type Name<br/>Get Number Of Submitted Notifications</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Nm_1_1Services_1_1INotificationManagerService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Notifications/Notification_manager.htm" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/NotificationExample/README.MD" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Notification logger</td><td align="left">Query Stored Notifications<br/>Query Notifications<br/>Delete Notifications<br/>List Archives<br/>Get Archive Configuration<br/>Set Archive Configuration<br/>Reset Archive Configuration To Files</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Services_1_1NotificationLogger_1_1Services_1_1INotificationLoggerService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/Querying_notifications_via_RSC.htm" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/NotificationExample/README.MD" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">Data Logger</td><td align="left">List Session Names<br/>Create Session<br/>Remove Session<br/>Start Session<br/>Stop Session<br/>Configure Session<br/>Get Session Configuration<br/>Get Session State<br/>Set Variables<br/>Get Logged Variables<br/>Read Variables Data<br/>Get Rotated File Names<br/>Get Session Names<br/>Set Trigger Condition</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Services_1_1DataLogger_1_1Services_1_1IDataLoggerService2.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_IDataLoggerService2.htm" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/PLCnext_RT_Datalogger" title="Programming example">🖥</a></td></tr>
+<tr><td align="left">LTTng trace controller</td><td align="left">Is Session Daemon Alive<br/>Load Session Configuration<br/>List Sessions<br/>Start Session<br/>Stop Session<br/>Destroy Session<br/>Load Tracepoint Lib<br/>Unload Tracepoint Lib<br/>Trigger Saving Trace Outputs<br/>Is Session In Snapshot Mode<br/>Is Session Enabled<br/>Is Session Loaded</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Services_1_1TraceController_1_1Services_1_1ITraceControllerService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Network load limiter control</td><td align="left">Get Settings<br/>Set Settings<br/>Set Byte Limit<br/>Set Packet Limit<br/>Enable Byte Limiter<br/>Disable Byte Limiter<br/>Enable Packet Limiter<br/>Disable Packet Limiter<br/>Get State</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html" title="API description">🔍</a></td></tr>
 </tbody></table>
 
                     </main>

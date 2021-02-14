@@ -17,6 +17,6 @@ In the next chapter, you will:
 * Call RSC services from that component.
 * Write your own RSC service.
 
-[rsc-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
+[rsc-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
 
 [appendix-a]: appendix-01-list-of-rsc-services.md

@@ -35,4 +35,4 @@ We can again use plcncli to help us with this project.
 
 ### Running
 
-[comparison]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Managing_of_components.htm
+[comparison]: https://www.plcnext.help/te/PLCnext_Runtime/Managing_of_components.htm

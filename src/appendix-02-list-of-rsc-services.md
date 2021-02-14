@@ -126,7 +126,7 @@ The following table lists the RSC services that are available in the PLCnext run
 
 [nm-api]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Nm_1_1Services_1_1INotificationManagerService.html "API description"
 
-[nm-info]: https://www.plcnext.help/te/Service_Components/Notifications/Notification_manager.htm "PLCnext Info Center"
+[nm-info]: https://www.plcnext.help/te/Service_Components/Notifications/Notifications_with_Cpp.htm "PLCnext Info Center"
 
 [nm-ex]: https://github.com/PLCnext/CppExamples/blob/master/Examples/NotificationExample/README.MD "Programming example"
 

@@ -4,31 +4,25 @@ By default, the PLCnext runtime starts a large number of components. These compo
 
 In this section, you will learn how to disable specific features of the PLCnext runtime.
 
-First, take a copy of the system file `Device.acf.settings`:
+First, take a copy of the system file `Components.acf.settings`:
 
 ```text
-# cp /etc/plcnext/Device.acf.settings /opt/plcnext/appshome/Custom.acf.settings
-(result)
+# cp /etc/plcnext/Components.acf.settings /opt/plcnext/appshome/Custom.acf.settings
 ```
 
-> The `/etc/plcnext/Device.acf.settings` file is installed as part of the firmware file system and should not be edited, for reasons given in the "Firmware" section of this book.
+> The `/etc/plcnext/Components.acf.settings` file is installed as part of the firmware file system and should not be edited, for reasons given in the "Firmware" section of this book.
 
 > The acronym *acf* is short for [*Application Component Framework*][acf-info], which is the framework used by all PLCnext components. You will learn more about this framework later, when you start writing your own PLCnext runtime components.
 
 Next, edit the `Custom.acf.settings` file, using either the `nano` or `vi` (vim) editor on the PLC, as follows:
 
-* Delete all the child elements under the `<AcfSettingsDocument>` element, *except* the `<EnvironmentVariables>` element.
-* Delete all the `<EnvironmentVariables>` elements *except* those whose `name` ends with **_SUPPORT**.
-* Delete any remaining `<EnvironmentVariables>` elements whose `value` is set by other environment variables.
-
-The features controlled by the remaining environment variables are ones that you can disable, if required.
-
 * Delete any `<EnvironmentVariables>` elements that you want to leave at the default value.
-* Add an `overridden` attribute to each remaining `<EnvironmentVariable>` element.
+* Add an `override` attribute to each remaining `<EnvironmentVariable>` element.
 
-The resulting file should look like this:
+The resulting file should look something like this:
 
 ```xml
+
 <?xml version="1.0" encoding="UTF-8"?>
 <AcfSettingsDocument
   xmlns="http://www.phoenixcontact.com/schema/acfsettings"
@@ -36,29 +30,55 @@ The resulting file should look like this:
   xsi:schemaLocation="http://www.phoenixcontact.com/schema/acfsettings.xsd"
   schemaVersion="1.0" >
 
+  <!-- Insert new entries in related domain section in alphabetic order -->
   <EnvironmentVariables>
-    <EnvironmentVariable name="ARP_TSM_SUPPORT" value="false" overridden="true" />
-    <EnvironmentVariable name="ARP_PROFINET_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_PROFICLOUD_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_ETHERNETIP_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_OPC_UA_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_EHMI_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_WBM_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_FWM_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_TRACECONTROLLER_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_DATALOGGER_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_APPMANAGER_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_RETAIN_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_ECLR_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_SYSTEM_WATCHDOG_SUPPORT" value="true" overridden="true" />
-    <EnvironmentVariable name="ARP_NETLOAD_LIMITER_SUPPORT" value="false" overridden="true" />
+
+    <!-- Device components-->
+    <EnvironmentVariable name="ARP_COMPONENT_RFCDISPLAY" value="false" override="true" />
+
+    <!-- Hardware components-->
+    <EnvironmentVariable name="ARP_COMPONENT_NETLOAD_LIMITER" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_EXTERNAL_PCI" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_EXTERNAL_SDCARD" value="true" override="true" />
+
+    <!-- Io components-->
+    <EnvironmentVariable name="ARP_COMPONENT_AXIOLINE" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_ETHERNETIP" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_INTERBUS" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_PROFINET" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_PND" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_PNC" value="false" override="true" />
+
+    <!-- Plc components-->
+    <EnvironmentVariable name="ARP_COMPONENT_ECLR" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_RETAIN" value="true" override="true" />
+
+    <!-- Services components-->
+    <EnvironmentVariable name="ARP_COMPONENT_APPMANAGER" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_DATALOGGER" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_EHMI" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_FWM" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_LINUXSYSLOG" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_OPC_UA" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_PROFICLOUD" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_PROFICLOUD_V3" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_SPNSPROXY" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_TRACECONTROLLER" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_TSM" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_WBM" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_WCM" value="true" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_LOGGING" value="false" override="true" />
+    <EnvironmentVariable name="ARP_COMPONENT_LOGMANAGER" value="false" override="true" />
+
+    <!-- System components-->
+    <EnvironmentVariable name="ARP_COMPONENT_SYSTEM_WATCHDOG" value="true" override="true" />
+
   </EnvironmentVariables>
 
 </AcfSettingsDocument>
 ```
 
 * Set the `value` attributes to `"true"` or `"false"`, to control whether this feature will be supported by the PLCnext runtime.
-* Set the `overridden` attribute to `"true"` or `"false"`, to ... WHAT ???
 
 Save the file, and restart the PLCnext runtime:
 
@@ -73,15 +93,16 @@ If you carefully examine the latest entries in the `Output.log` file, you will n
 
 You have probably noticed that the environment variables in your custom `.acf.settings` file are the same as those listed in the tables in the previous section. Those tables provide a reference for which components will be instantiated (or not) depending on the value of a specific environment variable. In some cases, the library implementing that feature will not even be loaded by the PLCnext runtime.
 
-> On AXC devices, the values of the environment variables `ARP_AXIOLINE_SUPPORT` and `ARP_INTERBUS_SUPPORT` are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own `.acf.settings` file.
+> On AXC devices, the values of the environment variables `ARP_COMPONENT_AXIOLINE` and `ARP_COMPONENT_INTERBUS` are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own `.acf.settings` file.
 
 ### Components Required by PLCnext Engineer
 
 By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:
 
-* ARP_ECLR_SUPPORT
-* ARP_PROFINET_SUPPORT
-* ARP_ETHERNETIP_SUPPORT
+* ARP_COMPONENT_ECLR
+* ARP_COMPONENT_PND
+* ARP_COMPONENT_PNC
+* ARP_COMPONENT_ETHERNETIP
 
 Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these components.
 
@@ -90,11 +111,12 @@ Later, you will learn how to disable support for PLCnext Engineer, which will th
 The name of the custom settings file does not need to be `Custom.acf.settings`. The filename can be anything, as long as it ends in `.acf.settings`, and is located in the `/opt/plcnext/appshome` directory. You may have noticed that the custom settings file is included using this directive in the `/etc/plcnext/Device.acf.settings` file:
 
 ```xml
-    <Include path="$ARP_HOME_DIR$/appshome/*.acf.settings" />
+  <!-- Include settings files for overridden app specific settings -->
+  <Include path="/opt/plcnext/appshome/*.acf.settings" />
 ```
 
 As you can see, this directive will include *all* files that match the pattern specified in the `path` attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:
 
 (TODO: How are conflicts resolved?)
 
-[acf-info]: http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Cpp/Cpp_program_structure/ACF_Application_Component_Framework.htm
+[acf-info]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/ACF_Application_Component_Framework.htm

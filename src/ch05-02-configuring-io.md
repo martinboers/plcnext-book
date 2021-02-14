@@ -10,4 +10,3 @@ Offline configuration:
 
 Automatic and/or dynamic configuration:
 - Use AxioMaster service, for example (BusConductor example in Github)
-- Use Peer-Michael's Audi project
