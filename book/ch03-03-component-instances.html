@@ -155,115 +155,164 @@
 <ol>
 <li>PLCnext libraries are loaded and given a unique name.</li>
 <li>One or more processes are started.</li>
-<li>PLCnext component instances are created in specified processes.</li>
+<li>PLCnext component instances are created in specific processes.</li>
 </ol>
+<p>The configuration information in this section appears in the following files:</p>
+<ul>
+<li><code>/etc/plcnext/device/Libraries.acf.config</code></li>
+<li><code>/etc/plcnext/device/MainProcess.acf.config</code></li>
+<li><code>/etc/plcnext/device/ExternalIoProcess.acf.config</code></li>
+<li><code>/etc/plcnext/device/AXCF2152.acf.config</code></li>
+</ul>
 <h3><a class="header" href="#runtime-libraries" id="runtime-libraries">Runtime Libraries</a></h3>
-<p>The following tables shows the name given to each PLCnext library when it is loaded by the PLCnext runtime.</p>
+<p>The following table show the name given to each PLCnext library when it is loaded by the PLCnext runtime.</p>
 <p>Libraries can be loaded conditionally, based on the value of a boolean environment variable. If no condition is specified, the library is always loaded.</p>
 <table><thead><tr><th align="left">Library file</th><th align="left">Name assigned by PLCnext runtime</th><th align="left">Condition</th></tr></thead><tbody>
-<tr><td align="left">libArp.Io.Axioline.so<sup>1</sup></td><td align="left">Arp.Io.Axl.Library</td><td align="left">ARP_AXIOLINE_SUPPORT</td></tr>
-<tr><td align="left">libArp.Io.Interbus.so<sup>1</sup></td><td align="left">Arp.Io.IbM.Library</td><td align="left">ARP_INTERBUS_SUPPORT</td></tr>
-<tr><td align="left">libArp.Io.EthernetIP.so<sup>1</sup></td><td align="left">Arp.Io.EthernetIP.Library</td><td align="left">ARP_ETHERNETIP_SUPPORT</td></tr>
-<tr><td align="left">libArp.Io.ProfinetStack.so</td><td align="left">Arp.Io.Pn.Library</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left">libArp.Services.Fwm.so</td><td align="left">Arp.Services.Fwm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Wbm.so</td><td align="left">Arp.Services.Wbm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Ehmi.so</td><td align="left">Arp.Services.Ehmi.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.OpcUAServer.so</td><td align="left">Arp.Services.OpcUAServer.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Alarms.so</td><td align="left">Arp.Services.Alarms.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.ProfiCloud.so</td><td align="left">Arp.Services.ProfiCloud.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.NotificationLogger.so</td><td align="left">Arp.Services.NotificationLogger.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.TraceController.so</td><td align="left">Arp.Services.TraceController.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.NmUtilities.so</td><td align="left">Arp.Services.NmUtilities.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.DataLogger.so</td><td align="left">Arp.Services.DataLogger.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.AppManager.so</td><td align="left">Arp.Services.AppManager.Library</td><td align="left">ARP_APPMANAGER_SUPPORT</td></tr>
-<tr><td align="left">libArp.Device.Access.so</td><td align="left">Arp.Device.Access.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.System.Um.so</td><td align="left">Arp.System.Um.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Device.HmiLed.so</td><td align="left">Arp.Device.HmiLed.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Device.Interface.so</td><td align="left">Arp.Device.Interface.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Hardware.Nim.so</td><td align="left">Arp.Hardware.Nim.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Scm.so</td><td align="left">Arp.System.Scm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Um.so</td><td align="left">Arp.System.Um.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.System.RscGateway.so</td><td align="left">Arp.System.RscGateway.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.System.Commons.Services.so</td><td align="left">Arp.System.Commons.Services.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.System.Security.Services.so</td><td align="left">Arp.System.Security.Services.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.System.Fwu.so</td><td align="left">Arp.System.Fwu.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Watchdog.so</td><td align="left">Arp.System.SystemWatchdog.Library</td><td align="left">ARP_SYSTEM_WATCHDOG_SUPPORT</td></tr>
+<tr><td align="left">libArp.System.Watchdog.so</td><td align="left">Arp.System.SystemWatchdog.Library</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
 <tr><td align="left">libArp.System.SysWatchdog.so</td><td align="left">Arp.System.SysWatchdog.Library</td><td align="left"></td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.IdentificationData.so</td><td align="left">Arp.Hardware.IdentificationData.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.FanControl.so</td><td align="left">Arp.Hardware.FanControl.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.Fpga.so</td><td align="left">Arp.Hardware.Fpga.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.OsControl.so</td><td align="left">Arp.Hardware.OsControl.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.RealTimeClock.so</td><td align="left">Arp.Hardware.RealTimeClock.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.ResourceMonitor.so</td><td align="left">Arp.Hardware.ResourceMonitor.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.DeviceHmi.so</td><td align="left">Arp.Hardware.DeviceHmi.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.Sensors.so</td><td align="left">Arp.Hardware.Sensors.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.ExternalSDCard.so</td><td align="left">Arp.Hardware.ExternalSDCard.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Hardware.ExternalPci.so</td><td align="left">Arp.Hardware.ExternalPci.Library</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Eclr.so</td><td align="left">Arp.Plc.Eclr.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Plm.so</td><td align="left">Arp.Plc.Plm.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Esm.so</td><td align="left">Arp.Plc.Esm.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Gds.so</td><td align="left">Arp.Plc.Gds.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Domain.so</td><td align="left">Arp.Plc.Domain.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Plc.Meta.so</td><td align="left">Arp.Plc.Meta.Library</td><td align="left"></td></tr>
 <tr><td align="left">libArp.Plc.Fbm.so</td><td align="left">Arp.Plc.Fbm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Retain.so</td><td align="left">Arp.Plc.Retain.Library</td><td align="left">ARP_RETAIN_SUPPORT</td></tr>
+<tr><td align="left">libArp.Plc.Retain.so</td><td align="left">Arp.Plc.Retain.Library</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.Fwm.so</td><td align="left">Arp.Services.Fwm.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.Wbm.so</td><td align="left">Arp.Services.Wbm.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.Ehmi.so</td><td align="left">Arp.Services.Ehmi.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.OpcUAServer.so</td><td align="left">Arp.Services.OpcUAServer.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.Alarms.so</td><td align="left">Arp.Services.Alarms.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.ProfiCloud.so</td><td align="left">Arp.Services.ProfiCloud.Library</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
+<tr><td align="left">libArp.Services.ProfiCloudV3.so</td><td align="left">Arp.Services.ProfiCloudV3.Library</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
+<tr><td align="left">libArp.Services.NotificationLogger.so</td><td align="left">Arp.Services.NotificationLogger.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.TraceController.so</td><td align="left">Arp.Services.TraceController.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.NmUtilities.so</td><td align="left">Arp.Services.NmUtilities.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.DataLogger.so</td><td align="left">Arp.Services.DataLogger.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.AppManager.so</td><td align="left">Arp.Services.AppManager.Library</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
+<tr><td align="left">libArp.Services.LinuxSyslog.so</td><td align="left">Arp.Services.LinuxSyslog.Library</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
+<tr><td align="left">libArp.Services.Wcm.so</td><td align="left">Arp.Services.Wcm.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.Logging.so</td><td align="left">Arp.Services.Logging.Library</td><td align="left"></td></tr>
+<tr><td align="left">libArp.Services.SpnsProxy.so</td><td align="left">Arp.Services.SpnsProxy.Library</td><td align="left"></td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">libArp.Io.ProfinetStack.so</td><td align="left">Arp.Io.Pn.Library</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">libArp.Io.Axioline.so<sup>1</sup></td><td align="left">Arp.Io.Axl.Library</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
+<tr><td align="left">libArp.Io.Interbus.so<sup>1</sup></td><td align="left">Arp.Io.IbM.Library</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
+<tr><td align="left">libArp.Io.EthernetIP.so<sup>1</sup></td><td align="left">Arp.Io.EthernetIP.Library</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
 </tbody></table>
 <p><sup>1</sup> Only available on AXC devices.</p>
+<h3><a class="header" href="#runtime-processes" id="runtime-processes">Runtime Processes</a></h3>
+<p>Most component instance are created in the unnamed main PLCnext runtime process. In the AXC F 2152, two additional processes are created, in which I/O component instances related to Profinet, Ethernet/IP and Interbus are created.</p>
+<table><thead><tr><th align="left">Process name</th><th align="left">Local TCP port</th></tr></thead><tbody>
+<tr><td align="left">(main)</td><td align="left">41121</td></tr>
+<tr><td align="left">ExternalIoProcess</td><td align="left">41123</td></tr>
+<tr><td align="left">LocalIoProcess<sup>1</sup></td><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<br/>Arp.Io.IbM</td></tr>
+</tbody></table>
+<p><sup>1</sup> Only on AXC devices.</p>
+<p>Since multiple Interbus and Ethernet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.</p>
 <h3><a class="header" href="#component-instances-1" id="component-instances-1">Component Instances</a></h3>
 <p>Each component created by the PLCnext runtime:</p>
 <ul>
+<li>Is created in a specific process. If no process is specified, the component is created in the unnamed main PLCnext Runtime process.</li>
 <li>Can optionally be passed settings information. In the table below, all settings information represent files relative to the directory <code>/etc/plcnext/device</code>.</li>
 <li>Can be created conditionally, based on the value of a boolean environment variable. If no condition is specified, the component instance is always created.</li>
 </ul>
-<table><thead><tr><th align="left">Instance name</th><th align="left">Type</th><th align="left">Settings information</th><th align="left">Condition</th></tr></thead><tbody>
-<tr><td align="left">Arp.Io.AxlC<sup>1</sup></td><td align="left">Arp::Io::Axioline::AxiolineComponent</td><td align="left">Io/AxlC/AxlC.settings</td><td align="left">ARP_AXIOLINE_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.IbM<sup>1</sup></td><td align="left">Arp::Io::Interbus::InterbusComponent</td><td align="left">Io/IbM/IbM.settings</td><td align="left">ARP_INTERBUS_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.EthernetIP<sup>1</sup></td><td align="left">Arp::Io::EthernetIP::EthernetIPComponent</td><td align="left">Io/EthernetIP/EthernetIP.settings</td><td align="left">ARP_ETHERNETIP_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.PnS</td><td align="left">Arp::Io::ProfinetStack::System::SystemComponent</td><td align="left">Io/PnS/PnS.settings</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.PnC</td><td align="left">Arp::Io::ProfinetStack::Controller::ControllerComponent</td><td align="left">Io/PnC/PnC.settings</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.PnD</td><td align="left">Arp::Io::ProfinetStack::Device::DeviceComponent</td><td align="left">Io/PnD/PnD.settings</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.Fwm</td><td align="left">Arp::Services::Fwm::FwmComponent</td><td align="left">Services/Fwm/Fwm.settings</td><td align="left">ARP_FWM_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.Wbm</td><td align="left">Arp::Services::Wbm::WbmComponent</td><td align="left">Services/Wbm/Wbm.settings</td><td align="left">ARP_WBM_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.Ehmi</td><td align="left">Arp::Services::Ehmi::EhmiComponent</td><td align="left">Services/Ehmi/ehmi.settings</td><td align="left">ARP_EHMI_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.OpcUAServer</td><td align="left">Arp::Services::OpcUAServer::OpcUAServerComponent</td><td align="left">Services/OpcUA/opcua.settings</td><td align="left">ARP_OPC_UA_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.Alarms</td><td align="left">Arp::Services::Alarms::AlarmsComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.ProfiCloud</td><td align="left">Arp::Services::ProfiCloud::ProfiCloudComponent</td><td align="left">Services/ProfiCloud/proficloud.settings.json</td><td align="left">ARP_PROFICLOUD_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.NotificationLogger</td><td align="left">Arp::Services::NotificationLogger::NotificationLoggerComponent</td><td align="left">Services/NotificationLogger/NotificationLogger.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.TraceController</td><td align="left">Arp::Services::TraceController::TraceControllerComponent</td><td align="left">Services/TraceController/TraceController.settings</td><td align="left">ARP_TRACECONTROLLER_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.NmUtilities.NmPlcStateListener</td><td align="left">Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.DataLogger</td><td align="left">Arp::Services::DataLogger::DataLoggerComponent</td><td align="left">Services/DataLogger/dataLogger.settings</td><td align="left">ARP_DATALOGGER_SUPPORT</td></tr>
-<tr><td align="left">Arp.Services.AppManager</td><td align="left">Arp::Services::AppManager::AppManagerComponent</td><td align="left">Services/AppManager/</td><td align="left">ARP_APPMANAGER_SUPPORT</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Device.Access</td><td align="left">Arp::Device::Access::DeviceAccessComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Device.HmiLed</td><td align="left">Arp::Device::HmiLed::HmiLedComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Device.Interface</td><td align="left">Arp::Device::Interface::DiComponent</td><td align="left">Device/Interface/Di.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.Nim</td><td align="left">Arp::Hardware::Nim::NimComponent</td><td align="left">Hardware/Nim/Nim.settings</td><td align="left">ARP_NETLOAD_LIMITER_SUPPORT</td></tr>
-<tr><td align="left">Arp.System.Scm</td><td align="left">Arp::System::Scm::ScmComponent</td><td align="left">System/Scm/Scm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Um</td><td align="left">Arp::System::Um::UmComponent</td><td align="left">System/Um/Um.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.RscGateway</td><td align="left">Arp::System::RscGateway::RscGatewayComponent</td><td align="left">System/RscGateway/RscGateway.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Commons.Services</td><td align="left">Arp::System::Commons::Services::Component</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Security.Services</td><td align="left">Arp::System::Security::Services::Component</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Fwu</td><td align="left">Arp::System::Fwu::FwuComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Watchdog.MainProcess</td><td align="left">Arp::System::Watchdog::SystemWatchdogComponent</td><td align="left">System/Watchdog/Watchdog.settings</td><td align="left">ARP_SYSTEM_WATCHDOG_SUPPORT</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Eclr</td><td align="left">Arp::Plc::Eclr::EclrComponent</td><td align="left">Plc/Eclr/Eclr.settings</td><td align="left">ARP_ECLR_SUPPORT</td></tr>
-<tr><td align="left">Arp.Plc.EclrServices</td><td align="left">Arp::Plc::Eclr::EclrServicesComponent</td><td align="left"></td><td align="left">ARP_ECLR_SUPPORT</td></tr>
-<tr><td align="left">Arp.Plc.Eclr.ArpDomain</td><td align="left">Arp::Plc::Eclr::Internal::ArpDomainComponent</td><td align="left"></td><td align="left">ARP_ECLR_SUPPORT</td></tr>
-<tr><td align="left">Arp.Plc.Plm</td><td align="left">Arp::Plc::Plm::PlmComponent</td><td align="left">Plc/Plm/Plm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Esm</td><td align="left">Arp::Plc::Esm::EsmComponent</td><td align="left">Plc/Esm/Esm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.EsmController</td><td align="left">Arp::Plc::Esm::EsmControllerComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Meta</td><td align="left">Arp::Plc::Meta::MetaComponent</td><td align="left">lc/Meta/Meta.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Gds</td><td align="left">Arp::Plc::Gds::GdsComponent</td><td align="left">Plc/Gds/Gds.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<sup>1</sup></td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.DomainProxy.ExternalIoProcess</td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Manager</td><td align="left">Arp::Plc::Domain::PlcManagerComponent</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Domain</td><td align="left">Arp::Plc::Domain::PlcDomainComponent</td><td align="left">Plc/Domain/PlcDomain.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.FbIo.AxlC<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left">Plc/FbIo.AxlC/FbIo.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.FbIo.IbM<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left">Plc/FbIo.IbM/FbIo.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.FbIo.EthernetIP<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left">Plc/FbIo.EthernetIP/FbIo.settings</td><td align="left">ARP_ETHERNETIP_SUPPORT</td></tr>
-<tr><td align="left">Arp.Plc.Fbm</td><td align="left">Arp::Plc::Fbm::FbmComponent</td><td align="left">Plc/Fbm/Fbm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.FbIo.PnC</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left">Plc/FbIo.PnC/FbIo.settings</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left">Arp.Io.FbIo.PnD</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left">Plc/FbIo.PnD/FbIo.settings</td><td align="left">ARP_PROFINET_SUPPORT</td></tr>
-<tr><td align="left">Arp.Plc.Retain</td><td align="left">Arp::Plc::Retain::RetainComponent</td><td align="left">Plc/Retain/Retain.settings</td><td align="left">ARP_RETAIN_SUPPORT</td></tr>
+<table><thead><tr><th align="left">Instance name</th><th align="left">Type</th><th align="left">Process</th><th align="left">Settings information</th><th align="left">Condition</th></tr></thead><tbody>
+<tr><td align="left">Arp.System.Commons.Services</td><td align="left">Arp::System::Commons::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.System.Security.Services</td><td align="left">Arp::System::Security::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.System.Watchdog.MainProcess</td><td align="left">Arp::System::Watchdog::SystemWatchdogComponent</td><td align="left"></td><td align="left">System/Watchdog/Watchdog.settings</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
+<tr><td align="left">Arp.System.RscGateway</td><td align="left">Arp::System::RscGateway::RscGatewayComponent</td><td align="left"></td><td align="left">System/RscGateway/RscGateway.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.System.Um</td><td align="left">Arp::System::Um::UmComponent</td><td align="left"></td><td align="left">System/Um/Um.settings</td><td align="left"></td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.IdentificationData</td><td align="left">Arp::Hardware::IdentificationData::IdentificationDataComponent</td><td align="left"></td><td align="left">Hardware/IdentificationData/IdentificationData.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.FanControl</td><td align="left">Arp::Hardware::FanControl::FanControlComponent</td><td align="left"></td><td align="left">Hardware/FanControl/FanControl.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.Fpga</td><td align="left">Arp::Hardware::Fpga::FpgaComponent</td><td align="left"></td><td align="left">Hardware/Fpga/Fpga.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.OsControl</td><td align="left">Arp::Hardware::OsControl::OsControlComponent</td><td align="left"></td><td align="left">Hardware/OsControl/OsControl.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.RealTimeClock</td><td align="left">Arp::Hardware::RealTimeClock::RealTimeClockComponent</td><td align="left"></td><td align="left">Hardware/RealTimeClock/RealTimeClock.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.ResourceMonitor</td><td align="left">Arp::Hardware::ResourceMonitor::ResourceMonitorComponent</td><td align="left"></td><td align="left">Hardware/ResourceMonitor/ResourceMonitor.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.DeviceHmi</td><td align="left">Arp::Hardware::DeviceHmi::DeviceHmiComponent</td><td align="left"></td><td align="left">Hardware/DeviceHmi/DeviceHmi.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.Sensors</td><td align="left">Arp::Hardware::Sensors::SensorsComponent</td><td align="left"></td><td align="left">Hardware/Sensors/Sensors.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.Nim</td><td align="left">Arp::Hardware::Nim::NimComponent</td><td align="left">Hardware/Nim/Nim.settings</td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.NetloadLimiter</td><td align="left">Arp::Hardware::Nim::NetloadLimiterComponent</td><td align="left"></td><td align="left">Hardware/Nim/NetloadLimiter.settings</td><td align="left">ARP_COMPONENT_NETLOAD_LIMITER</td></tr>
+<tr><td align="left">Arp.Hardware.ExternalSDCard</td><td align="left">Arp::Hardware::ExternalSDCard::ExternalSDCardComponent</td><td align="left"></td><td align="left">Hardware/ExternalSDCard/ExternalSDCard.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Hardware.ExternalPci</td><td align="left">Arp::Hardware::ExternalPci::ExternalPciComponent</td><td align="left"></td><td align="left">Hardware/ExternalPci/ExternalPci.settings</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Device.HmiLed</td><td align="left">Arp::Device::HmiLed::HmiLedComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Device.Interface</td><td align="left">Arp::Device::Interface::DiComponent</td><td align="left"></td><td align="left">Device/Interface/Di.settings</td><td align="left"></td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Manager</td><td align="left">Arp::Plc::Domain::PlcManagerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Domain</td><td align="left">Arp::Plc::Domain::PlcDomainComponent</td><td align="left"></td><td align="left">Plc/Domain/PlcDomain.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.MetaDomain</td><td align="left">Arp::Plc::Meta::MetaDomainComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Meta</td><td align="left">Arp::Plc::Meta::MetaComponent</td><td align="left"></td><td align="left">Plc/Meta/Meta.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.MetaController</td><td align="left">Arp::Plc::Meta::MetaControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Eclr</td><td align="left">Arp::Plc::Eclr::EclrComponent</td><td align="left"></td><td align="left">Plc/Eclr/Eclr.settings</td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">Arp.Plc.EclrServices</td><td align="left">Arp::Plc::Eclr::EclrServicesComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">Arp.Plc.Eclr.ArpDomain</td><td align="left">Arp::Plc::Eclr::ArpDomainComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">Arp.Plc.Plm</td><td align="left">Arp::Plc::Plm::PlmComponent</td><td align="left"></td><td align="left">Plc/Plm/Plm.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Esm</td><td align="left">Arp::Plc::Esm::EsmComponent</td><td align="left"></td><td align="left">Plc/Esm/Esm.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.EsmController</td><td align="left">Arp::Plc::Esm::EsmControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Gds</td><td align="left">Arp::Plc::Gds::GdsComponent</td><td align="left"></td><td align="left">Plc/Gds/Gds.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Retain</td><td align="left">Arp::Plc::Retain::RetainComponent</td><td align="left"></td><td align="left">Plc/Retain/Retain.settings</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.Fbm</td><td align="left">Arp::Plc::Fbm::FbmComponent</td><td align="left"></td><td align="left">Plc/Fbm/Fbm.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Io.FbIo.PnC</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.PnC/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC</td></tr>
+<tr><td align="left">Arp.Io.FbIo.PnD</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.PnD/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Services.Alarms</td><td align="left">Arp::Services::Alarms::AlarmsComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Services.Fwm</td><td align="left">Arp::Services::Fwm::FwmComponent</td><td align="left"></td><td align="left">Services/Fwm/Fwm.settings</td><td align="left">ARP_COMPONENT_FWM</td></tr>
+<tr><td align="left">Arp.Services.Wbm</td><td align="left">Arp::Services::Wbm::WbmComponent</td><td align="left"></td><td align="left">Services/Wbm/Wbm.settings</td><td align="left">ARP_COMPONENT_WBM</td></tr>
+<tr><td align="left">Arp.Services.Ehmi</td><td align="left">Arp::Services::Ehmi::EhmiComponent</td><td align="left"></td><td align="left">Services/Ehmi/ehmi.settings</td><td align="left">ARP_COMPONENT_EHMI</td></tr>
+<tr><td align="left">Arp.Services.OpcUAServer</td><td align="left">Arp::Services::OpcUAServer::OpcUAServerComponent</td><td align="left"></td><td align="left">Services/OpcUA/opcua.settings</td><td align="left">ARP_COMPONENT_OPC_UA</td></tr>
+<tr><td align="left">Arp.Services.ProfiCloud</td><td align="left">Arp::Services::ProfiCloud::ProfiCloudComponent</td><td align="left"></td><td align="left">Services/ProfiCloud/Proficloud.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
+<tr><td align="left">Arp.Services.NotificationLogger</td><td align="left">Arp::Services::NotificationLogger::NotificationLoggerComponent</td><td align="left"></td><td align="left">Services/NotificationLogger/NotificationLogger.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Services.TraceController</td><td align="left">Arp::Services::TraceController::TraceControllerComponent</td><td align="left"></td><td align="left">Services/TraceController/TraceController.settings</td><td align="left">ARP_COMPONENT_TRACECONTROLLER</td></tr>
+<tr><td align="left">Arp.Services.NmUtilities.NmPlcStateListener</td><td align="left">Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Services.DataLogger</td><td align="left">Arp::Services::DataLogger::DataLoggerComponent</td><td align="left"></td><td align="left">Services/DataLogger/dataLogger.settings</td><td align="left">ARP_COMPONENT_DATALOGGER</td></tr>
+<tr><td align="left">Arp.Services.AppManager</td><td align="left">Arp::Services::AppManager::AppManagerComponent</td><td align="left"></td><td align="left">Services/AppManager/AppManager.settings</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
+<tr><td align="left">Arp.System.Fwu</td><td align="left">Arp::System::Fwu::FwuComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Services.LinuxSyslog</td><td align="left">Arp::Services::LinuxSyslog::LinuxSyslogComponent</td><td align="left"></td><td align="left">Services/LinuxSyslog/LinuxSyslog.settings</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
+<tr><td align="left">Arp.Services.ProfiCloudV3</td><td align="left">Arp::Services::ProfiCloudV3::ProfiCloudV3Component</td><td align="left"></td><td align="left">Services/ProfiCloudV3/ProfiCloudV3.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
+<tr><td align="left">Arp.System.Wcm</td><td align="left">Arp::System::Wcm::WcmComponent</td><td align="left"></td><td align="left">System/Wcm/Wcm.settings</td><td align="left">ARP_COMPONENT_WCM</td></tr>
+<tr><td align="left">Arp.Services.Logging</td><td align="left">Arp::Services::Logging::LoggingComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGGING</td></tr>
+<tr><td align="left">Arp.Services.LogManager</td><td align="left">Arp::Services::Logging::LogManagerComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
+<tr><td align="left">Arp.Services.LogProvider</td><td align="left">Arp::Services::Logging::LogProviderComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
+<tr><td align="left">Arp.Services.SpnsProxy</td><td align="left">Arp::Services::SpnsProxy::SpnsProxyComponent</td><td align="left"></td><td align="left">Services/SpnsProxy/spnsproxy.settings</td><td align="left">ARP_COMPONENT_SPNSPROXY</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.DomainProxy.ExternalIoProcess</td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left">ExternalIoProcess</td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Io.PnS</td><td align="left">Arp::Io::ProfinetStack::System::SystemComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnS/PnS.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">Arp.Io.PnC</td><td align="left">Arp::Io::ProfinetStack::Controller::ControllerComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnC/PnC.settings</td><td align="left">ARP_COMPONENT_PNC</td></tr>
+<tr><td align="left">Arp.Io.PnD</td><td align="left">Arp::Io::ProfinetStack::Device::DeviceComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnD/PnD.settings</td><td align="left">ARP_COMPONENT_PND</td></tr>
+<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<sup>1</sup></td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left">LocalIoProcess</td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Arp.Io.AxlC<sup>1</sup></td><td align="left">Arp::Io::Axioline::AxiolineComponent</td><td align="left"></td><td align="left">Io/AxlC/AxlC.settings</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
+<tr><td align="left">Arp.Io.FbIo.AxlC<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.AxlC/FbIo.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Io.IbM<sup>1</sup></td><td align="left">Arp::Io::Interbus::InterbusComponent</td><td align="left">LocalIoProcess</td><td align="left">Io/IbM/IbM.settings</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
+<tr><td align="left">Arp.Io.FbIo.IbM<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.IbM/FbIo.settings</td><td align="left"></td></tr>
+<tr><td align="left">Arp.Io.EthernetIP<sup>1</sup></td><td align="left">Arp::Io::EthernetIP::EthernetIPComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/EthernetIP/EthernetIP.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+<tr><td align="left">Arp.Io.FbIo.EthernetIP<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.EthernetIP/FbIo.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
 </tbody></table>
 <p><sup>1</sup> Only on AXC devices.</p>
-<h3><a class="header" href="#runtime-processes" id="runtime-processes">Runtime Processes</a></h3>
-<p>Most component instance are created in the main PLCnext runtime process.</p>
-<p>In the AXC F 2152, two additional processes are created, in which I/O component instances related to Profinet, Ethernet/IP and Interbus are created:</p>
-<table><thead><tr><th align="left">Process name</th><th align="left">Component instances</th></tr></thead><tbody>
-<tr><td align="left">LocalIoProcess</td><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<br/>Arp.Io.IbM</td></tr>
-<tr><td align="left">ExternalIoProcess</td><td align="left">Arp.Plc.DomainProxy.ExternalIoProcess<br/>Arp.Io.PnSArp.Io.PnC<br/>Arp.Io.PnD<br/>Arp.Io.EthernetIP</td></tr>
-</tbody></table>
-<p>Since multiple Interbus and Ethernet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.</p>
 
                     </main>
 

@@ -156,19 +156,19 @@
 <p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
 <p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
 <ul>
-<li><a href="http://www.phoenixcontact.net/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
-<li><a href="http://www.phoenixcontact.net/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
-<li><a href="http://www.phoenixcontact.net/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
+<li><a href="http://www.phoenixcontact.com/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.com/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
+<li><a href="http://www.phoenixcontact.com/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
+<li><a href="http://www.phoenixcontact.com/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
 <p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
 <h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
-<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.net/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
+<p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.com/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
 <h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
-<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.net/product/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
+<p>Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the <a href="http://www.phoenixcontact.com/product/2400041"><em>PC Worx Target for Simulink</em></a> software add-on.</p>
 <h3><a class="header" href="#software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc" id="software-engineers-with-experience-in-cc-rust-c-java-python-javascript-html5-go-etc">Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc</a></h3>
 <p>Custom software applications written in any popular programming language can be run on the controller. These applications can make use of PLCnext runtime services if required.</p>
 <h3><a class="header" href="#systems-integrators-and-network-administrators" id="systems-integrators-and-network-administrators">Systems integrators and network administrators</a></h3>
@@ -190,13 +190,13 @@
 <p>Throughout this book, the PLCnext Control hardware will be referred to as either <em>PLCnext Control device</em>, or <em>controller</em>, or <em>target</em>. In this book, these terms are used interchangeably. Controllers from other manufacturers are often referred to with the term  <em>PLC</em>, but in this book the term <em>PLC</em> will only be used to refer to those firmware components on the controller that implement real-time automation functions.</p>
 </blockquote>
 <h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to Use This Book</a></h2>
-<p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.</p>
+<p>This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the <a href="https://www.plcnext.help/te/About/Home.htm">PLCnext Technology Info Centre</a>. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.</p>
 <p>Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first &quot;Hello, World!&quot; programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.</p>
 <p>In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.</p>
 <p>Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.</p>
 <p>Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.</p>
 <p>Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.</p>
-<p>A glossary of terms used in this book is available in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Home.htm?agt=glossary">PLCnext Technology Info Center</a>.</p>
+<p>A glossary of terms used in this book is available in the <a href="https://www.plcnext.help/te/About/Home.htm?agt=glossary">PLCnext Technology Info Center</a>.</p>
 <blockquote>
 <h3><a class="header" href="#command-line-notation" id="command-line-notation">Command Line Notation</a></h3>
 <p>Throughout this book, you will see commands that must be entered into a terminal on either the host or the target.</p>
@@ -206,7 +206,7 @@
 <p>Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&gt;</code> typically show the output of the previous command.</p>
 </blockquote>
 <h2><a class="header" href="#versions" id="versions">Versions</a></h2>
-<p>PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed on the <a href="https://www.plcnext-community.net/en/hn-knowledge-base/hn-features-and-roadmap.html">PLCnext Community website</a>.</p>
+<p>PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the <a href="https://www.plcnext.help/te/About/Releases.htm">PLCnext Info Center</a>.</p>
 <p>This book will be kept up to date with the latest version of PLCnext runtime firmware. As soon as a new version of PLCnext firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.</p>
 <h2><a class="header" href="#source-code" id="source-code">Source Code</a></h2>
 <p>The source files used to generate this book can be found on <a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>

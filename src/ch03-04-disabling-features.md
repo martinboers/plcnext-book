@@ -95,17 +95,6 @@ You have probably noticed that the environment variables in your custom `.acf.se
 
 > On AXC devices, the values of the environment variables `ARP_COMPONENT_AXIOLINE` and `ARP_COMPONENT_INTERBUS` are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own `.acf.settings` file.
 
-### Components Required by PLCnext Engineer
-
-By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:
-
-* ARP_COMPONENT_ECLR
-* ARP_COMPONENT_PND
-* ARP_COMPONENT_PNC
-* ARP_COMPONENT_ETHERNETIP
-
-Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these components.
-
 ### ACF Settings File Name(s)
 
 The name of the custom settings file does not need to be `Custom.acf.settings`. The filename can be anything, as long as it ends in `.acf.settings`, and is located in the `/opt/plcnext/appshome` directory. You may have noticed that the custom settings file is included using this directive in the `/etc/plcnext/Device.acf.settings` file:
@@ -115,8 +104,6 @@ The name of the custom settings file does not need to be `Custom.acf.settings`. 
   <Include path="/opt/plcnext/appshome/*.acf.settings" />
 ```
 
-As you can see, this directive will include *all* files that match the pattern specified in the `path` attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:
-
-(TODO: How are conflicts resolved?)
+As you can see, this directive will include *all* files that match the pattern specified in the `path` attribute. If multiple files match this pattern, then all the files will be processed. If there are any conflicts - e.g. if one file overrides an environment variable with the value "true", and another file overrides the same variable with the value "false" - then the final value of that environment variable could be either "true" or "false". It is up to the user to make sure that conflicts like this do not happen.
 
 [acf-info]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/ACF_Application_Component_Framework.htm

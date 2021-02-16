@@ -151,65 +151,107 @@
                 <div id="content" class="content">
                     <main>
                         <h2><a class="header" href="#plcnext-runtime-components" id="plcnext-runtime-components">PLCnext Runtime Components</a></h2>
-<p>Factory-installed software components that make up the PLCnext Runtime include:</p>
+<p>Factory-installed software components that make up the PLCnext runtime include:</p>
 <ul>
+<li>Hardware components</li>
 <li>I/O and Fieldbus components</li>
-<li>Service components</li>
 <li>System components</li>
 <li>PLC components</li>
+<li>Service components</li>
 </ul>
-<p>An overview of these component categories is given in the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/Core_component.htm">PLCnext Technology Info Center</a>. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.</p>
-<p>Components are defined in C++ shared object libraries, which are located in the <code>/usr/bin</code> directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.</p>
+<p>An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.</p>
+<p>Components are defined in C++ shared object libraries, which are located in the <code>/usr/lib</code> directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.</p>
+<h3><a class="header" href="#hardware-components" id="hardware-components">Hardware Components</a></h3>
+<p>These components provide access to device hardware. They typically wrap Linux device drivers, making these devices available to other PLCnext runtime components via internal RSC services.</p>
+<ul>
+<li>Library filename prefix: <code>libArp.Hardware.</code></li>
+<li>Component namespace: <code>Arp::Hardware</code></li>
+</ul>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Service description</th></tr></thead><tbody>
+<tr><td align="left">IdentificationData.so</td><td align="left">IdentificationData::IdentificationDataComponent</td><td align="left">Device ID data</td></tr>
+<tr><td align="left">FanControl.so</td><td align="left">FanControl::FanControlComponent</td><td align="left">Fan control operations</td></tr>
+<tr><td align="left">Fpga.so</td><td align="left">Fpga::FpgaComponent</td><td align="left">FPGA information</td></tr>
+<tr><td align="left">OsControl.so</td><td align="left">OsControl::OsControlComponent</td><td align="left">Operating system operations</td></tr>
+<tr><td align="left">RealTimeClock.so</td><td align="left">RealTimeClock::RealTimeClockComponent</td><td align="left">Real time clock operations</td></tr>
+<tr><td align="left">ResourceMonitor.so</td><td align="left">ResourceMonitor::ResourceMonitorComponent</td><td align="left">CPU, memory and partition monitoring</td></tr>
+<tr><td align="left">DeviceHmi.so</td><td align="left">DeviceHmi::DeviceHmiComponent</td><td align="left">Device LEDs, buttons and switches</td></tr>
+<tr><td align="left">Sensors.so</td><td align="left">Sensors::SensorsComponent</td><td align="left">Device temperature, humidity and power monitoring</td></tr>
+<tr><td align="left">Nim.so</td><td align="left">Nim::NimComponent<br/>Nim::NetloadLimiterComponent</td><td align="left">Ethernet information, IP configuration and IP status<br/><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html" title="API description">Network load limiter</a> (public)]</td></tr>
+<tr><td align="left">ExternalSDCard.so</td><td align="left">ExternalSDCard::ExternalSDCardComponent</td><td align="left">Information on the external SD card license, status and settings</td></tr>
+<tr><td align="left">ExternalPci.so</td><td align="left">ExternalPci::ExternalPciComponent</td><td align="left">External PCI state information</td></tr>
+</tbody></table>
+<h3><a class="header" href="#device-components" id="device-components">Device Components</a></h3>
+<p>These components provide device-specific abstractions for some low-level hardware services.</p>
+<ul>
+<li>Library filename prefix: <code>libArp.Device.</code></li>
+<li>Component namespace: <code>Arp::Device</code></li>
+</ul>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Service description</th></tr></thead><tbody>
+<tr><td align="left">HmiLed.so</td><td align="left">HmiLed::HmiLedComponent</td><td align="left">LED management (internal)</td></tr>
+<tr><td align="left">Interface.so</td><td align="left">Interface::DiComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService" title="PLCnext Info Center">Device control</a> (public)<br/><a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService" title="PLCnext Info Center">Device information</a> (public)<br/><a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceSettingsService" title="PLCnext Info Center">Device settings</a> (public)<br/><a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceStatusService" title="PLCnext Info Center">Device status</a> (public)</td></tr>
+</tbody></table>
 <h3><a class="header" href="#io-components" id="io-components">I/O Components</a></h3>
 <p>These components provide access to physical I/O modules through a variety of standard industrial networks.</p>
-<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
-<tr><td align="left">libArp.Io.Axioline.so</td><td align="left">Arp::Io::Axioline::AxiolineComponent</td><td align="left">Axioline master<sup>1</sup></td></tr>
-<tr><td align="left">libArp.Io.Interbus.so</td><td align="left">Arp::Io::Interbus::InterbusComponent</td><td align="left">Interbus master<sup>1</sup></td></tr>
-<tr><td align="left">libArp.Io.EthernetIP.so</td><td align="left">Arp::Io::EthernetIP::EthernetIPComponent</td><td align="left">Ethernet/IP device<sup>1</sup></td></tr>
-<tr><td align="left">libArp.Io.ProfinetStack.so</td><td align="left">Arp::Io::ProfinetStack::System::SystemComponent<br/>Arp::Io::ProfinetStack::Controller::ControllerComponent<br/>Arp::Io::ProfinetStack::Device::DeviceComponent</td><td align="left">Profinet system<br/>Profinet controller<br/>Profinet device</td></tr>
+<ul>
+<li>Library filename prefix: <code>libArp.Io.</code></li>
+<li>Component namespace: <code>Arp::Io</code></li>
+</ul>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Function</th><th align="left">Condition</th></tr></thead><tbody>
+<tr><td align="left">Axioline.so</td><td align="left">Axioline::AxiolineComponent</td><td align="left">Axioline master<sup>1</sup></td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
+<tr><td align="left">Interbus.so</td><td align="left">Interbus::InterbusComponent</td><td align="left">Interbus master<sup>1</sup></td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
+<tr><td align="left">EthernetIP.so</td><td align="left">EthernetIP::EthernetIPComponent</td><td align="left">Ethernet/IP device<sup>1</sup></td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+<tr><td align="left">ProfinetStack.so</td><td align="left">ProfinetStack::System::SystemComponent<br/>ProfinetStack::Controller::ControllerComponent<br/>ProfinetStack::Device::DeviceComponent</td><td align="left">Profinet system<br/>Profinet controller<br/>Profinet device</td><td align="left">ARP_COMPONENT_PROFINET or ARP_COMPONENT_PNC or ARP_COMPONENT_PND</td></tr>
 </tbody></table>
 <p><sup>1</sup> Only available on AXC devices.</p>
-<h3><a class="header" href="#service-components" id="service-components">Service Components</a></h3>
-<p>These components generally provide high-level features that are easily configurable by end users.</p>
-<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
-<tr><td align="left">libArp.Services.Fwm.so</td><td align="left">Arp::Services::Fwm::FwmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_Firewall.htm">Firewall manager</a></td></tr>
-<tr><td align="left">libArp.Services.Wbm.so</td><td align="left">Arp::Services::Wbm::WbmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/WBM.htm">Web-based management</a></td></tr>
-<tr><td align="left">libArp.Services.Ehmi.so</td><td align="left">Arp::Services::Ehmi::EhmiComponent</td><td align="left"><a href="https://de89gmzz4wv9p.cloudfront.net/107838_en_01/Section05/Section05.htm">Embedded HMI</a></td></tr>
-<tr><td align="left">libArp.Services.OpcUAServer.so</td><td align="left">Arp::Services::OpcUAServer::OpcUAServerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/OPC_UA_Server/OPC_UA_server_eUA.htm">OPC UA server</a></td></tr>
-<tr><td align="left">libArp.Services.Alarms.so</td><td align="left">Arp::Services::Alarms::AlarmsComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Alarms/Alarms.htm">Alarm dispatcher</a></td></tr>
-<tr><td align="left">libArp.Services.ProfiCloud.so</td><td align="left">Arp::Services::ProfiCloud::ProfiCloudComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/PROFICLOUD/Transferring_values_to_PROFICLOUD.htm">Proficloud TSD publisher</a></td></tr>
-<tr><td align="left">libArp.Services.NotificationLogger.so</td><td align="left">Arp::Services::NotificationLogger::NotificationLoggerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_Logger.htm">Notification logger</a></td></tr>
-<tr><td align="left">libArp.Services.TraceController.so</td><td align="left">Arp::Services::TraceController::TraceControllerComponent</td><td align="left"><a href="https://lttng.org/">LTTng trace controller</a></td></tr>
-<tr><td align="left">libArp.Services.NmUtilities.so</td><td align="left">Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Notifications/Notification_manager.htm">Notification manager</a></td></tr>
-<tr><td align="left">libArp.Services.DataLogger.so</td><td align="left">Arp::Services::DataLogger::DataLoggerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/DataLogger/DataLogger.htm">Data logger</a></td></tr>
-<tr><td align="left">libArp.Services.AppManager.so</td><td align="left">Arp::Services::AppManager::AppManagerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_PLCnext_Apps.htm">PLCnext Store app management</a></td></tr>
-</tbody></table>
 <h3><a class="header" href="#system-components" id="system-components">System Components</a></h3>
-<p>These components implement low-level system features. They may provide an API, but are not generally designed to be configurable by end users.</p>
-<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
-<tr><td align="left">libArp.Device.Access.so</td><td align="left">Arp::Device::Access::DeviceAccessComponent</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.Device.HmiLed.so</td><td align="left">Arp::Device::HmiLed::HmiLedComponent</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.Device.Interface.so</td><td align="left">Arp::Device::Interface::DiComponent</td><td align="left">RSC service ?</td></tr>
-<tr><td align="left">libArp.Hardware.Nim.so</td><td align="left">Arp::Hardware::Nim::NimComponent</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.System.Scm.so</td><td align="left">Arp::System::Scm::ScmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/System_manager.htm#System_Manager">System control manager</a></td></tr>
-<tr><td align="left">libArp.System.Um.so</td><td align="left">Arp::System::Um::UmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Security_User_authentication.htm">User manager</a></td></tr>
-<tr><td align="left">libArp.System.RscGateway.so</td><td align="left">Arp::System::RscGateway::RscGatewayComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm">Remote service call gateway</a></td></tr>
-<tr><td align="left">libArp.System.Commons.Services.so</td><td align="left">Arp::System::Commons::Services::Component</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.System.Security.Services.so</td><td align="left">Arp::System::Security::Services::Component</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Security/Security.htm">???</a></td></tr>
-<tr><td align="left">libArp.System.Fwu.so</td><td align="left">Arp::System::Fwu::FwuComponent</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.System.Watchdog.so</td><td align="left">Arp::System::Watchdog::SystemWatchdogComponent</td><td align="left">???</td></tr>
-<tr><td align="left">libArp.System.SysWatchdog.so</td><td align="left">???</td><td align="left">???</td></tr>
+<p>These components implement low-level PLCnext runtime features. They may provide an API, but are not generally designed to be configurable by end users.</p>
+<ul>
+<li>Library filename prefix: <code>libArp.System.</code></li>
+<li>Component namespace: <code>Arp::System</code></li>
+</ul>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">Commons.Services.so</td><td align="left">Commons::Services::Component</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileSystemInfoService.html" title="API description">File system info</a> (public)<br/><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IDirectoryService.html" title="API description">Directory service</a> (public)<br/><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileService.html" title="API description">File service</a> (public)<br/><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Security_1_1IDeviceIdentityValidatorService.html" title="API description">Device ID validator</a> (public)<br/>Trust store management (internal)<br/>Identity store management (internal)</td></tr>
+<tr><td align="left">Security.Services.so</td><td align="left">Security::Services::Component</td><td align="left">System security</td></tr>
+<tr><td align="left">Watchdog.so</td><td align="left">Watchdog::SystemWatchdogComponent</td><td align="left">System watchdog configuration and monitoring</td></tr>
+<tr><td align="left">RscGateway.so</td><td align="left">RscGateway::RscGatewayComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm" title="PLCnext Info Center">Remote service call gateway</a></td></tr>
+<tr><td align="left">Um.so</td><td align="left">Um::UmComponent</td><td align="left"><a href="https://www.plcnext.help/te/WBM/Security_User_authentication.htm" title="PLCnext Info Center">User manager</a></td></tr>
 </tbody></table>
 <h3><a class="header" href="#plc-components" id="plc-components">PLC Components</a></h3>
 <p>These components implement features you would expect to find on PLCs.</p>
-<table><thead><tr><th align="left">Library file</th><th align="left">Component type</th><th align="left">Function</th></tr></thead><tbody>
-<tr><td align="left">libArp.Plc.Eclr.so</td><td align="left">Arp::Plc::Eclr::EclrComponent<br/>Arp::Plc::Eclr::EclrServicesComponent<br/>Arp::Plc::Eclr::Internal::ArpDomainComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Csharp/eCLR_Programming_System.htm">Embedded Common Language Runtime</a></td></tr>
-<tr><td align="left">libArp.Plc.Plm.so</td><td align="left">Arp::Plc::Plm::PlmComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm">Manages real-time C++ programs</a></td></tr>
-<tr><td align="left">libArp.Plc.Esm.so</td><td align="left">Arp::Plc::Esm::EsmComponent<br/>Arp::Plc::Esm::EsmControllerComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/ESM.htm">Execution and Synchronisation Manager</a></td></tr>
-<tr><td align="left">libArp.Plc.Gds.so</td><td align="left">Arp::Plc::Meta::MetaComponent<br/>Arp::Plc::Gds::GdsComponent</td><td align="left"><a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/PLCnext_Runtime/GDS_Global_Data_Space.htm">Manages the global data space</a></td></tr>
-<tr><td align="left">libArp.Plc.Domain.so</td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent<br/>Arp::Plc::Domain::PlcManagerComponent<br/>Arp::Plc::Domain::PlcDomainComponent</td><td align="left">???<br/>???<br/>???</td></tr>
-<tr><td align="left">libArp.Plc.Fbm.so</td><td align="left">Arp::Plc::Fbm::FbmComponent<br/>Arp::Plc::Fbm::FbIoComponent</td><td align="left">Fieldbus manager</td></tr>
-<tr><td align="left">libArp.Plc.Retain.so</td><td align="left">Arp::Plc::Retain::RetainComponent</td><td align="left">Manages retentive variables</td></tr>
+<p>Library filename prefix: <code>libArp.Plc.</code>
+Component namespace: <code>Arp::Plc</code></p>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">Domain.so</td><td align="left">Domain::PlcDomainProxyComponent<br/>Domain::PlcManagerComponent<br/>Domain::PlcDomainComponent</td><td align="left">Related to I/O<br/>?<br/>?</td></tr>
+<tr><td align="left">Meta.so</td><td align="left">Meta::MetaDomainComponent<br/>Meta::MetaComponent<br/>Meta::MetaControllerComponent</td><td align="left">GDS traverser (public)<br/>GDS browser (internal)</td></tr>
+<tr><td align="left">Eclr.so</td><td align="left">Eclr::EclrComponent<br/>Eclr::EclrServicesComponent<br/>Eclr::ArpDomainComponent</td><td align="left"><a href="https://www.plcnext.help/te/Programming/Csharp/eCLR_Programming_System.htm" title="PLCnext Info Center">Embedded Common Language Runtime</a></td></tr>
+<tr><td align="left">Plm.so</td><td align="left">Plm::PlmComponent</td><td align="left"><a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm" title="PLCnext Info Center">Manages real-time C++ programs</a></td></tr>
+<tr><td align="left">Esm.so</td><td align="left">Esm::EsmComponent<br/>Esm::EsmControllerComponent</td><td align="left"><a href="https://www.plcnext.help/te/PLCnext_Runtime/ESM.htm" title="PLCnext Info Center">Execution and Synchronisation Manager</a></td></tr>
+<tr><td align="left">Gds.so</td><td align="left">Gds::GdsComponent</td><td align="left"><a href="https://www.plcnext.help/te/PLCnext_Runtime/GDS_Global_Data_Space.htm" title="PLCnext Info Center">Manages the global data space</a></td></tr>
+<tr><td align="left">Retain.so</td><td align="left">Retain::RetainComponent</td><td align="left">Manages retentive variables</td></tr>
+<tr><td align="left">Fbm.so</td><td align="left">Fbm::FbmComponent<br/>Fbm::FbIoComponent</td><td align="left">Fieldbus manager</td></tr>
+</tbody></table>
+<h3><a class="header" href="#service-components" id="service-components">Service Components</a></h3>
+<p>These components generally provide high-level, non real time features that are easily configurable by end users.</p>
+<p>Library filename prefix: <code>libArp.Services.</code>
+Component namespace: <code>Arp::Services</code></p>
+<table><thead><tr><th align="left">Library filename</th><th align="left">Component type name</th><th align="left">Function</th></tr></thead><tbody>
+<tr><td align="left">Alarms.so</td><td align="left">Alarms::AlarmsComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/Alarms/Alarms.htm" title="PLCnext Info Center">Alarm dispatcher</a></td></tr>
+<tr><td align="left">Fwm.so</td><td align="left">Fwm::FwmComponent</td><td align="left"><a href="https://www.plcnext.help/te/WBM/Security_Firewall.htm" title="PLCnext Info Center">Firewall manager</a></td></tr>
+<tr><td align="left">Wbm.so</td><td align="left">Wbm::WbmComponent</td><td align="left"><a href="https://www.plcnext.help/te/WBM/WBM.htm" title="PLCnext Info Center">Web-based management</a></td></tr>
+<tr><td align="left">Ehmi.so</td><td align="left">Ehmi::EhmiComponent</td><td align="left"><a href="https://www.plcnext.help/te/Programming/IEC_61131-3/Creating_a_PLCnext_Engineer_HMI_application.htm" title="PLCnext Info Center">Embedded HMI</a></td></tr>
+<tr><td align="left">OpcUAServer.so</td><td align="left">OpcUAServer::OpcUAServerComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/OPC_UA_Server/OPC_UA_server_eUA.htm" title="PLCnext Info Center">OPC UA server</a></td></tr>
+<tr><td align="left">ProfiCloud.so</td><td align="left">ProfiCloud::ProfiCloudComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/PROFICLOUD/Transferring_values_to_PROFICLOUD.htm" title="PLCnext Info Center">Proficloud TSD publisher</a> (deprecated)</td></tr>
+<tr><td align="left">NotificationLogger.so</td><td align="left">NotificationLogger::NotificationLoggerComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/Notifications/Notification_Logger.htm" title="PLCnext Info Center">Notification logger</a></td></tr>
+<tr><td align="left">TraceController.so</td><td align="left">TraceController::TraceControllerComponent</td><td align="left"><a href="https://lttng.org/" title="LTTng">LTTng trace controller</a></td></tr>
+<tr><td align="left">NmUtilities.so</td><td align="left">NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/Notifications/Notification_manager.htm" title="PLCnext Info Center">Notification manager</a></td></tr>
+<tr><td align="left">DataLogger.so</td><td align="left">DataLogger::DataLoggerComponent</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/DataLogger/DataLogger.htm" title="PLCnext Info Center">Data logger</a></td></tr>
+<tr><td align="left">AppManager.so</td><td align="left">AppManager::AppManagerComponent</td><td align="left"><a href="https://www.plcnext.help/te/WBM/Administration_PLCnext_Apps.htm" title="PLCnext Info Center">PLCnext Store app management</a></td></tr>
+<tr><td align="left">Fwu.so</td><td align="left">Fwu::FwuComponent</td><td align="left">Firmware update</td></tr>
+<tr><td align="left">LinuxSyslog.so</td><td align="left">LinuxSyslog::LinuxSyslogComponent</td><td align="left">syslog-ng interface</td></tr>
+<tr><td align="left">ProfiCloudV3.so</td><td align="left">ProfiCloudV3::ProfiCloudV3Component</td><td align="left"><a href="https://www.plcnext.help/te/Service_Components/PROFICLOUD/Proficloud_V3_Introduction.htm" title="PLCnext Info Center">Proficloud</a></td></tr>
+<tr><td align="left">Wcm.so</td><td align="left">Wcm::WcmComponent</td><td align="left">Web configuration management</td></tr>
+<tr><td align="left">Logging.so</td><td align="left">Logging::LoggingComponent<br/>Logging::LogManagerComponent<br/>Logging::LogProviderComponent</td><td align="left">General event logger</td></tr>
+<tr><td align="left">SpnsProxy.so</td><td align="left">SpnsProxy::SpnsProxyComponent</td><td align="left">Safety controller (SPNS) communications</td></tr>
 </tbody></table>
 
                     </main>

@@ -179,13 +179,7 @@ Build Job: &quot;jenkins-PLCnext-Yocto_AXCF2152-release%2F20.0.x-57&quot;
 <p>Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.</p>
 </li>
 <li>
-<p>Extract the <code>.exe</code> file from the archive.</p>
-</li>
-<li>
-<p>Run the self-extracting .exe on either a Windows host, or using <code>wine</code> on a Linux host.</p>
-</li>
-<li>
-<p>Locate the <code>.raucb</code> file that was installed by the <code>.exe</code>.</p>
+<p>Extract the <code>.raucb</code> file from the archive.</p>
 </li>
 <li>
 <p>Copy the .raucb file to the PLC:</p>
@@ -211,13 +205,13 @@ Build Job: &quot;jenkins-PLCnext-Yocto_AXCF2152-release%2F20.0.x-57&quot;
 <p>There are three other ways to upgrade the firmware on the controller:</p>
 <ul>
 <li>
-<p>Through <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_Technology_InfoCenter/PLCnext_Technology_InfoCenter/WBM/Administration_Firmware_Update.htm">web-based management</a> (WBM).</p>
+<p>Through <a href="https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm">web-based management</a> (WBM).</p>
 </li>
 <li>
-<p>Using an OPC UA client (link???).</p>
+<p>Using an OPC UA client (not currently documented).</p>
 </li>
 <li>
-<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="http://plcnext-infocenter.s3-website.eu-central-1.amazonaws.com/PLCnext_API_Documentation/html/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceControlService.html"><em>Device Control</em></a> PLCnext runtime service.</p>
+<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="https://www.plcnext.help/te/About/#idevicecontrols"><em>Device Control</em></a> PLCnext runtime service.</p>
 </li>
 </ul>
 <p>These features will all be introduced later in this book.</p>
