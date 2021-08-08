@@ -1,4 +1,4 @@
-The PLCnext Runtime © 2020 Martin Boers
+The PLCnext Runtime © 2020-2021 Martin Boers
 
 PLCnext Technology, PLCnext Engineer, PLCnext Store and Proficloud are registered trade marks of Phoenix Contact GmbH & Co. KG.
 

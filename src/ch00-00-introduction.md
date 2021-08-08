@@ -6,11 +6,13 @@ Welcome to *The PLCnext Runtime*, an introductory book about programming on the 
 
 PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.
 
-The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:
+The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:
 
 * [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
 * [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz)
 * [AXC F 3152][axcf3152] (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)
+* [EPC 1502][epc1502] (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)
+* [EPC 1522][epc1522] (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)
 * [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
 
 Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch][preempt].
@@ -19,7 +21,7 @@ Each of these hardware platforms runs custom firmware that is based on a Linux k
 
 PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.
 
-Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.
+Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>4</sup>, however they also include features that will be familiar to software engineers with a more general programming background.
 
 ### IEC 61131-3 Software Developers
 
@@ -53,7 +55,7 @@ For systems and network administrators who will be managing PLCnext Control devi
 
 ## What You Will Need
 
-Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the [PLCnext Starter Kit](starter-kit), which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.
+Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the [PLCnext Technology Starter Kit][starter-kit], which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.
 
 Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
 
@@ -61,7 +63,7 @@ A PLCnext Control device is a *target* (in embedded programming terminology), an
 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 
-A knowledge of Ethernet networking would also be beneficial. The book "[Ethernet Basics](ethernet-basics)" by Phoenix Contact is recommended for this purpose.
+A knowledge of Ethernet networking would also be beneficial. The book "[Ethernet Basics][ethernet-basics]" by Phoenix Contact is recommended for this purpose.
 
 > Throughout this book, the PLCnext Control hardware will be referred to as either *PLCnext Control device*, or *controller*, or *target*. In this book, these terms are used interchangeably. Controllers from other manufacturers are often referred to with the term  *PLC*, but in this book the term *PLC* will only be used to refer to those firmware components on the controller that implement real-time automation functions.
 
@@ -107,20 +109,27 @@ The source files used to generate this book can be found on [GitHub][book].
 
 <sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*.
 
-<sup>2</sup> *RFC* is short for *Remote Field Controller*. Unlike Axioline controllers, RFCs can only control *remote* I/O modules over a *field bus* like Profinet.
+<sup>2</sup> *EPC* is short for *Edge Personal Computer*. EPCs combine real-time PLC features with popular Industrial Internet of Things (IIoT) applications like [Node-RED][node-red] and [InfluxDB][influx]. EPCs are designed for industrial [Edge computing][edge-computing] applications.
 
-<sup>3</sup> *PLC* is short for [*Programmable Logic Controller*](https://en.wikipedia.org/wiki/Programmable_logic_controller).
+<sup>3</sup> *RFC* is short for *Remote Field Controller*. Unlike Axioline controllers, RFCs can only control *remote* I/O modules over a *field bus* like Profinet.
+
+<sup>4</sup> *PLC* is short for [*Programmable Logic Controller*](https://en.wikipedia.org/wiki/Programmable_logic_controller).
 
 [axcf1152]: http://www.phoenixcontact.com/product/1151412
 [axcf2152]: http://www.phoenixcontact.com/product/2404267
 [axcf3152]: http://www.phoenixcontact.com/product/1069208
+[epc1502]: http://www.phoenixcontact.com/product/1185416
+[epc1522]: http://www.phoenixcontact.com/product/1185423
 [rfc4072s]: http://www.phoenixcontact.com/product/1051328
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
 [plcnext-engineer]: http://www.phoenixcontact.com/product/1046008
 [simulink-add-on]: http://www.phoenixcontact.com/product/2400041
-[starter-kit]: http://www.phoenixcontact.com/product/1046568
+[starter-kit]: http://www.phoenixcontact.com/product/1188165
 [ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
 [info-center]: https://www.plcnext.help/te/About/Home.htm
 [glossary]: https://www.plcnext.help/te/About/Home.htm?agt=glossary
 [release-strategy]: https://www.plcnext.help/te/About/Releases.htm
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src
+[edge-computing]: https://en.wikipedia.org/wiki/Edge_computing
+[node-red]: https://nodered.org/
+[influx]: https://www.influxdata.com/

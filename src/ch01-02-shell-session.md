@@ -1,6 +1,6 @@
 ## Starting a Shell Session
 
-The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, you can go ahead and open a shell session on the PLC from the host:
+The PLCnext Control device is running a secure shell (ssh) daemon so, once the device is accessible on the local area network, you can go ahead and open a shell session on the device from the host:
 
 ```text
 $ ssh admin@192.168.1.10

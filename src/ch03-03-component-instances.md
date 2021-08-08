@@ -15,7 +15,7 @@ The configuration information in this section appears in the following files:
 
 ### Runtime Processes
 
-Most component instance are created in the main PLCnext runtime process, which is called **MainProcess**. In the AXC F 2152, two additional processes are created, in which I/O component instances related to Profinet, Ethernet/IP and Interbus are created.
+Most component instance are created in the main PLCnext runtime process, which is called **MainProcess**. In the AXC F 2152, one additional process is created, in which I/O component instances related to Axioline, Ethernet/IP and Interbus are created.
 
 | Process name               | Local TCP port |
 |:---------------------------|:---------------|
@@ -25,7 +25,7 @@ Most component instance are created in the main PLCnext runtime process, which i
 
 <sup>1</sup> Only on AXC devices.
 
-Since multiple Interbus and Ethernet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.
+Since multiple Interbus and Profinet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.
 
 ### Component Libraries
 
