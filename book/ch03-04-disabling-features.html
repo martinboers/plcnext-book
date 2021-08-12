@@ -236,22 +236,12 @@
 <blockquote>
 <p>On AXC devices, the values of the environment variables <code>ARP_COMPONENT_AXIOLINE</code> and <code>ARP_COMPONENT_INTERBUS</code> are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own <code>.acf.settings</code> file.</p>
 </blockquote>
-<h3><a class="header" href="#components-required-by-plcnext-engineer" id="components-required-by-plcnext-engineer">Components Required by PLCnext Engineer</a></h3>
-<p>By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:</p>
-<ul>
-<li>ARP_COMPONENT_ECLR</li>
-<li>ARP_COMPONENT_PND</li>
-<li>ARP_COMPONENT_PNC</li>
-<li>ARP_COMPONENT_ETHERNETIP</li>
-</ul>
-<p>Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these components.</p>
 <h3><a class="header" href="#acf-settings-file-names" id="acf-settings-file-names">ACF Settings File Name(s)</a></h3>
 <p>The name of the custom settings file does not need to be <code>Custom.acf.settings</code>. The filename can be anything, as long as it ends in <code>.acf.settings</code>, and is located in the <code>/opt/plcnext/appshome</code> directory. You may have noticed that the custom settings file is included using this directive in the <code>/etc/plcnext/Device.acf.settings</code> file:</p>
 <pre><code class="language-xml">  &lt;!-- Include settings files for overridden app specific settings --&gt;
   &lt;Include path=&quot;/opt/plcnext/appshome/*.acf.settings&quot; /&gt;
 </code></pre>
-<p>As you can see, this directive will include <em>all</em> files that match the pattern specified in the <code>path</code> attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:</p>
-<p>(TODO: How are conflicts resolved?)</p>
+<p>As you can see, this directive will include <em>all</em> files that match the pattern specified in the <code>path</code> attribute. If multiple files match this pattern, then all the files will be processed. If there are any conflicts - e.g. if one file overrides an environment variable with the value &quot;true&quot;, and another file overrides the same variable with the value &quot;false&quot; - then the final value of that environment variable could be either &quot;true&quot; or &quot;false&quot;. It is up to the user to make sure that conflicts like this do not happen.</p>
 
                     </main>
 

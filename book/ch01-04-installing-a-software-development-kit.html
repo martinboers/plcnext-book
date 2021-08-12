@@ -151,13 +151,13 @@
                 <div id="content" class="content">
                     <main>
                         <h2><a class="header" href="#installing-a-software-development-kit" id="installing-a-software-development-kit">Installing a Software Development Kit</a></h2>
-<p>You can build native applications for a PLCnext Control - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control. The SDK contains the build tools and other resources required to create native applications for the target.</p>
+<p>You can build native applications for a PLCnext Control device - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control device. The SDK contains the build tools and other resources required to create native applications for the target.</p>
 <h3><a class="header" href="#plcnext-command-line-interface" id="plcnext-command-line-interface">PLCnext Command Line Interface</a></h3>
 <p>Software development kits for PLCnext Control targets are installed and managed using a command-line interface (CLI), called the <em>PLCnext CLI</em> or <code>plcncli</code>. It is possible to install SDKs on the host without using <code>plcncli</code>, but <code>plcncli</code> provides important features that will be required in later chapters of this book. For this reason, it is highly recommended to install and manage SDKs using <code>plcncli</code>.</p>
 <p>To install <code>plcncli</code> on your host:</p>
 <ul>
 <li>
-<p>Download the file <em>PLCnext Technology C ++ Toolchain für Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2020.0_Linux_AXC_F_2152.zip</code> is for the AXC F 2152 running firmware version 2020.0.</p>
+<p>Download the file <em>PLCnext Technology C++ tool chain for Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2021.6_Linux_AXC_F_2152.tar.gz</code> is for the AXC F 2152 running firmware version 2021.6.</p>
 </li>
 <li>
 <p>Extract the files from the archive.</p>
@@ -177,7 +177,8 @@
 <li>
 <p>Check that the installation has been successful.</p>
 <pre><code class="language-text">$ plcncli
-(todo: response))
+plcncli 21.0.0 LTS (21.0.0.489)
+Copyright (c) 2018 PHOENIX CONTACT GmbH &amp; Co. KG
 </code></pre>
 </li>
 </ul>
@@ -188,21 +189,41 @@
 </li>
 <li>
 <p>Use plcncli to install the SDK. You are free to specify any destination directory you want, using the <code>-d</code> option.</p>
-<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2020.0.sh -d /opt/pxc/sdk/AXCF2152/2020.0
+<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2021.6.sh -d /opt/pxc/sdk/AXCF2152/2021.6
 (todo: response))
 </code></pre>
+<p>You may need to change the permissions on the SDK installation file to give the current user execute privilege.</p>
 </li>
 <li>
 <p>Check what SDKs and targets have been installed.</p>
 <pre><code class="language-text">$ plcncli get sdks
-(todo: response))
+{
+   &quot;sdks&quot;: [
+      {
+         &quot;path&quot;: &quot;/opt/pxc/sdk/AXCF2152/2021.6&quot;
+      }
+   ]
+}
 </code></pre>
 <pre><code class="language-text">$ plcncli get targets
-(todo: response))
+{
+   &quot;targets&quot;: [
+      {
+         &quot;name&quot;: &quot;AXCF2152&quot;,
+         &quot;version&quot;: &quot;21.6.0.46&quot;,
+         &quot;longVersion&quot;: &quot;2021.6.0 (21.6.0.46)&quot;,
+         &quot;shortVersion&quot;: &quot;21.6.0&quot;,
+         &quot;available&quot;: null
+      }
+   ]
+}
 </code></pre>
 </li>
 </ul>
-<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the SDK installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
+<p>Note that the above responses are in JSON format, which makes it easier to integrate plcncli operations into an automated workflow if required.</p>
+<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
+<h3><a class="header" href="#alternative-sdk-installation-methods" id="alternative-sdk-installation-methods">Alternative SDK installation methods</a></h3>
+<p>If you are writing C++ applications in Eclipse or Visual Studio, then it is possible to install PLCnext SDKs through these IDEs. All SDK installation methods are described in the <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations.htm">PLCnext Info Center</a>.</p>
 
                     </main>
 

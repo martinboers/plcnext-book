@@ -9,7 +9,4 @@ Another way to access GDS variables.
 - Advantage: Very simple to set up. No code required. Can access I/O variables (this is not possible using RSC services)
 - Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.
 
-
-(NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)
-
 [rest-info]: https://www.plcnext.help/te/Service_Components/REST_data_interface/REST_data_interface_Introduction.htm

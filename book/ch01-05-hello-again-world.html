@@ -151,15 +151,44 @@
                 <div id="content" class="content">
                     <main>
                         <h2><a class="header" href="#hello-again-world" id="hello-again-world">Hello Again, World!</a></h2>
-<p>Once you have an SDK installed on your host machine, your PLC can greet the world in C++ or Rust.</p>
+<p>Once you have an SDK installed on your host machine, your PLCnext Control device can greet the world in C++ or Rust.</p>
 <h3><a class="header" href="#c" id="c">C++</a></h3>
-<p>(include links to Github)</p>
+<p>On the host machine, create a file called <code>main.cpp</code> with the following contents:</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<p>When <a href="https://www.gnu.org/software/automake/manual/html_node/Cross_002dCompilation.html">cross-compiling</a> open-source C/C++ code using the <a href="https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html">GNU Build System</a>, it is typical - and often necessary - to define an environment variable called <code>SDKROOT</code>. This variable contains the path where header files, shared libraries, build tools etc. for the target platform can be found. Defining this variable is not necessary for this simple example, but let's do it anyway. In this case, we define <code>SDKROOT</code> as the directory in the SDK that contains the <code>sysroot</code> directory. For example:</p>
+<pre><code class="language-text">$ export SDKROOT=/opt/pxc/sdk/AXCF2152/2021.6
+</code></pre>
+<p>The PLCnext SDK includes a bash script that sets up the build environment, so that standard build commands will result in binaries for the target platform. Execute this bash script using the <code>source</code> command:</p>
+<pre><code class="language-text">$ source ${SDKROOT}/environment-setup*
+</code></pre>
+<p>Now we can compile and link the program using the g++ compiler that comes with the PLCnext SDK:</p>
+<pre><code class="language-text">$ $CXX main.cpp -O -o say_hello  # Build with optimisations (-O) to avoid a warning.
+</code></pre>
+<p>Check that the resulting executable has been built for the correct platform:</p>
+<pre><code class="language-text">$ file say_hello
+say_hello: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=b4a827997b3375494f750fa890c8796ff293d463, for GNU/Linux 3.2.0, with debug_info, not stripped
+</code></pre>
+<p>Copy the executable to the PLCnext Control device:</p>
+<pre><code class="language-text">$ scp say_hello admin@192.168.1.10:~
+</code></pre>
+<p>Run the program on the PLCnext Control device:</p>
+<pre><code class="language-text">$ ssh admin@192.168.1.10
+# ./say_hello
+Hello World!
+</code></pre>
+<p>Congratulations! You have just written your first C++ program for a PLCnext Control device.</p>
 <h3><a class="header" href="#rust" id="rust">Rust</a></h3>
-<p>(include links to Github)</p>
+<p>The build process for a simple Rust program targeting a PLCnext Control device is described in the <a href="https://github.com/PLCnext/rust-sample-runtime/blob/master/getting-started/Part-01/README.md">first step of the rust-sample-runtime tutorial in Github</a>.</p>
 <h3><a class="header" href="#building-on-target" id="building-on-target">Building on target</a></h3>
-<p>The software development process for PLCnext Control - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.</p>
+<p>The software development process for PLCnext Control devices - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.</p>
 <h3><a class="header" href="#accessing-plc-io" id="accessing-plc-io">Accessing PLC I/O</a></h3>
-<p>One of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?</p>
+<p>After writing their first program, one of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?</p>
 <p>Before you learn how to do this, you must learn about the <em>PLCnext runtime</em>.</p>
 
                     </main>

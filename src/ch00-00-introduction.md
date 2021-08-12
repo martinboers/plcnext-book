@@ -9,13 +9,13 @@ PLCnext Control refers to a range of embedded computers from Phoenix Contact, wh
 The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:
 
 * [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
-* [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz)
+* [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz, PCIe® connector)
 * [AXC F 3152][axcf3152] (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)
 * [EPC 1502][epc1502] (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)
 * [EPC 1522][epc1522] (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)
 * [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
 
-Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the [PREEMT-RT patch][preempt].
+Each of these hardware platforms runs custom firmware that is based on Linux kernel version 5.4 with the [PREEMT-RT patch][preempt].
 
 ## Who PLCnext Control Is For
 
@@ -45,19 +45,19 @@ PLCnext Control devices includes unique features - such as the Global Data Space
 
 ## Who This Book Is For
 
-This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contains program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix ? gives references to language-specific resources.
+This book is aimed at software developers who want to extend the functionality of a PLCnext Control device with their own software. The book contains program examples and references in a number of popular languages, but generally uses C++ to demonstrate the features of PLCnext Control. C++ is used because PLCnext Control provides a C++ programming framework, and many of the open-source projects that are suitable for PLCnext Control projects are also written in C++. However, software engineers with other programming skills should be able to apply the principles found in this book to their language of choice. For these programmers, appendix A gives references to language-specific resources.
 
 This book does not cover PLCnext Engineer or programming in IEC 61131-3 languages, and in fact it is not necessary to read this book in order to become proficient in PLCnext Control programming using PLCnext Engineer. For IEC 61131-3 programmers, there are other resources from Phoenix Contact that will help you get started with PLCnext Engineer.
 
-For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the "Installing Software" topic.
+For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapters 1 and 2.
 
-For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapter 1 useful, up to and including "System Administration".
+For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapters 1 and 2 useful.
 
 ## What You Will Need
 
 Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the [PLCnext Technology Starter Kit][starter-kit], which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.
 
-Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.
+All sections of this book apply to AXC F 1152 and 2152 devices, and most sections also apply to other PLCnext Control devices.
 
 A PLCnext Control device is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
 
@@ -89,7 +89,7 @@ A glossary of terms used in this book is available in the [PLCnext Technology In
 >
 > Commands in a terminal on the host all start with `$` (you don’t need to enter the `$` character).
 >
-> Commands in a terminal on the target all start with `#` instead of `$` (you don’t need to enter the `#` character).
+> Commands in a terminal on the target all start with `#` (you don’t need to enter the `#` character).
 >
 > Commands in a terminal running the python interpreter all start with `>>>` (you don’t need to enter the `>>>` characters).
 >
@@ -99,7 +99,7 @@ A glossary of terms used in this book is available in the [PLCnext Technology In
 
 PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the [PLCnext Info Center][release-strategy].
 
-This book will be kept up to date with the latest version of PLCnext runtime firmware. As soon as a new version of PLCnext firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.
+This book will be kept up to date with the latest release of PLCnext Control firmware. As soon as a new version of PLCnext Control firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.
 
 ## Source Code
 
@@ -107,7 +107,7 @@ The source files used to generate this book can be found on [GitHub][book].
 
 ---
 
-<sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*.
+<sup>1</sup> *AXC* is short for *Axioline Controller*, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. *Axioline* is derived from the terms *AutomationWorx* (AX), a brand name used by Phoenix Contact, and *I/O*, meaning *Input/Output*. The term *line* can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called *Inline*. The letter "F" after "AXC" is used to distinguish these devices from earlier Axioline controllers, but otherwise has no meaning.
 
 <sup>2</sup> *EPC* is short for *Edge Personal Computer*. EPCs combine real-time PLC features with popular Industrial Internet of Things (IIoT) applications like [Node-RED][node-red] and [InfluxDB][influx]. EPCs are designed for industrial [Edge computing][edge-computing] applications.
 

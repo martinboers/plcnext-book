@@ -161,7 +161,7 @@
 <h2><a class="header" href="#iby-martin-boersi" id="iby-martin-boersi"><i>by Martin Boers</i></a></h2>
 <br/>
 </div>
-<p>The PLCnext Runtime © 2020 Martin Boers</p>
+<p>The PLCnext Runtime © 2020-2021 Martin Boers</p>
 <p>PLCnext Technology, PLCnext Engineer, PLCnext Store and Proficloud are registered trade marks of Phoenix Contact GmbH &amp; Co. KG.</p>
 <p>This book is not produced, supported or endorsed by Phoenix Contact GmbH &amp; Co. KG or any of its associated companies.</p>
 <p>While every effort has been made to ensure the accuracy of material in this book, the author accepts no responsibility for any errors or omissions.</p>
@@ -170,17 +170,19 @@
 <p>Welcome to <em>The PLCnext Runtime</em>, an introductory book about programming on the PLCnext Control platform.</p>
 <h2><a class="header" href="#what-is-plcnext-control" id="what-is-plcnext-control">What Is PLCnext Control?</a></h2>
 <p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
-<p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
+<p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:</p>
 <ul>
 <li><a href="http://www.phoenixcontact.com/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
 <li><a href="http://www.phoenixcontact.com/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
 <li><a href="http://www.phoenixcontact.com/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
+<li><a href="http://www.phoenixcontact.com/product/1185416">EPC 1502</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)</li>
+<li><a href="http://www.phoenixcontact.com/product/1185423">EPC 1522</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)</li>
 <li><a href="http://www.phoenixcontact.com/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
-<p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
+<p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>4</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
 <h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
 <p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.com/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
 <h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
@@ -197,11 +199,11 @@
 <p>For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the &quot;Installing Software&quot; topic.</p>
 <p>For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapter 1 useful, up to and including &quot;System Administration&quot;.</p>
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
-<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
+<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="http://www.phoenixcontact.com/product/1188165">PLCnext Technology Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.</p>
 <p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
-<p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="ethernet-basics">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
+<p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
 <blockquote>
 <p>Throughout this book, the PLCnext Control hardware will be referred to as either <em>PLCnext Control device</em>, or <em>controller</em>, or <em>target</em>. In this book, these terms are used interchangeably. Controllers from other manufacturers are often referred to with the term  <em>PLC</em>, but in this book the term <em>PLC</em> will only be used to refer to those firmware components on the controller that implement real-time automation functions.</p>
 </blockquote>
@@ -228,8 +230,9 @@
 <p>The source files used to generate this book can be found on <a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>
 <hr />
 <p><sup>1</sup> <em>AXC</em> is short for <em>Axioline Controller</em>, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. <em>Axioline</em> is derived from the terms <em>AutomationWorx</em> (AX), a brand name used by Phoenix Contact, and <em>I/O</em>, meaning <em>Input/Output</em>. The term <em>line</em> can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called <em>Inline</em>.</p>
-<p><sup>2</sup> <em>RFC</em> is short for <em>Remote Field Controller</em>. Unlike Axioline controllers, RFCs can only control <em>remote</em> I/O modules over a <em>field bus</em> like Profinet.</p>
-<p><sup>3</sup> <em>PLC</em> is short for <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller"><em>Programmable Logic Controller</em></a>.</p>
+<p><sup>2</sup> <em>EPC</em> is short for <em>Edge Personal Computer</em>. EPCs combine real-time PLC features with popular Industrial Internet of Things (IIoT) applications like <a href="https://nodered.org/">Node-RED</a> and <a href="https://www.influxdata.com/">InfluxDB</a>. EPCs are designed for industrial <a href="https://en.wikipedia.org/wiki/Edge_computing">Edge computing</a> applications.</p>
+<p><sup>3</sup> <em>RFC</em> is short for <em>Remote Field Controller</em>. Unlike Axioline controllers, RFCs can only control <em>remote</em> I/O modules over a <em>field bus</em> like Profinet.</p>
+<p><sup>4</sup> <em>PLC</em> is short for <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller"><em>Programmable Logic Controller</em></a>.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>This chapter includes:</p>
 <ul>
@@ -259,30 +262,30 @@
 </li>
 </ul>
 <h2><a class="header" href="#setting-the-ip-address" id="setting-the-ip-address">Setting the IP Address</a></h2>
-<p>Once you have assembled <a href="ch00-00-introduction.html#what-you-will-need">everything you need to get started</a>, your PLC will be powered up and plugged in to an Ethernet network with access to the internet. On an AXC PLC it doesn't matter which of the two Ethernet ports are used; these are switched internally.</p>
-<p>The factory default IP address of every PLC is 192.168.1.10/24, but you will probably want to change this to something that suits your local network.</p>
+<p>Once you have assembled <a href="ch00-00-introduction.html#what-you-will-need">everything you need to get started</a>, your PLCnext Control device will be powered up and plugged in to an Ethernet network with access to the internet. On an <strong>AXC</strong> PLCnext Control device it doesn't matter which of the two Ethernet ports are used; these are switched internally.</p>
+<p>The factory default IP address of every PLCnext Control device is 192.168.1.10/24, but you will probably want to change this to something that suits your local network.</p>
 <blockquote>
-<p>This section shows how to change the IP address of the PLC from the default value. In the remainder of this book, all examples will use the default IP address (192.168.1.10).</p>
+<p>This section shows how to change the IP address of the PLCnext Control device from the default value. In the remainder of this book, all examples will use the default IP address (192.168.1.10).</p>
 </blockquote>
-<p>Here are two possible ways to change the IP address of the PLC:</p>
-<h3><a class="header" href="#use-netnames" id="use-netnames">Use <code>netnames</code></a></h3>
+<p>Here are two possible ways to change the IP address of the PLCnext Control device:</p>
+<h3><a class="header" href="#use-netnames" id="use-netnames">Use netnames</a></h3>
 <p>Netnames is a utility from Phoenix Contact that assists with the management of <a href="https://www.profibus.com/technology/profinet/">Profinet</a> devices. Netnames is available for <a href="http://plcnext-runtime.com/downloads/netnames/linux-x64/netnames">Linux 64 bit</a> and <a href="http://www.phoenixcontact.com/qr/2316390/softw">Windows</a> operating systems. The remainder of this section uses the Linux version of Netnames.</p>
 <p>Firstly, make sure that netnames can be executed. From the <code>netnames</code> installation directory, run the following command:</p>
 <pre><code class="language-text">$ chmod a+x netnames
 </code></pre>
-<p>By default, each PLCnext Control acts as a Profinet device, and so can be assigned an IP address using <code>netnames</code>.</p>
+<p>By default, each PLCnext Control device acts as a Profinet device, and so can be assigned an IP address using <code>netnames</code>.</p>
 <p>Run the following command, substituting <code>eth0</code> with the name of your Ethernet adapter. You should get a response similar to the one shown.</p>
 <pre><code class="language-text">$ sudo ./netnames -i eth0 -c identify
 axc-f-2152-1   AXC F 2152   00B0 0142 00:A0:45:A0:09:D8   192.168.1.10   255.255.255.0   0.0.0.0
 </code></pre>
-<p>The MAC address and current IP address details of the PLC are shown in the response.</p>
+<p>The MAC address and current IP address details of the PLCnext Control device are shown in the response.</p>
 <p>If you get no response, make sure the name of the Ethernet adapter is correct. Also, be aware that the <a href="https://profinetuniversity.com/naming-addressing/profinet-dcp/">Discovery and Configuration Protocol</a> (DCP) used by <code>netnames</code> is a link layer protocol, and so is not routable.</p>
 <p>The IP address, subnet mask and default gateway can be changed using a command similar to the following:</p>
 <pre><code class="language-text">$ sudo ./netnames -i eth0 -c setip -m 00:A0:45:A0:09:D8 -ip 192.168.178.10 -sm 255.255.255.0 -sg 192.168.178.1
 Device responded: OK
 </code></pre>
-<p>Obviously the above command will need to include parameters that suit your own device and network. The IP address of the PLC should be in the same subnet as the host, and the default gateway should give the PLC access to the internet.</p>
-<p>Your PLC should now be accessible from your host machine, which can be verified using <code>ping</code>:</p>
+<p>Obviously the above command will need to include parameters that suit your own device and network. The IP address of the device should be in the same subnet as the host, and the default gateway should give the device access to the internet.</p>
+<p>Your device should now be accessible from your host machine, which can be verified using <code>ping</code>:</p>
 <pre><code class="language-text">$ ping -c 3 192.168.178.10
 PING 192.168.178.10 (192.168.178.221) 56(84) bytes of data.
 64 bytes from 192.168.178.10: icmp_seq=1 ttl=64 time=5.73 ms
@@ -294,9 +297,9 @@ PING 192.168.178.10 (192.168.178.221) 56(84) bytes of data.
 rtt min/avg/max/mdev = 4.877/9.690/18.464/6.214 ms
 </code></pre>
 <h3><a class="header" href="#use-plcnext-engineer" id="use-plcnext-engineer">Use PLCnext Engineer</a></h3>
-<p>For Windows users, it is also possible to set the IP address of the PLC using <a href="http://phoenixcontact.com/product/1046008">PLCnext Engineer</a> software. Refer to the guide &quot;<a href="https://www.plcnext.help/te/PLCnext_Engineer/Getting_started_with_PLCnext_Engineer.htm">Getting started with PLCnext Engineer</a>&quot; for instructions on how to do this.</p>
+<p>For Windows users, it is also possible to set the IP address of the PLCnext Control device using <a href="http://phoenixcontact.com/product/1046008">PLCnext Engineer</a> software. Refer to the guide &quot;<a href="https://www.plcnext.help/te/PLCnext_Engineer/Getting_started_with_PLCnext_Engineer.htm">Getting started with PLCnext Engineer</a>&quot; for instructions on how to do this.</p>
 <h2><a class="header" href="#starting-a-shell-session" id="starting-a-shell-session">Starting a Shell Session</a></h2>
-<p>The PLC is running a secure shell (ssh) daemon so, once the PLC is accessible on the local area network, you can go ahead and open a shell session on the PLC from the host:</p>
+<p>The PLCnext Control device is running a secure shell (ssh) daemon so, once the device is accessible on the local area network, you can go ahead and open a shell session on the device from the host:</p>
 <pre><code class="language-text">$ ssh admin@192.168.1.10
 The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
 ECDSA key fingerprint is SHA256:uUhWsqX6TQy/KDZ4rdydja8zws7zCBLF5CI2/wm5owQ.
@@ -312,32 +315,32 @@ admin@192.168.1.10's password:
 <h2><a class="header" href="#hello-world" id="hello-world">Hello, World!</a></h2>
 <p>Let's write our first PLCnext Control program!</p>
 <h3><a class="header" href="#your-first-program" id="your-first-program">Your First Program</a></h3>
-<p>Every PLCnext Control comes with Python already installed.</p>
+<p>Every PLCnext Control device comes with Python already installed.</p>
 <pre><code class="language-text"># python3
 Python 3.7.2 (default, Nov 12 2019, 23:37:48)
 [GCC 8.3.0] on linux
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 </code></pre>
-<p>Here, you can see the version of Python that is installed on the PLC. The Python command prompt <code>&gt;&gt;&gt;</code> is now waiting for further input. Enter the following command:</p>
+<p>Here, you can see the version of Python that is installed on the device. The Python command prompt <code>&gt;&gt;&gt;</code> is now waiting for further input. Enter the following command:</p>
 <pre><code class="language-text">&gt;&gt;&gt; print (&quot;Hello, World!&quot;)
 Hello, World!
 </code></pre>
-<p>Press Ctrl-D to exit from the Python interpreter and return to the PLC command prompt.</p>
-<p>Close the shell session on the PLC:</p>
+<p>Press Ctrl-D to exit from the Python interpreter and return to the command prompt.</p>
+<p>Close the shell session:</p>
 <pre><code class="language-text"># exit
 </code></pre>
 <p>You have just written your first PLCnext Control program!</p>
 <h3><a class="header" href="#your-second-program" id="your-second-program">Your Second Program</a></h3>
-<p>You probably don't want to be limited to Python when building applications for a PLCnext Control. Python scripts are quick and easy to run on a PLCnext Control because the firmware includes a Python interpreter. Other interpreted languages (like Javascript) need their own interpreter. Similarly, Java bytecode and .NET CLI code need their own runtimes. It is beyond the scope of this book to describe how to program a PLCnext Control device in every language. Appendix A includes a list of resources that demonstrate how to use PLCnext Control devices with a number of popular programming languages and frameworks, including contributions from members of the PLCnext Community.</p>
+<p>You probably don't want to be limited to Python when building applications. Python scripts are quick and easy to run on a PLCnext Control device because the firmware includes a Python interpreter. Other interpreted languages (like Javascript) need their own interpreter. Similarly, Java bytecode and .NET CLI code need their own runtimes. It is beyond the scope of this book to describe how to program a PLCnext Control device in every language. Appendix A includes a list of resources that demonstrate how to use PLCnext Control devices with a number of popular programming languages and frameworks, including contributions from members of the PLCnext Community.</p>
 <p>Native applications can be built for a PLCnext Control device using C/C++ or Rust, for example, with the help of the appropriate Software Development Kit (SDK). Next, we will see how to install the SDK for a PLCnext Control device on your host machine, and then write &quot;Hello, World!&quot; programs for that controller in C/C++ and Rust.</p>
 <h2><a class="header" href="#installing-a-software-development-kit" id="installing-a-software-development-kit">Installing a Software Development Kit</a></h2>
-<p>You can build native applications for a PLCnext Control - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control. The SDK contains the build tools and other resources required to create native applications for the target.</p>
+<p>You can build native applications for a PLCnext Control device - either from third-party open-source code, or from your own code. To do this, you must install a software development kit (SDK) on the host, corresponding to the firmware that is running on the PLCnext Control device. The SDK contains the build tools and other resources required to create native applications for the target.</p>
 <h3><a class="header" href="#plcnext-command-line-interface" id="plcnext-command-line-interface">PLCnext Command Line Interface</a></h3>
 <p>Software development kits for PLCnext Control targets are installed and managed using a command-line interface (CLI), called the <em>PLCnext CLI</em> or <code>plcncli</code>. It is possible to install SDKs on the host without using <code>plcncli</code>, but <code>plcncli</code> provides important features that will be required in later chapters of this book. For this reason, it is highly recommended to install and manage SDKs using <code>plcncli</code>.</p>
 <p>To install <code>plcncli</code> on your host:</p>
 <ul>
 <li>
-<p>Download the file <em>PLCnext Technology C ++ Toolchain für Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2020.0_Linux_AXC_F_2152.zip</code> is for the AXC F 2152 running firmware version 2020.0.</p>
+<p>Download the file <em>PLCnext Technology C++ tool chain for Linux</em> from the Phoenix Contact website. For example, the file <code>PLCnCLI_SDK_2021.6_Linux_AXC_F_2152.tar.gz</code> is for the AXC F 2152 running firmware version 2021.6.</p>
 </li>
 <li>
 <p>Extract the files from the archive.</p>
@@ -357,7 +360,8 @@ Hello, World!
 <li>
 <p>Check that the installation has been successful.</p>
 <pre><code class="language-text">$ plcncli
-(todo: response))
+plcncli 21.0.0 LTS (21.0.0.489)
+Copyright (c) 2018 PHOENIX CONTACT GmbH &amp; Co. KG
 </code></pre>
 </li>
 </ul>
@@ -368,31 +372,80 @@ Hello, World!
 </li>
 <li>
 <p>Use plcncli to install the SDK. You are free to specify any destination directory you want, using the <code>-d</code> option.</p>
-<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2020.0.sh -d /opt/pxc/sdk/AXCF2152/2020.0
+<pre><code class="language-text">$ plcncli install sdk -p pxc-glibc-x86_64-axcf2152-image-sdk-cortexa9t2hf-neon-axcf2152-toolchain-2021.6.sh -d /opt/pxc/sdk/AXCF2152/2021.6
 (todo: response))
 </code></pre>
+<p>You may need to change the permissions on the SDK installation file to give the current user execute privilege.</p>
 </li>
 <li>
 <p>Check what SDKs and targets have been installed.</p>
 <pre><code class="language-text">$ plcncli get sdks
-(todo: response))
+{
+   &quot;sdks&quot;: [
+      {
+         &quot;path&quot;: &quot;/opt/pxc/sdk/AXCF2152/2021.6&quot;
+      }
+   ]
+}
 </code></pre>
 <pre><code class="language-text">$ plcncli get targets
-(todo: response))
+{
+   &quot;targets&quot;: [
+      {
+         &quot;name&quot;: &quot;AXCF2152&quot;,
+         &quot;version&quot;: &quot;21.6.0.46&quot;,
+         &quot;longVersion&quot;: &quot;2021.6.0 (21.6.0.46)&quot;,
+         &quot;shortVersion&quot;: &quot;21.6.0&quot;,
+         &quot;available&quot;: null
+      }
+   ]
+}
 </code></pre>
 </li>
 </ul>
-<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the SDK installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
+<p>Note that the above responses are in JSON format, which makes it easier to integrate plcncli operations into an automated workflow if required.</p>
+<p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
+<h3><a class="header" href="#alternative-sdk-installation-methods" id="alternative-sdk-installation-methods">Alternative SDK installation methods</a></h3>
+<p>If you are writing C++ applications in Eclipse or Visual Studio, then it is possible to install PLCnext SDKs through these IDEs. All SDK installation methods are described in the <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations.htm">PLCnext Info Center</a>.</p>
 <h2><a class="header" href="#hello-again-world" id="hello-again-world">Hello Again, World!</a></h2>
-<p>Once you have an SDK installed on your host machine, your PLC can greet the world in C++ or Rust.</p>
+<p>Once you have an SDK installed on your host machine, your PLCnext Control device can greet the world in C++ or Rust.</p>
 <h3><a class="header" href="#c" id="c">C++</a></h3>
-<p>(include links to Github)</p>
+<p>On the host machine, create a file called <code>main.cpp</code> with the following contents:</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<p>When <a href="https://www.gnu.org/software/automake/manual/html_node/Cross_002dCompilation.html">cross-compiling</a> open-source C/C++ code using the <a href="https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html">GNU Build System</a>, it is typical - and often necessary - to define an environment variable called <code>SDKROOT</code>. This variable contains the path where header files, shared libraries, build tools etc. for the target platform can be found. Defining this variable is not necessary for this simple example, but let's do it anyway. In this case, we define <code>SDKROOT</code> as the directory in the SDK that contains the <code>sysroot</code> directory. For example:</p>
+<pre><code class="language-text">$ export SDKROOT=/opt/pxc/sdk/AXCF2152/2021.6
+</code></pre>
+<p>The PLCnext SDK includes a bash script that sets up the build environment, so that standard build commands will result in binaries for the target platform. Execute this bash script using the <code>source</code> command:</p>
+<pre><code class="language-text">$ source ${SDKROOT}/environment-setup*
+</code></pre>
+<p>Now we can compile and link the program using the g++ compiler that comes with the PLCnext SDK:</p>
+<pre><code class="language-text">$ $CXX main.cpp -O -o say_hello  # Build with optimisations (-O) to avoid a warning.
+</code></pre>
+<p>Check that the resulting executable has been built for the correct platform:</p>
+<pre><code class="language-text">$ file say_hello
+say_hello: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=b4a827997b3375494f750fa890c8796ff293d463, for GNU/Linux 3.2.0, with debug_info, not stripped
+</code></pre>
+<p>Copy the executable to the PLCnext Control device:</p>
+<pre><code class="language-text">$ scp say_hello admin@192.168.1.10:~
+</code></pre>
+<p>Run the program on the PLCnext Control device:</p>
+<pre><code class="language-text">$ ssh admin@192.168.1.10
+# ./say_hello
+Hello World!
+</code></pre>
+<p>Congratulations! You have just written your first C++ program for a PLCnext Control device.</p>
 <h3><a class="header" href="#rust" id="rust">Rust</a></h3>
-<p>(include links to Github)</p>
+<p>The build process for a simple Rust program targeting a PLCnext Control device is described in the <a href="https://github.com/PLCnext/rust-sample-runtime/blob/master/getting-started/Part-01/README.md">first step of the rust-sample-runtime tutorial in Github</a>.</p>
 <h3><a class="header" href="#building-on-target" id="building-on-target">Building on target</a></h3>
-<p>The software development process for PLCnext Control - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.</p>
+<p>The software development process for PLCnext Control devices - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.</p>
 <h3><a class="header" href="#accessing-plc-io" id="accessing-plc-io">Accessing PLC I/O</a></h3>
-<p>One of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?</p>
+<p>After writing their first program, one of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?</p>
 <p>Before you learn how to do this, you must learn about the <em>PLCnext runtime</em>.</p>
 <h2><a class="header" href="#system-administration" id="system-administration">System Administration</a></h2>
 <p>The firmware on a PLCnext Control includes standard Linux features that will be familiar to systems and network administrators. These features are described in the <a href="https://www.plcnext.help/te/Operating_System/Operating_system.htm">PLCnext Technology Info Centre</a>.</p>
@@ -783,9 +836,9 @@ Component namespace: <code>Arp::Services</code></p>
 <h2><a class="header" href="#component-instances" id="component-instances">Component Instances</a></h2>
 <p>When the PLCnext runtime starts, the following happens:</p>
 <ol>
-<li>PLCnext libraries are loaded and given a unique name.</li>
 <li>One or more processes are started.</li>
-<li>PLCnext component instances are created in specific processes.</li>
+<li>The libraries containing PLCnext component definitions are loaded into the specified process(es).</li>
+<li>Component instances are created in the specified processes.</li>
 </ol>
 <p>The configuration information in this section appears in the following files:</p>
 <ul>
@@ -794,153 +847,155 @@ Component namespace: <code>Arp::Services</code></p>
 <li><code>/etc/plcnext/device/ExternalIoProcess.acf.config</code></li>
 <li><code>/etc/plcnext/device/AXCF2152.acf.config</code></li>
 </ul>
-<h3><a class="header" href="#runtime-libraries" id="runtime-libraries">Runtime Libraries</a></h3>
-<p>The following table show the name given to each PLCnext library when it is loaded by the PLCnext runtime.</p>
-<p>Libraries can be loaded conditionally, based on the value of a boolean environment variable. If no condition is specified, the library is always loaded.</p>
-<table><thead><tr><th align="left">Library file</th><th align="left">Name assigned by PLCnext runtime</th><th align="left">Condition</th></tr></thead><tbody>
-<tr><td align="left">libArp.System.Um.so</td><td align="left">Arp.System.Um.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Device.HmiLed.so</td><td align="left">Arp.Device.HmiLed.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Device.Interface.so</td><td align="left">Arp.Device.Interface.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.Nim.so</td><td align="left">Arp.Hardware.Nim.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.RscGateway.so</td><td align="left">Arp.System.RscGateway.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Commons.Services.so</td><td align="left">Arp.System.Commons.Services.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Security.Services.so</td><td align="left">Arp.System.Security.Services.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Fwu.so</td><td align="left">Arp.System.Fwu.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.System.Watchdog.so</td><td align="left">Arp.System.SystemWatchdog.Library</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
-<tr><td align="left">libArp.System.SysWatchdog.so</td><td align="left">Arp.System.SysWatchdog.Library</td><td align="left"></td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.IdentificationData.so</td><td align="left">Arp.Hardware.IdentificationData.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.FanControl.so</td><td align="left">Arp.Hardware.FanControl.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.Fpga.so</td><td align="left">Arp.Hardware.Fpga.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.OsControl.so</td><td align="left">Arp.Hardware.OsControl.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.RealTimeClock.so</td><td align="left">Arp.Hardware.RealTimeClock.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.ResourceMonitor.so</td><td align="left">Arp.Hardware.ResourceMonitor.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.DeviceHmi.so</td><td align="left">Arp.Hardware.DeviceHmi.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.Sensors.so</td><td align="left">Arp.Hardware.Sensors.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.ExternalSDCard.so</td><td align="left">Arp.Hardware.ExternalSDCard.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Hardware.ExternalPci.so</td><td align="left">Arp.Hardware.ExternalPci.Library</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Eclr.so</td><td align="left">Arp.Plc.Eclr.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Plm.so</td><td align="left">Arp.Plc.Plm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Esm.so</td><td align="left">Arp.Plc.Esm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Gds.so</td><td align="left">Arp.Plc.Gds.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Domain.so</td><td align="left">Arp.Plc.Domain.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Meta.so</td><td align="left">Arp.Plc.Meta.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Fbm.so</td><td align="left">Arp.Plc.Fbm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Plc.Retain.so</td><td align="left">Arp.Plc.Retain.Library</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Fwm.so</td><td align="left">Arp.Services.Fwm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Wbm.so</td><td align="left">Arp.Services.Wbm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Ehmi.so</td><td align="left">Arp.Services.Ehmi.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.OpcUAServer.so</td><td align="left">Arp.Services.OpcUAServer.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Alarms.so</td><td align="left">Arp.Services.Alarms.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.ProfiCloud.so</td><td align="left">Arp.Services.ProfiCloud.Library</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
-<tr><td align="left">libArp.Services.ProfiCloudV3.so</td><td align="left">Arp.Services.ProfiCloudV3.Library</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
-<tr><td align="left">libArp.Services.NotificationLogger.so</td><td align="left">Arp.Services.NotificationLogger.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.TraceController.so</td><td align="left">Arp.Services.TraceController.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.NmUtilities.so</td><td align="left">Arp.Services.NmUtilities.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.DataLogger.so</td><td align="left">Arp.Services.DataLogger.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.AppManager.so</td><td align="left">Arp.Services.AppManager.Library</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
-<tr><td align="left">libArp.Services.LinuxSyslog.so</td><td align="left">Arp.Services.LinuxSyslog.Library</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
-<tr><td align="left">libArp.Services.Wcm.so</td><td align="left">Arp.Services.Wcm.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.Logging.so</td><td align="left">Arp.Services.Logging.Library</td><td align="left"></td></tr>
-<tr><td align="left">libArp.Services.SpnsProxy.so</td><td align="left">Arp.Services.SpnsProxy.Library</td><td align="left"></td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">libArp.Io.ProfinetStack.so</td><td align="left">Arp.Io.Pn.Library</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
-<tr><td align="left">libArp.Io.Axioline.so<sup>1</sup></td><td align="left">Arp.Io.Axl.Library</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
-<tr><td align="left">libArp.Io.Interbus.so<sup>1</sup></td><td align="left">Arp.Io.IbM.Library</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
-<tr><td align="left">libArp.Io.EthernetIP.so<sup>1</sup></td><td align="left">Arp.Io.EthernetIP.Library</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
-</tbody></table>
-<p><sup>1</sup> Only available on AXC devices.</p>
 <h3><a class="header" href="#runtime-processes" id="runtime-processes">Runtime Processes</a></h3>
-<p>Most component instance are created in the unnamed main PLCnext runtime process. In the AXC F 2152, two additional processes are created, in which I/O component instances related to Profinet, Ethernet/IP and Interbus are created.</p>
+<p>Most component instance are created in the main PLCnext runtime process, which is called <strong>MainProcess</strong>. In the AXC F 2152, one additional process is created, in which I/O component instances related to Axioline, Ethernet/IP and Interbus are created.</p>
 <table><thead><tr><th align="left">Process name</th><th align="left">Local TCP port</th></tr></thead><tbody>
-<tr><td align="left">(main)</td><td align="left">41121</td></tr>
+<tr><td align="left">MainProcess</td><td align="left">41121</td></tr>
 <tr><td align="left">ExternalIoProcess</td><td align="left">41123</td></tr>
-<tr><td align="left">LocalIoProcess<sup>1</sup></td><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<br/>Arp.Io.IbM</td></tr>
+<tr><td align="left">LocalIoProcess<sup>1</sup></td><td align="left">41124</td></tr>
 </tbody></table>
 <p><sup>1</sup> Only on AXC devices.</p>
-<p>Since multiple Interbus and Ethernet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.</p>
+<p>Since multiple Interbus and Profinet hardware interfaces are possible on an AXC F 2152 device, these additional processes allow the corresponding I/O networks to be dynamically assigned to the the correct hardware interface.</p>
+<h3><a class="header" href="#component-libraries" id="component-libraries">Component Libraries</a></h3>
+<p>The following table show the alias given to each component library by the PLCnext runtime.</p>
+<p>Libraries can be loaded conditionally, based on the value of a boolean environment variable. If no condition is specified, the library is always loaded.</p>
+<table><thead><tr><th align="left">Filename<br/>(libArp.*.so)</th><th align="left">Alias<br/>(Arp.*.Library)</th><th align="left">Condition</th></tr></thead><tbody>
+<tr><td align="left"><strong>System.</strong></td><td align="left"><strong>System.</strong></td><td align="left"></td></tr>
+<tr><td align="left">Um</td><td align="left">Um</td><td align="left"></td></tr>
+<tr><td align="left">RscGateway</td><td align="left">RscGateway</td><td align="left"></td></tr>
+<tr><td align="left">Commons.Services</td><td align="left">Commons.Services</td><td align="left"></td></tr>
+<tr><td align="left">Security.Services</td><td align="left">Security.Services</td><td align="left"></td></tr>
+<tr><td align="left">Fwu</td><td align="left">Fwu</td><td align="left"></td></tr>
+<tr><td align="left">Watchdog</td><td align="left">SystemWatchdog</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
+<tr><td align="left">SysWatchdog</td><td align="left">SysWatchdog</td><td align="left"></td></tr>
+<tr><td align="left"><strong>Hardware.</strong></td><td align="left"><strong>Hardware.</strong></td><td align="left"></td></tr>
+<tr><td align="left">Nim</td><td align="left">Nim</td><td align="left"></td></tr>
+<tr><td align="left">IdentificationData</td><td align="left">IdentificationData</td><td align="left"></td></tr>
+<tr><td align="left">FanControl</td><td align="left">FanControl</td><td align="left"></td></tr>
+<tr><td align="left">Fpga</td><td align="left">Fpga</td><td align="left"></td></tr>
+<tr><td align="left">OsControl</td><td align="left">OsControl</td><td align="left"></td></tr>
+<tr><td align="left">RealTimeClock</td><td align="left">RealTimeClock</td><td align="left"></td></tr>
+<tr><td align="left">ResourceMonitor</td><td align="left">ResourceMonitor</td><td align="left"></td></tr>
+<tr><td align="left">DeviceHmi</td><td align="left">DeviceHmi</td><td align="left"></td></tr>
+<tr><td align="left">Sensors</td><td align="left">Sensors</td><td align="left"></td></tr>
+<tr><td align="left">ExternalSDCard</td><td align="left">ExternalSDCard</td><td align="left"></td></tr>
+<tr><td align="left">ExternalPci</td><td align="left">ExternalPci</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
+<tr><td align="left"><strong>Device.</strong></td><td align="left"><strong>Device.</strong></td><td align="left"></td></tr>
+<tr><td align="left">HmiLed</td><td align="left">HmiLed</td><td align="left"></td></tr>
+<tr><td align="left">Interface</td><td align="left">Interface</td><td align="left"></td></tr>
+<tr><td align="left"><strong>Plc.</strong></td><td align="left"><strong>Plc.</strong></td><td align="left"></td></tr>
+<tr><td align="left">Eclr</td><td align="left">Eclr</td><td align="left"></td></tr>
+<tr><td align="left">Plm</td><td align="left">Plm</td><td align="left"></td></tr>
+<tr><td align="left">Esm</td><td align="left">Esm</td><td align="left"></td></tr>
+<tr><td align="left">Gds</td><td align="left">Gds</td><td align="left"></td></tr>
+<tr><td align="left">Domain</td><td align="left">Domain</td><td align="left"></td></tr>
+<tr><td align="left">Meta</td><td align="left">Meta</td><td align="left"></td></tr>
+<tr><td align="left">Fbm</td><td align="left">Fbm</td><td align="left"></td></tr>
+<tr><td align="left">Retain</td><td align="left">Retain</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
+<tr><td align="left"><strong>Services.</strong></td><td align="left"><strong>Services.</strong></td><td align="left"></td></tr>
+<tr><td align="left">Fwm</td><td align="left">Fwm</td><td align="left"></td></tr>
+<tr><td align="left">Wbm</td><td align="left">Wbm</td><td align="left"></td></tr>
+<tr><td align="left">Ehmi</td><td align="left">Ehmi</td><td align="left"></td></tr>
+<tr><td align="left">OpcUAServer</td><td align="left">OpcUAServer</td><td align="left"></td></tr>
+<tr><td align="left">Alarms</td><td align="left">Alarms</td><td align="left"></td></tr>
+<tr><td align="left">ProfiCloud</td><td align="left">ProfiCloud</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
+<tr><td align="left">ProfiCloudV3</td><td align="left">ProfiCloudV3</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
+<tr><td align="left">NotificationLogger</td><td align="left">NotificationLogger</td><td align="left"></td></tr>
+<tr><td align="left">TraceController</td><td align="left">TraceController</td><td align="left"></td></tr>
+<tr><td align="left">NmUtilities</td><td align="left">NmUtilities</td><td align="left"></td></tr>
+<tr><td align="left">DataLogger</td><td align="left">DataLogger</td><td align="left"></td></tr>
+<tr><td align="left">AppManager</td><td align="left">AppManager</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
+<tr><td align="left">LinuxSyslog</td><td align="left">LinuxSyslog</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
+<tr><td align="left">Wcm</td><td align="left">Wcm</td><td align="left"></td></tr>
+<tr><td align="left">Logging</td><td align="left">Logging</td><td align="left"></td></tr>
+<tr><td align="left">SpnsProxy</td><td align="left">SpnsProxy</td><td align="left"></td></tr>
+<tr><td align="left"><strong>Io.</strong></td><td align="left"><strong>Io.</strong></td><td align="left"></td></tr>
+<tr><td align="left">ProfinetStack</td><td align="left">Pn</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">Axioline.so<sup>1</sup></td><td align="left">Axl</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
+<tr><td align="left">Interbus.so<sup>1</sup></td><td align="left">IbM</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
+<tr><td align="left">EthernetIP.so<sup>1</sup></td><td align="left">EthernetIP</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+</tbody></table>
+<p><sup>1</sup> Only available on AXC devices.</p>
 <h3><a class="header" href="#component-instances-1" id="component-instances-1">Component Instances</a></h3>
 <p>Each component created by the PLCnext runtime:</p>
 <ul>
-<li>Is created in a specific process. If no process is specified, the component is created in the unnamed main PLCnext Runtime process.</li>
+<li>Is created in a specific process. If no process is specified, the component is created in the main PLCnext Runtime process (&quot;MainProcess&quot;).</li>
 <li>Can optionally be passed settings information. In the table below, all settings information represent files relative to the directory <code>/etc/plcnext/device</code>.</li>
 <li>Can be created conditionally, based on the value of a boolean environment variable. If no condition is specified, the component instance is always created.</li>
 </ul>
-<table><thead><tr><th align="left">Instance name</th><th align="left">Type</th><th align="left">Process</th><th align="left">Settings information</th><th align="left">Condition</th></tr></thead><tbody>
-<tr><td align="left">Arp.System.Commons.Services</td><td align="left">Arp::System::Commons::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Security.Services</td><td align="left">Arp::System::Security::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Watchdog.MainProcess</td><td align="left">Arp::System::Watchdog::SystemWatchdogComponent</td><td align="left"></td><td align="left">System/Watchdog/Watchdog.settings</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
-<tr><td align="left">Arp.System.RscGateway</td><td align="left">Arp::System::RscGateway::RscGatewayComponent</td><td align="left"></td><td align="left">System/RscGateway/RscGateway.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.System.Um</td><td align="left">Arp::System::Um::UmComponent</td><td align="left"></td><td align="left">System/Um/Um.settings</td><td align="left"></td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.IdentificationData</td><td align="left">Arp::Hardware::IdentificationData::IdentificationDataComponent</td><td align="left"></td><td align="left">Hardware/IdentificationData/IdentificationData.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.FanControl</td><td align="left">Arp::Hardware::FanControl::FanControlComponent</td><td align="left"></td><td align="left">Hardware/FanControl/FanControl.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.Fpga</td><td align="left">Arp::Hardware::Fpga::FpgaComponent</td><td align="left"></td><td align="left">Hardware/Fpga/Fpga.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.OsControl</td><td align="left">Arp::Hardware::OsControl::OsControlComponent</td><td align="left"></td><td align="left">Hardware/OsControl/OsControl.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.RealTimeClock</td><td align="left">Arp::Hardware::RealTimeClock::RealTimeClockComponent</td><td align="left"></td><td align="left">Hardware/RealTimeClock/RealTimeClock.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.ResourceMonitor</td><td align="left">Arp::Hardware::ResourceMonitor::ResourceMonitorComponent</td><td align="left"></td><td align="left">Hardware/ResourceMonitor/ResourceMonitor.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.DeviceHmi</td><td align="left">Arp::Hardware::DeviceHmi::DeviceHmiComponent</td><td align="left"></td><td align="left">Hardware/DeviceHmi/DeviceHmi.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.Sensors</td><td align="left">Arp::Hardware::Sensors::SensorsComponent</td><td align="left"></td><td align="left">Hardware/Sensors/Sensors.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.Nim</td><td align="left">Arp::Hardware::Nim::NimComponent</td><td align="left">Hardware/Nim/Nim.settings</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.NetloadLimiter</td><td align="left">Arp::Hardware::Nim::NetloadLimiterComponent</td><td align="left"></td><td align="left">Hardware/Nim/NetloadLimiter.settings</td><td align="left">ARP_COMPONENT_NETLOAD_LIMITER</td></tr>
-<tr><td align="left">Arp.Hardware.ExternalSDCard</td><td align="left">Arp::Hardware::ExternalSDCard::ExternalSDCardComponent</td><td align="left"></td><td align="left">Hardware/ExternalSDCard/ExternalSDCard.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Hardware.ExternalPci</td><td align="left">Arp::Hardware::ExternalPci::ExternalPciComponent</td><td align="left"></td><td align="left">Hardware/ExternalPci/ExternalPci.settings</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Device.HmiLed</td><td align="left">Arp::Device::HmiLed::HmiLedComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Device.Interface</td><td align="left">Arp::Device::Interface::DiComponent</td><td align="left"></td><td align="left">Device/Interface/Di.settings</td><td align="left"></td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Manager</td><td align="left">Arp::Plc::Domain::PlcManagerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Domain</td><td align="left">Arp::Plc::Domain::PlcDomainComponent</td><td align="left"></td><td align="left">Plc/Domain/PlcDomain.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.MetaDomain</td><td align="left">Arp::Plc::Meta::MetaDomainComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Meta</td><td align="left">Arp::Plc::Meta::MetaComponent</td><td align="left"></td><td align="left">Plc/Meta/Meta.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.MetaController</td><td align="left">Arp::Plc::Meta::MetaControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Eclr</td><td align="left">Arp::Plc::Eclr::EclrComponent</td><td align="left"></td><td align="left">Plc/Eclr/Eclr.settings</td><td align="left">ARP_COMPONENT_ECLR</td></tr>
-<tr><td align="left">Arp.Plc.EclrServices</td><td align="left">Arp::Plc::Eclr::EclrServicesComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
-<tr><td align="left">Arp.Plc.Eclr.ArpDomain</td><td align="left">Arp::Plc::Eclr::ArpDomainComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
-<tr><td align="left">Arp.Plc.Plm</td><td align="left">Arp::Plc::Plm::PlmComponent</td><td align="left"></td><td align="left">Plc/Plm/Plm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Esm</td><td align="left">Arp::Plc::Esm::EsmComponent</td><td align="left"></td><td align="left">Plc/Esm/Esm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.EsmController</td><td align="left">Arp::Plc::Esm::EsmControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Gds</td><td align="left">Arp::Plc::Gds::GdsComponent</td><td align="left"></td><td align="left">Plc/Gds/Gds.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Retain</td><td align="left">Arp::Plc::Retain::RetainComponent</td><td align="left"></td><td align="left">Plc/Retain/Retain.settings</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.Fbm</td><td align="left">Arp::Plc::Fbm::FbmComponent</td><td align="left"></td><td align="left">Plc/Fbm/Fbm.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.FbIo.PnC</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.PnC/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC</td></tr>
-<tr><td align="left">Arp.Io.FbIo.PnD</td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.PnD/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PND</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.Alarms</td><td align="left">Arp::Services::Alarms::AlarmsComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.Fwm</td><td align="left">Arp::Services::Fwm::FwmComponent</td><td align="left"></td><td align="left">Services/Fwm/Fwm.settings</td><td align="left">ARP_COMPONENT_FWM</td></tr>
-<tr><td align="left">Arp.Services.Wbm</td><td align="left">Arp::Services::Wbm::WbmComponent</td><td align="left"></td><td align="left">Services/Wbm/Wbm.settings</td><td align="left">ARP_COMPONENT_WBM</td></tr>
-<tr><td align="left">Arp.Services.Ehmi</td><td align="left">Arp::Services::Ehmi::EhmiComponent</td><td align="left"></td><td align="left">Services/Ehmi/ehmi.settings</td><td align="left">ARP_COMPONENT_EHMI</td></tr>
-<tr><td align="left">Arp.Services.OpcUAServer</td><td align="left">Arp::Services::OpcUAServer::OpcUAServerComponent</td><td align="left"></td><td align="left">Services/OpcUA/opcua.settings</td><td align="left">ARP_COMPONENT_OPC_UA</td></tr>
-<tr><td align="left">Arp.Services.ProfiCloud</td><td align="left">Arp::Services::ProfiCloud::ProfiCloudComponent</td><td align="left"></td><td align="left">Services/ProfiCloud/Proficloud.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
-<tr><td align="left">Arp.Services.NotificationLogger</td><td align="left">Arp::Services::NotificationLogger::NotificationLoggerComponent</td><td align="left"></td><td align="left">Services/NotificationLogger/NotificationLogger.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.TraceController</td><td align="left">Arp::Services::TraceController::TraceControllerComponent</td><td align="left"></td><td align="left">Services/TraceController/TraceController.settings</td><td align="left">ARP_COMPONENT_TRACECONTROLLER</td></tr>
-<tr><td align="left">Arp.Services.NmUtilities.NmPlcStateListener</td><td align="left">Arp::Services::NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.DataLogger</td><td align="left">Arp::Services::DataLogger::DataLoggerComponent</td><td align="left"></td><td align="left">Services/DataLogger/dataLogger.settings</td><td align="left">ARP_COMPONENT_DATALOGGER</td></tr>
-<tr><td align="left">Arp.Services.AppManager</td><td align="left">Arp::Services::AppManager::AppManagerComponent</td><td align="left"></td><td align="left">Services/AppManager/AppManager.settings</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
-<tr><td align="left">Arp.System.Fwu</td><td align="left">Arp::System::Fwu::FwuComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Services.LinuxSyslog</td><td align="left">Arp::Services::LinuxSyslog::LinuxSyslogComponent</td><td align="left"></td><td align="left">Services/LinuxSyslog/LinuxSyslog.settings</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
-<tr><td align="left">Arp.Services.ProfiCloudV3</td><td align="left">Arp::Services::ProfiCloudV3::ProfiCloudV3Component</td><td align="left"></td><td align="left">Services/ProfiCloudV3/ProfiCloudV3.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
-<tr><td align="left">Arp.System.Wcm</td><td align="left">Arp::System::Wcm::WcmComponent</td><td align="left"></td><td align="left">System/Wcm/Wcm.settings</td><td align="left">ARP_COMPONENT_WCM</td></tr>
-<tr><td align="left">Arp.Services.Logging</td><td align="left">Arp::Services::Logging::LoggingComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGGING</td></tr>
-<tr><td align="left">Arp.Services.LogManager</td><td align="left">Arp::Services::Logging::LogManagerComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
-<tr><td align="left">Arp.Services.LogProvider</td><td align="left">Arp::Services::Logging::LogProviderComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
-<tr><td align="left">Arp.Services.SpnsProxy</td><td align="left">Arp::Services::SpnsProxy::SpnsProxyComponent</td><td align="left"></td><td align="left">Services/SpnsProxy/spnsproxy.settings</td><td align="left">ARP_COMPONENT_SPNSPROXY</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.DomainProxy.ExternalIoProcess</td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left">ExternalIoProcess</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.PnS</td><td align="left">Arp::Io::ProfinetStack::System::SystemComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnS/PnS.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
-<tr><td align="left">Arp.Io.PnC</td><td align="left">Arp::Io::ProfinetStack::Controller::ControllerComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnC/PnC.settings</td><td align="left">ARP_COMPONENT_PNC</td></tr>
-<tr><td align="left">Arp.Io.PnD</td><td align="left">Arp::Io::ProfinetStack::Device::DeviceComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/PnD/PnD.settings</td><td align="left">ARP_COMPONENT_PND</td></tr>
-<tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Plc.DomainProxy.LocalIoProcess<sup>1</sup></td><td align="left">Arp::Plc::Domain::PlcDomainProxyComponent</td><td align="left">LocalIoProcess</td><td align="left"></td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.AxlC<sup>1</sup></td><td align="left">Arp::Io::Axioline::AxiolineComponent</td><td align="left"></td><td align="left">Io/AxlC/AxlC.settings</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
-<tr><td align="left">Arp.Io.FbIo.AxlC<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.AxlC/FbIo.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.IbM<sup>1</sup></td><td align="left">Arp::Io::Interbus::InterbusComponent</td><td align="left">LocalIoProcess</td><td align="left">Io/IbM/IbM.settings</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
-<tr><td align="left">Arp.Io.FbIo.IbM<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.IbM/FbIo.settings</td><td align="left"></td></tr>
-<tr><td align="left">Arp.Io.EthernetIP<sup>1</sup></td><td align="left">Arp::Io::EthernetIP::EthernetIPComponent</td><td align="left">ExternalIoProcess</td><td align="left">Io/EthernetIP/EthernetIP.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
-<tr><td align="left">Arp.Io.FbIo.EthernetIP<sup>1</sup></td><td align="left">Arp::Plc::Fbm::FbIoComponent</td><td align="left"></td><td align="left">Plc/FbIo.EthernetIP/FbIo.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+<table><thead><tr><th align="left">Instance name<br/>(Arp.*)</th><th align="left">Type<br/>(Arp::*)</th><th align="left">Process</th><th align="left">Settings information<br/>(<code>/etc/plcnext/device/*</code></th><th align="left">Condition</th></tr></thead><tbody>
+<tr><td align="left"><strong>System.</strong></td><td align="left"><strong>System::</strong></td><td align="left"></td><td align="left"><strong>System/</strong></td><td align="left"></td></tr>
+<tr><td align="left">Commons.Services</td><td align="left">Commons::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Security.Services</td><td align="left">Security::Services::Component</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Watchdog.MainProcess</td><td align="left">Watchdog::SystemWatchdogComponent</td><td align="left"></td><td align="left">Watchdog/Watchdog.settings</td><td align="left">ARP_COMPONENT_SYSTEM_WATCHDOG</td></tr>
+<tr><td align="left">RscGateway</td><td align="left">RscGateway::RscGatewayComponent</td><td align="left"></td><td align="left">RscGateway/RscGateway.settings</td><td align="left"></td></tr>
+<tr><td align="left">Um</td><td align="left">Um::UmComponent</td><td align="left"></td><td align="left">Um/Um.settings</td><td align="left"></td></tr>
+<tr><td align="left">Fwu</td><td align="left">Fwu::FwuComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Wcm</td><td align="left">Wcm::WcmComponent</td><td align="left"></td><td align="left">Wcm/Wcm.settings</td><td align="left">ARP_COMPONENT_WCM</td></tr>
+<tr><td align="left"><strong>Hardware.</strong></td><td align="left"><strong>Hardware::</strong></td><td align="left"></td><td align="left"><strong>Hardware/</strong></td><td align="left"></td></tr>
+<tr><td align="left">IdentificationData</td><td align="left">IdentificationData::IdentificationDataComponent</td><td align="left"></td><td align="left">IdentificationData/IdentificationData.settings</td><td align="left"></td></tr>
+<tr><td align="left">FanControl</td><td align="left">FanControl::FanControlComponent</td><td align="left"></td><td align="left">FanControl/FanControl.settings</td><td align="left"></td></tr>
+<tr><td align="left">Fpga</td><td align="left">Fpga::FpgaComponent</td><td align="left"></td><td align="left">Fpga/Fpga.settings</td><td align="left"></td></tr>
+<tr><td align="left">OsControl</td><td align="left">OsControl::OsControlComponent</td><td align="left"></td><td align="left">OsControl/OsControl.settings</td><td align="left"></td></tr>
+<tr><td align="left">RealTimeClock</td><td align="left">RealTimeClock::RealTimeClockComponent</td><td align="left"></td><td align="left">RealTimeClock/RealTimeClock.settings</td><td align="left"></td></tr>
+<tr><td align="left">ResourceMonitor</td><td align="left">ResourceMonitor::ResourceMonitorComponent</td><td align="left"></td><td align="left">ResourceMonitor/ResourceMonitor.settings</td><td align="left"></td></tr>
+<tr><td align="left">DeviceHmi</td><td align="left">DeviceHmi::DeviceHmiComponent</td><td align="left"></td><td align="left">DeviceHmi/DeviceHmi.settings</td><td align="left"></td></tr>
+<tr><td align="left">Sensors</td><td align="left">Sensors::SensorsComponent</td><td align="left"></td><td align="left">Sensors/Sensors.settings</td><td align="left"></td></tr>
+<tr><td align="left">Nim</td><td align="left">Nim::NimComponent</td><td align="left"></td><td align="left">Nim/Nim.settings</td><td align="left"></td></tr>
+<tr><td align="left">NetloadLimiter</td><td align="left">Nim::NetloadLimiterComponent</td><td align="left"></td><td align="left">Nim/NetloadLimiter.settings</td><td align="left">ARP_COMPONENT_NETLOAD_LIMITER</td></tr>
+<tr><td align="left">ExternalSDCard</td><td align="left">ExternalSDCard::ExternalSDCardComponent</td><td align="left"></td><td align="left">ExternalSDCard/ExternalSDCard.settings</td><td align="left"></td></tr>
+<tr><td align="left">ExternalPci</td><td align="left">ExternalPci::ExternalPciComponent</td><td align="left"></td><td align="left">ExternalPci/ExternalPci.settings</td><td align="left">ARP_COMPONENT_EXTERNAL_PCI</td></tr>
+<tr><td align="left"><strong>Device.</strong></td><td align="left"><strong>Device::</strong></td><td align="left"></td><td align="left"><strong>Device/</strong></td><td align="left"></td></tr>
+<tr><td align="left">HmiLed</td><td align="left">HmiLed::HmiLedComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Interface</td><td align="left">Interface::DiComponent</td><td align="left"></td><td align="left">Interface/Di.settings</td><td align="left"></td></tr>
+<tr><td align="left"><strong>Plc.</strong></td><td align="left"><strong>Plc::</strong></td><td align="left"></td><td align="left"><strong>Plc/</strong></td><td align="left"></td></tr>
+<tr><td align="left">Manager</td><td align="left">Domain::PlcManagerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Domain</td><td align="left">Domain::PlcDomainComponent</td><td align="left"></td><td align="left">Domain/PlcDomain.settings</td><td align="left"></td></tr>
+<tr><td align="left">MetaDomain</td><td align="left">Meta::MetaDomainComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Meta</td><td align="left">Meta::MetaComponent</td><td align="left"></td><td align="left">Meta/Meta.settings</td><td align="left"></td></tr>
+<tr><td align="left">MetaController</td><td align="left">Meta::MetaControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Eclr</td><td align="left">Eclr::EclrComponent</td><td align="left"></td><td align="left">Eclr/Eclr.settings</td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">EclrServices</td><td align="left">Eclr::EclrServicesComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">Eclr.ArpDomain</td><td align="left">Eclr::ArpDomainComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_ECLR</td></tr>
+<tr><td align="left">Plm</td><td align="left">Plm::PlmComponent</td><td align="left"></td><td align="left">Plm/Plm.settings</td><td align="left"></td></tr>
+<tr><td align="left">Esm</td><td align="left">Esm::EsmComponent</td><td align="left"></td><td align="left">Esm/Esm.settings</td><td align="left"></td></tr>
+<tr><td align="left">EsmController</td><td align="left">Esm::EsmControllerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Gds</td><td align="left">Gds::GdsComponent</td><td align="left"></td><td align="left">Gds/Gds.settings</td><td align="left"></td></tr>
+<tr><td align="left">Retain</td><td align="left">Retain::RetainComponent</td><td align="left"></td><td align="left">Retain/Retain.settings</td><td align="left">ARP_COMPONENT_RETAIN</td></tr>
+<tr><td align="left">Fbm</td><td align="left">Fbm::FbmComponent</td><td align="left"></td><td align="left">Fbm/Fbm.settings</td><td align="left"></td></tr>
+<tr><td align="left">DomainProxy.ExternalIoProcess</td><td align="left">Domain::PlcDomainProxyComponent</td><td align="left">ExternalIoProcess</td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">DomainProxy.LocalIoProcess<sup>1</sup></td><td align="left">Domain::PlcDomainProxyComponent</td><td align="left">LocalIoProcess</td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left"><strong>Io.</strong></td><td align="left"><strong>Plc::</strong></td><td align="left"></td><td align="left"><strong>Plc/</strong></td><td align="left"></td></tr>
+<tr><td align="left">FbIo.PnC</td><td align="left">Fbm::FbIoComponent</td><td align="left"></td><td align="left">FbIo.PnC/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC</td></tr>
+<tr><td align="left">FbIo.PnD</td><td align="left">Fbm::FbIoComponent</td><td align="left"></td><td align="left">FbIo.PnD/FbIo.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">FbIo.AxlC<sup>1</sup></td><td align="left">Fbm::FbIoComponent</td><td align="left"></td><td align="left">FbIo.AxlC/FbIo.settings</td><td align="left"></td></tr>
+<tr><td align="left">FbIo.IbM<sup>1</sup></td><td align="left">Fbm::FbIoComponent</td><td align="left"></td><td align="left">FbIo.IbM/FbIo.settings</td><td align="left"></td></tr>
+<tr><td align="left">FbIo.EthernetIP<sup>1</sup></td><td align="left">Fbm::FbIoComponent</td><td align="left"></td><td align="left">FbIo.EthernetIP/FbIo.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+<tr><td align="left"><strong>Io.</strong></td><td align="left"><strong>Io::</strong></td><td align="left"></td><td align="left"><strong>Io/</strong></td><td align="left"></td></tr>
+<tr><td align="left">PnS</td><td align="left">ProfinetStack::System::SystemComponent</td><td align="left">ExternalIoProcess</td><td align="left">PnS/PnS.settings</td><td align="left">ARP_COMPONENT_PROFINET<br/>or ARP_COMPONENT_PNC<br/>or ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">PnC</td><td align="left">ProfinetStack::Controller::ControllerComponent</td><td align="left">ExternalIoProcess</td><td align="left">PnC/PnC.settings</td><td align="left">ARP_COMPONENT_PNC</td></tr>
+<tr><td align="left">PnD</td><td align="left">ProfinetStack::Device::DeviceComponent</td><td align="left">ExternalIoProcess</td><td align="left">PnD/PnD.settings</td><td align="left">ARP_COMPONENT_PND</td></tr>
+<tr><td align="left">AxlC<sup>1</sup></td><td align="left">Axioline::AxiolineComponent</td><td align="left"></td><td align="left">AxlC/AxlC.settings</td><td align="left">ARP_COMPONENT_AXIOLINE</td></tr>
+<tr><td align="left">IbM<sup>1</sup></td><td align="left">Interbus::InterbusComponent</td><td align="left">LocalIoProcess</td><td align="left">IbM/IbM.settings</td><td align="left">ARP_COMPONENT_INTERBUS</td></tr>
+<tr><td align="left">EthernetIP<sup>1</sup></td><td align="left">EthernetIP::EthernetIPComponent</td><td align="left">ExternalIoProcess</td><td align="left">EthernetIP/EthernetIP.settings</td><td align="left">ARP_COMPONENT_ETHERNETIP</td></tr>
+<tr><td align="left"><strong>Services.</strong></td><td align="left"><strong>Services::</strong></td><td align="left"></td><td align="left"><strong>Services/</strong></td><td align="left"></td></tr>
+<tr><td align="left">Alarms</td><td align="left">Alarms::AlarmsComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">Fwm</td><td align="left">Fwm::FwmComponent</td><td align="left"></td><td align="left">Fwm/Fwm.settings</td><td align="left">ARP_COMPONENT_FWM</td></tr>
+<tr><td align="left">Wbm</td><td align="left">Wbm::WbmComponent</td><td align="left"></td><td align="left">Wbm/Wbm.settings</td><td align="left">ARP_COMPONENT_WBM</td></tr>
+<tr><td align="left">Ehmi</td><td align="left">Ehmi::EhmiComponent</td><td align="left"></td><td align="left">Ehmi/ehmi.settings</td><td align="left">ARP_COMPONENT_EHMI</td></tr>
+<tr><td align="left">OpcUAServer</td><td align="left">OpcUAServer::OpcUAServerComponent</td><td align="left"></td><td align="left">OpcUA/opcua.settings</td><td align="left">ARP_COMPONENT_OPC_UA</td></tr>
+<tr><td align="left">ProfiCloud</td><td align="left">ProfiCloud::ProfiCloudComponent</td><td align="left"></td><td align="left">ProfiCloud/Proficloud.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD</td></tr>
+<tr><td align="left">ProfiCloudV3</td><td align="left">ProfiCloudV3::ProfiCloudV3Component</td><td align="left"></td><td align="left">ProfiCloudV3/ProfiCloudV3.settings</td><td align="left">ARP_COMPONENT_PROFICLOUD_V3</td></tr>
+<tr><td align="left">NotificationLogger</td><td align="left">NotificationLogger::NotificationLoggerComponent</td><td align="left"></td><td align="left">NotificationLogger/NotificationLogger.settings</td><td align="left"></td></tr>
+<tr><td align="left">TraceController</td><td align="left">TraceController::TraceControllerComponent</td><td align="left"></td><td align="left">TraceController/TraceController.settings</td><td align="left">ARP_COMPONENT_TRACECONTROLLER</td></tr>
+<tr><td align="left">NmUtilities.NmPlcStateListener</td><td align="left">NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent</td><td align="left"></td><td align="left"></td><td align="left"></td></tr>
+<tr><td align="left">DataLogger</td><td align="left">DataLogger::DataLoggerComponent</td><td align="left"></td><td align="left">DataLogger/dataLogger.settings</td><td align="left">ARP_COMPONENT_DATALOGGER</td></tr>
+<tr><td align="left">AppManager</td><td align="left">AppManager::AppManagerComponent</td><td align="left"></td><td align="left">AppManager/AppManager.settings</td><td align="left">ARP_COMPONENT_APPMANAGER</td></tr>
+<tr><td align="left">LinuxSyslog</td><td align="left">LinuxSyslog::LinuxSyslogComponent</td><td align="left"></td><td align="left">LinuxSyslog/LinuxSyslog.settings</td><td align="left">ARP_COMPONENT_LINUXSYSLOG</td></tr>
+<tr><td align="left">Logging</td><td align="left">Logging::LoggingComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGGING</td></tr>
+<tr><td align="left">LogManager</td><td align="left">Logging::LogManagerComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
+<tr><td align="left">LogProvider</td><td align="left">Logging::LogProviderComponent</td><td align="left"></td><td align="left"></td><td align="left">ARP_COMPONENT_LOGMANAGER</td></tr>
+<tr><td align="left">SpnsProxy</td><td align="left">SpnsProxy::SpnsProxyComponent</td><td align="left"></td><td align="left">SpnsProxy/spnsproxy.settings</td><td align="left">ARP_COMPONENT_SPNSPROXY</td></tr>
 </tbody></table>
 <p><sup>1</sup> Only on AXC devices.</p>
 <h2><a class="header" href="#disabling-features" id="disabling-features">Disabling Features</a></h2>
@@ -1029,22 +1084,12 @@ Component namespace: <code>Arp::Services</code></p>
 <blockquote>
 <p>On AXC devices, the values of the environment variables <code>ARP_COMPONENT_AXIOLINE</code> and <code>ARP_COMPONENT_INTERBUS</code> are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own <code>.acf.settings</code> file.</p>
 </blockquote>
-<h3><a class="header" href="#components-required-by-plcnext-engineer" id="components-required-by-plcnext-engineer">Components Required by PLCnext Engineer</a></h3>
-<p>By default, the PLC is configured to run a PLCnext Engineer project. If this default configuration is not changed, the following should not be disabled:</p>
-<ul>
-<li>ARP_COMPONENT_ECLR</li>
-<li>ARP_COMPONENT_PND</li>
-<li>ARP_COMPONENT_PNC</li>
-<li>ARP_COMPONENT_ETHERNETIP</li>
-</ul>
-<p>Later, you will learn how to disable support for PLCnext Engineer, which will then give you the option of disabling any or all of these components.</p>
 <h3><a class="header" href="#acf-settings-file-names" id="acf-settings-file-names">ACF Settings File Name(s)</a></h3>
 <p>The name of the custom settings file does not need to be <code>Custom.acf.settings</code>. The filename can be anything, as long as it ends in <code>.acf.settings</code>, and is located in the <code>/opt/plcnext/appshome</code> directory. You may have noticed that the custom settings file is included using this directive in the <code>/etc/plcnext/Device.acf.settings</code> file:</p>
 <pre><code class="language-xml">  &lt;!-- Include settings files for overridden app specific settings --&gt;
   &lt;Include path=&quot;/opt/plcnext/appshome/*.acf.settings&quot; /&gt;
 </code></pre>
-<p>As you can see, this directive will include <em>all</em> files that match the pattern specified in the <code>path</code> attribute. If multiple files match this pattern, any conflicts in the file contents are resolved as follows:</p>
-<p>(TODO: How are conflicts resolved?)</p>
+<p>As you can see, this directive will include <em>all</em> files that match the pattern specified in the <code>path</code> attribute. If multiple files match this pattern, then all the files will be processed. If there are any conflicts - e.g. if one file overrides an environment variable with the value &quot;true&quot;, and another file overrides the same variable with the value &quot;false&quot; - then the final value of that environment variable could be either &quot;true&quot; or &quot;false&quot;. It is up to the user to make sure that conflicts like this do not happen.</p>
 <h2><a class="header" href="#rsc-services" id="rsc-services">RSC Services</a></h2>
 <p>For PLCnext runtime features that are user configurable, configuration can usually be performed through either the web-based management interface, or modifying text files on the PLC.</p>
 <p>Some PLCnext runtime features also provide an application programming interface (API) in the form of <em>Remote Service Calls</em>, or <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm">RSC Services</a>.</p>
@@ -1417,7 +1462,6 @@ LOADED COMPONENT
 <p>Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.</p>
 </li>
 </ul>
-<p>(NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)</p>
 <h1><a class="header" href="#real-time-programming" id="real-time-programming">Real Time Programming</a></h1>
 <p>Define real-time.
 (this is familiar to PLC programmers)</p>

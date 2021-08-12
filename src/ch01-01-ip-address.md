@@ -1,12 +1,12 @@
 ## Setting the IP Address
 
-Once you have assembled [everything you need to get started][what-you-will-need], your PLCnext Control device will be powered up and plugged in to an Ethernet network with access to the internet. On an **AXC** PLCnext Control device it doesn't matter which of the two Ethernet ports are used; these are switched internally.
+Once you have assembled [everything you need to get started][what-you-will-need], your PLCnext Control device will be powered up and plugged in to an Ethernet network with access to the internet. On **AXC F 1152** and **AXC F 2152** PLCnext Control devices it doesn't matter which of the two Ethernet ports are used; these are switched internally.
 
 The factory default IP address of every PLCnext Control device is 192.168.1.10/24, but you will probably want to change this to something that suits your local network.
 
 > This section shows how to change the IP address of the PLCnext Control device from the default value. In the remainder of this book, all examples will use the default IP address (192.168.1.10).
 
-Here are two possible ways to change the IP address of the PLCnext Control device:
+Here are some possible ways to change the IP address of the PLCnext Control device:
 
 ### Use netnames
 
@@ -43,8 +43,8 @@ Obviously the above command will need to include parameters that suit your own d
 Your device should now be accessible from your host machine, which can be verified using `ping`:
 
 ```text
-$ ping -c 3 192.168.178.10
-PING 192.168.178.10 (192.168.178.221) 56(84) bytes of data.
+$ ping -c 3 192.168.1.10
+PING 192.168.178.10 (192.168.178.10) 56(84) bytes of data.
 64 bytes from 192.168.178.10: icmp_seq=1 ttl=64 time=5.73 ms
 64 bytes from 192.168.178.10: icmp_seq=2 ttl=64 time=4.87 ms
 64 bytes from 192.168.178.10: icmp_seq=3 ttl=64 time=18.4 ms
@@ -54,9 +54,17 @@ PING 192.168.178.10 (192.168.178.221) 56(84) bytes of data.
 rtt min/avg/max/mdev = 4.877/9.690/18.464/6.214 ms
 ```
 
+### Use the Display (RFC only)
+
+RFC controllers come with an integrated touch-screen display, which can be used to set the controller's IP address.
+
 ### Use PLCnext Engineer
 
 For Windows users, it is also possible to set the IP address of the PLCnext Control device using [PLCnext Engineer][plcnext-eng] software. Refer to the guide "[Getting started with PLCnext Engineer][plcnext-eng-getting-started]" for instructions on how to do this.
+
+### Edit the interfaces file
+
+Once the device is accessible over the network via `ssh` (for example), it is possible to change the IP address of the device by editing the file `/etc/network/interfaces` directly on the device.
 
 [what-you-will-need]: ch00-00-introduction.md#what-you-will-need
 [profinet]: https://www.profibus.com/technology/profinet/

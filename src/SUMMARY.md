@@ -11,7 +11,7 @@
     - [Installing a Software Development Kit](ch01-04-installing-a-software-development-kit.md)
     - [Hello Again, World!](ch01-05-hello-again-world.md)
 
-- [System Administration](ch02-00-system-administration.md)
+- [Operating System](ch02-00-operating-system.md)
     - [Security](ch02-01-security.md)
     - [Users and Privileges](ch02-02-users-and-privileges.md)
     - [Firmware](ch02-03-firmware.md)

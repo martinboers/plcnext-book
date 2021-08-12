@@ -1,5 +1,7 @@
 ## Users and Privileges
 
+Much of the information below also appears in the [PLCnext Info Center][info-center].
+
 ### admin user
 
 By default, the `admin` user is granted the privilege to run a number of commands as a super-user. You can see the complete list of these commands as follows:
@@ -47,15 +49,15 @@ These sudo privileges are granted using configuration files in the `/etc/sudoers
 
 ### Extending admin privileges
 
-In some cases it may be required to grant the `admin` user the privilege to execute more commands than those listed above. This can be done by editing the file `/etc/sudoers`.
+In some cases it may be required to grant the `admin` user the privilege to execute more commands than those listed above. This can be done by adding one or more files to the `/etc/sudoers.d` directory.
 
-> According to the notes included in that file, `/etc/sudoers` MUST be edited with the `visudo` command as `root`.
-
-In the extreme case, it is possible to grant the admin user the right to execute all commands on the controller, by adding the following line to the `/etc/sudoers` file:
+In the extreme case, it is possible to grant the admin user the right to execute all commands on the controller, by adding a file to the `/etc/sudoers.d` directory containing the following line:
 
 ```text
 admin ALL=(ALL) ALL
 ```
+
+Note that it is not recommended to edit or delete any file that is installed with the firmware.
 
 ### root user
 
@@ -102,3 +104,13 @@ Save the file, exit from the editor, and restart the ssh daemon:
 ```text
 root@axcf2152:~# /etc/init.d/sshd restart
 ```
+
+### Logging in without a password
+
+For activities that require frequent login to a PLCnext Control device, e.g. during application development and testing, it can become tedious to repeatedly enter the same password. It is possible to use key-based SSH authentication to eliminate this chore, without compromising security.
+
+The following article from a Phoenix Contact technical support site describes how to implement this standard Linux feature for the `admin` user on a PLCnext Control device:
+
+[How to set up key-based SSH authentication to a PLCnext Control device.](https://pxc1.esc-eu-central-1.empolisservices.com/gatekeeper/guesttoken/45?app=/service-express/portal/cb?redirect=https://pxc1.esc-eu-central-1.empolisservices.com/service-express/portal/object/esc/en-so-30b315c3-3e44-4292-97d4-6883672cd34c)
+
+[info-center]: https://www.plcnext.help/te/Operating_System/Root_rights.htm

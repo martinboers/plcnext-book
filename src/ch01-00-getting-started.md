@@ -6,7 +6,7 @@ This chapter includes:
 * Starting a shell session
 * Writing a Python program that prints `Hello, world!`
 * Installing a software development kit
-* Writing a C++ program that prints `Hello, world!`
+* Writing C++ and Rust programs that print `Hello, world!`
 
 
 * Updating the firmware

@@ -54,7 +54,7 @@ $ ssh admin@192.168.1.10
 Hello World!
 ```
 
-Congratulations! You have just written your first C++ program for a PLCnext Control device.
+Congratulations! You have just run your first C++ program for a PLCnext Control device.
 
 ### Rust
 
@@ -62,13 +62,13 @@ The build process for a simple Rust program targeting a PLCnext Control device i
 
 ### Building on target
 
-The software development process for PLCnext Control devices - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device than a full-featured computer.
+The software development process for PLCnext Control devices - cross-compiling on a host, then deploying to a target - will be familiar to those with experience in embedded systems software development, but other programmers often wonder why they cannot build their PLCnext Control applications directly on the target device. The reason is that the resources required to run development and build tools are often orders of magnitude greater than those required to run the final application, and the types of applications for which PLCnext Control is designed cannot justify the cost of these additional resources (e.g. memory and CPU power). For this reason, PLCnext Control should be considered more like an embedded device rather than a full-featured computer.
 
 ### Accessing PLC I/O
 
 After writing their first program, one of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?
 
-Before you learn how to do this, you must learn about the *PLCnext runtime*.
+Before you learn how to do this, you must learn about the *PLCnext runtime*. But first, you should know about some basic features of the operating system that runs on every PLCnext Control device.
 
 [cross-compile]: https://www.gnu.org/software/automake/manual/html_node/Cross_002dCompilation.html
 [gnu-build]: https://www.gnu.org/software/automake/manual/html_node/GNU-Build-System.html

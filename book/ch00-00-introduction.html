@@ -154,17 +154,19 @@
 <p>Welcome to <em>The PLCnext Runtime</em>, an introductory book about programming on the PLCnext Control platform.</p>
 <h2><a class="header" href="#what-is-plcnext-control" id="what-is-plcnext-control">What Is PLCnext Control?</a></h2>
 <p>PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.</p>
-<p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup> and RFC<sup>2</sup> range:</p>
+<p>The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:</p>
 <ul>
 <li><a href="http://www.phoenixcontact.com/product/1151412">AXC F 1152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
 <li><a href="http://www.phoenixcontact.com/product/2404267">AXC F 2152</a> (ARM® Cortex®-A9 2x 800 MHz)</li>
 <li><a href="http://www.phoenixcontact.com/product/1069208">AXC F 3152</a> (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)</li>
+<li><a href="http://www.phoenixcontact.com/product/1185416">EPC 1502</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)</li>
+<li><a href="http://www.phoenixcontact.com/product/1185423">EPC 1522</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)</li>
 <li><a href="http://www.phoenixcontact.com/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on a Linux kernel with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
 <p>PLCnext Control is ideal for software and systems engineers involved in the automation of industrial processes.</p>
-<p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>3</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
+<p>Controllers from the PLCnext Control range can perform the role of traditional PLCs<sup>4</sup>, however they also include features that will be familiar to software engineers with a more general programming background.</p>
 <h3><a class="header" href="#iec-61131-3-software-developers" id="iec-61131-3-software-developers">IEC 61131-3 Software Developers</a></h3>
 <p>Traditional PLCs generally can be programmed using any language defined by the IEC 61131-3 standard. Controllers from the PLCnext Control range are no different. For these developers, Phoenix Contact provides <a href="http://www.phoenixcontact.com/product/1046008"><em>PLCnext Engineer</em></a> software.</p>
 <h3><a class="header" href="#simulink-software-developers" id="simulink-software-developers">Simulink® Software Developers</a></h3>
@@ -181,11 +183,11 @@
 <p>For systems integrators who don't want to write their own software, but who want to install and configure third-party software on a PLCnext Control - you will be most interested in Chapter 1, up to and including the &quot;Installing Software&quot; topic.</p>
 <p>For systems and network administrators who will be managing PLCnext Control devices - you will also find Chapter 1 useful, up to and including &quot;System Administration&quot;.</p>
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
-<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="starter-kit">PLCnext Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
+<p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="http://www.phoenixcontact.com/product/1188165">PLCnext Technology Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>Most sections of this book apply to all PLCnext Control hardware variants. Where hardware-specific features are used, this will be mentioned in the relevant section.</p>
 <p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
-<p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="ethernet-basics">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
+<p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
 <blockquote>
 <p>Throughout this book, the PLCnext Control hardware will be referred to as either <em>PLCnext Control device</em>, or <em>controller</em>, or <em>target</em>. In this book, these terms are used interchangeably. Controllers from other manufacturers are often referred to with the term  <em>PLC</em>, but in this book the term <em>PLC</em> will only be used to refer to those firmware components on the controller that implement real-time automation functions.</p>
 </blockquote>
@@ -212,8 +214,9 @@
 <p>The source files used to generate this book can be found on <a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>
 <hr />
 <p><sup>1</sup> <em>AXC</em> is short for <em>Axioline Controller</em>, indicating that the controller has a dedicated hardware interface to connect directly to the Axioline range of I/O modules. <em>Axioline</em> is derived from the terms <em>AutomationWorx</em> (AX), a brand name used by Phoenix Contact, and <em>I/O</em>, meaning <em>Input/Output</em>. The term <em>line</em> can be taken to refer to a line of products, but in this case it was inherited from an earlier range of Phoenix Contact products called <em>Inline</em>.</p>
-<p><sup>2</sup> <em>RFC</em> is short for <em>Remote Field Controller</em>. Unlike Axioline controllers, RFCs can only control <em>remote</em> I/O modules over a <em>field bus</em> like Profinet.</p>
-<p><sup>3</sup> <em>PLC</em> is short for <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller"><em>Programmable Logic Controller</em></a>.</p>
+<p><sup>2</sup> <em>EPC</em> is short for <em>Edge Personal Computer</em>. EPCs combine real-time PLC features with popular Industrial Internet of Things (IIoT) applications like <a href="https://nodered.org/">Node-RED</a> and <a href="https://www.influxdata.com/">InfluxDB</a>. EPCs are designed for industrial <a href="https://en.wikipedia.org/wiki/Edge_computing">Edge computing</a> applications.</p>
+<p><sup>3</sup> <em>RFC</em> is short for <em>Remote Field Controller</em>. Unlike Axioline controllers, RFCs can only control <em>remote</em> I/O modules over a <em>field bus</em> like Profinet.</p>
+<p><sup>4</sup> <em>PLC</em> is short for <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller"><em>Programmable Logic Controller</em></a>.</p>
 
                     </main>
 

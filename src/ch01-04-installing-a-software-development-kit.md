@@ -14,12 +14,15 @@ To install `plcncli` on your host:
 
 * In a terminal window, navigate to the directory where the files were extracted.
 
+* Optional: See what commands are available 
+
 * Run the script to set up `plcncli` on the host, specifying the directory where the package should be installed.
 
    ```text
    $ ./PLCnCLI_Setup.sh --target ~/plcncli
-   (todo: response))
    ```
+
+   Read the terms and conditions carefully and, if you agree with them, type `y`.
 
 * Create a symbolic link to the `plcncli` executable, as suggested by the installation message.
 
@@ -27,7 +30,7 @@ To install `plcncli` on your host:
 
    ```text
    $ plcncli
-   plcncli 21.0.0 LTS (21.0.0.489)
+   plcncli 21.6.0 (21.6.0.726)
    Copyright (c) 2018 PHOENIX CONTACT GmbH & Co. KG
    ```
 
