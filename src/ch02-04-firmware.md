@@ -55,16 +55,21 @@ After the device restarts, open a new shell session and check the firmware versi
 
 ### Other Ways to Upgrade Firmware
 
-There are four other ways to upgrade the firmware on the controller:
+There are currently at least five other ways to upgrade the firmware on the controller:
 
 * Through [web-based management][wbm] (WBM).
 
-* Using the Device Management service on the proficloud.io web site.
+* Using the Device Management service on the [Proficloud](proficloud) web site.
 
 * Using the `StartFirmwareUpdate` method on the [*Device Control*][service] PLCnext runtime service.
 
 * Using an OPC UA client (not currently documented).
 
+* Using [Eclipse hawkBit™](hawkbit) with the [hawkBit™ client app](hawkbit-app) from the PLCnext Store.
+
 [plcnext-community]: https://www.plcnext-community.net
 [wbm]: https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm
+[proficloud]: https://proficloud.io/
 [service]: https://www.plcnext.help/te/About/#idevicecontrols
+[hawkbit]: https://www.eclipse.org/hawkbit/
+[hawkbit-app]: https://www.plcnextstore.com/permalinks/apps/latest/60002172000381
