@@ -59,7 +59,7 @@ There are four other ways to upgrade the firmware on the controller:
 
 * Through [web-based management][wbm] (WBM).
 
-* Using the Device Management service on the proficloud.io web site.
+* Using the Device Management service on the [proficloud.io][proficloud] web site.
 
 * Using the `StartFirmwareUpdate` method on the [*Device Control*][service] PLCnext runtime service.
 
@@ -67,4 +67,5 @@ There are four other ways to upgrade the firmware on the controller:
 
 [plcnext-community]: https://www.plcnext-community.net
 [wbm]: https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm
-[service]: https://www.plcnext.help/te/About/#idevicecontrols
+[proficloud]: https://proficloud.io/
+[service]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService

@@ -43,7 +43,7 @@ Obviously the above command will need to include parameters that suit your own d
 Your device should now be accessible from your host machine, which can be verified using `ping`:
 
 ```text
-$ ping -c 3 192.168.1.10
+$ ping -c 3 192.168.178.10
 PING 192.168.178.10 (192.168.178.10) 56(84) bytes of data.
 64 bytes from 192.168.178.10: icmp_seq=1 ttl=64 time=5.73 ms
 64 bytes from 192.168.178.10: icmp_seq=2 ttl=64 time=4.87 ms

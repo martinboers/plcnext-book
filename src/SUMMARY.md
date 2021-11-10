@@ -14,9 +14,10 @@
 - [Operating System](ch02-00-operating-system.md)
     - [Security](ch02-01-security.md)
     - [Users and Privileges](ch02-02-users-and-privileges.md)
-    - [Firmware](ch02-03-firmware.md)
-    - [File System](ch02-04-file-system.md)
-    - [Installing Software](ch02-05-installing-software.md)
+    - [Setting the Time](ch02-03-setting-the-time.md)
+    - [Firmware](ch02-04-firmware.md)
+    - [File System](ch02-05-file-system.md)
+    - [Installing Software](ch02-06-installing-software.md)
 
 - [PLCnext Runtime](ch03-00-plcnext-runtime.md)
     - [Controlling the PLCnext Runtime](ch03-01-controlling-the-plcnext-runtime.md)

@@ -54,7 +54,7 @@ $ ssh admin@192.168.1.10
 Hello World!
 ```
 
-Congratulations! You have just run your first C++ program for a PLCnext Control device.
+Congratulations! You have just run your first C++ program on a PLCnext Control device.
 
 ### Rust
 

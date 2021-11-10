@@ -24,7 +24,7 @@ METHOD CALLS
 
 You will see that some of the methods we defined are called when the component instance is created by the PLCnext runtime. Other methods are called when the PLCnext runtime shuts down, just before the component instance is destroyed. Some methods may even be called during normal PLCnext runtime operation, under certain circumstances. (WHAT ARE THOSE CIRCUMSTANCES?)
 
-- Look at each of the component methods - refer to document Oliver got.
+- Look at each of the component methods.
 
 - Only one method has a parameter - this allows us to load a Settings file, like we saw for some of the components that come with the PLCnext firmware.
 

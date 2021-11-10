@@ -8,7 +8,7 @@ Factory-installed software components that make up the PLCnext runtime include:
 * PLC components
 * Service components
 
-An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.
+An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are somewhat arbitrary, but during startup all the components in one category are generally started before any components in the next category, and vice-versa during shutdown.
 
 Components are defined in C++ shared object libraries, which are located in the `/usr/lib` directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.
 
@@ -121,6 +121,7 @@ Component namespace: `Arp::Services`
 | Logging.so            | Logging::LoggingComponent<br/>Logging::LogManagerComponent<br/>Logging::LogProviderComponent | General event logger |
 | SpnsProxy.so          | SpnsProxy::SpnsProxyComponent                                | Safety controller (SPNS) communications |
 
+[comp-info]: https://www.plcnext.help/te/PLCnext_Runtime/Core_component.htm
 [load-limiter-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html "API description"
 [device-control-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService "PLCnext Info Center"
 [device-info-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService "PLCnext Info Center"
