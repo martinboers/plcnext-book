@@ -10,11 +10,11 @@ Each PLCnext Control device includes internal, non-volatile, solid-state memory.
 
 > The firmware will only recognise SD cards specifically designed for PLCnext Control devices.
 
-The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. Information on the firmware file system is available in the [PLCnext Technology Info Centre][fw-dirs-info].
+The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. This includes all three of firmware images described in the previous chapter. Information on the firmware file system is available in the [PLCnext Technology Info Centre][fw-dirs-info].
 
 If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.
 
-> Please note the SD card handling guidelines in the user manual.
+> Please note the SD card handling guidelines in the user manual for your PLCnext Control device.
 
 In relation to the upper directory, the behaviour of the system when booting depends on the presence or absence of an external SD card, and the presence or absence of a user file system on the primary storage media:
 
@@ -35,7 +35,7 @@ The following procedures will affect the complete firmware and/or user file syst
 
 During a firmware update, the contents of the firmware file system are replaced with new firmware files. The user file system remains unaffected, and so (for example) the IP address of the PLC will be retained, passwords will be unaffected, and user-installed files will not be deleted.
 
-> Note: Since manual changes to firmware files are stored in the upper directory, any firmware files that were changed manually before a firmware update will remain in the upper directory and will continue to mask the corresponding file in the new firmware file system. This may adversely affect the operation of the PLC after a firmware update.
+> Note: Since manual changes to firmware files are stored in the upper directory, any firmware files that were changed manually before a firmware update will remain in the upper directory and will continue to mask the corresponding file in the new firmware file system. This may adversely affect the operation of the PLC after a firmware update. It is therefore recommended that firmware files are never manually changed or deleted.
 
 #### Type 1 Reset
 

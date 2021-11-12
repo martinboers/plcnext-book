@@ -2,6 +2,12 @@
 
 The PLCnext Control firmware includes both the Linux kernel and factory-installed software from Phoenix Contact. A PLCnext Control device can be updated with a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.
 
+### Firmware Release Schedule
+
+PLCnext Control firmware is generally released four times a year; the first is a Long Term Support (LTS) version, and the other three are "feature" releases for those who want the very latest features as early as possible. The [firmware release history and  future release schedule][releases] is shown in the PLCnext Info Center.
+
+There is also some information on [upcoming firmware features][upcoming-features] in the PLCnext Info Center.
+
 ### Checking the Firmware Version
 
 It is important to know the firmware version that is running on the device for a number of reasons:
@@ -29,7 +35,11 @@ New versions of PLCnext Control firmware are released regularly. If the firmware
 
 * Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.
 
+  For the AXC F 2152, you can browse [directly to the firmware download page][fw-download]. For other PLCnext Control devices, you need to navigate to the firmware download page through the relevant product page on the Phoenix Contact website.
+
 * Extract the `.raucb` file from the archive.
+
+  Now you can guess (correctly) that PLCnext Control devices use [RAUC][rauc] for firmware updates.
 
 * Copy the .raucb file to the device:
 
@@ -46,30 +56,68 @@ New versions of PLCnext Control firmware are released regularly. If the firmware
 * Update the firmware:
 
    ```text
-   # sudo update-plcnext
+   # sudo /etc/init.d/plcnext stop
+   Password:
+   Stopping service plcnext
+   plcnext stopped
+   #
+   # admin@axcf2152:~$ rauc install axcf2152-2022.0.0.13-LTS-beta.raucb
+   installing
+   0% Installing
+   0% Determining slot states
+   20% Determining slot states done.
+   20% Checking bundle
+   20% Verifying signature
+   40% Verifying signature done.
+   40% Checking bundle done.
+   40% Checking manifest contents
+   60% Checking manifest contents done.
+   60% Determining target install group
+   80% Determining target install group done.
+   80% Updating slots
+   80% Checking slot rootfs.0
+   90% Checking slot rootfs.0 done.
+   90% Copying image to rootfs.0
+   100% Copying image to rootfs.0 done.
+   100% Updating slots done.
+   100% Installing done.
+   Installing `/opt/plcnext/axcf2152-2022.0.0.13-LTS-beta.raucb` succeeded
+   #
+   # sudo reboot
    ```
-
-The device will take some time to install the new firmware, and then the device will restart.
 
 After the device restarts, open a new shell session and check the firmware version.
 
+### But There's More!
+
+There are actually three firmware copies lurking on a PLCnext Control device, and all three may be different versions. The above procedure only replaces one of these three firmware installations. You will learn more about this in the next chapter.
+
 ### Other Ways to Upgrade Firmware
 
-There are currently at least five other ways to upgrade the firmware on the controller:
+There are currently many other ways to upgrade the firmware on the controller:
+
+* Using the `update-plcnext` script, as described in the [Firmware update][fw-update] section of the PLCnext Info Center.
 
 * Through [web-based management][wbm] (WBM).
 
 * Using the Device Management service on the [Proficloud][proficloud] web site.
 
-* Using the `StartFirmwareUpdate` method on the [*Device Control*][service] PLCnext runtime service.
-
 * Using an OPC UA client (not currently documented).
 
 * Using [Eclipse hawkBit™][hawkbit] with the [hawkBit™ client app][hawkbit-app] from the PLCnext Store.
 
+* Using the `StartFirmwareUpdate` method on the [Device Control][service] PLCnext runtime service.
+
+All the methods listed above require that the PLCnext Runtime be running. If this is the case, one of these methods should be preferred over the `rauc` command.
+
+[releases]: https://www.plcnext.help/te/About/Releases.htm
+[upcoming-features]: https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm
+[fw-download]: 
+[rauc]: https://rauc.io/
 [plcnext-community]: https://www.plcnext-community.net
+[fw-update]: https://www.plcnext.help/te/Operating_System/Operating_system.htm
 [wbm]: https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm
 [proficloud]: https://proficloud.io/
-[service]: https://www.plcnext.help/te/About/#idevicecontrols
+[service]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm
 [hawkbit]: https://www.eclipse.org/hawkbit/
 [hawkbit-app]: https://www.plcnextstore.com/permalinks/apps/latest/60002172000381
