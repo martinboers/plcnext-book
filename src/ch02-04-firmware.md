@@ -90,11 +90,11 @@ After the device restarts, open a new shell session and check the firmware versi
 
 ### But There's More!
 
-There are actually three firmware copies lurking on a PLCnext Control device, and all three may be different versions. The above procedure only replaces one of these three firmware installations. You will learn more about this in the next chapter.
+There are actually three firmware copies lurking on a PLCnext Control device, and all three may be different versions. The above procedure only replaces one of these three firmware installations. You will learn more about this in the next section.
 
 ### Other Ways to Upgrade Firmware
 
-There are currently many other ways to upgrade the firmware on the controller:
+There are currently many other ways to upgrade the firmware on the controller, including:
 
 * Using the `update-plcnext` script, as described in the [Firmware update][fw-update] section of the PLCnext Info Center.
 
@@ -108,7 +108,7 @@ There are currently many other ways to upgrade the firmware on the controller:
 
 * Using the `StartFirmwareUpdate` method on the [Device Control][service] PLCnext runtime service.
 
-All the methods listed above require that the PLCnext Runtime be running. If this is the case, one of these methods should be preferred over the `rauc` command.
+All the methods listed above require that the PLCnext Runtime be running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the `rauc` command.
 
 [releases]: https://www.plcnext.help/te/About/Releases.htm
 [upcoming-features]: https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm

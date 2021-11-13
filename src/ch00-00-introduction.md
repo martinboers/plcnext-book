@@ -97,8 +97,6 @@ A glossary of terms used in this book is available in the [PLCnext Technology In
 
 ## Versions
 
-PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the [PLCnext Info Center][release-strategy].
-
 This book will be kept up to date with the latest release of PLCnext Control firmware. As soon as a new version of PLCnext Control firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.
 
 ## Source Code
@@ -128,7 +126,6 @@ The source files used to generate this book can be found on [GitHub][book].
 [ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
 [info-center]: https://www.plcnext.help/te/About/Home.htm
 [glossary]: https://www.plcnext.help/te/About/Home.htm?agt=glossary
-[release-strategy]: https://www.plcnext.help/te/About/Releases.htm
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src
 [edge-computing]: https://en.wikipedia.org/wiki/Edge_computing
 [node-red]: https://nodered.org/

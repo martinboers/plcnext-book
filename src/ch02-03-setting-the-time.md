@@ -12,8 +12,11 @@ Information on how to set the time on a PLCnext Control device using various met
 
 ### Setting the Time Zone
 
-For applications that use local time rather than universal time, you may want to set the time zone on your PLCnext Control device. The following article from a Phoenix Contact technical support site describes how to set the time zone on a PLCnext Control device:
+For applications that use local time rather than universal time, you may want to set the time zone on your PLCnext Control device using the procedure in the following article:
 
-[How to set the time zone on a PLCnext Control device.](https://pxc1.esc-eu-central-1.empolisservices.com/gatekeeper/guesttoken/45?app=/service-express/portal/cb?redirect=https://pxc1.esc-eu-central-1.empolisservices.com/service-express/portal/object/esc/en-so-deb95804-1aba-4247-8d77-da744c190b90)
+[How to set the time zone on a PLCnext Control device.][time-zone]
+
+The release notes for firmware version 2021.9 state that "Setting local time zones is not fully supported". The procedure in the above article involves editing a system configuration file, which may cause problems during future firmware upgrades.
 
 [info-center]: https://www.plcnext.help/te/Operating_System/System_time.htm
+[time-zone]: https://pxc1.esc-eu-central-1.empolisservices.com/gatekeeper/guesttoken/45?app=/service-express/portal/cb?redirect=https://pxc1.esc-eu-central-1.empolisservices.com/service-express/portal/object/esc/en-so-deb95804-1aba-4247-8d77-da744c190b90

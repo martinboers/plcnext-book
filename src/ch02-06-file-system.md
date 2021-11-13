@@ -55,6 +55,8 @@ A type 2 reset:
 
 * Replaces the firmware file system with a factory-default firmware version.
 
+Note that a type 2 reset may not restore the device to its factory default state, since some user files may have been stored outside the upper directory. The most common way this happens is when using an OCI engine like Docker, Balena or Podman, which store files outside the overlay file system by default.
+
 To perform a type 2 reset, open a secure shell session on the PLC, and issue the following command:
 
 ```text
@@ -63,15 +65,13 @@ To perform a type 2 reset, open a secure shell session on the PLC, and issue the
 
 > Warning: After either a type 1 or a type 2 reset, all user data will be deleted and the PLC's IP address and `admin` password will be restored to factory defaults.
 
-It is also possible to perform a type 1 or a type 2 reset using a button on the front of the PLCnext Control. See the user manual for details.
+On some devices, it is also possible to perform a type 1 or a type 2 reset using a button on the front of the PLCnext Control. See the user manual for details.
 
 ### Backups
 
 It is highly recommended to take regular backups of the user file system.
 
-(how to back up)
-
-(how to restore)
+Phoenix Contact does not currently provide a standard backup/restore procedure for user data.
 
 [overlay]: https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works
 [fw-dirs-info]: https://www.plcnext.help/te/Operating_System/Firmware_directories.htm
