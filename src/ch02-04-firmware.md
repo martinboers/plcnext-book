@@ -41,7 +41,7 @@ New versions of PLCnext Control firmware are released regularly. If the firmware
 
   Now you can guess (correctly) that PLCnext Control devices use [RAUC][rauc] for firmware updates.
 
-* Copy the .raucb file to the device:
+* Copy the `.raucb` file to the device:
 
    ```text
    $ scp axcf2152-bundle-base-axcf2152.raucb admin@192.168.1.10:~
@@ -108,11 +108,11 @@ There are currently many other ways to upgrade the firmware on the controller, i
 
 * Using the `StartFirmwareUpdate` method on the [Device Control][service] PLCnext runtime service.
 
-All the methods listed above require that the PLCnext Runtime be running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the `rauc` command.
+All the methods listed above require that the PLCnext runtime is running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the `rauc` command.
 
 [releases]: https://www.plcnext.help/te/About/Releases.htm
 [upcoming-features]: https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm
-[fw-download]: 
+[fw-download]: https://phoe.co/AXC_F_2152_Firmware
 [rauc]: https://rauc.io/
 [plcnext-community]: https://www.plcnext-community.net
 [fw-update]: https://www.plcnext.help/te/Operating_System/Operating_system.htm

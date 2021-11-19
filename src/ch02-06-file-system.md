@@ -10,7 +10,7 @@ Each PLCnext Control device includes internal, non-volatile, solid-state memory.
 
 > The firmware will only recognise SD cards specifically designed for PLCnext Control devices.
 
-The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. This includes all three of firmware images described in the previous chapter. Information on the firmware file system is available in the [PLCnext Technology Info Centre][fw-dirs-info].
+The firmware file system, mounted as the read-only lower directory, is *always* stored in internal memory. This includes all three of firmware images described in the previous section. Information on the firmware file system is available in the [PLCnext Technology Info Centre][fw-dirs-info].
 
 If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.
 
@@ -71,9 +71,10 @@ On some devices, it is also possible to perform a type 1 or a type 2 reset using
 
 It is highly recommended to take regular backups of the user file system.
 
-Phoenix Contact does not currently provide a standard backup/restore procedure for user data.
+Phoenix Contact does not currently provide a standard backup/restore procedure for user data, however you can prepare your own procedure using the examples on the [PLCnext Github page][backup].
 
 [overlay]: https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works
 [fw-dirs-info]: https://www.plcnext.help/te/Operating_System/Firmware_directories.htm
 [sd-card-info]: https://www.plcnext.help/te/WBM/Security_SD_Card_settings.htm
 [oci]: https://opencontainers.org/
+[backup]: https://github.com/PLCnext/UtilityScripts#backups

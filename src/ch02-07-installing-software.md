@@ -1,6 +1,6 @@
 ## Installing Software
 
-Now that you are familiar with some of the features of the Linux operating system on the PLCnext Control, lets see how you can extend the functionality of the controller by installing third-party software.
+Now that you are familiar with some of the features of the Linux operating system on PLCnext Control devices, lets see how you can extend the functionality of the controller by installing third-party software.
 
 Those familiar with other Linux distributions will know about package managers like [apt][apt]. Unfortunately neither `apt` nor any eqiuvalent package manager is available on PLCnext Control devices by default. PLCnext Control firmware does include [dpkg][dpkg], but it does not include a database of installed software, so `dpkg` cannot know if any dependencies listed in a `.deb` package have already been installed with the firmware.
 

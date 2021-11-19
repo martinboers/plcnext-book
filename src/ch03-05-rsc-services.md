@@ -4,7 +4,7 @@ For PLCnext runtime features that are user configurable, configuration can usual
 
 Some PLCnext runtime features also provide an application programming interface (API) in the form of *Remote Service Calls*, or [RSC Services][rsc-info].
 
-A list of the RSC services that are available in the PLCnext runtime is given in [Appendix A][appendix-a].
+A list of the RSC services that are available in the PLCnext runtime is given in [Appendix B][appendix-b].
 
 RSC services can be accessed in two ways:
 
@@ -15,8 +15,6 @@ In the next chapter, you will:
 
 * Write your own PLCnext runtime component.
 * Call RSC services from that component.
-* Write your own RSC service.
 
 [rsc-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
-
-[appendix-a]: appendix-01-list-of-rsc-services.md
+[appendix-b]: appendix-02-list-of-rsc-services.md

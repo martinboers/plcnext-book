@@ -1,5 +1,11 @@
 ## Appendix A: PLCnext Control programming resources
 
+### General
+
+* Savushkin R&D, Github project: [PLCnext-howto](https://github.com/savushkin-r-d/PLCnext-howto)
+
+* Phoenix Contact USA, Github project: [PLCnext-Guides](https://github.com/plcnextusa/PLCnext-Guides)
+
 ### C++
 
 * PLCnext Info Center - [C++ programming on PLCnext Technology](https://www.plcnext.help/te/Programming/Cpp/Cpp-programming.htm).
