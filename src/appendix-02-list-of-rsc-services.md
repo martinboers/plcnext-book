@@ -30,6 +30,9 @@ The following table lists the RSC services that are available in the PLCnext run
 | File System Information  | Get Supported Traits<br/>Get Permissions<br/>Add Permissions<br/>Remove Permissions<br/>Get File System Traits Entry<br/>Get Space Info<br/>Get Root Directories<br/> | [🔍][file-info-api] |
 | Directory Operations  | Exists<br/>Create<br/>Delete<br/>Clear<br/>Move<br/>Copy<br/>Enumerate File System Entries<br/>Enumerate File System Traits Entries | [🔍][directory-api] |
 | File Operations | Exists<br/>Write<br/>Read<br/>Delete<br/>Move<br/>Copy | [🔍][file-api] |
+| Authorization Info | HasPermissionFor | [🔍][auth-api] |
+| Password Authentication | CreateSession<br/>CloseSession | [🔍][password-api] |
+| User Session | GetSessionId<br/>GetSecurityTokenFromSessionId<br/>GetSessionProperty<br/>SetSessionProperty<br/>DeleteSessionProperty<br/>IsSessionActive | [🔍][session-api] |
 | Device Identity Validator  | Validate | [🔍][device-id-api] |
 | License Status  | Get License Status | [🔍][license-api] |
 | Notification Manager  | Register Notification<br/>Unregister Notification<br/>Send Notification<br/>Get Notification Name<br/>Get Notification Name ID<br/>Get Notification Name IDs By Status<br/>Get All Known Notification Name IDs<br/>Get Notification Registration<br/>Get Payload Type ID<br/>Get Payload Type Name<br/>Get Number Of Submitted Notifications | [🔍][nm-api] [📄][nm-info] [🖥][nm-ex] |
@@ -119,6 +122,12 @@ The following table lists the RSC services that are available in the PLCnext run
 [directory-api]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IDirectoryService.html "API description"
 
 [file-api]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileService.html "API description"
+
+[auth-api]: https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Um_1_1Services_1_1IAuthorizationInfoService.html "API description"
+
+[password-api]: https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Security_1_1Services_1_1IPasswordAuthenticationService.html "API description"
+
+[session-api]: https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Um_1_1Services_1_1ISessionService.html "API description"
 
 [device-id-api]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Security_1_1IDeviceIdentityValidatorService.html "API description"
 

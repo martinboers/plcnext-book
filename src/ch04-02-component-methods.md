@@ -8,7 +8,6 @@ One way that our component instance can write to the Output.log file is if it in
 - Add private inheritance of the `Loggable` class. Our component class thereby inherits a private field - called `log` - of type [Arp::System::Commons::Diagnostics::Logging::Log][log-doc].
 - Add log messages to each method (link to the  ). The methods available 
 
-
 - Restart the PLCnext runtime:
 
    ```text
@@ -22,7 +21,7 @@ Among the messages that appear in the Output.log file, you should see the follow
 METHOD CALLS
 ```
 
-You will see that some of the methods we defined are called when the component instance is created by the PLCnext runtime. Other methods are called when the PLCnext runtime shuts down, just before the component instance is destroyed. Some methods may even be called during normal PLCnext runtime operation, under certain circumstances. (WHAT ARE THOSE CIRCUMSTANCES?)
+You will see that some of the methods we defined are called when the component instance is created by the PLCnext runtime. Other methods are called when the PLCnext runtime shuts down, just before the component instance is destroyed. Some types of components even have methods that are called during normal PLCnext runtime operation, under certain circumstances. For example, it is possible for a component to be notified when the PLC component - which executes deterministic, real-time tasks - stops and restarts.
 
 - Look at each of the component methods.
 

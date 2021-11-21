@@ -59,7 +59,9 @@ Obviously, you will need a controller from the PLCnext Control range. These are 
 
 All sections of this book apply to AXC F 1152 and 2152 devices, and most sections also apply to other PLCnext Control devices.
 
-A PLCnext Control device is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
+A PLCnext Control device is a *target* (in embedded programming terminology), and it requires a *host*. This book uses Debian 11 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. Windows commands are not shown in this book, so Windows users should consider installing [Windows Subsystem for Linux][wsl] to work along with this book.
+
+The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.
 
 The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.
 

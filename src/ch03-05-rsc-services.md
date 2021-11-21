@@ -6,10 +6,10 @@ Some PLCnext runtime features also provide an application programming interface 
 
 A list of the RSC services that are available in the PLCnext runtime is given in [Appendix B][appendix-b].
 
-RSC services can be accessed in two ways:
+RSC services can be accessed at least in two ways:
 
-* Linking to the relevant C++ shared object libraries.
-* (using TCP socket-based communication - like the Java library does)
+* Using an SDK to link to the relevant C++ shared object libraries. This provides local access to RSC services running on the same device as the C++ client.
+* Via [gRPC][grpc], either locally via a Unix Domain Socket or remotely using Transport Layer Security (TLS).
 
 In the next chapter, you will:
 
@@ -18,3 +18,4 @@ In the next chapter, you will:
 
 [rsc-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
 [appendix-b]: appendix-02-list-of-rsc-services.md
+[grpc]: https://grpc.io/
