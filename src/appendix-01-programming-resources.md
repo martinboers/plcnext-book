@@ -60,13 +60,11 @@ plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-pl
 
 ### Java
 
-* PLCnext Info Center - [Java on PLCnext Technology](https://www.plcnext.help/te/Programming/Java/Java_Overview.htm).
-
-* Marcel Luhmann, PLCnext Community Makers Blog post: "[Java Application on an AXC F 2152](https://www.plcnext-community.net/makersblog/java-application-on-an-axc-f-2152/)".
-
-* Andre Niggemann, PLCnext Community Makers Blog post: "[How to use the PLCnext RSC out of a remote Java Application](https://www.plcnext-community.net/makersblog/how-to-use-the-rsc-services-out-of-a-remote-java-application/)".
+* Marcel Luhmann, PLCnext Community Makers Blog post: "[Java Application on AXC F 2152](https://www.plcnext-community.net/makersblog/java-application-on-an-axc-f-2152/)".
 
 ### Node.js and Node-Red
+
+* Stijn Noppe, PLCnext Community Makers Blog post: "[Install Node-RED and PM2 offline](https://www.plcnext-community.net/makersblog/install-node-red-and-pm2-offline/)"
 
 * Stijn Noppe, PLCnext Community Makers Blog post: "[Installing Node.js on RFC 4072S](https://www.plcnext-community.net/makersblog/installing-node-js-on-rfc-4072s/)".
 
@@ -92,6 +90,8 @@ plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-pl
 
 * Python-Startersguide. "[pxcbe/python-startersguide](https://github.com/pxcbe/python-startersguide)".
 
+* Nils Hettig, PLCnext Community Makers Blog post: "[Read and Write PLC Process Data with Python](https://www.plcnext-community.net/makersblog/read-and-write-plc-process-data-with-python/)"
+
 * Stijn Noppe, PLCnext Community Makers Blog post: "[Installing PIP without IPKG](https://www.plcnext-community.net/makersblog/installing-pip-without-ipkg/)".
 
 * Nils Hettig, PLCnext Community Makers Blog post: "[Install Miniconda on PLCnext Devices](https://www.plcnext-community.net/makersblog/package-managers-for-python-on-plcnext-devices/)".
@@ -111,6 +111,8 @@ plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-pl
 * Dries Van Laerhoven, PLCnext Community Makers Blog post: "[Machine Learning on PLCnext](https://www.plcnext-community.net/makersblog/machine-learning-on-plcnext/)".
 
 ### C#
+
+* Martin Boers, PLCnext Community Makers Blog post: "[How to create a simple PLCnext console application in C#](https://www.plcnext-community.net/makersblog/how-to-create-a-simple-plcnext-console-application-in-c/)"
 
 * Björn Sauer, PLCnext Community Makers Blog post: "[Install the .NET Core runtime 3.0.0 on the AXC F 2152](https://www.plcnext-community.net/makersblog/install-the-net-core-runtime-3-0-0-on-the-axc-f-2152/)".
 
