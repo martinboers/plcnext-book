@@ -152,11 +152,15 @@
                     <main>
                         <h2><a class="header" href="#simple-extension-component" id="simple-extension-component">Simple Extension Component</a></h2>
 <p>The simplest PLCnext component is a C++ class that inherits <a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1ComponentBase.html"><code>Arp::System::Acf::ComponentBase</code></a>.</p>
-<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a simple component, called <code>MyComponent</code>, are ... (where?).</p>
-<p>At this point <code>MyComponent</code> is a valid component, but it contains no functionality - this will be added later.</p>
+<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a simple component, called <code>MyComponent</code>, can be downloaded here:</p>
+<p><a href="samples/ch04-01-simple-component/MyProject/src/MyComponent.hpp">MyComponent.hpp</a>
+<a href="samples/ch04-01-simple-component/MyProject/src/MyComponent.cpp">MyComponent.cpp</a></p>
+<p>At this point <code>MyComponent</code> is a valid PLCnext Runtime component, but it contains no functionality - this will be added later.</p>
 <h3><a class="header" href="#library-singleton" id="library-singleton">Library Singleton</a></h3>
 <p>Named component instances are created by the PLCnext runtime from a singleton that inherits <a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1LibraryBase.html"><code>Arp::System::Acf::LibraryBase</code></a>.</p>
-<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a singleton - called <code>MyLibrary</code> - that creates named instances of <code>MyComponent</code> are ... (where?).</p>
+<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a singleton - called <code>MyLibrary</code> - that creates named instances of <code>MyComponent</code> can be downloaded here:</p>
+<p><a href="samples/ch04-01-simple-component/MyProject/src/MyLibrary.hpp">MyLibrary.hpp</a>
+<a href="samples/ch04-01-simple-component/MyProject/src/MyLibrary.cpp">MyLibrary.cpp</a></p>
 <p>Note that both <code>MyComponent</code> and <code>MyLibrary</code> are defined in a namespace called <code>MyNamespace</code>.</p>
 <h3><a class="header" href="#building-the-library" id="building-the-library">Building the Library</a></h3>
 <p>You can build a shared object library containing both these classes (<code>MyComponent</code> and <code>MyLibrary</code>) using the SDK that you installed earlier.</p>
@@ -237,7 +241,7 @@ unset(_ARP_SHORT_DEVICE_VERSION)
 #######################################################################################
 </code></pre>
 <ul>
-<li>In the project <code>tools</code> directory, create a file named <code>build.sh</code> containing the following text:</li>
+<li>In the project <code>tools</code> directory, create a file named <code>build.sh</code> containing the following bash commands:</li>
 </ul>
 <pre><code class="language-bash">#!/bin/bash
 #//
@@ -283,9 +287,11 @@ cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 --config Debug --target install -- -j 3
 </code></pre>
+<p>Obviously these bash commands will not work on a Windows operating system. Windows users may consider installing <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>.</p>
 <ul>
 <li>
-<p>From the project root directory, execute the build script:</p>
+<p>From the project root directory, execute the build script.</p>
+<p>You will need to customise the following command with the strings that apply to your SDK installation and target.</p>
 <pre><code class="language-text">$ tools/build.sh -t &quot;/opt/pxc/sdk/AXCF2152/2020.0&quot; -a &quot;2020.0 LTS (20.0.0.24752)&quot; -n &quot;AXCF2152&quot;
 Version:20.0.0.24752
 CMAKE Configure
@@ -302,13 +308,13 @@ CMAKE Configure
 <p>On the PLC, create a project directory e.g. <code>/opt/plcnext/projects/MyProject</code>, and a <code>lib</code> subdirectory.</p>
 </li>
 <li>
-<p>Copy the shared object library from the host to the PLC:</p>
+<p>Copy the shared object library from the host to the target:</p>
 <pre><code class="language-text">$ scp deploy/AXCF2152_20.0.0.24752/Release/lib/libMyProject.so admin@192.168.1.10:~/projects/MyProject/lib
 </code></pre>
 </li>
 </ul>
 <h3><a class="header" href="#instantiating-the-component" id="instantiating-the-component">Instantiating the Component</a></h3>
-<p>Now that the shared object library containing the extension component is on the PLC, the PLCnext runtime must be instructed to create an instance of <code>MyComponent</code>.</p>
+<p>Now that the shared object library containing the extension component is on the target, the PLCnext runtime must be instructed to create an instance of <code>MyComponent</code>.</p>
 <ul>
 <li>On the host, in the project root directory, create a file named <code>MyProject.acf.config</code>, containing the following text:</li>
 </ul>
@@ -340,7 +346,7 @@ CMAKE Configure
 </code></pre>
 <p>The PLCnext runtime will automatically load this configuration file, since the <code>Default.acf.config</code> file in the same directory includes all files that match the  pattern <code>*.acf.config</code>. The ACF configuration file for <code>MyProject</code> instructs the PLCnext runtime to:</p>
 <ul>
-<li>Create a new child process called <code>MyProcess</code>. (why?)</li>
+<li>Create a new child process called <code>MyProcess</code>.</li>
 <li>Load the shared object library and name it <code>MyProject</code>. This name can be considered an alias, or shorthand reference, to the shared object library. This name does not have any relationship to the name of the class in the shared object library that inherited <code>LibraryBase</code>.</li>
 <li>Create an instance of <code>MyNamespace::MyComponent</code>, called <code>MyComponentInstance</code>, from the library it named <code>MyProject</code>.</li>
 </ul>
@@ -356,7 +362,7 @@ CMAKE Configure
 <pre><code class="language-text">LOADED LIBRARY
 LOADED COMPONENT
 </code></pre>
-<p>Your first PLCnext extension component instance is now running!</p>
+<p>Your first PLCnext runtime extension component instance is now running!</p>
 
                     </main>
 

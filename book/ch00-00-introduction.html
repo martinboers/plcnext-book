@@ -185,7 +185,8 @@
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
 <p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="http://www.phoenixcontact.com/product/1188165">PLCnext Technology Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>All sections of this book apply to AXC F 1152 and 2152 devices, and most sections also apply to other PLCnext Control devices.</p>
-<p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
+<p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 11 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. Windows commands are not shown in this book, so Windows users should consider installing [Windows Subsystem for Linux][wsl] to work along with this book.</p>
+<p>The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
 <p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
 <blockquote>
@@ -208,7 +209,6 @@
 <p>Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&gt;</code> typically show the output of the previous command.</p>
 </blockquote>
 <h2><a class="header" href="#versions" id="versions">Versions</a></h2>
-<p>PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the <a href="https://www.plcnext.help/te/About/Releases.htm">PLCnext Info Center</a>.</p>
 <p>This book will be kept up to date with the latest release of PLCnext Control firmware. As soon as a new version of PLCnext Control firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.</p>
 <h2><a class="header" href="#source-code" id="source-code">Source Code</a></h2>
 <p>The source files used to generate this book can be found on <a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>

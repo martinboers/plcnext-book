@@ -159,7 +159,7 @@
 <li>PLC components</li>
 <li>Service components</li>
 </ul>
-<p>An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.</p>
+<p>An overview of these component categories is given in the <a href="https://www.plcnext.help/te/PLCnext_Runtime/Core_component.htm">PLCnext Technology Info Center</a>. The categories are somewhat arbitrary, but during startup all the components in one category are generally started before any components in the next category, and vice-versa during shutdown.</p>
 <p>Components are defined in C++ shared object libraries, which are located in the <code>/usr/lib</code> directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.</p>
 <h3><a class="header" href="#hardware-components" id="hardware-components">Hardware Components</a></h3>
 <p>These components provide access to device hardware. They typically wrap Linux device drivers, making these devices available to other PLCnext runtime components via internal RSC services.</p>

@@ -22,7 +22,6 @@
 * Github project: "[sdurbin-pxc/plcnext-io-drivers-cpp](https://github.com/sdurbin-pxc/plcnext-io-drivers-cpp)".
 
 * Björn Sauer, PLCnext Community Makers Blog post: "[How to use Visual Studio Code to write C++ for PLCnext](https://www.plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-plcnext/)".
-plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-plcnext/
 
 * Björn Sauer, PLCnext Community Makers Blog post: "[Automate your development workflow with Visual Studio Code](https://www.plcnext-community.net/makersblog/automate-your-development-workflow-with-visual-studio-code/)".
 

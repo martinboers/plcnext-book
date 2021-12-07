@@ -201,7 +201,8 @@
 <h2><a class="header" href="#what-you-will-need" id="what-you-will-need">What You Will Need</a></h2>
 <p>Obviously, you will need a controller from the PLCnext Control range. These are available for purchase from your local Phoenix Contact subsidiary, or from a number of online automation resellers. You will need to power the controller with a 24 VDC supply. A good option is the <a href="http://www.phoenixcontact.com/product/1188165">PLCnext Technology Starter Kit</a>, which includes an AXC F 2152 controller, a 24 VDC power supply unit with pre-wired mains plug, and digital and analog input/output (I/O) modules.</p>
 <p>All sections of this book apply to AXC F 1152 and 2152 devices, and most sections also apply to other PLCnext Control devices.</p>
-<p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 9 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
+<p>A PLCnext Control device is a <em>target</em> (in embedded programming terminology), and it requires a <em>host</em>. This book uses Debian 11 as the host machine, but any popular Linux distribution - or even Microsoft Windows - should also work. Windows commands are not shown in this book, so Windows users should consider installing [Windows Subsystem for Linux][wsl] to work along with this book.</p>
+<p>The host machine must be connected to the internet. The host machine requires certain software development tools to be installed, and these will be described in the relevant sections of this book.</p>
 <p>The controller must be connected to a local area network with access to both the internet and the host machine. Note that the controller does not include a wireless network adapter.</p>
 <p>A knowledge of Ethernet networking would also be beneficial. The book &quot;<a href="https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf">Ethernet Basics</a>&quot; by Phoenix Contact is recommended for this purpose.</p>
 <blockquote>
@@ -224,7 +225,6 @@
 <p>Lines that don’t start with <code>$</code>, <code>#</code> or <code>&gt;&gt;&gt;</code> typically show the output of the previous command.</p>
 </blockquote>
 <h2><a class="header" href="#versions" id="versions">Versions</a></h2>
-<p>PLCnext Control firmware is generally released quarterly. The firmware release strategy and release dates are listed in the <a href="https://www.plcnext.help/te/About/Releases.htm">PLCnext Info Center</a>.</p>
 <p>This book will be kept up to date with the latest release of PLCnext Control firmware. As soon as a new version of PLCnext Control firmware is released, the book source code will be tagged with the version number of the firmware that has just been superseded.</p>
 <h2><a class="header" href="#source-code" id="source-code">Source Code</a></h2>
 <p>The source files used to generate this book can be found on <a href="https://github.com/martinboers/plcnext-book/tree/master/src">GitHub</a>.</p>
@@ -286,7 +286,7 @@ Device responded: OK
 </code></pre>
 <p>Obviously the above command will need to include parameters that suit your own device and network. The IP address of the device should be in the same subnet as the host, and the default gateway should give the device access to the internet.</p>
 <p>Your device should now be accessible from your host machine, which can be verified using <code>ping</code>:</p>
-<pre><code class="language-text">$ ping -c 3 192.168.1.10
+<pre><code class="language-text">$ ping -c 3 192.168.178.10
 PING 192.168.178.10 (192.168.178.10) 56(84) bytes of data.
 64 bytes from 192.168.178.10: icmp_seq=1 ttl=64 time=5.73 ms
 64 bytes from 192.168.178.10: icmp_seq=2 ttl=64 time=4.87 ms
@@ -413,7 +413,7 @@ Copyright (c) 2018 PHOENIX CONTACT GmbH &amp; Co. KG
 <p>Note that the above responses are in JSON format, which makes it easier to integrate plcncli operations into an automated workflow if required.</p>
 <p>If you need to build applications for different PLCnext Control hardware and/or firmware variants, then it is possible to use <code>plcncli</code> to install multiple SDKs on the host. To do this, simply repeat the installation procedure for each additional SDK. There is no need to install <code>plcncli</code> again.</p>
 <h3><a class="header" href="#alternative-sdk-installation-methods" id="alternative-sdk-installation-methods">Alternative SDK installation methods</a></h3>
-<p>If you are writing C++ applications in Eclipse or Visual Studio, then it is possible to install PLCnext SDKs through these IDEs. All SDK installation methods are described in the <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations.htm">PLCnext Info Center</a>.</p>
+<p>If you are writing C++ applications in Eclipse or Visual Studio, then it is possible to install PLCnext SDKs through those IDEs. All SDK installation methods are described in the <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations.htm">PLCnext Info Center</a>.</p>
 <h2><a class="header" href="#hello-again-world" id="hello-again-world">Hello Again, World!</a></h2>
 <p>Once you have an SDK installed on your host machine, your PLCnext Control device can greet the world in C++ or Rust.</p>
 <h3><a class="header" href="#c" id="c">C++</a></h3>
@@ -466,9 +466,8 @@ Hello World!
 </ul>
 <h2><a class="header" href="#security" id="security">Security</a></h2>
 <p>As is the case with all computer systems, it is ultimately the responsibility of the end user to protect their equipment against all potential threats.</p>
-<p>General information on how to secure Ethernet devices is available here:</p>
-<p><a href="http://plcnext-runtime.com/downloads/ah_en_industrial_security_107913_en_03.pdf">http://plcnext-runtime.com/downloads/ah_en_industrial_security_107913_en_03.pdf</a></p>
 <p>The security tools provided with PLCnext Control firmware are described in the <a href="https://www.plcnext.help/te/Security/Security.htm">PLCnext Technology Info Centre</a>. These tools will be familiar to administrators of Linux devices.</p>
+<p>In addition, users should always follow general IT security principles like <a href="https://dam-mdc.phoenixcontact.com/asset/156443151564/0a870ae433c19148b80bd760f3a1c1f2">those published by Phoenix Contact</a> (PDF download).</p>
 <h2><a class="header" href="#users-and-privileges" id="users-and-privileges">Users and Privileges</a></h2>
 <p>Much of the information below also appears in the <a href="https://www.plcnext.help/te/Operating_System/Root_rights.htm">PLCnext Info Center</a>.</p>
 <h3><a class="header" href="#admin-user" id="admin-user">admin user</a></h3>
@@ -561,10 +560,14 @@ There are many online resources available if you need to learn how to use one th
 <p>If the device has access to a Network Time Protocol (NTP) server, either locally or on the internet, then it is possible to use that NTP server to maintain the correct time on the PLCnext Control device. Like with other Linux distributions, this can be achieved by editing the file <code>/etc/ntp.conf</code> on the device.</p>
 <p>Information on how to set the time on a PLCnext Control device using various methods is available in the <a href="https://www.plcnext.help/te/Operating_System/System_time.htm">PLCnext Info Center</a>.</p>
 <h3><a class="header" href="#setting-the-time-zone" id="setting-the-time-zone">Setting the Time Zone</a></h3>
-<p>For applications that use local time rather than universal time, you may want to set the time zone on your PLCnext Control device. The following article from a Phoenix Contact technical support site describes how to set the time zone on a PLCnext Control device:</p>
+<p>For applications that use local time rather than universal time, you may want to set the time zone on your PLCnext Control device using the procedure in the following article:</p>
 <p><a href="https://pxc1.esc-eu-central-1.empolisservices.com/gatekeeper/guesttoken/45?app=/service-express/portal/cb?redirect=https://pxc1.esc-eu-central-1.empolisservices.com/service-express/portal/object/esc/en-so-deb95804-1aba-4247-8d77-da744c190b90">How to set the time zone on a PLCnext Control device.</a></p>
+<p>The release notes for firmware version 2021.9 state that &quot;Setting local time zones is not fully supported&quot;. The procedure in the above article involves editing a system configuration file, which may cause problems during future firmware upgrades.</p>
 <h2><a class="header" href="#firmware" id="firmware">Firmware</a></h2>
 <p>The PLCnext Control firmware includes both the Linux kernel and factory-installed software from Phoenix Contact. A PLCnext Control device can be updated with a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.</p>
+<h3><a class="header" href="#firmware-release-schedule" id="firmware-release-schedule">Firmware Release Schedule</a></h3>
+<p>PLCnext Control firmware is generally released four times a year; the first is a Long Term Support (LTS) version, and the other three are &quot;feature&quot; releases for those who want the very latest features as early as possible. The <a href="https://www.plcnext.help/te/About/Releases.htm">firmware release history and  future release schedule</a> is shown in the PLCnext Info Center.</p>
+<p>There is also some information on <a href="https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm">upcoming firmware features</a> in the PLCnext Info Center.</p>
 <h3><a class="header" href="#checking-the-firmware-version" id="checking-the-firmware-version">Checking the Firmware Version</a></h3>
 <p>It is important to know the firmware version that is running on the device for a number of reasons:</p>
 <ul>
@@ -590,12 +593,14 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 <ul>
 <li>
 <p>Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.</p>
+<p>For the AXC F 2152, you can browse <a href="https://phoe.co/AXC_F_2152_Firmware">directly to the firmware download page</a>. For other PLCnext Control devices, you need to navigate to the firmware download page through the relevant product page on the Phoenix Contact website.</p>
 </li>
 <li>
 <p>Extract the <code>.raucb</code> file from the archive.</p>
+<p>Now you can guess (correctly) that PLCnext Control devices use <a href="https://rauc.io/">RAUC</a> for firmware updates.</p>
 </li>
 <li>
-<p>Copy the .raucb file to the device:</p>
+<p>Copy the <code>.raucb</code> file to the device:</p>
 <pre><code class="language-text">$ scp axcf2152-bundle-base-axcf2152.raucb admin@192.168.1.10:~
 </code></pre>
 </li>
@@ -606,98 +611,65 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 </li>
 <li>
 <p>Update the firmware:</p>
-<pre><code class="language-text"># sudo update-plcnext
+<pre><code class="language-text"># sudo /etc/init.d/plcnext stop
+Password:
+Stopping service plcnext
+plcnext stopped
+#
+# admin@axcf2152:~$ rauc install axcf2152-2022.0.0.13-LTS-beta.raucb
+installing
+0% Installing
+0% Determining slot states
+20% Determining slot states done.
+20% Checking bundle
+20% Verifying signature
+40% Verifying signature done.
+40% Checking bundle done.
+40% Checking manifest contents
+60% Checking manifest contents done.
+60% Determining target install group
+80% Determining target install group done.
+80% Updating slots
+80% Checking slot rootfs.0
+90% Checking slot rootfs.0 done.
+90% Copying image to rootfs.0
+100% Copying image to rootfs.0 done.
+100% Updating slots done.
+100% Installing done.
+Installing `/opt/plcnext/axcf2152-2022.0.0.13-LTS-beta.raucb` succeeded
+#
+# sudo reboot
 </code></pre>
 </li>
 </ul>
-<p>The device will take some time to install the new firmware, and then the device will restart.</p>
 <p>After the device restarts, open a new shell session and check the firmware version.</p>
+<h3><a class="header" href="#but-theres-more" id="but-theres-more">But There's More!</a></h3>
+<p>There are actually three firmware copies lurking on a PLCnext Control device, and all three may be different versions. The above procedure only replaces one of these three firmware installations. You will learn more about this in the next section.</p>
 <h3><a class="header" href="#other-ways-to-upgrade-firmware" id="other-ways-to-upgrade-firmware">Other Ways to Upgrade Firmware</a></h3>
-<p>There are four other ways to upgrade the firmware on the controller:</p>
+<p>There are currently many other ways to upgrade the firmware on the controller, including:</p>
 <ul>
+<li>
+<p>Using the <code>update-plcnext</code> script, as described in the <a href="https://www.plcnext.help/te/Operating_System/Operating_system.htm">Firmware update</a> section of the PLCnext Info Center.</p>
+</li>
 <li>
 <p>Through <a href="https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm">web-based management</a> (WBM).</p>
 </li>
 <li>
-<p>Using the Device Management service on the proficloud.io web site.</p>
-</li>
-<li>
-<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="https://www.plcnext.help/te/About/#idevicecontrols"><em>Device Control</em></a> PLCnext runtime service.</p>
+<p>Using the Device Management service on the <a href="https://proficloud.io/">Proficloud</a> web site.</p>
 </li>
 <li>
 <p>Using an OPC UA client (not currently documented).</p>
 </li>
-</ul>
-<h2><a class="header" href="#file-system" id="file-system">File System</a></h2>
-<p>Files in a PLCnext Control are arranged in an <a href="https://www.datalight.com/blog/2016/01/27/explaining-overlayfs-%E2%80%93-what-it-does-and-how-it-works">overlay file system</a>.</p>
-<p>The firmware is installed in the lower (read only) directory. All files created by users, and any changes to files in the lower directory, are stored in the upper (read/write) directory.</p>
-<h3><a class="header" href="#storage-media" id="storage-media">Storage Media</a></h3>
-<p>Each PLCnext Control device includes internal, non-volatile, solid-state memory. The PLC is also supplied with an empty SD card slot.</p>
-<blockquote>
-<p>The firmware will only recognise SD cards specifically designed for PLCnext Control devices.</p>
-</blockquote>
-<p>The firmware file system, mounted as the read-only lower directory, is <em>always</em> stored in internal memory. Information on the firmware file system is available in the <a href="https://www.plcnext.help/te/Operating_System/Firmware_directories.htm">PLCnext Technology Info Centre</a>.</p>
-<p>If the PLC boots without an SD card present, the internal memory is used as the primary storage media for the user file system, since it is the only memory available. If the PLC boots with an SD card present, the SD card is used as the primary storage media for the user file system.</p>
-<blockquote>
-<p>Please note the SD card handling guidelines in the user manual.</p>
-</blockquote>
-<p>In relation to the upper directory, the behaviour of the system when booting depends on the presence or absence of an external SD card, and the presence or absence of a user file system on the primary storage media:</p>
-<table><thead><tr><th align="left"></th><th align="left">User file system absent on primary media</th><th align="left">User file system present on primary media</th></tr></thead><tbody>
-<tr><td align="left"><strong>SD card absent</strong></td><td align="left">User file system is created in internal memory<br/>and mounted as upper directory.</td><td align="left">Existing file system in internal memory<br/>is mounted as upper directory.</td></tr>
-<tr><td align="left"><strong>SD card present</strong></td><td align="left">User file system is moved from internal memory to<br/>the SD card and mounted as upper directory.</td><td align="left">Existing user file system on SD card<br/>is mounted as upper directory.<br/><em>Any internal user file system is deleted.</em></td></tr>
-</tbody></table>
-<blockquote>
-<p>Note that in the case shown in the lower right corner of the above table, data loss may occur.</p>
-</blockquote>
-<p>More information on this topic is available in the <a href="https://www.plcnext.help/te/WBM/Security_SD_Card_settings.htm">PLCnext Technology Info Centre</a>.</p>
-<h3><a class="header" href="#deleting-and-restoring-file-systems" id="deleting-and-restoring-file-systems">Deleting and Restoring File Systems</a></h3>
-<p>The following procedures will affect the complete firmware and/or user file system in a PLCnext Control device:</p>
-<h4><a class="header" href="#firmware-update" id="firmware-update">Firmware Update</a></h4>
-<p>During a firmware update, the contents of the firmware file system are replaced with new firmware files. The user file system remains unaffected, and so (for example) the IP address of the PLC will be retained, passwords will be unaffected, and user-installed files will not be deleted.</p>
-<blockquote>
-<p>Note: Since manual changes to firmware files are stored in the upper directory, any firmware files that were changed manually before a firmware update will remain in the upper directory and will continue to mask the corresponding file in the new firmware file system. This may adversely affect the operation of the PLC after a firmware update.</p>
-</blockquote>
-<h4><a class="header" href="#type-1-reset" id="type-1-reset">Type 1 Reset</a></h4>
-<p>A type 1 reset deletes the entire contents of the user file system on the primary storage device. The contents of the firmware file system remain unaffected.</p>
-<p>To perform a type 1 reset, open a secure shell session on the PLC, and issue the following command:</p>
-<pre><code class="language-text"># sudo recover-plcnext 1
-</code></pre>
-<h4><a class="header" href="#type-2-reset" id="type-2-reset">Type 2 Reset</a></h4>
-<p>A type 2 reset:</p>
-<ul>
 <li>
-<p>Deletes the entire contents of the user file system on the primary storage device, just like a type 1 reset.</p>
+<p>Using <a href="https://www.eclipse.org/hawkbit/">Eclipse hawkBit™</a> with the <a href="https://www.plcnextstore.com/permalinks/apps/latest/60002172000381">hawkBit™ client app</a> from the PLCnext Store.</p>
 </li>
 <li>
-<p>Replaces the firmware file system with a factory-default firmware version.</p>
+<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm">Device Control</a> PLCnext runtime service.</p>
 </li>
 </ul>
-<p>To perform a type 2 reset, open a secure shell session on the PLC, and issue the following command:</p>
-<pre><code class="language-text"># sudo recover-plcnext 2
-</code></pre>
-<blockquote>
-<p>Warning: After either a type 1 or a type 2 reset, all user data will be deleted and the PLC's IP address and <code>admin</code> password will be restored to factory defaults.</p>
-</blockquote>
-<p>It is also possible to perform a type 1 or a type 2 reset using a button on the front of the PLCnext Control. See the user manual for details.</p>
-<h3><a class="header" href="#backups" id="backups">Backups</a></h3>
-<p>It is highly recommended to take regular backups of the user file system.</p>
-<p>(how to back up)</p>
-<p>(how to restore)</p>
-<h2><a class="header" href="#installing-software" id="installing-software">Installing Software</a></h2>
-<p>Now that you are familiar with some of the features of the Linux operating system on the PLCnext Control, lets see how you can extend the functionality of the controller by installing third-party software.</p>
-<p>OPTIONS:</p>
-<ul>
-<li>
-<p>Use a package manager - which one? Which repository?</p>
-</li>
-<li>
-<p>If there is no suitable repository, directly install a pre-built binary, if available. This must be built for a compatible architecture (e.g. armv7 32 bit).</p>
-</li>
-<li>
-<p>Cross-compile an open-source project using a PLCnext Control SDK. This will be covered later in the book.</p>
-</li>
-</ul>
-<p>(mention Docker, somewhere)</p>
+<p>All the methods listed above require that the PLCnext runtime is running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the <code>rauc</code> command.</p>
+<h1><a class="header" href="#file-system" id="file-system">File System</a></h1>
+<h1><a class="header" href="#installing-software" id="installing-software">Installing Software</a></h1>
 <h1><a class="header" href="#plcnext-runtime" id="plcnext-runtime">PLCnext Runtime</a></h1>
 <p>PLCnext Control firmware was introduced briefly in the previous chapter. PLCnext Control firmware features can be broadly categorised as either:</p>
 <ol>
@@ -720,33 +692,35 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 <p>You will see the acronym <em>Arp</em> used extensively throughout this chapter. <em>Arp</em> is short for <em>Automation Runtime Platform</em>, and is another name for the PLCnext runtime.</p>
 </blockquote>
 <h2><a class="header" href="#controlling-the-plcnext-runtime" id="controlling-the-plcnext-runtime">Controlling the PLCnext Runtime</a></h2>
-<p>When the PLC boots, it automatically runs the script in the file <code>/etc/init.d/plcnext</code>. This starts the <em>PLCnext runtime</em>.</p>
+<p>When the device boots, it automatically runs the script in the file <code>/etc/init.d/plcnext</code>. This starts the <em>PLCnext runtime</em>.</p>
 <p>We can stop the PLCnext runtime any time, using the same script:</p>
-<pre><code class="language-text"># /etc/init.d/plcnext stop
-(result)
+<pre><code class="language-text"># sudo /etc/init.d/plcnext stop
+Stopping service plcnext
+plcnext stopped
 </code></pre>
 <p>Start the PLCnext runtime, and watch entries being added to the default log file:</p>
-<pre><code class="language-text"># /etc/init.d/plcnext start &amp;&amp; tail -f -n 0 /opt/plcnext/logs/Output.log
-(result)
+<pre><code class="language-text"># sudo /etc/init.d/plcnext start &amp;&amp; tail -f -n 0 /opt/plcnext/logs/Output.log
+Starting service plcnext
+Set plcnext exports
+plcnext started (bus system is axioline)
+12.08.21 19:42:14.764 Arp.System.Acf.Internal.ApplicationBase     INFO  - ArpVersion: 2021.6.0 (21.6.0.46)
+  :
 </code></pre>
-<p>You can see lots of activity in the <code>Output.log</code> file when the PLCnext Runtime starts up. The <code>Output.log</code> file is an important source of information - for example, if your PLC ever behaves unexpectedly, the <code>Output.log</code> file will often help you to identify the problem.</p>
+<p>You can see lots of activity in the <code>Output.log</code> file when the PLCnext Runtime starts up. The <code>Output.log</code> file is an important source of information - for example, if your PLCnext Control device ever behaves unexpectedly, the <code>Output.log</code> file will often help you to identify the problem.</p>
 <p>But what does the PLCnext Runtime do? Basically, the PLCnext runtime turns an otherwise ordinary device into a PLC, and at the same time turns that device into much more than an ordinary PLC.</p>
 <p>You have already used one feature of the PLCnext Runtime, when you set the IP address using <code>netnames</code>. Netnames is used to manage Profinet devices, and the PLCnext Runtime starts a component that makes the controller behave like a Profinet device. See what happens when we try to use <code>netnames</code> when the PLCnext Runtime is stopped:</p>
-<pre><code class="language-text"># /etc/init.d/plcnext stop
-(result)
+<pre><code class="language-text"># sudo /etc/init.d/plcnext stop
 </code></pre>
 <p>On the host machine:</p>
-<pre><code class="language-text">$ netnames
+<pre><code class="language-text">$ sudo ./netnames -i eth0 -c identify
 (no result)
 </code></pre>
 <p>We can still ping the PLC:</p>
 <pre><code class="language-text">$ ping 192.168.1.10
-(result)
 </code></pre>
 <p>... because ICMP messages are handled by the Linux operating system, not by the PLCnext runtime. This is also why we can maintain a remote shell session on the PLC, regardless of whether the PLCnext runtime is running or stopped.</p>
 <p>Start the PLCnext Runtime again:</p>
-<pre><code class="language-text"># /etc/init.d/plcnext start
-(result)
+<pre><code class="language-text"># sudo /etc/init.d/plcnext start
 </code></pre>
 <p>... and <code>netnames</code> will again be able to discover the PLC. You may need to wait for up to a minute for the PLCnext runtime to finish starting before <code>netnames</code> will see it.</p>
 <h2><a class="header" href="#plcnext-runtime-components" id="plcnext-runtime-components">PLCnext Runtime Components</a></h2>
@@ -758,7 +732,7 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 <li>PLC components</li>
 <li>Service components</li>
 </ul>
-<p>An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are arbitrary, and in fact there is no concept of component categories in the PLCnext runtime itself.</p>
+<p>An overview of these component categories is given in the <a href="https://www.plcnext.help/te/PLCnext_Runtime/Core_component.htm">PLCnext Technology Info Center</a>. The categories are somewhat arbitrary, but during startup all the components in one category are generally started before any components in the next category, and vice-versa during shutdown.</p>
 <p>Components are defined in C++ shared object libraries, which are located in the <code>/usr/lib</code> directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.</p>
 <h3><a class="header" href="#hardware-components" id="hardware-components">Hardware Components</a></h3>
 <p>These components provide access to device hardware. They typically wrap Linux device drivers, making these devices available to other PLCnext runtime components via internal RSC services.</p>
@@ -1018,111 +992,23 @@ Component namespace: <code>Arp::Services</code></p>
 </tbody></table>
 <p><sup>1</sup> Only on AXC devices.</p>
 <h2><a class="header" href="#disabling-features" id="disabling-features">Disabling Features</a></h2>
-<p>By default, the PLCnext runtime starts a large number of components. These components implement features on the PLC. In some circumstances it may be desirable to disable some of these features - for example, you want to free the resources that unused features would otherwise consume.</p>
-<p>In this section, you will learn how to disable specific features of the PLCnext runtime.</p>
-<p>First, take a copy of the system file <code>Components.acf.settings</code>:</p>
-<pre><code class="language-text"># cp /etc/plcnext/Components.acf.settings /opt/plcnext/appshome/Custom.acf.settings
-</code></pre>
-<blockquote>
-<p>The <code>/etc/plcnext/Components.acf.settings</code> file is installed as part of the firmware file system and should not be edited, for reasons given in the &quot;Firmware&quot; section of this book.</p>
-</blockquote>
-<blockquote>
-<p>The acronym <em>acf</em> is short for <a href="https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/ACF_Application_Component_Framework.htm"><em>Application Component Framework</em></a>, which is the framework used by all PLCnext components. You will learn more about this framework later, when you start writing your own PLCnext runtime components.</p>
-</blockquote>
-<p>Next, edit the <code>Custom.acf.settings</code> file, using either the <code>nano</code> or <code>vi</code> (vim) editor on the PLC, as follows:</p>
-<ul>
-<li>Delete any <code>&lt;EnvironmentVariables&gt;</code> elements that you want to leave at the default value.</li>
-<li>Add an <code>override</code> attribute to each remaining <code>&lt;EnvironmentVariable&gt;</code> element.</li>
-</ul>
-<p>The resulting file should look something like this:</p>
-<pre><code class="language-xml">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;AcfSettingsDocument
-  xmlns=&quot;http://www.phoenixcontact.com/schema/acfsettings&quot;
-  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://www.phoenixcontact.com/schema/acfsettings.xsd&quot;
-  schemaVersion=&quot;1.0&quot; &gt;
-
-  &lt;!-- Insert new entries in related domain section in alphabetic order --&gt;
-  &lt;EnvironmentVariables&gt;
-
-    &lt;!-- Device components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_RFCDISPLAY&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-
-    &lt;!-- Hardware components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_NETLOAD_LIMITER&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_EXTERNAL_PCI&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_EXTERNAL_SDCARD&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-
-    &lt;!-- Io components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_AXIOLINE&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_ETHERNETIP&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_INTERBUS&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_PROFINET&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_PND&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_PNC&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-
-    &lt;!-- Plc components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_ECLR&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_RETAIN&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-
-    &lt;!-- Services components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_APPMANAGER&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_DATALOGGER&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_EHMI&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_FWM&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_LINUXSYSLOG&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_OPC_UA&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_PROFICLOUD&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_PROFICLOUD_V3&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_SPNSPROXY&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_TRACECONTROLLER&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_TSM&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_WBM&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_WCM&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_LOGGING&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_LOGMANAGER&quot; value=&quot;false&quot; override=&quot;true&quot; /&gt;
-
-    &lt;!-- System components--&gt;
-    &lt;EnvironmentVariable name=&quot;ARP_COMPONENT_SYSTEM_WATCHDOG&quot; value=&quot;true&quot; override=&quot;true&quot; /&gt;
-
-  &lt;/EnvironmentVariables&gt;
-
-&lt;/AcfSettingsDocument&gt;
-</code></pre>
-<ul>
-<li>Set the <code>value</code> attributes to <code>&quot;true&quot;</code> or <code>&quot;false&quot;</code>, to control whether this feature will be supported by the PLCnext runtime.</li>
-</ul>
-<p>Save the file, and restart the PLCnext runtime:</p>
-<pre><code class="language-text"># /etc/init.d/plcnext restart
-(result)
-</code></pre>
-<p>If you carefully examine the latest entries in the <code>Output.log</code> file, you will notice that there are no messages relating to the startup of components that implement the features that were disabled in the <code>.acf.settings</code> file.</p>
-<h3><a class="header" href="#components-included-in-each-feature-set" id="components-included-in-each-feature-set">Components Included in each Feature Set</a></h3>
-<p>You have probably noticed that the environment variables in your custom <code>.acf.settings</code> file are the same as those listed in the tables in the previous section. Those tables provide a reference for which components will be instantiated (or not) depending on the value of a specific environment variable. In some cases, the library implementing that feature will not even be loaded by the PLCnext runtime.</p>
-<blockquote>
-<p>On AXC devices, the values of the environment variables <code>ARP_COMPONENT_AXIOLINE</code> and <code>ARP_COMPONENT_INTERBUS</code> are assigned automatically by the PLCnext runtime, based on whether an Inline adapter module is detected during startup. Do not attempt to change these environment variables in your own <code>.acf.settings</code> file.</p>
-</blockquote>
-<h3><a class="header" href="#acf-settings-file-names" id="acf-settings-file-names">ACF Settings File Name(s)</a></h3>
-<p>The name of the custom settings file does not need to be <code>Custom.acf.settings</code>. The filename can be anything, as long as it ends in <code>.acf.settings</code>, and is located in the <code>/opt/plcnext/appshome</code> directory. You may have noticed that the custom settings file is included using this directive in the <code>/etc/plcnext/Device.acf.settings</code> file:</p>
-<pre><code class="language-xml">  &lt;!-- Include settings files for overridden app specific settings --&gt;
-  &lt;Include path=&quot;/opt/plcnext/appshome/*.acf.settings&quot; /&gt;
-</code></pre>
-<p>As you can see, this directive will include <em>all</em> files that match the pattern specified in the <code>path</code> attribute. If multiple files match this pattern, then all the files will be processed. If there are any conflicts - e.g. if one file overrides an environment variable with the value &quot;true&quot;, and another file overrides the same variable with the value &quot;false&quot; - then the final value of that environment variable could be either &quot;true&quot; or &quot;false&quot;. It is up to the user to make sure that conflicts like this do not happen.</p>
+<p>By default, the PLCnext runtime starts a large number of components. These components implement services or features on the device. In some circumstances it may be desirable to disable some of these features - for example, you want to free the resources that unused services would otherwise consume.</p>
+<p>It is possible to disable some system features through the Web-Based Management (WBM) page of the device. This is described in the PLCnext Info Center:</p>
+<p>https://www.plcnext.help/te/WBM/Configuration_System_Services.htm</p>
+<p>In the next chapter, you will see how to add your own custom component to this list.</p>
 <h2><a class="header" href="#rsc-services" id="rsc-services">RSC Services</a></h2>
 <p>For PLCnext runtime features that are user configurable, configuration can usually be performed through either the web-based management interface, or modifying text files on the PLC.</p>
 <p>Some PLCnext runtime features also provide an application programming interface (API) in the form of <em>Remote Service Calls</em>, or <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm">RSC Services</a>.</p>
-<p>A list of the RSC services that are available in the PLCnext runtime is given in <a href="appendix-01-list-of-rsc-services.html">Appendix A</a>.</p>
-<p>RSC services can be accessed in two ways:</p>
+<p>A list of the RSC services that are available in the PLCnext runtime is given in <a href="appendix-02-list-of-rsc-services.html">Appendix B</a>.</p>
+<p>RSC services can be accessed at least in two ways:</p>
 <ul>
-<li>Linking to the relevant C++ shared object libraries.</li>
-<li>(using TCP socket-based communication - like the Java library does)</li>
+<li>Using an SDK to link to the relevant C++ shared object libraries. This provides local access to RSC services running on the same device as the C++ client.</li>
+<li>Via <a href="https://grpc.io/">gRPC</a>, either locally via a Unix Domain Socket or remotely using Transport Layer Security (TLS).</li>
 </ul>
 <p>In the next chapter, you will:</p>
 <ul>
 <li>Write your own PLCnext runtime component.</li>
 <li>Call RSC services from that component.</li>
-<li>Write your own RSC service.</li>
 </ul>
 <h1><a class="header" href="#extension-components" id="extension-components">Extension Components</a></h1>
 <p>In the previous chapter, you saw how the PLCnext runtime uses factory-installed components to implement various functions.</p>
@@ -1130,11 +1016,15 @@ Component namespace: <code>Arp::Services</code></p>
 <p>In this chapter, you will write your own extension component that is started by the PLCnext runtime, and learn more about the Application Component Framework (ACF) that makes this possible.</p>
 <h2><a class="header" href="#simple-extension-component" id="simple-extension-component">Simple Extension Component</a></h2>
 <p>The simplest PLCnext component is a C++ class that inherits <a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1ComponentBase.html"><code>Arp::System::Acf::ComponentBase</code></a>.</p>
-<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a simple component, called <code>MyComponent</code>, are ... (where?).</p>
-<p>At this point <code>MyComponent</code> is a valid component, but it contains no functionality - this will be added later.</p>
+<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a simple component, called <code>MyComponent</code>, can be downloaded here:</p>
+<p><a href="samples/ch04-01-simple-component/MyProject/src/MyComponent.hpp">MyComponent.hpp</a>
+<a href="samples/ch04-01-simple-component/MyProject/src/MyComponent.cpp">MyComponent.cpp</a></p>
+<p>At this point <code>MyComponent</code> is a valid PLCnext Runtime component, but it contains no functionality - this will be added later.</p>
 <h3><a class="header" href="#library-singleton" id="library-singleton">Library Singleton</a></h3>
 <p>Named component instances are created by the PLCnext runtime from a singleton that inherits <a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Acf_1_1LibraryBase.html"><code>Arp::System::Acf::LibraryBase</code></a>.</p>
-<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a singleton - called <code>MyLibrary</code> - that creates named instances of <code>MyComponent</code> are ... (where?).</p>
+<p>The C++ source files (<code>.hpp</code> and <code>.cpp</code>) for a singleton - called <code>MyLibrary</code> - that creates named instances of <code>MyComponent</code> can be downloaded here:</p>
+<p><a href="samples/ch04-01-simple-component/MyProject/src/MyLibrary.hpp">MyLibrary.hpp</a>
+<a href="samples/ch04-01-simple-component/MyProject/src/MyLibrary.cpp">MyLibrary.cpp</a></p>
 <p>Note that both <code>MyComponent</code> and <code>MyLibrary</code> are defined in a namespace called <code>MyNamespace</code>.</p>
 <h3><a class="header" href="#building-the-library" id="building-the-library">Building the Library</a></h3>
 <p>You can build a shared object library containing both these classes (<code>MyComponent</code> and <code>MyLibrary</code>) using the SDK that you installed earlier.</p>
@@ -1215,7 +1105,7 @@ unset(_ARP_SHORT_DEVICE_VERSION)
 #######################################################################################
 </code></pre>
 <ul>
-<li>In the project <code>tools</code> directory, create a file named <code>build.sh</code> containing the following text:</li>
+<li>In the project <code>tools</code> directory, create a file named <code>build.sh</code> containing the following bash commands:</li>
 </ul>
 <pre><code class="language-bash">#!/bin/bash
 #//
@@ -1261,9 +1151,11 @@ cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 cmake --build &quot;${DIR}/../build/${TARGETNAME}_${VERSION}&quot; \
 --config Debug --target install -- -j 3
 </code></pre>
+<p>Obviously these bash commands will not work on a Windows operating system. Windows users may consider installing <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>.</p>
 <ul>
 <li>
-<p>From the project root directory, execute the build script:</p>
+<p>From the project root directory, execute the build script.</p>
+<p>You will need to customise the following command with the strings that apply to your SDK installation and target.</p>
 <pre><code class="language-text">$ tools/build.sh -t &quot;/opt/pxc/sdk/AXCF2152/2020.0&quot; -a &quot;2020.0 LTS (20.0.0.24752)&quot; -n &quot;AXCF2152&quot;
 Version:20.0.0.24752
 CMAKE Configure
@@ -1280,13 +1172,13 @@ CMAKE Configure
 <p>On the PLC, create a project directory e.g. <code>/opt/plcnext/projects/MyProject</code>, and a <code>lib</code> subdirectory.</p>
 </li>
 <li>
-<p>Copy the shared object library from the host to the PLC:</p>
+<p>Copy the shared object library from the host to the target:</p>
 <pre><code class="language-text">$ scp deploy/AXCF2152_20.0.0.24752/Release/lib/libMyProject.so admin@192.168.1.10:~/projects/MyProject/lib
 </code></pre>
 </li>
 </ul>
 <h3><a class="header" href="#instantiating-the-component" id="instantiating-the-component">Instantiating the Component</a></h3>
-<p>Now that the shared object library containing the extension component is on the PLC, the PLCnext runtime must be instructed to create an instance of <code>MyComponent</code>.</p>
+<p>Now that the shared object library containing the extension component is on the target, the PLCnext runtime must be instructed to create an instance of <code>MyComponent</code>.</p>
 <ul>
 <li>On the host, in the project root directory, create a file named <code>MyProject.acf.config</code>, containing the following text:</li>
 </ul>
@@ -1318,7 +1210,7 @@ CMAKE Configure
 </code></pre>
 <p>The PLCnext runtime will automatically load this configuration file, since the <code>Default.acf.config</code> file in the same directory includes all files that match the  pattern <code>*.acf.config</code>. The ACF configuration file for <code>MyProject</code> instructs the PLCnext runtime to:</p>
 <ul>
-<li>Create a new child process called <code>MyProcess</code>. (why?)</li>
+<li>Create a new child process called <code>MyProcess</code>.</li>
 <li>Load the shared object library and name it <code>MyProject</code>. This name can be considered an alias, or shorthand reference, to the shared object library. This name does not have any relationship to the name of the class in the shared object library that inherited <code>LibraryBase</code>.</li>
 <li>Create an instance of <code>MyNamespace::MyComponent</code>, called <code>MyComponentInstance</code>, from the library it named <code>MyProject</code>.</li>
 </ul>
@@ -1334,7 +1226,7 @@ CMAKE Configure
 <pre><code class="language-text">LOADED LIBRARY
 LOADED COMPONENT
 </code></pre>
-<p>Your first PLCnext extension component instance is now running!</p>
+<p>Your first PLCnext runtime extension component instance is now running!</p>
 <h2><a class="header" href="#component-methods" id="component-methods">Component Methods</a></h2>
 <p>After completing the previous section, an instance of your PLCnext extension component - called <code>MyComponentInstance</code> - has been created by the PLCnext runtime. At the moment, this component instance is not doing much. The PLCnext runtime has called a number of the methods that you defined in the <code>MyComponent</code> class, but because these methods are empty, we don't see any evidence that this has happened. Let's write some messages to the <code>Output.log</code> file, so we can see when these methods are called.</p>
 <p>One way that our component instance can write to the Output.log file is if it inherits a base class created from the template <a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Loggable_3_01Derived_00_01true_01_4.html"><code>Arp::System::Commons::Diagnostics::Logging::Loggable</code></a>.</p>
@@ -1358,10 +1250,10 @@ LOADED COMPONENT
 <p>Among the messages that appear in the Output.log file, you should see the following:</p>
 <pre><code class="language-text">METHOD CALLS
 </code></pre>
-<p>You will see that some of the methods we defined are called when the component instance is created by the PLCnext runtime. Other methods are called when the PLCnext runtime shuts down, just before the component instance is destroyed. Some methods may even be called during normal PLCnext runtime operation, under certain circumstances. (WHAT ARE THOSE CIRCUMSTANCES?)</p>
+<p>You will see that some of the methods we defined are called when the component instance is created by the PLCnext runtime. Other methods are called when the PLCnext runtime shuts down, just before the component instance is destroyed. Some types of components even have methods that are called during normal PLCnext runtime operation, under certain circumstances. For example, it is possible for a component to be notified when the PLC component - which executes deterministic, real-time tasks - stops and restarts.</p>
 <ul>
 <li>
-<p>Look at each of the component methods - refer to document Oliver got.</p>
+<p>Look at each of the component methods.</p>
 </li>
 <li>
 <p>Only one method has a parameter - this allows us to load a Settings file, like we saw for some of the components that come with the PLCnext firmware.</p>
@@ -1378,7 +1270,11 @@ LOADED COMPONENT
 <h2><a class="header" href="#component-example-tcp-server" id="component-example-tcp-server">Component Example: TCP Server</a></h2>
 <p>Create a TCP server that opens a port - set from a Settings file (just a number!), starts listening on the port and registers a callback for when a client connects.</p>
 <p>Create two instances of the component, then connect to the servers from the host using netcat (the server should send a welcome message).</p>
-<p>-&gt; this uses &quot;Common Classes&quot;, provided in the SDK. Common Classes abstract/wrap some Linux API. By using Common Classes instead of the API itself, future changes in the Linux API will not affect your code.</p>
+<p>-&gt; this uses &quot;Common Classes&quot;, provided in the SDK. Common classes implement some standard C++ functions. By using Common Classes instead of the corresponding standard C++ functions:</p>
+<ul>
+<li>classes are optimised for PLCnext Control targets. For example, methods on the <a href="https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Commons_1_1Threading_1_1Mutex.html">Arp::Mutex</a> class can be called from real-time tasks without the risk of blocking a real-time thread, while methods on the <a href="https://en.cppreference.com/w/cpp/thread/mutex">std::mutex</a> class cannot.</li>
+<li>code can be run on PLCnext Control targets with different architectures (e.g. arm, x64) without modification.</li>
+</ul>
 <h2><a class="header" href="#using-rsc-services" id="using-rsc-services">Using RSC Services</a></h2>
 <p>Create a simple component that reads and writes GDS variables using the ReadSingle and WriteSingle methods at startup.</p>
 <p>Link to more examples (Info Center, Github, Forum).</p>
@@ -1578,9 +1474,17 @@ LOADED COMPONENT
 <h2><a class="header" href="#get-involved" id="get-involved">Get Involved!</a></h2>
 <p>PLCnext Community. This includes a discussion forum and a Makers Blog, both of which are open to public contributions.</p>
 <p>Github. Contribute to open-source projects.</p>
-<p>Stack Overflow (?).</p>
 <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
 <h2><a class="header" href="#appendix-a-plcnext-control-programming-resources" id="appendix-a-plcnext-control-programming-resources">Appendix A: PLCnext Control programming resources</a></h2>
+<h3><a class="header" href="#general-development-guides" id="general-development-guides">General Development Guides</a></h3>
+<ul>
+<li>
+<p>Savushkin R&amp;D, Github project: <a href="https://github.com/savushkin-r-d/PLCnext-howto">PLCnext-howto</a></p>
+</li>
+<li>
+<p>Phoenix Contact USA, Github project: <a href="https://github.com/plcnextusa/PLCnext-Guides">PLCnext-Guides</a></p>
+</li>
+</ul>
 <h3><a class="header" href="#c-1" id="c-1">C++</a></h3>
 <ul>
 <li>
@@ -1602,43 +1506,44 @@ LOADED COMPONENT
 <p>Github project: &quot;<a href="https://github.com/sdurbin-pxc/plcnext-io-drivers-cpp">sdurbin-pxc/plcnext-io-drivers-cpp</a>&quot;.</p>
 </li>
 <li>
-<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/365-how-to-use-visual-studio-code-to-write-c-for-plcnext.html">How to use Visual Studio Code to write C++ for PLCnext</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-plcnext/">How to use Visual Studio Code to write C++ for PLCnext</a>&quot;.
+plcnext-community.net/makersblog/how-to-use-visual-studio-code-to-write-c-for-plcnext/</p>
 </li>
 <li>
-<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/376-automate-your-development-workflow-with-visual-studio-code.html">Automate your development workflow with Visual Studio Code</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/automate-your-development-workflow-with-visual-studio-code/">Automate your development workflow with Visual Studio Code</a>&quot;.</p>
 </li>
 <li>
 <p>Github project: &quot;<a href="https://github.com/savushkin-r-d/PLCnext-howto/tree/master/HowTo%20install%20Linux%20(Ubuntu)%20tools%20for%20C%2B%2B%20programming%20with%20Eclipse%20IDE">How to configure Eclipse® to program and crosscompile for the AXC F 2152 on Ubuntu 18.04 LTS</a>&quot;.</p>
 </li>
 <li>
-<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/371-how-to-include-an-open-source-library-in-your-own-c-project.html">How to include an open-source library in your own C++ project</a>&quot;.</p>
+<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-include-an-open-source-library-in-your-own-c-project/">How to include an open-source library in your own C++ project</a>&quot;.</p>
 </li>
 <li>
-<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/408-how-to-store-data-in-sqlite-in-a-plcnext-c-project.html">How to store data in SQLite in a PLCnext C++ project</a>&quot;.</p>
+<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-store-data-in-sqlite-in-a-plcnext-c-project/">How to store data in SQLite in a PLCnext C++ project</a>&quot;.</p>
 </li>
 <li>
-<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/429-how-to-install-libcurl-on-your-axc-f-2152-controller.html">How to install libcurl on your AXC F 2152 controller</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-install-libcurl-on-your-axc-f-2152-controller/">How to install libcurl on your AXC F 2152 controller</a>&quot;.</p>
 </li>
 <li>
-<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">Tutorial: Using the AXC F 2152 controller with Microsoft Azure</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/tutorial-using-the-axc-f-2152-controller-with-microsoft-azure/">Tutorial: Using the AXC F 2152 controller with Microsoft Azure</a>&quot;.</p>
 </li>
 <li>
-<p>Oliver Warneke, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/546-connect-plcnext-remotly-to-rs232-rs485-via-pseudo-tty.html">Connecting PLCnext PLCs to remote RS232/RS485 via pseudo TTY</a>&quot;.</p>
+<p>Oliver Warneke, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/connect-plcnext-remotly-to-rs232-rs485-via-pseudo-tty/">Connecting PLCnext PLCs to remote RS232/RS485 via pseudo TTY</a>&quot;.</p>
 </li>
 <li>
-<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/565-use-the-ixmlserializable-interface-to-populate-a-class-from-a-xml-file.html">Use the IXMLSerializable interface to populate a class from a XML file</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/use-the-ixmlserializable-interface-to-populate-a-class-from-a-xml-file/">Use the IXMLSerializable interface to populate a class from a XML file</a>&quot;.</p>
 </li>
 <li>
-<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/566-how-to-define-complex-gds-ports-and-connect-them-to-gds-port-in-iec-code.html">How to define complex GDS Ports and connect them to GDS Port in IEC code</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-define-complex-gds-ports-and-connect-them-to-gds-port-in-iec-code/">How to define complex GDS Ports and connect them to GDS Port in IEC code</a>&quot;.</p>
 </li>
 <li>
-<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/567-pugixml-a-light-weight-xml-processing-library-with-xpath-support.html">pugixml a light-weight XML processing library with XPATH support</a>&quot;.</p>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/pugixml-a-light-weight-xml-processing-library-with-xpath-support/">pugixml a light-weight XML processing library with XPATH support</a>&quot;.</p>
 </li>
 <li>
-<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/568-linq-the-list-processing-library-for-c.html">Linq the list processing library for C++</a>&quot;.</p>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/linq-the-list-processing-library-for-c/">Linq the list processing library for C++</a>&quot;.</p>
 </li>
 <li>
-<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/569-c-testing-with-catch2.html">c++ testing with catch2</a>&quot;.</p>
+<p>Peer Michael Gaus, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/c-testing-with-catch2/">c++ testing with catch2</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#rust-1" id="rust-1">Rust</a></h3>
@@ -1651,7 +1556,7 @@ LOADED COMPONENT
 <p>PLCnext Technology - Docker and Balena Engine: &quot;<a href="https://github.com/PLCnext/Docker_GettingStarted">PLCnext/Docker_GettingStarted</a>&quot;.</p>
 </li>
 <li>
-<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/465-how-to-turn-an-axc-f-2152-into-an-aws-greengrass-device.html">How to turn an AXC F 2152 into an AWS Greengrass device</a>&quot;.</p>
+<p>Martin Boers, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-turn-an-axc-f-2152-into-an-aws-greengrass-device/">How to turn an AXC F 2152 into an AWS Greengrass device</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#java" id="java">Java</a></h3>
@@ -1660,31 +1565,28 @@ LOADED COMPONENT
 <p>PLCnext Info Center - <a href="https://www.plcnext.help/te/Programming/Java/Java_Overview.htm">Java on PLCnext Technology</a>.</p>
 </li>
 <li>
-<p>Marcel Luhmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/422-java-application-on-an-axc-f-2152.html">Java Application on an AXC F 2152</a>&quot;.</p>
+<p>Marcel Luhmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/java-application-on-an-axc-f-2152/">Java Application on an AXC F 2152</a>&quot;.</p>
 </li>
 <li>
-<p>Andre Niggemann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/423-how-to-use-the-rsc-services-out-of-a-remote-java-application.html">How to use the PLCnext RSC out of a remote Java Application</a>&quot;.</p>
+<p>Andre Niggemann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-use-the-rsc-services-out-of-a-remote-java-application/">How to use the PLCnext RSC out of a remote Java Application</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#nodejs-and-node-red" id="nodejs-and-node-red">Node.js and Node-Red</a></h3>
 <ul>
 <li>
-<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/399-installing-node-js-on-rfc-4072s.html">Installing Node.js on RFC 4072S</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/installing-node-js-on-rfc-4072s/">Installing Node.js on RFC 4072S</a>&quot;.</p>
 </li>
 <li>
-<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/481-node-red-and-getting-started-with-docker.html">Node-RED and getting started with Docker</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/node-red-and-getting-started-with-docker/">Node-RED and getting started with Docker</a>&quot;.</p>
 </li>
 <li>
-<p>Stefan Brinkmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/482-node-red-with-docker-tips-and-best-practice.html">Node-Red with docker tips and best practice</a>&quot;.</p>
+<p>Stefan Brinkmann, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/node-red-with-docker-tips-and-best-practice/">Node-Red with docker tips and best practice</a>&quot;.</p>
 </li>
 <li>
 <p>Github project: &quot;<a href="https://github.com/plcnextusa/node-red">plcnextusa/node-red</a>&quot;.</p>
 </li>
 <li>
-<p>PLCnext Store apps: &quot;<a href="https://www.plcnextstore.com/#/225">Node.js v10.15.3 LTS</a>&quot; (for AXC F 2152) and &quot;<a href="https://www.plcnextstore.com/#/239">Node.js v10.16.0 - RFC 4072S</a>&quot;.</p>
-</li>
-<li>
-<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/455-tutorial-using-the-axc-f-2152-controller-with-microsoft-azure.html">How to connect PLCnext to Microsoft® Azure® by Node.js SDK</a>&quot;.</p>
+<p>Damian Bombeeck, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/tutorial-using-the-axc-f-2152-controller-with-microsoft-azure/">How to connect PLCnext to Microsoft® Azure® by Node.js SDK</a>&quot;.</p>
 </li>
 <li>
 <p>Nodejs package for communicating with a Phoenix Contact TC Router: &quot;<a href="https://github.com/PhoenixContactUSA/node-tcrouter">PhoenixContactUSA/node-tcrouter</a>&quot;.</p>
@@ -1693,13 +1595,13 @@ LOADED COMPONENT
 <p>Node-red nodes for communicating with a Phoenix Contact TC Router: &quot;<a href="https://github.com/PhoenixContactUSA/node-red-contrib-tcrouter">PhoenixContactUSA/node-red-contrib-tcrouter</a>&quot;</p>
 </li>
 <li>
-<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/337-how-to-send-a-mail-via-node-red.html">How to send a mail via Node-Red</a>&quot;.</p>
+<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-send-a-mail-via-node-red/">How to send a mail via Node-Red</a>&quot;.</p>
 </li>
 <li>
-<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/390-knx-opc-ua-gateway-with-node-red.html">KNX - OPC UA Gateway with Node-Red</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/knx-opc-ua-gateway-with-node-red/">KNX - OPC UA Gateway with Node-Red</a>&quot;.</p>
 </li>
 <li>
-<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/336-how-to-create-a-simple-mqtt-broker-on-the-axl-f-2152-with-node-red.html">How to create a simple MQTT broker on the AXC F 2152 with Node-Red</a>&quot;.</p>
+<p>Michel Schneider, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/how-to-create-a-simple-mqtt-broker-on-the-axl-f-2152-with-node-red/">How to create a simple MQTT broker on the AXC F 2152 with Node-Red</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#python" id="python">Python</a></h3>
@@ -1708,13 +1610,13 @@ LOADED COMPONENT
 <p>Python-Startersguide. &quot;<a href="https://github.com/pxcbe/python-startersguide">pxcbe/python-startersguide</a>&quot;.</p>
 </li>
 <li>
-<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/425-installing-pip-without-ipkg.html">Installing PIP without IPKG</a>&quot;.</p>
+<p>Stijn Noppe, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/installing-pip-without-ipkg/">Installing PIP without IPKG</a>&quot;.</p>
 </li>
 <li>
-<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/426-package-managers-for-python-on-plcnext-devices.html">Install Miniconda on PLCnext Devices</a>&quot;.</p>
+<p>Nils Hettig, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/package-managers-for-python-on-plcnext-devices/">Install Miniconda on PLCnext Devices</a>&quot;.</p>
 </li>
 <li>
-<p>Yuri Chamarelli, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/380-modbus-tcp-with-python-on-axc-f-2152.html">Modbus TCP with Python on AXC F 2152</a>&quot;.</p>
+<p>Yuri Chamarelli, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/modbus-tcp-with-python-on-axc-f-2152/">Modbus TCP with Python on AXC F 2152</a>&quot;.</p>
 </li>
 <li>
 <p>Github project: aiohttp for AXCF2152 (2020.0). &quot;<a href="https://github.com/Songyantao-PXCCN/aiohttp/tree/master/2020.0">Songyantao-PXCCN/aiohttp</a>&quot;.</p>
@@ -1723,37 +1625,37 @@ LOADED COMPONENT
 <p>Github project: PLCnext connection to the REST api. &quot;<a href="https://github.com/dclark3774/PythonRESTapi">dclark3774/PythonRESTapi</a>&quot;.</p>
 </li>
 <li>
-<p>Alexander Skachkov, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/549-a-simple-rest-based-library-to-use-variables-in-plcnext-axc-f-2152-plc-from-python.html">A simple REST based library to use variables in PLCnext AXC F 2152 PLC from Python</a>&quot;.</p>
+<p>Alexander Skachkov, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/a-simple-rest-based-library-to-use-variables-in-plcnext-axc-f-2152-plc-from-python/">A simple REST based library to use variables in PLCnext AXC F 2152 PLC from Python</a>&quot;.</p>
 </li>
 <li>
-<p>Frederik Leempoels, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/554-use-plcnext-to-wakeonlan-wol-your-pc.html">Use PLCnext to WakeOnLan (WoL) Your PC</a>&quot;.</p>
+<p>Frederik Leempoels, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/use-plcnext-to-wakeonlan-wol-your-pc/">Use PLCnext to WakeOnLan (WoL) Your PC</a>&quot;.</p>
 </li>
 <li>
-<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/556-containerized-opencv-python-on-plcnext.html">OpenCV - Python, Red Light detection on PLCnext</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/containerized-opencv-python-on-plcnext/">OpenCV - Python, Red Light detection on PLCnext</a>&quot;.</p>
 </li>
 <li>
-<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/588-machine-learning-on-plcnext.html">Machine Learning on PLCnext</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/machine-learning-on-plcnext/">Machine Learning on PLCnext</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#c-2" id="c-2">C#</a></h3>
 <ul>
 <li>
-<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html">Install the .NET Core runtime 3.0.0 on the AXC F 2152</a>&quot;.</p>
+<p>Björn Sauer, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/install-the-net-core-runtime-3-0-0-on-the-axc-f-2152/">Install the .NET Core runtime 3.0.0 on the AXC F 2152</a>&quot;.</p>
 </li>
 <li>
-<p>Kay Suttkuss, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/456-getting-started-with-c-and-visual-studio-code-on-plcnext.html">Getting started with C# and .Net Core 3.0 on PLCnext</a>&quot;.</p>
+<p>Kay Suttkuss, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/getting-started-with-c-and-visual-studio-code-on-plcnext/">Getting started with C# and .Net Core 3.0 on PLCnext</a>&quot;.</p>
 </li>
 <li>
-<p>Kay Suttkuss, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/464-remote-debugging-of-a-net-core-application-with-vs-code-on-plcnext.html">Remote Debugging of a .Net Core application with VS Code on PLCnext</a>&quot;.</p>
+<p>Kay Suttkuss, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/remote-debugging-of-a-net-core-application-with-vs-code-on-plcnext/">Remote Debugging of a .Net Core application with VS Code on PLCnext</a>&quot;.</p>
 </li>
 </ul>
 <h3><a class="header" href="#go" id="go">Go</a></h3>
 <ul>
 <li>
-<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/475-getting-started-with-golang-on-plcnext.html">Getting started with Go on PLCnext</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/getting-started-with-golang-on-plcnext/">Getting started with Go on PLCnext</a>&quot;.</p>
 </li>
 <li>
-<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/en/hn-makers-blog/526-serving-static-files-with-go.html">Serving static files with Go</a>&quot;.</p>
+<p>Dries Van Laerhoven, PLCnext Community Makers Blog post: &quot;<a href="https://www.plcnext-community.net/makersblog/serving-static-files-with-go/">Serving static files with Go</a>&quot;.</p>
 </li>
 </ul>
 <h2><a class="header" href="#appendix-b-list-of-rsc-services" id="appendix-b-list-of-rsc-services">Appendix B: List of RSC Services</a></h2>
@@ -1785,6 +1687,9 @@ LOADED COMPONENT
 <tr><td align="left">File System Information</td><td align="left">Get Supported Traits<br/>Get Permissions<br/>Add Permissions<br/>Remove Permissions<br/>Get File System Traits Entry<br/>Get Space Info<br/>Get Root Directories<br/></td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileSystemInfoService.html" title="API description">🔍</a></td></tr>
 <tr><td align="left">Directory Operations</td><td align="left">Exists<br/>Create<br/>Delete<br/>Clear<br/>Move<br/>Copy<br/>Enumerate File System Entries<br/>Enumerate File System Traits Entries</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IDirectoryService.html" title="API description">🔍</a></td></tr>
 <tr><td align="left">File Operations</td><td align="left">Exists<br/>Write<br/>Read<br/>Delete<br/>Move<br/>Copy</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Authorization Info</td><td align="left">HasPermissionFor</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Um_1_1Services_1_1IAuthorizationInfoService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">Password Authentication</td><td align="left">CreateSession<br/>CloseSession</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Security_1_1Services_1_1IPasswordAuthenticationService.html" title="API description">🔍</a></td></tr>
+<tr><td align="left">User Session</td><td align="left">GetSessionId<br/>GetSecurityTokenFromSessionId<br/>GetSessionProperty<br/>SetSessionProperty<br/>DeleteSessionProperty<br/>IsSessionActive</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Um_1_1Services_1_1ISessionService.html" title="API description">🔍</a></td></tr>
 <tr><td align="left">Device Identity Validator</td><td align="left">Validate</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Security_1_1IDeviceIdentityValidatorService.html" title="API description">🔍</a></td></tr>
 <tr><td align="left">License Status</td><td align="left">Get License Status</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Lm_1_1Services_1_1ILicenseStatusService.html" title="API description">🔍</a></td></tr>
 <tr><td align="left">Notification Manager</td><td align="left">Register Notification<br/>Unregister Notification<br/>Send Notification<br/>Get Notification Name<br/>Get Notification Name ID<br/>Get Notification Name IDs By Status<br/>Get All Known Notification Name IDs<br/>Get Notification Registration<br/>Get Payload Type ID<br/>Get Payload Type Name<br/>Get Number Of Submitted Notifications</td><td align="left"><a href="https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Nm_1_1Services_1_1INotificationManagerService.html" title="API description">🔍</a> <a href="https://www.plcnext.help/te/Service_Components/Notifications/Notifications_with_Cpp.htm" title="PLCnext Info Center">📄</a> <a href="https://github.com/PLCnext/CppExamples/blob/master/Examples/NotificationExample/README.MD" title="Programming example">🖥</a></td></tr>

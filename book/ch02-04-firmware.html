@@ -152,6 +152,9 @@
                     <main>
                         <h2><a class="header" href="#firmware" id="firmware">Firmware</a></h2>
 <p>The PLCnext Control firmware includes both the Linux kernel and factory-installed software from Phoenix Contact. A PLCnext Control device can be updated with a different firmware version at any time, if required. In general, newer firmware will only add non-breaking features and bug-fixes to older versions, so applications that are designed for a specific firmware version should (generally) be able to run on newer firmware versions without modification.</p>
+<h3><a class="header" href="#firmware-release-schedule" id="firmware-release-schedule">Firmware Release Schedule</a></h3>
+<p>PLCnext Control firmware is generally released four times a year; the first is a Long Term Support (LTS) version, and the other three are &quot;feature&quot; releases for those who want the very latest features as early as possible. The <a href="https://www.plcnext.help/te/About/Releases.htm">firmware release history and  future release schedule</a> is shown in the PLCnext Info Center.</p>
+<p>There is also some information on <a href="https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm">upcoming firmware features</a> in the PLCnext Info Center.</p>
 <h3><a class="header" href="#checking-the-firmware-version" id="checking-the-firmware-version">Checking the Firmware Version</a></h3>
 <p>It is important to know the firmware version that is running on the device for a number of reasons:</p>
 <ul>
@@ -177,12 +180,14 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 <ul>
 <li>
 <p>Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.</p>
+<p>For the AXC F 2152, you can browse <a href="https://phoe.co/AXC_F_2152_Firmware">directly to the firmware download page</a>. For other PLCnext Control devices, you need to navigate to the firmware download page through the relevant product page on the Phoenix Contact website.</p>
 </li>
 <li>
 <p>Extract the <code>.raucb</code> file from the archive.</p>
+<p>Now you can guess (correctly) that PLCnext Control devices use <a href="https://rauc.io/">RAUC</a> for firmware updates.</p>
 </li>
 <li>
-<p>Copy the .raucb file to the device:</p>
+<p>Copy the <code>.raucb</code> file to the device:</p>
 <pre><code class="language-text">$ scp axcf2152-bundle-base-axcf2152.raucb admin@192.168.1.10:~
 </code></pre>
 </li>
@@ -193,28 +198,63 @@ Build Job: &quot;jenkins-PLCnext-Yocto_Targets-Yocto_AXCF2152-release%2F21.6.x-4
 </li>
 <li>
 <p>Update the firmware:</p>
-<pre><code class="language-text"># sudo update-plcnext
+<pre><code class="language-text"># sudo /etc/init.d/plcnext stop
+Password:
+Stopping service plcnext
+plcnext stopped
+#
+# admin@axcf2152:~$ rauc install axcf2152-2022.0.0.13-LTS-beta.raucb
+installing
+0% Installing
+0% Determining slot states
+20% Determining slot states done.
+20% Checking bundle
+20% Verifying signature
+40% Verifying signature done.
+40% Checking bundle done.
+40% Checking manifest contents
+60% Checking manifest contents done.
+60% Determining target install group
+80% Determining target install group done.
+80% Updating slots
+80% Checking slot rootfs.0
+90% Checking slot rootfs.0 done.
+90% Copying image to rootfs.0
+100% Copying image to rootfs.0 done.
+100% Updating slots done.
+100% Installing done.
+Installing `/opt/plcnext/axcf2152-2022.0.0.13-LTS-beta.raucb` succeeded
+#
+# sudo reboot
 </code></pre>
 </li>
 </ul>
-<p>The device will take some time to install the new firmware, and then the device will restart.</p>
 <p>After the device restarts, open a new shell session and check the firmware version.</p>
+<h3><a class="header" href="#but-theres-more" id="but-theres-more">But There's More!</a></h3>
+<p>There are actually three firmware copies lurking on a PLCnext Control device, and all three may be different versions. The above procedure only replaces one of these three firmware installations. You will learn more about this in the next section.</p>
 <h3><a class="header" href="#other-ways-to-upgrade-firmware" id="other-ways-to-upgrade-firmware">Other Ways to Upgrade Firmware</a></h3>
-<p>There are four other ways to upgrade the firmware on the controller:</p>
+<p>There are currently many other ways to upgrade the firmware on the controller, including:</p>
 <ul>
+<li>
+<p>Using the <code>update-plcnext</code> script, as described in the <a href="https://www.plcnext.help/te/Operating_System/Operating_system.htm">Firmware update</a> section of the PLCnext Info Center.</p>
+</li>
 <li>
 <p>Through <a href="https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm">web-based management</a> (WBM).</p>
 </li>
 <li>
-<p>Using the Device Management service on the proficloud.io web site.</p>
-</li>
-<li>
-<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="https://www.plcnext.help/te/About/#idevicecontrols"><em>Device Control</em></a> PLCnext runtime service.</p>
+<p>Using the Device Management service on the <a href="https://proficloud.io/">Proficloud</a> web site.</p>
 </li>
 <li>
 <p>Using an OPC UA client (not currently documented).</p>
 </li>
+<li>
+<p>Using <a href="https://www.eclipse.org/hawkbit/">Eclipse hawkBit™</a> with the <a href="https://www.plcnextstore.com/permalinks/apps/latest/60002172000381">hawkBit™ client app</a> from the PLCnext Store.</p>
+</li>
+<li>
+<p>Using the <code>StartFirmwareUpdate</code> method on the <a href="https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm">Device Control</a> PLCnext runtime service.</p>
+</li>
 </ul>
+<p>All the methods listed above require that the PLCnext runtime is running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the <code>rauc</code> command.</p>
 
                     </main>
 
