@@ -132,3 +132,5 @@ The source files used to generate this book can be found on [GitHub][book].
 [edge-computing]: https://en.wikipedia.org/wiki/Edge_computing
 [node-red]: https://nodered.org/
 [influx]: https://www.influxdata.com/
+[dzmitry]: https://github.com/idzm
+[savushkin]: https://github.com/savushkin-r-d
