@@ -2,7 +2,7 @@
 
 [Previously][rsc-services] you learned that some PLCnext runtime features provide an application programming interface (API) in the form of *Remote Service Calls*, or RSC Services.
 
-In this section, our ACF component will call C++ API on the [Data Access][data-access] RSC service. The Data Access service provides access to [Global Data Space][gds-info] (GDS) variables.
+In this section, our ACF component will call C++ API on the [Data Access][data-access] RSC service. The Data Access service provides access to [Global Data Space][gds-info] (GDS) variables. You can use a similar technique to access any RSC service in the PLCnext Runtime.
 
 Here are the steps to use the C++ API on the Data Access RSC service:
 
