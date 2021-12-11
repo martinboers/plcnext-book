@@ -8,12 +8,13 @@ PLCnext Control refers to a range of embedded computers from Phoenix Contact, wh
 
 The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:
 
-* [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
-* [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz, PCIe® connector)
-* [AXC F 3152][axcf3152] (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)
-* [EPC 1502][epc1502] (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)
-* [EPC 1522][epc1522] (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)
-* [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
+- [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
+- [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz, PCIe® connector)
+- [AXC F 3152][axcf3152] (Intel® Atom™ x5-E3930 1.3 GHz Dual Core)
+- [EPC 1502][epc1502] (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)
+- [EPC 1522][epc1522] (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)
+- [RFC 4072S][rfc4072s] (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)
+- [BPC 9102S][bpc9102s] (Intel® Core™ i7-10700TE 8x 2.4 GHz + separate safety processors)
 
 Each of these hardware platforms runs custom firmware that is based on Linux kernel version 5.4 with the [PREEMT-RT patch][preempt].
 
@@ -121,6 +122,7 @@ The source files used to generate this book can be found on [GitHub][book].
 [epc1502]: http://www.phoenixcontact.com/product/1185416
 [epc1522]: http://www.phoenixcontact.com/product/1185423
 [rfc4072s]: http://www.phoenixcontact.com/product/1051328
+[bpc9102s]: http://www.phoenixcontact.com/product/1246285
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
 [plcnext-engineer]: http://www.phoenixcontact.com/product/1046008
 [simulink-add-on]: http://www.phoenixcontact.com/product/2400041
