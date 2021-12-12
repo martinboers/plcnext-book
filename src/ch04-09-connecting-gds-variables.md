@@ -16,6 +16,5 @@ The following is an example of a `gds.config` file:
 - Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.
 
 
-(NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)
 
 [gds-info]: https://www.plcnext.help/te/PLCnext_Runtime/Global_Data_Space_configuration.htm#gds_configurati

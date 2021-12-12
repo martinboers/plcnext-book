@@ -58,5 +58,5 @@ Among the messages that appear in the `Output.log` file, you should see an INFO 
 Link to more examples (Info Center, Github, Forum).
 
 [rsc-services]: ch03-05-rsc-services.md
-[data-access]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Gds_1_1Services_1_1IDataAccessService.html 
-[gds-info]: https://www.plcnext.help/te/PLCnext_Runtime/GDS_Global_Data_Space.htm "PLCnext Info Center"
+[device-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceInfoService.html
+[device-info-help]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm "PLCnext Info Center"
