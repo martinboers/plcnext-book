@@ -2,26 +2,20 @@
 
 [Previously][rsc-services] you learned that some PLCnext runtime features provide an application programming interface (API) in the form of *Remote Service Calls*, or RSC Services.
 
-In this section, our ACF component will call C++ API on the [Data Access][data-access] RSC service. The Data Access service provides access to [Global Data Space][gds-info] (GDS) variables. You can use a similar technique to access any RSC service in the PLCnext Runtime.
+In this section, our ACF component will call C++ API on the [Device Info][device-info] RSC service. The Device Info service provides access to [Device Information][device-info-help]. You can use a similar technique to access any RSC service in the PLCnext Runtime.
 
-Here are the steps to use the C++ API on the Data Access RSC service:
+Here are the steps to use the C++ API on the Device Info RSC service:
 
-- Add the relevant header file to the .hpp file of our component:
+- Add the relevant header file to the .hpp file of the component:
 
    ```cpp
-   #include "Arp/Plc/Gds/Services/IDataAccessService.hpp"
+   #include "Arp/Device/Interface/Services/IDeviceInfoService.hpp"
    ```
 
-- Declare a pointer to the Data Access service:
+- Declare a pointer to the Device Info service:
 
    ```cpp
-   IDataAccessService::Ptr dataAccessServicePtr = nullptr;
-   ```
-
-- Declare one variable for each GDS variable that will be accessed using the Data Access service. In this example, we will be reading the average CPU load value from the GDS:
-
-   ```cpp
-   Arp::int16 avgCpuLoad {0};
+   IDeviceInfoService::Ptr deviceInfoServicePtr = nullptr;
    ```
 
 - In the component .cpp file, add the header for the RSC Service Manager:
@@ -30,26 +24,34 @@ Here are the steps to use the C++ API on the Data Access RSC service:
    #include "Arp/System/Rsc/ServiceManager.hpp"
    ```
 
-- In the `SubscribeServices` method of the ACF component, get a pointer to the Data Access service:
+- In the `SubscribeServices` method of the ACF component, get a pointer to the Device Info service:
 
    ```cpp
-   this->dataAccessServicePtr = ServiceManager::GetService<IDataAccessService>();
+   this->deviceInfoServicePtr = ServiceManager::GetService<IDeviceInfoService>();
    ```
 
-- In the `SetupConfig` method of the ACF component, use the Data Access service to read the average CPU load from the GDS, and log the value to the `Output.log` file:
+- In the `SetupConfig` method of the ACF component, use the Device Info service to read the device serial number, and log the value to the `Output.log` file:
 
    ```cpp
-   // 1. Read a single variable
-   // "ReadSingle" can only be used with primitive types
-   ReadItem readPortData = this->dataAccessServicePtr->ReadSingle("Arp.Plc.Eclr/DEVICE_STATE.CPU_LOAD_ALL_CORES");
-   if (readPortData.Error == DataAccessError::None)
+   RscVariant<512> serialNumber = this->deviceInfoServicePtr->GetItem("General.SerialNumber");
+   if (serialNumber.GetType() == RscType::String)
    {
-       readPortData.Value.CopyTo(avgCpuLoad);
-       this->log.Info("Average CPU at component startup = {0}%", avgCpuLoad);
+      this->log.Info("Serial number of this device: {0}%", serialNumber.GetChars());
    }
-   else this->log.Info("Error reading average CPU load from GDS");
+   else this->log.Info("Error reading device serial number");
    ```
 
+- Rebuild the project.
+
+- Copy the resulting library file to the target.
+
+- Restart the PLCnext runtime:
+
+   ```text
+   # sudo /etc/init.d/plcnext restart && tail -f -n 0 /opt/plcnext/logs/Output.log
+   ```
+
+Among the messages that appear in the `Output.log` file, you should see an INFO message from your component containing the serial number of your device.
 
 
 
