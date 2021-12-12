@@ -150,22 +150,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#creating-gds-variables---part-1" id="creating-gds-variables---part-1">Creating GDS variables - Part 1</a></h2>
-<p>The previous example read and wrote values from and to existing GDS variables.</p>
-<p>The GDS provides a simple way to exchange data between otherwise isolated PLCnext runtime components.</p>
-<p>(link to the GDS in the info centre)</p>
-<p>It is possible for your own component instance to register fields in the Global Data Space. These fields can then be accessed as GDS variables from other PLCnext runtime components using the Data Access RSC service, in a similar way to how we accessed GDS variables in the previous example.</p>
-<p>GDS variables can also:</p>
-<ul>
-<li>be included in the OPC UA server address space</li>
-<li>have their value persisted (or &quot;retained&quot;) across restarts of the PLCnext runtime.</li>
-<li>have their value logged to the Proficloud TSD service.</li>
-<li>be used on the web-based eHMI (more on that later)</li>
-<li>be connected to GDS variables on physical I/O modules</li>
-<li>etc.</li>
-</ul>
-<p>In order for a component to register GDS variables, the component must inherit from MetaComponentBase, rather than from ComponentBase. The library must inherit from MetaLibraryBase.</p>
-<p>Rather than making these changes to the source code manually, we will make use of the tool you used to install the SDK - <code>plcncli</code>.</p>
+                        <h1><a class="header" href="#creating-gds-variables---part-1" id="creating-gds-variables---part-1">Creating GDS variables - Part 1</a></h1>
 
                     </main>
 

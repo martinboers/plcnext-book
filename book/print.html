@@ -188,6 +188,7 @@
 <li><a href="http://www.phoenixcontact.com/product/1185416">EPC 1502</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 2GB RAM)</li>
 <li><a href="http://www.phoenixcontact.com/product/1185423">EPC 1522</a> (Intel® Celeron® N3350 1.10/2.40 GHz, 4GB RAM, 2x DB9 COM ports)</li>
 <li><a href="http://www.phoenixcontact.com/product/1051328">RFC 4072S</a> (Intel® Core™ i5-6300U 2x 2.4 GHz + separate safety processors)</li>
+<li><a href="http://www.phoenixcontact.com/product/1246285">BPC 9102S</a> (Intel® Core™ i7-10700TE 8x 2.4 GHz + separate safety processors)</li>
 </ul>
 <p>Each of these hardware platforms runs custom firmware that is based on Linux kernel version 5.4 with the <a href="https://wiki.linuxfoundation.org/realtime/start">PREEMT-RT patch</a>.</p>
 <h2><a class="header" href="#who-plcnext-control-is-for" id="who-plcnext-control-is-for">Who PLCnext Control Is For</a></h2>
@@ -1282,116 +1283,16 @@ unset(_ARP_SHORT_DEVICE_VERSION)
 <p>Your first PLCnext runtime extension component instance is now running!</p>
 <h1><a class="header" href="#component-methods" id="component-methods">Component Methods</a></h1>
 <h1><a class="header" href="#component-library-singleton" id="component-library-singleton">Component Library Singleton</a></h1>
-<h2><a class="header" href="#component-example-tcp-server" id="component-example-tcp-server">Component Example: TCP Server</a></h2>
-<p>Create a TCP server that opens a port - set from a Settings file (just a number!), starts listening on the port and registers a callback for when a client connects.</p>
-<p>Create two instances of the component, then connect to the servers from the host using netcat (the server should send a welcome message).</p>
-<p>-&gt; this uses &quot;Common Classes&quot;, provided in the SDK. Common classes implement some standard C++ functions. By using Common Classes instead of the corresponding standard C++ functions:</p>
-<ul>
-<li>classes are optimised for PLCnext Control targets. For example, methods on the <a href="https://api.plcnext.help/api_docs_2021-9/classArp_1_1System_1_1Commons_1_1Threading_1_1Mutex.html">Arp::Mutex</a> class can be called from real-time tasks without the risk of blocking a real-time thread, while methods on the <a href="https://en.cppreference.com/w/cpp/thread/mutex">std::mutex</a> class cannot.</li>
-<li>code can be run on PLCnext Control targets with different architectures (e.g. arm, x64) without modification.</li>
-</ul>
-<h2><a class="header" href="#using-rsc-services" id="using-rsc-services">Using RSC Services</a></h2>
-<p>Create a simple component that reads and writes GDS variables using the ReadSingle and WriteSingle methods at startup.</p>
-<p>Link to more examples (Info Center, Github, Forum).</p>
-<h2><a class="header" href="#worker-threads" id="worker-threads">Worker Threads</a></h2>
-<p>There are no component methods that are called cyclically - only ones that are called on startup, shutdown and on certain (usually rare) events.</p>
-<p>The TCP Server example registered a callback, but sometime you want something to be executed &quot;continuously&quot;, for example on a fixed period - like reading and writing the GDS variables in the previous example.</p>
-<p>WORKER THREADS.</p>
-<p>Link to examples.</p>
-<ul>
-<li>THESE THREADS ARE NOT DESIGNED TO BE USED FOR &quot;REAL TIME&quot; PROCESSING, and are not to be confused with the Cyclic Tasks in a PLC. We will get to those later. These worker threads are not deterministic, and the cycle time cannot be guaranteed with any accuracy. But that is fine for many applications.</li>
-</ul>
-<h2><a class="header" href="#interactive-course" id="interactive-course">Interactive Course</a></h2>
-<p>You can sharpen up your knowledge on the topics that have been covered in this book so far, by working through the interactive online course <a href="https://elearning.plcnext.help/PLCnTech_IntFuncExt/story.html"><em>Internal Function Extensions</em></a> on the PLCnext Community website.</p>
-<h2><a class="header" href="#creating-rsc-services" id="creating-rsc-services">Creating RSC Services</a></h2>
-<p>We have seen how useful an RSC interface is for providing services to other components. In cases where our own component needs an API, we can use the same Remote Service Call (RSC) infrastructure that we used to call other PLCnext runtime services.</p>
-<p>In this section, we will create our own RSC service.</p>
-<h2><a class="header" href="#creating-gds-variables---part-1" id="creating-gds-variables---part-1">Creating GDS variables - Part 1</a></h2>
-<p>The previous example read and wrote values from and to existing GDS variables.</p>
-<p>The GDS provides a simple way to exchange data between otherwise isolated PLCnext runtime components.</p>
-<p>(link to the GDS in the info centre)</p>
-<p>It is possible for your own component instance to register fields in the Global Data Space. These fields can then be accessed as GDS variables from other PLCnext runtime components using the Data Access RSC service, in a similar way to how we accessed GDS variables in the previous example.</p>
-<p>GDS variables can also:</p>
-<ul>
-<li>be included in the OPC UA server address space</li>
-<li>have their value persisted (or &quot;retained&quot;) across restarts of the PLCnext runtime.</li>
-<li>have their value logged to the Proficloud TSD service.</li>
-<li>be used on the web-based eHMI (more on that later)</li>
-<li>be connected to GDS variables on physical I/O modules</li>
-<li>etc.</li>
-</ul>
-<p>In order for a component to register GDS variables, the component must inherit from MetaComponentBase, rather than from ComponentBase. The library must inherit from MetaLibraryBase.</p>
-<p>Rather than making these changes to the source code manually, we will make use of the tool you used to install the SDK - <code>plcncli</code>.</p>
-<h2><a class="header" href="#plcnext-cli" id="plcnext-cli">PLCnext CLI</a></h2>
-<p>You previously used the PLCnext CLI to install the SDK that you have been using to build your C++ projects for the target. However, the PLCnext CLI does much more than that.</p>
-<h3><a class="header" href="#code-generation" id="code-generation">Code Generation</a></h3>
-<ul>
-<li>Generate source files for two different types of projects - in our case, we will just use acfproject (we will look at the other type later).</li>
-<li>Add templates for your own project types, if you want. (HOw TO USE THESE???)</li>
-<li>Add and remove components from a project</li>
-</ul>
-<h3><a class="header" href="#building" id="building">Building</a></h3>
-<ul>
-<li>Easily build for the required target(s)</li>
-</ul>
-<p>The basic procedure is:</p>
-<ul>
-<li>New project - this generates component source code.</li>
-<li>Set target</li>
-<li>Add/Remove components if necessary.</li>
-<li>Edit Component source code</li>
-<li>Generate code (this generates Library source files)</li>
-<li>Build</li>
-<li>Deploy to target</li>
-<li>Test</li>
-<li>Go back to step 3 and repeat.</li>
-</ul>
-<p>Note that you should not edit any code in the intermediate directory. This code is regenerated whenever the generate code command is executed, and at that point any manual changes will be lost.</p>
-<h2><a class="header" href="#creating-gds-variables---part-2" id="creating-gds-variables---part-2">Creating GDS variables - Part 2</a></h2>
-<p>Now that we have seen how the plcncli can help us, let's use it to create a component that registers some fields as GDS variables.</p>
-<p>If your component does not need to create GDS variables, then the component and library templates we have been using up until now, will work perfectly well. the components created by the plcncli will also work, but they will include overhead that is not necessary for all cases.</p>
-<ul>
-<li>create a project</li>
-<li>show how to register GDS variables.</li>
-<li>Now use the Data Access service to read/write these variables from another component.</li>
-<li>Link to other features - OPC UA, Retain, etc - in info center.</li>
-</ul>
-<h2><a class="header" href="#connecting-gds-variables" id="connecting-gds-variables">Connecting GDS Variables</a></h2>
-<p>You have previously seen how your component instance can create its own GDS variables, and read and write other GDS variables using RSC services like the Data Access service.</p>
-<p>There is another way to transfer data between any two GDS variables with compatible type - by using configuration files.</p>
-<p>The following is an example of a <code>gds.config</code> file:</p>
-<p>...</p>
-<ul>
-<li>
-<p>Link to <a href="https://www.plcnext.help/te/PLCnext_Runtime/Global_Data_Space_configuration.htm#gds_configurati">PLCnext Technology Info Center</a>.</p>
-</li>
-<li>
-<p>Example showing how to transfer data into / out of a component (e.g. from system variables) using a gds.config file.</p>
-</li>
-<li>
-<p>Advantage: Very simple to set up. No code required. Can access I/O variables (this is not possible using RSC services)</p>
-</li>
-<li>
-<p>Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.</p>
-</li>
-</ul>
-<p>(NEXT CHAPTER - REST API - ANOTHER WAY TO ACCESS GDS VARIABLES)</p>
-<h2><a class="header" href="#rest-api" id="rest-api">REST API</a></h2>
-<p>Another way to access GDS variables.</p>
-<ul>
-<li>
-<p>Link to <a href="https://www.plcnext.help/te/Service_Components/REST_data_interface/REST_data_interface_Introduction.htm">PLCnext Technology Info Center</a>.</p>
-</li>
-<li>
-<p>Example showing how to transfer data into / out of a component (e.g. from system variables) using a gds.config file.</p>
-</li>
-<li>
-<p>Advantage: Very simple to set up. No code required. Can access I/O variables (this is not possible using RSC services)</p>
-</li>
-<li>
-<p>Disadvantage: All GDS variables must be defined and connected at design-time. The RSC service provides more flexibility, if required.</p>
-</li>
-</ul>
+<h1><a class="header" href="#component-example-tcp-server" id="component-example-tcp-server">Component Example: TCP Server</a></h1>
+<h1><a class="header" href="#using-rsc-services" id="using-rsc-services">Using RSC Services</a></h1>
+<h1><a class="header" href="#worker-threads" id="worker-threads">Worker Threads</a></h1>
+<h1><a class="header" href="#interactive-course" id="interactive-course">Interactive Course</a></h1>
+<h1><a class="header" href="#creating-rsc-services" id="creating-rsc-services">Creating RSC Services</a></h1>
+<h1><a class="header" href="#creating-gds-variables---part-1" id="creating-gds-variables---part-1">Creating GDS variables - Part 1</a></h1>
+<h1><a class="header" href="#plcnext-cli" id="plcnext-cli">PLCnext CLI</a></h1>
+<h1><a class="header" href="#creating-gds-variables---part-2" id="creating-gds-variables---part-2">Creating GDS variables - Part 2</a></h1>
+<h1><a class="header" href="#connecting-gds-variables" id="connecting-gds-variables">Connecting GDS Variables</a></h1>
+<h1><a class="header" href="#rest-api" id="rest-api">REST API</a></h1>
 <h1><a class="header" href="#real-time-programming" id="real-time-programming">Real Time Programming</a></h1>
 <p>Define real-time.
 (this is familiar to PLC programmers)</p>
@@ -1428,7 +1329,7 @@ unset(_ARP_SHORT_DEVICE_VERSION)
 <li>MUST NOT do anything that blocks the Execute method - including GDS calls, file access, database access, tcp socket comms, etc.</li>
 <li>Any non-real-time work can be done in the Component (each Program has a pointer to a component). Don't hold references to Program instances in the Component - while components live for the lifetime of the PLCnext runtime, Program instances are more ethereal.</li>
 </ul>
-<h3><a class="header" href="#building-1" id="building-1">Building</a></h3>
+<h3><a class="header" href="#building" id="building">Building</a></h3>
 <h3><a class="header" href="#deploying" id="deploying">Deploying</a></h3>
 <h3><a class="header" href="#configuring" id="configuring">Configuring</a></h3>
 <ul>
