@@ -1,22 +1,18 @@
 ## Creating GDS variables - Part 1
 
-The previous example read and wrote values from and to existing GDS variables.
+You have seen how the Global Data Space (GDS) provides a simple way to exchange data between otherwise isolated PLCnext runtime components.
 
-The GDS provides a simple way to exchange data between otherwise isolated PLCnext runtime components.
-
-(link to the GDS in the info centre)
-
-It is possible for your own component instance to register fields in the Global Data Space. These fields can then be accessed as GDS variables from other PLCnext runtime components using the Data Access RSC service, in a similar way to how we accessed GDS variables in the previous example.
+It is possible for your own component instance to create variables in the GDS. These variables can then be accessed by other PLCnext runtime components using (for example) the Data Access RSC service, as discussed the previous section.
 
 GDS variables can also:
 
-- be included in the OPC UA server address space
-- have their value persisted (or "retained") across restarts of the PLCnext runtime.
-- have their value logged to the Proficloud TSD service.
-- be used on the web-based eHMI (more on that later)
-- be connected to GDS variables on physical I/O modules
-- etc.
+- be included in the OPC UA server address space,
+- have their value persisted (or "retained") across restarts of the PLCnext runtime,
+- have their value logged to a Proficloud Time Series Data (TSD) service,
+- be accessed through a REST API,
+- be used on web-based HMI pages,
+- be used to exchange data with physical I/O modules.
 
-In order for a component to register GDS variables, the component must inherit from MetaComponentBase, rather than from ComponentBase. The library must inherit from MetaLibraryBase.
+In order for a component to create its own variables in the GDS, the component must inherit from `MetaComponentBase`, rather than from `ComponentBase`. The library class must also inherit from `MetaLibraryBase`. Additional code must also be added to the library and the component class, e.g. the `RegisterComponentPorts` method must be implemented in the component.
 
-Rather than making these changes to the source code manually, we will make use of the tool you used to install the SDK - `plcncli`.
+Rather than making these changes to the source code manually, we will make use of the tool you probably used to install the SDK - the PLCnext Command Line Interface, or `plcncli`.
