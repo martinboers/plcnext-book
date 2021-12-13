@@ -1,71 +1,25 @@
 ## Worker Threads
 
-There are no component methods that are called cyclically - only ones that are called on startup, shutdown and on certain (usually rare) events.
+After completing the previous section, you may have your eye on another quite interesting RSC service - the [Data Access][data-access] service. This service provides access to [Global Data Space][gds-info] (GDS) variables in the PLCnext runtime.
 
-The TCP Server example registered a callback, but sometime you want something to be executed "continuously", for example on a fixed period - like reading and writing the GDS variables in the previous example.
+Many variables in the GDS will change over time, and it may be necessary for an ACF component to exchange data with GDS variables during the lifetime of the component. However, the only component methods we have seen so far are called during the startup or shutdown of the component. It would be useful to have a component method that is executed periodically during the complete lifetime of the component, so that (for example) data can be exchanged with GDS variables using the Data Access service.
 
-WORKER THREADS.
+The ARP provides a [*worker thread*][worker-thread] class that can be used for this purpose. An ACF component can create a worker thread and, in the thread constructor, specify:
 
-Link to examples.
+- an execution frequency, and
+- a method that will be executed on the worker thread at that frequency.
 
-- THESE THREADS ARE NOT DESIGNED TO BE USED FOR "REAL TIME" PROCESSING, and are not to be confused with the Cyclic Tasks in a PLC. We will get to those later. These worker threads are not deterministic, and the cycle time cannot be guaranteed with any accuracy. But that is fine for many applications.
+[An example][thread-example] of how to use worker threads (and other types of ARP threads) is provided in Github.
 
+> ARP threads, including worker threads, are not designed to be used for "real time" processing. Worker threads should not be confused with Cyclic Tasks in a PLC. The execution period of a worker thread is not deterministic, and the actual execution frequency cannot be guaranteed.
 
-In this section, our ACF component will call C++ API on the [Data Access][data-access] RSC service. The Data Access service provides access to [Global Data Space][gds-info] (GDS) variables. You can use a similar technique to access any RSC service in the PLCnext Runtime.
+For applications where a deterministic task cycle is not required, a worker thread may be a good solution.
 
-Here are the steps to use the C++ API on the Data Access RSC service:
+Many of the [C++ examples in Github][cpp-examples] use a worker thread to call various RSC services. For example, the [Data Access example][data-access-example] uses a worker thread to read and write GDS variable data using the Data Access service.
 
-- Add the relevant header file to the .hpp file of the component:
-
-   ```cpp
-   #include "Arp/Plc/Gds/Services/IDataAccessService.hpp"
-   ```
-
-- Declare a pointer to the Data Access service:
-
-   ```cpp
-   IDataAccessService::Ptr dataAccessServicePtr = nullptr;
-   ```
-
-- Declare one variable for each GDS variable that will be accessed using the Data Access service. In this example, we will be reading the average CPU load value from the GDS:
-
-   ```cpp
-   uint8_t avgCpuLoad {0};
-   ```
-
-- In the component .cpp file, add the header for the RSC Service Manager:
-
-   ```cpp
-   #include "Arp/System/Rsc/ServiceManager.hpp"
-   ```
-
-- In the `SubscribeServices` method of the ACF component, get a pointer to the Data Access service:
-
-   ```cpp
-   this->dataAccessServicePtr = ServiceManager::GetService<IDataAccessService>();
-   ```
-
-- In the `SetupConfig` method of the ACF component, use the Data Access service to read the average CPU load from the GDS, and log the value to the `Output.log` file:
-
-   ```cpp
-   // Read a single variable
-   // "ReadSingle" can only be used with primitive types
-   ReadItem readPortData = this->dataAccessServicePtr->ReadSingle("Arp.Plc.Eclr/DEVICE_STATE.CPU_LOAD_ALL_CORES");
-   if (readPortData.Error == DataAccessError::None)
-   {
-       readPortData.Value.CopyTo(avgCpuLoad);
-       this->log.Info("Average CPU at component startup: {0}%", avgCpuLoad);
-   }
-   else this->log.Info("Error reading average CPU load from GDS");
-   ```
-
-
-
-
-Link to more examples (Info Center, Github, Forum).
-
-[rsc-services]: ch03-05-rsc-services.md
 [data-access]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Plc_1_1Gds_1_1Services_1_1IDataAccessService.html 
 [gds-info]: https://www.plcnext.help/te/PLCnext_Runtime/GDS_Global_Data_Space.htm "PLCnext Info Center"
-
-
+[worker-thread]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Threading_1_1WorkerThread.html
+[thread-example]: https://github.com/PLCnext/CppExamples/tree/master/Examples/ThreadExample
+[cpp-examples]: https://github.com/PLCnext/CppExamples
+[data-access-example]: https://github.com/PLCnext/CppExamples/blob/master/Examples/DataAccess
