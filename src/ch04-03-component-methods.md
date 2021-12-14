@@ -67,7 +67,31 @@ The table below shows when `ComponentBase` methods are called on ACF components.
 
 In the above table, all the methods listed in the sections marked with * are called one after the other on each component instance in the order listed, so in practice it makes no difference in which of these method(s) the user chooses to implement their application-specific code.
 
-You can see that only one of the standard component methods has a parameter. The `const String&` parameter on the `LoadSettings` method allows this method to receive a string value. This parameter is generally used by firmware components to get the path to a settings file - hence the parameter name. However, you can use this parameter to pass *any* string information to your component instance during startup. We will see how to do that later in this chapter.
+You can see that only one of the standard component methods has a parameter. The `const String&` parameter on the `LoadSettings` method allows this method to receive a string value. This parameter is generally used by firmware components to get the path to a settings file - hence the parameter name. However, you can use this parameter to pass *any* string information to your component instance during startup:
+
+- In the `.acf.config` file, replace this line:
+
+  ```xml
+    <Component name="MyComponentInstance" type="MyNamespace::MyComponent" library="MyProject" process="MyProcess" />
+  ```
+
+  ... with these lines:
+
+  ```xml
+    <Component name="MyComponentInstance" type="MyNamespace::MyComponent" library="MyProject" process="MyProcess">
+      <Settings path="Settings data" />
+    </Component>
+  ```
+
+- Copy the `.acf.config` file to the target, and restart the PLCnext runtime.
+
+You should now see a line in the `Output.log` file with this message:
+
+```text
+INFO  - MyComponent::LoadSettings - settings path = 'Settings data'
+```
+
+Using this method, it is possible to pass user-configurable String data to the component during component startup.
 
 [loggable-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Loggable_3_01Derived_00_01true_01_4.html
 [log-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Log.html

@@ -43,10 +43,10 @@ Here are the steps to use the C++ API on the Device Info RSC service:
 
 - The above code is included in these source files:
 
-   - [MyComponent.hpp][component-hpp]
-   - [MyComponent.cpp][component-cpp]
+  - [MyComponent.hpp][component-hpp]
+  - [MyComponent.cpp][component-cpp]
 
-   You can use these files to update the project you created in the previous section.
+  You can use these files to update the project you created in the previous section.
 
 - Rebuild the project.
 
