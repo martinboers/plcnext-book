@@ -40,7 +40,7 @@ Now that we have seen how the PLCnext CLI can help us, let's use it to create a 
   Arp::uint8 MyGdsVariable;
   ```
 
-  GDS variables are also referred to as "Ports". The [PLCnext Info Center][info-center] provides detailed information on GDS port definitions in C++ code, including the attributes that can be applied to GDS ports defined in this way.
+  GDS variables are also referred to as "ports". The [PLCnext Info Center][info-center] provides detailed information on GDS port definitions in C++ code, including the attributes that can be applied to GDS ports defined in this way.
 
 - Change the `.acf.config` file if necessary, e.g. the path to the shared object library file.
 
