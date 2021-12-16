@@ -2,13 +2,13 @@
 
 - Output.log file
   - different log levels
-  (hint in Dzmitry's repo about colour coding)
 
 - OPC UA logging
 
 - Notification Logger (WBM)
 
 - syslog
-  (hint in Dzmitry's repo)
 
 - LTTng
+
+Some hints: https://github.com/savushkin-r-d/PLCnext-howto/tree/master/HowTo%20logging

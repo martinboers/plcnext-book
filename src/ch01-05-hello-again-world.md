@@ -66,7 +66,7 @@ The software development process for PLCnext Control devices - cross-compiling o
 
 ### Accessing PLC I/O
 
-After writing their first program, one of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLC?
+After writing their first program, one of the first questions most PLCnext Control programmers ask is: How can an application read and write inputs and outputs from/to the I/O modules attached to the PLCnext Control device?
 
 Before you learn how to do this, you must learn about the *PLCnext runtime*. But first, you should know about some basic features of the operating system that runs on every PLCnext Control device.
 

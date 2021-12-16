@@ -4,20 +4,28 @@ Now that we have seen how the PLCnext CLI can help us, let's use it to create a 
 
 - Create a new project on the host system:
 
+  ```text
   $ plcncli new acfproject --name MyGdsProject --namespace MyNamespace --component MyComponent --verbose
+  ```
 
 - Set the build target for the project:
 
+  ```text
   $ cd MyGdsProject
   $ plcncli set target --add --name AXCF2152 --version 2021.9
+  ```
 
   If the target is ambiguous or cannot be found, you can use the following command to see the list of installed targets that the PLCnext CLI knows about:
 
+  ```text
   $ plcncli get targets
+  ```
 
 - Edit the source code using your favourite editor. In this case we will use [Visual Studio Code][vs-code]:
 
+  ```text
   $ code .
+  ```
 
   You can see that the PLCnext CLI has created the following source and configuration files in the `MyGdsProject` directory:
 
@@ -65,7 +73,9 @@ Now that we have seen how the PLCnext CLI can help us, let's use it to create a 
 
 - Build the project:
 
+  ```text
   $ plcncli build --verbose
+  ```
 
   This command uses CMake to build the project for all the specified targets.
 
