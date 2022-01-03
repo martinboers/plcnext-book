@@ -6,7 +6,7 @@ Welcome to *The PLCnext Runtime*, an introductory book about programming on the 
 
 PLCnext Control refers to a range of embedded computers from Phoenix Contact, which are designed for automating industrial processes. These controllers share some characteristics with popular single-board computers, but PLCnext Control devices includes features that make them particularly suitable for industrial applications.
 
-The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup> and RFC<sup>3</sup> range:
+The PLCnext Control range currently includes the following hardware variants from the AXC<sup>1</sup>, EPC<sup>2</sup>, RFC<sup>3</sup> and BPC ranges:
 
 - [AXC F 1152][axcf1152] (ARM® Cortex®-A9 2x 800 MHz)
 - [AXC F 2152][axcf2152] (ARM® Cortex®-A9 2x 800 MHz, PCIe® connector)
@@ -74,15 +74,15 @@ A knowledge of Ethernet networking would also be beneficial. The book "[Ethernet
 
 This book should be read from front to back. It is not intended to be an exhaustive reference; that is provided by the [PLCnext Technology Info Centre][info-center]. Instead, this book will draw on material in relevant sections of the Info Center, and elsewhere, to build up the readers knowledge in incremental steps.
 
-Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first "Hello, World!" programs in Python, C++ and Rust. Chapter 2 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.
+Chapter 1 explains how to get started with a PLCnext Control device, from setting the IP address to writing your first "Hello, World!" programs in Python, C++ and Rust. Chapter 2 looks at some basic features of the Linux operating system (firmware) that runs on PLCnext Control devices. Chapter 3 introduces the PLCnext runtime by exploring the complete set of PLCnext runtime components that are installed with the firmware.
 
-In Chapter 3, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.
+In Chapter 4, you will write your own PLCnext runtime extension component in C++. You will learn how extension components can use PLCnext runtime services, how they can provide their own services to other components, and how they can exchange data with other components through the global data space.
 
-Chapter 4 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. You will also learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.
+Chapter 5 introduces real-time programming on PLCnext Control devices. You will write a C++ program and configure the execution and synchronisation manager to run the program in a real-time PLC task. In Chapter 6 you will learn how a real-time program can read and write process data on Axioline I/O modules attached to the controller.
 
-Chapter 5 looks at some additional tools that can help with PLCnext runtime programming.
+Chapter 7 looks at some additional tools that can help with PLCnext runtime programming.
 
-Chapter 6 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.
+Chapter 8 is for developers who want to port an existing runtime to a PLCnext Control device, or write a completely new runtime. You will learn how external runtimes can access the I/O that is connected to the controller, and how they can continue to utilise services provided by the PLCnext runtime.
 
 A glossary of terms used in this book is available in the [PLCnext Technology Info Center][glossary].
 
