@@ -1,16 +1,18 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>The PLCnext Runtime - The PLCnext Runtime</title>
-        
 
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
+        <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
@@ -19,8 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -28,21 +29,19 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
         <link rel="stylesheet" href="theme/first-edition.css">
-        
 
-        
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -58,78 +57,102 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded affix "><a href="title-page.html">The PLCnext Runtime</a></li><li class="expanded affix "><a href="edition-notice.html">Copyright Notice</a></li><li class="expanded affix "><a href="acknowledgments.html">Acknowledgments</a></li><li class="expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="expanded "><a href="ch01-03-hello-world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li><li class="expanded "><a href="ch01-04-installing-a-software-development-kit.html"><strong aria-hidden="true">1.4.</strong> Installing a Software Development Kit</a></li><li class="expanded "><a href="ch01-05-hello-again-world.html"><strong aria-hidden="true">1.5.</strong> Hello Again, World!</a></li></ol></li><li class="expanded "><a href="ch02-00-operating-system.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><ol class="section"><li class="expanded "><a href="ch02-01-security.html"><strong aria-hidden="true">2.1.</strong> Security</a></li><li class="expanded "><a href="ch02-02-users-and-privileges.html"><strong aria-hidden="true">2.2.</strong> Users and Privileges</a></li><li class="expanded "><a href="ch02-03-setting-the-time.html"><strong aria-hidden="true">2.3.</strong> Setting the Time</a></li><li class="expanded "><a href="ch02-04-firmware.html"><strong aria-hidden="true">2.4.</strong> Firmware</a></li><li class="expanded "><a href="ch02-05-disk-partitions.html"><strong aria-hidden="true">2.5.</strong> Disk Partitions</a></li><li class="expanded "><a href="ch02-06-file-system.html"><strong aria-hidden="true">2.6.</strong> File System</a></li><li class="expanded "><a href="ch02-07-installing-software.html"><strong aria-hidden="true">2.7.</strong> Installing Software</a></li></ol></li><li class="expanded "><a href="ch03-00-plcnext-runtime.html"><strong aria-hidden="true">3.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="expanded "><a href="ch03-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">3.1.</strong> Controlling the PLCnext Runtime</a></li><li class="expanded "><a href="ch03-02-diagnosing-problems.html"><strong aria-hidden="true">3.2.</strong> Diagnosing Problems</a></li><li class="expanded "><a href="ch03-03-plcnext-runtime-components.html"><strong aria-hidden="true">3.3.</strong> PLCnext Runtime Components</a></li><li class="expanded "><a href="ch03-04-component-instances.html"><strong aria-hidden="true">3.4.</strong> Component Instances</a></li><li class="expanded "><a href="ch03-05-disabling-features.html"><strong aria-hidden="true">3.5.</strong> Disabling Features</a></li><li class="expanded "><a href="ch03-06-rsc-services.html"><strong aria-hidden="true">3.6.</strong> RSC Services</a></li></ol></li><li class="expanded "><a href="ch04-00-extension-components.html"><strong aria-hidden="true">4.</strong> Extension Components</a></li><li><ol class="section"><li class="expanded "><a href="ch04-01-simple-component.html"><strong aria-hidden="true">4.1.</strong> Simple Extension Component</a></li><li class="expanded "><a href="ch04-02-library-singleton.html"><strong aria-hidden="true">4.2.</strong> Component Library Singleton</a></li><li class="expanded "><a href="ch04-03-component-methods.html"><strong aria-hidden="true">4.3.</strong> Component Methods</a></li><li class="expanded "><a href="ch04-04-using-rsc-services.html"><strong aria-hidden="true">4.4.</strong> Using RSC Services</a></li><li class="expanded "><a href="ch04-05-worker-threads.html"><strong aria-hidden="true">4.5.</strong> Worker Threads</a></li><li class="expanded "><a href="ch04-06-creating-gds-variables-1.html"><strong aria-hidden="true">4.6.</strong> Creating GDS variables - Part 1</a></li><li class="expanded "><a href="ch04-07-plcnext-cli.html"><strong aria-hidden="true">4.7.</strong> PLCnext CLI</a></li><li class="expanded "><a href="ch04-08-creating-gds-variables-2.html"><strong aria-hidden="true">4.8.</strong> Creating GDS variables - Part 2</a></li><li class="expanded "><a href="ch04-09-connecting-gds-variables.html"><strong aria-hidden="true">4.9.</strong> Connecting GDS Variables</a></li><li class="expanded "><a href="ch04-10-interactive-course.html"><strong aria-hidden="true">4.10.</strong> Interactive Course</a></li></ol></li><li class="expanded "><a href="ch05-00-real-time-programming.html"><strong aria-hidden="true">5.</strong> Real Time Programming</a></li><li><ol class="section"><li class="expanded "><a href="ch05-01-cpp-programs.html"><strong aria-hidden="true">5.1.</strong> C++ Programs</a></li><li class="expanded "><a href="ch05-02-real-time-guidelines.html"><strong aria-hidden="true">5.2.</strong> Real-time C++ Programming Guidelines</a></li><li class="expanded "><a href="ch05-03-building-and-deploying.html"><strong aria-hidden="true">5.3.</strong> Building and Deploying a Real-time C++ Application</a></li><li class="expanded "><a href="ch05-04-iec-programs.html"><strong aria-hidden="true">5.4.</strong> IEC 61131-3 Programs</a></li></ol></li><li class="expanded "><a href="ch06-00-configuring-io.html"><strong aria-hidden="true">6.</strong> Configuring I/O</a></li><li class="expanded "><a href="ch07-00-other-tools.html"><strong aria-hidden="true">7.</strong> Other Programming Tools</a></li><li class="expanded "><a href="ch08-00-extension-processes.html"><strong aria-hidden="true">8.</strong> Extension Processes</a></li><li class="expanded "><a href="ch09-00-what-next.html"><strong aria-hidden="true">9.</strong> What Next</a></li><li><ol class="section"><li class="expanded "><a href="ch09-01-the-big-picture.html"><strong aria-hidden="true">9.1.</strong> The Big Picture</a></li><li class="expanded "><a href="ch09-02-get-involved.html"><strong aria-hidden="true">9.2.</strong> Get Involved!</a></li></ol></li><li class="expanded "><a href="appendix-00.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="appendix-01-programming-resources.html"><strong aria-hidden="true">10.1.</strong> A - Programming Resources</a></li><li class="expanded "><a href="appendix-02-list-of-rsc-services.html"><strong aria-hidden="true">10.2.</strong> B - RSC Services</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html" class="active">The PLCnext Runtime</a></li><li class="chapter-item expanded affix "><a href="edition-notice.html">Copyright Notice</a></li><li class="chapter-item expanded affix "><a href="acknowledgments.html">Acknowledgments</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-ip-address.html"><strong aria-hidden="true">1.1.</strong> Setting the IP Address</a></li><li class="chapter-item expanded "><a href="ch01-02-shell-session.html"><strong aria-hidden="true">1.2.</strong> Starting a Shell Session</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-04-installing-a-software-development-kit.html"><strong aria-hidden="true">1.4.</strong> Installing a Software Development Kit</a></li><li class="chapter-item expanded "><a href="ch01-05-hello-again-world.html"><strong aria-hidden="true">1.5.</strong> Hello Again, World!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-operating-system.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch02-01-security.html"><strong aria-hidden="true">2.1.</strong> Security</a></li><li class="chapter-item expanded "><a href="ch02-02-users-and-privileges.html"><strong aria-hidden="true">2.2.</strong> Users and Privileges</a></li><li class="chapter-item expanded "><a href="ch02-03-setting-the-time.html"><strong aria-hidden="true">2.3.</strong> Setting the Time</a></li><li class="chapter-item expanded "><a href="ch02-04-firmware.html"><strong aria-hidden="true">2.4.</strong> Firmware</a></li><li class="chapter-item expanded "><a href="ch02-05-disk-partitions.html"><strong aria-hidden="true">2.5.</strong> Disk Partitions</a></li><li class="chapter-item expanded "><a href="ch02-06-file-system.html"><strong aria-hidden="true">2.6.</strong> File System</a></li><li class="chapter-item expanded "><a href="ch02-07-installing-software.html"><strong aria-hidden="true">2.7.</strong> Installing Software</a></li></ol></li><li class="chapter-item expanded "><a href="ch03-00-plcnext-runtime.html"><strong aria-hidden="true">3.</strong> PLCnext Runtime</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-controlling-the-plcnext-runtime.html"><strong aria-hidden="true">3.1.</strong> Controlling the PLCnext Runtime</a></li><li class="chapter-item expanded "><a href="ch03-02-diagnosing-problems.html"><strong aria-hidden="true">3.2.</strong> Diagnosing Problems</a></li><li class="chapter-item expanded "><a href="ch03-03-plcnext-runtime-components.html"><strong aria-hidden="true">3.3.</strong> PLCnext Runtime Components</a></li><li class="chapter-item expanded "><a href="ch03-04-component-instances.html"><strong aria-hidden="true">3.4.</strong> Component Instances</a></li><li class="chapter-item expanded "><a href="ch03-05-disabling-features.html"><strong aria-hidden="true">3.5.</strong> Disabling Features</a></li><li class="chapter-item expanded "><a href="ch03-06-rsc-services.html"><strong aria-hidden="true">3.6.</strong> RSC Services</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-extension-components.html"><strong aria-hidden="true">4.</strong> Extension Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-simple-component.html"><strong aria-hidden="true">4.1.</strong> Simple Extension Component</a></li><li class="chapter-item expanded "><a href="ch04-02-library-singleton.html"><strong aria-hidden="true">4.2.</strong> Component Library Singleton</a></li><li class="chapter-item expanded "><a href="ch04-03-component-methods.html"><strong aria-hidden="true">4.3.</strong> Component Methods</a></li><li class="chapter-item expanded "><a href="ch04-04-using-rsc-services.html"><strong aria-hidden="true">4.4.</strong> Using RSC Services</a></li><li class="chapter-item expanded "><a href="ch04-05-worker-threads.html"><strong aria-hidden="true">4.5.</strong> Worker Threads</a></li><li class="chapter-item expanded "><a href="ch04-06-creating-gds-variables-1.html"><strong aria-hidden="true">4.6.</strong> Creating GDS variables - Part 1</a></li><li class="chapter-item expanded "><a href="ch04-07-plcnext-cli.html"><strong aria-hidden="true">4.7.</strong> PLCnext CLI</a></li><li class="chapter-item expanded "><a href="ch04-08-creating-gds-variables-2.html"><strong aria-hidden="true">4.8.</strong> Creating GDS variables - Part 2</a></li><li class="chapter-item expanded "><a href="ch04-09-connecting-gds-variables.html"><strong aria-hidden="true">4.9.</strong> Connecting GDS Variables</a></li><li class="chapter-item expanded "><a href="ch04-10-interactive-course.html"><strong aria-hidden="true">4.10.</strong> Interactive Course</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-real-time-programming.html"><strong aria-hidden="true">5.</strong> Real Time Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-cpp-programs.html"><strong aria-hidden="true">5.1.</strong> C++ Programs</a></li><li class="chapter-item expanded "><a href="ch05-02-real-time-guidelines.html"><strong aria-hidden="true">5.2.</strong> Real-time C++ Programming Guidelines</a></li><li class="chapter-item expanded "><a href="ch05-03-building-and-deploying.html"><strong aria-hidden="true">5.3.</strong> Building and Deploying a Real-time C++ Application</a></li><li class="chapter-item expanded "><a href="ch05-04-iec-programs.html"><strong aria-hidden="true">5.4.</strong> IEC 61131-3 Programs</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-configuring-io.html"><strong aria-hidden="true">6.</strong> Configuring I/O</a></li><li class="chapter-item expanded "><a href="ch07-00-other-tools.html"><strong aria-hidden="true">7.</strong> Other Programming Tools</a></li><li class="chapter-item expanded "><a href="ch08-00-extension-processes.html"><strong aria-hidden="true">8.</strong> Extension Processes</a></li><li class="chapter-item expanded "><a href="ch09-00-what-next.html"><strong aria-hidden="true">9.</strong> What Next</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-the-big-picture.html"><strong aria-hidden="true">9.1.</strong> The Big Picture</a></li><li class="chapter-item expanded "><a href="ch09-02-get-involved.html"><strong aria-hidden="true">9.2.</strong> Get Involved!</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-programming-resources.html"><strong aria-hidden="true">10.1.</strong> A - Programming Resources</a></li><li class="chapter-item expanded "><a href="appendix-02-list-of-rsc-services.html"><strong aria-hidden="true">10.2.</strong> B - RSC Services</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
-                        <h1 class="menu-title">The PLCnext Runtime</h1>
+                    <h1 class="menu-title">The PLCnext Runtime</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -137,10 +160,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -151,12 +173,12 @@
                 <div id="content" class="content">
                     <main>
                         <div style="text-align:center">
-<h1><a class="header" href="#the-plcnext-runtime" id="the-plcnext-runtime">The PLCnext Runtime</a></h1>
+<h1 id="the-plcnext-runtime"><a class="header" href="#the-plcnext-runtime">The PLCnext Runtime</a></h1>
 <br/>
 <br/>
 <!--<p><img src="img/plcnext-runtime.gif" alt="PLCnext Runtime logo" style="width:300px;height:300px;"></p>-->
 <br/>
-<h2><a class="header" href="#iby-martin-boersi" id="iby-martin-boersi"><i>by Martin Boers</i></a></h2>
+<h2 id="by-martin-boers"><a class="header" href="#by-martin-boers"><i>by Martin Boers</i></a></h2>
 <br/>
 </div>
 
@@ -164,13 +186,10 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
-                            <a rel="next" href="edition-notice.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="edition-notice.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -178,45 +197,33 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
-                    <a href="edition-notice.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="edition-notice.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
-        
-        
-        <script type="text/javascript">
-            window.playpen_copyable = true;
+
+        <script>
+            window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>
