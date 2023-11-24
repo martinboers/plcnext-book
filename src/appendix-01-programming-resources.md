@@ -8,9 +8,9 @@
 
 ### C++
 
-* PLCnext Info Center - [C++ programming on PLCnext Technology](https://www.plcnext.help/te/Programming/Cpp/Cpp-programming.htm).
+* PLCnext Info Center - [C++ programming on PLCnext Technology](https://plcnext.help/te/Programming/Cplusplus/Cpp-programming.htm).
 
-* PLCnext Info Center - [PLCnext API documentation](https://www.plcnext.help/te/Programming/Cpp/PLCnext_API_documentation.htm).
+* PLCnext Info Center - [PLCnext API documentation](https://plcnext.help/te/Programming/Cplusplus/PLCnext_API_documentation.htm).
 
 * PLCnext Technology Github projects:
 
@@ -35,7 +35,7 @@
 
 * Damian Bombeeck, PLCnext Community Makers Blog post: "[Tutorial: Using the AXC F 2152 controller with Microsoft Azure](https://www.plcnext-community.net/makersblog/tutorial-using-the-axc-f-2152-controller-with-microsoft-azure/)".
 
-* Oliver Warneke, PLCnext Community Makers Blog post: "[Connecting PLCnext PLCs to remote RS232/RS485 via pseudo TTY](https://www.plcnext-community.net/makersblog/connect-plcnext-remotly-to-rs232-rs485-via-pseudo-tty/)".
+* Oliver Warneke, PLCnext Community Makers Blog post: "[Connecting PLCnext PLCs to remote RS232/RS485 via pseudo TTY](https://www.plcnext-community.net/makersblog/connecting-plcnext-plcs-to-remote-rs232-rs485-via-pseudo-tty/)".
 
 * Björn Sauer, PLCnext Community Makers Blog post: "[Use the IXMLSerializable interface to populate a class from a XML file](https://www.plcnext-community.net/makersblog/use-the-ixmlserializable-interface-to-populate-a-class-from-a-xml-file/)".
 
@@ -83,7 +83,7 @@
 
 * Stijn Noppe, PLCnext Community Makers Blog post: "[KNX - OPC UA Gateway with Node-Red](https://www.plcnext-community.net/makersblog/knx-opc-ua-gateway-with-node-red/)".
 
-* Michel Schneider, PLCnext Community Makers Blog post: "[How to create a simple MQTT broker on the AXC F 2152 with Node-Red](https://www.plcnext-community.net/makersblog/how-to-create-a-simple-mqtt-broker-on-the-axl-f-2152-with-node-red/)".
+* Michel Schneider, PLCnext Community Makers Blog post: "[How to create a simple MQTT broker on the AXC F 2152 with Node-Red](https://www.plcnext-community.net/makersblog/how-to-create-a-simple-mqtt-broker-on-the-axc-f-2152-with-node-red/)".
 
 ### Python
 
@@ -93,7 +93,7 @@
 
 * Stijn Noppe, PLCnext Community Makers Blog post: "[Installing PIP without IPKG](https://www.plcnext-community.net/makersblog/installing-pip-without-ipkg/)".
 
-* Nils Hettig, PLCnext Community Makers Blog post: "[Install Miniconda on PLCnext Devices](https://www.plcnext-community.net/makersblog/package-managers-for-python-on-plcnext-devices/)".
+* Nils Hettig, PLCnext Community Makers Blog post: "[Install Miniconda on PLCnext Devices](https://www.plcnext-community.net/makersblog/install-miniconda-on-plcnext-devices/)".
 
 * Yuri Chamarelli, PLCnext Community Makers Blog post: "[Modbus TCP with Python on AXC F 2152](https://www.plcnext-community.net/makersblog/modbus-tcp-with-python-on-axc-f-2152/)".
 
@@ -105,7 +105,7 @@
 
 * Frederik Leempoels, PLCnext Community Makers Blog post: "[Use PLCnext to WakeOnLan (WoL) Your PC](https://www.plcnext-community.net/makersblog/use-plcnext-to-wakeonlan-wol-your-pc/)".
 
-* Dries Van Laerhoven, PLCnext Community Makers Blog post: "[OpenCV - Python, Red Light detection on PLCnext](https://www.plcnext-community.net/makersblog/containerized-opencv-python-on-plcnext/)".
+* Dries Van Laerhoven, PLCnext Community Makers Blog post: "[OpenCV - Python, Red Light detection on PLCnext](https://www.plcnext-community.net/makersblog/opencv-python-red-light-detection-on-plcnext/)".
 
 * Dries Van Laerhoven, PLCnext Community Makers Blog post: "[Machine Learning on PLCnext](https://www.plcnext-community.net/makersblog/machine-learning-on-plcnext/)".
 
@@ -115,12 +115,12 @@
 
 * Björn Sauer, PLCnext Community Makers Blog post: "[Install the .NET Core runtime 3.0.0 on the AXC F 2152](https://www.plcnext-community.net/makersblog/install-the-net-core-runtime-3-0-0-on-the-axc-f-2152/)".
 
-* Kay Suttkuss, PLCnext Community Makers Blog post: "[Getting started with C# and .Net Core 3.0 on PLCnext](https://www.plcnext-community.net/makersblog/getting-started-with-c-and-visual-studio-code-on-plcnext/)".
+* Kay Suttkuss, PLCnext Community Makers Blog post: "[Getting started with C# and .Net Core 3.0 on PLCnext](https://www.plcnext-community.net/makersblog/getting-started-with-c-and-net-core-3-0-on-plcnext/)".
 
 * Kay Suttkuss, PLCnext Community Makers Blog post: "[Remote Debugging of a .Net Core application with VS Code on PLCnext](https://www.plcnext-community.net/makersblog/remote-debugging-of-a-net-core-application-with-vs-code-on-plcnext/)".
 
 ### Go
 
-* Dries Van Laerhoven, PLCnext Community Makers Blog post: "[Getting started with Go on PLCnext](https://www.plcnext-community.net/makersblog/getting-started-with-golang-on-plcnext/)".
+* Dries Van Laerhoven, PLCnext Community Makers Blog post: "[Getting started with Go on PLCnext](https://www.plcnext-community.net/makersblog/getting-started-with-go-on-plcnext/)".
 
 * Dries Van Laerhoven, PLCnext Community Makers Blog post: "[Serving static files with Go](https://www.plcnext-community.net/makersblog/serving-static-files-with-go/)".

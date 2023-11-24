@@ -97,4 +97,4 @@ Using this method, it is possible to pass user-configurable String data to the c
 [log-doc]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Diagnostics_1_1Logging_1_1Log.html
 [component-hpp]: samples/ch04-03-component-methods/MyProject/src/MyComponent.hpp
 [component-cpp]: samples/ch04-03-component-methods/MyProject/src/MyComponent.cpp
-[info-center]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm
+[info-center]: https://plcnext.help/te/Programming/Cplusplus/PLM_Program_Library_Manager.htm

@@ -60,9 +60,9 @@ Here are the steps to use the C++ API on the Device Info RSC service:
 
 Among the messages that appear in the `Output.log` file, you should see an INFO message from your component containing the serial number of your device.
 
-[rsc-services]: ch03-05-rsc-services.md
+[rsc-services]: ch03-06-rsc-services.md
 [rsc-services-list]: appendix-02-list-of-rsc-services.md
 [device-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Device_1_1Interface_1_1Services_1_1IDeviceInfoService.html
-[device-info-help]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm "PLCnext Info Center"
+[device-info-help]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService "PLCnext Info Center"
 [component-hpp]: samples/ch04-04-using-rsc-services/MyProject/src/MyComponent.hpp
 [component-cpp]: samples/ch04-04-using-rsc-services/MyProject/src/MyComponent.cpp

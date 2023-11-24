@@ -16,6 +16,6 @@ In the next chapter, you will:
 * Write your own PLCnext runtime component.
 * Call RSC services from that component.
 
-[rsc-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
+[rsc-info]: https://plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm
 [appendix-b]: appendix-02-list-of-rsc-services.md
 [grpc]: https://grpc.io/

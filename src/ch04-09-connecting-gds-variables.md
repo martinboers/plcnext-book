@@ -50,5 +50,5 @@ A benefit of this file-based configuration technique is that the `.gds.config` f
 
 One disadvantage of this technique is that the names of all the GDS ports must be known at design-time, since variable names must appear in a `.gds.config` file. When using the Data Access RSC service, on the other hand, the name of each GDS port is passed as a String variable, and so can be specified at run-time.
 
-[device-status]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm
-[data-access]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_GDS_services.htm
+[device-status]: https://plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceStatusService
+[data-access]: https://plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_GDS_services.htm#IDataAccessService

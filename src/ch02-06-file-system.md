@@ -18,10 +18,10 @@ If the PLC boots without an SD card present, the internal memory is used as the 
 
 In relation to the upper directory, the behaviour of the system when booting depends on the presence or absence of an external SD card, and the presence or absence of a user file system on the primary storage media:
 
-|                     | User file system absent on primary media  | User file system present on primary media |
-|:--------------------|:-----------------------------------------|:-----------------------------------------|
-| **SD card absent**  | User file system is created in internal memory<br/>and mounted as upper directory. | Existing file system in internal memory<br/>is mounted as upper directory. |
-| **SD card present** |  User file system is moved from internal memory to<br/>the SD card and mounted as upper directory. | Existing user file system on SD card<br/>is mounted as upper directory.<br/>*Any internal user file system is deleted.* |
+|                     | Primary<br/>media | User file system absent on primary media  | User file system present on primary media |
+|:--------------------|:------------------|:------------------------------------------|:------------------------------------------|
+| **SD card absent**  | Internal<br/>memory | User file system is created in internal memory<br/>and mounted as upper directory. | Existing file system in internal memory<br/>is mounted as upper directory. |
+| **SD card present** | SD card |  User file system is moved from internal memory to<br/>the SD card and mounted as upper directory. | Existing user file system on SD card<br/>is mounted as upper directory.<br/>*Any internal user file system is deleted.* |
 
 > Note that in the case shown in the lower right corner of the above table, data loss may occur.
 

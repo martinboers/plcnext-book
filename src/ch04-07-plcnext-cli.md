@@ -40,7 +40,7 @@ The PLCnext CLI can build a C++ project for the selected target(s) with one comm
 The next section will use the PLCnext CLI to create and build a C++ project containing one ACF component.
 
 [sdk-install]: ch01-04-installing-a-software-development-kit.md
-[info-center]: https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/PLCnCLI.htm
+[info-center]: https://plcnext.help/te/Programming/PLCnext_toolchain/Installing_PLCnext_toolchain.htm
 [cli-templates]: https://github.com/PLCnext/PLCnext_CLI_Templates
 [cli-issue]: https://github.com/PLCnext/PLCnext_CLI_Templates/issues/1
 [library]: ch04-02-library-singleton.md

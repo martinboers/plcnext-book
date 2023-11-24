@@ -83,4 +83,4 @@ If you need to build applications for different PLCnext Control hardware and/or 
 
 If you are writing C++ applications in Eclipse or Visual Studio, then it is possible to install PLCnext SDKs through those IDEs. All SDK installation methods are described in the [PLCnext Info Center][sdk-install].
 
-[sdk-install]: https://www.plcnext.help/te/Programming/Cpp/Cpp_programming/Required_Installations.htm
+[sdk-install]: https://plcnext.help/te/Programming/PLCnext_toolchain/Managing_SDKs.htm

@@ -86,5 +86,5 @@ Now that we have seen how the PLCnext CLI can help us, let's use it to create a 
 Your ACF component instance now includes a GDS port in the Global Data Space that can be accessed by other components using the Data Access RSC service.
 
 [vs-code]: https://code.visualstudio.com/
-[info-center]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/IComponent_and_IProgram.htm
+[info-center]: https://plcnext.help/te/Programming/Cplusplus/IComponent_and_IProgram.htm
 [simple-component]: ch04-01-simple-component.md

@@ -12,7 +12,7 @@ One challenge faced by extension processes is that GDS ports cannot be created o
 
 You have already seen how to read and write GDS variable data using RSC services, and RSC services can also be used to (indirectly) access PLC I/O from any process running outside the PLCnext runtime. However, as discussed previously, RSC services are only suitable for non-real time applications, like ACF components. This solution may be fine for any extension process that does not require deterministic I/O access.
 
-For more demanding applications, the PLCnext runtime provides a mechanism for extension processes to read and write PLC I/O in a deterministic way. This deterministic access to PLC I/O makes extension processes ideally suited to third-party runtimes like [Codesys][codesys], [Four-Zero][four-zero] and [4diac][4diac]. In this case the solution involves the use of an ANSI-C interface. This type of solution is described in detail in the [Sample Runtime tutorial][sample-runtime] on Github.
+For more demanding applications, the PLCnext runtime provides a mechanism for extension processes to read and write PLC I/O in a deterministic way. This deterministic access to PLC I/O makes extension processes ideally suited to third-party runtimes like [Codesys][codesys], [UAO Runtime][uao] and [4diac][4diac]. In this case the solution involves the use of an ANSI-C interface. This type of solution is described in detail in the [Sample Runtime tutorial][sample-runtime] on Github.
 
 <!--
 TODO:
@@ -22,7 +22,7 @@ TODO:
 -->
 
 [comparison]: https://www.plcnext.help/te/PLCnext_Runtime/Function_extensions_for_internal_processes.htm
-[codesys]: https://www.plcnextstore.com/#/220
-[four-zero]: https://www.plcnextstore.com/#/168
+[codesys]: https://www.plcnextstore.com/permalinks/apps/latest/60002172000052
+[uao]: https://www.plcnextstore.com/permalinks/apps/latest/60002172000692
 [4diac]: https://www.eclipse.org/4diac/en_rte.php
 [sample-runtime]: https://github.com/PLCnext/SampleRuntime

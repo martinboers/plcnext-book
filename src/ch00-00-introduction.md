@@ -30,7 +30,7 @@ Traditional PLCs generally can be programmed using any language defined by the I
 
 ### Simulink® Software Developers
 
-Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the [*PC Worx Target for Simulink*][simulink-add-on] software add-on.
+Simulink® is software for graphical, model-based development of dynamic systems. Simulink® models can be integrated into the PLCnext Engineer development environment using the [*PLCnext Target for Simulink*][simulink-add-on] software add-on.
 
 ### Software engineers with experience in C/C++, Rust, C#, Java, Python, Javascript, HTML5, Go, etc
 
@@ -125,9 +125,10 @@ The source files used to generate this book can be found on [GitHub][book].
 [bpc9102s]: http://www.phoenixcontact.com/product/1246285
 [preempt]: https://wiki.linuxfoundation.org/realtime/start
 [plcnext-engineer]: http://www.phoenixcontact.com/product/1046008
-[simulink-add-on]: http://www.phoenixcontact.com/product/2400041
+[simulink-add-on]: http://www.phoenixcontact.com/product/1326100
 [starter-kit]: http://www.phoenixcontact.com/product/1188165
-[ethernet-basics]: https://www.phoenixcontact.com/assets/downloads_ed/global/web_dwl_technical_info/Ethernet_Basics_rev2_en.pdf
+[wsl]: https://learn.microsoft.com/en-us/windows/wsl/about
+[ethernet-basics]: http://plcnext-runtime.com/downloads/Ethernet_Basics_rev2_en.pdf
 [info-center]: https://www.plcnext.help/te/About/Home.htm
 [glossary]: https://www.plcnext.help/te/About/Home.htm?agt=glossary
 [book]: https://github.com/martinboers/plcnext-book/tree/master/src

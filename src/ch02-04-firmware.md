@@ -35,8 +35,6 @@ New versions of PLCnext Control firmware are released regularly. If the firmware
 
 * Download the firmware update file (ZIP archive) for your controller from the Phoenix Contact website.
 
-  For the AXC F 2152, you can browse [directly to the firmware download page][fw-download]. For other PLCnext Control devices, you need to navigate to the firmware download page through the relevant product page on the Phoenix Contact website.
-
 * Extract the `.raucb` file from the archive.
 
   Now you can guess (correctly) that PLCnext Control devices use [RAUC][rauc] for firmware updates.
@@ -110,14 +108,13 @@ There are currently many other ways to upgrade the firmware on the controller, i
 
 All the methods listed above require that the PLCnext runtime is running. If this is the case, then firmware upgrades should be performed using one of these methods rather than using the `rauc` command.
 
-[releases]: https://www.plcnext.help/te/About/Releases.htm
+[releases]: https://plcnext.help/te/Product_range/Releases.htm
 [upcoming-features]: https://www.plcnext.help/te/Features_and_roadmaps/Roadmaps.htm
-[fw-download]: https://phoe.co/AXC_F_2152_Firmware
 [rauc]: https://rauc.io/
 [plcnext-community]: https://www.plcnext-community.net
 [fw-update]: https://www.plcnext.help/te/Operating_System/Operating_system.htm
 [wbm]: https://www.plcnext.help/te/WBM/Administration_Firmware_Update.htm
 [proficloud]: https://proficloud.io/
-[service]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm
+[service]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService
 [hawkbit]: https://www.eclipse.org/hawkbit/
 [hawkbit-app]: https://www.plcnextstore.com/permalinks/apps/latest/60002172000381

@@ -51,5 +51,5 @@ Like in the previous chapter, we can use the PLCnext CLI to generate a project t
 
 You can now go ahead and fill the Execute method with your real-time-dependent code.
 
-[plm]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm
+[plm]: https://plcnext.help/te/Programming/Cplusplus/PLM_Program_Library_Manager.htm
 [comparison]: https://www.plcnext.help/te/PLCnext_Runtime/Managing_of_components.htm

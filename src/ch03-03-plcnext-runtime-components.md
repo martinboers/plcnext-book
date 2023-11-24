@@ -10,7 +10,7 @@ Factory-installed software components that make up the PLCnext runtime include:
 
 An overview of these component categories is given in the [PLCnext Technology Info Center][comp-info]. The categories are somewhat arbitrary, but during startup all the components in one category are generally started before any components in the next category, and vice-versa during shutdown.
 
-Components are defined in C++ shared object libraries, which are located in the `/usr/lib` directory on the PLC. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.
+Components are defined in C++ shared object libraries, which are located in the `/usr/lib` directory on the PLCnext Control device. The tables below list these shared object libraries, the components they define, and links to more information on the function that each component implements.
 
 ### Hardware Components
 
@@ -29,7 +29,7 @@ These components provide access to device hardware. They typically wrap Linux de
 | ResourceMonitor.so    | ResourceMonitor::ResourceMonitorComponent          | CPU, memory and partition monitoring |
 | DeviceHmi.so          | DeviceHmi::DeviceHmiComponent                      | Device LEDs, buttons and switches |
 | Sensors.so            | Sensors::SensorsComponent                          | Device temperature, humidity and power monitoring |
-| Nim.so                | Nim::NimComponent<br/>Nim::NetloadLimiterComponent | Ethernet information, IP configuration and IP status<br/>[Network load limiter][load-limiter-info] (public)] |
+| Nim.so                | Nim::NimComponent<br/>Nim::NetloadLimiterComponent | Ethernet information, IP configuration and IP status<br/>[Network load limiter][load-limiter-info] (public) |
 | ExternalSDCard.so     | ExternalSDCard::ExternalSDCardComponent            | Information on the external SD card license, status and settings |
 | ExternalPci.so        | ExternalPci::ExternalPciComponent                  | External PCI state information | ARP_COMPONENT_EXTERNAL_PCI |
 
@@ -108,7 +108,6 @@ Component namespace: `Arp::Services`
 | Wbm.so                | Wbm::WbmComponent                                            | [Web-based management][wbm-info] |
 | Ehmi.so               | Ehmi::EhmiComponent                                          | [Embedded HMI][ehmi-info] |
 | OpcUAServer.so        | OpcUAServer::OpcUAServerComponent                            | [OPC UA server][opc-info] |
-| ProfiCloud.so         | ProfiCloud::ProfiCloudComponent                              | [Proficloud TSD publisher][tsd-info] (deprecated) |
 | NotificationLogger.so | NotificationLogger::NotificationLoggerComponent              | [Notification logger][nl-info] |
 | TraceController.so    | TraceController::TraceControllerComponent                    | [LTTng trace controller][trace-info] |
 | NmUtilities.so        | NmUtilities::NmPlcStateListener::NmPlcStateListenerComponent | [Notification manager][nm-info] |
@@ -122,30 +121,29 @@ Component namespace: `Arp::Services`
 | SpnsProxy.so          | SpnsProxy::SpnsProxyComponent                                | Safety controller (SPNS) communications |
 
 [comp-info]: https://www.plcnext.help/te/PLCnext_Runtime/Core_component.htm
-[load-limiter-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1Hardware_1_1Nim_1_1Services_1_1INetloadLimiterService.html "API description"
-[device-control-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService "PLCnext Info Center"
-[device-info-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService "PLCnext Info Center"
-[device-settings-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceSettingsService "PLCnext Info Center"
-[device-status-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceStatusService "PLCnext Info Center"
+[load-limiter-info]: https://www.plcnext.help/te/PLCnext_Runtime/NetLoadLimiter.htm "PLCnext Info Center"
+[device-control-info]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceControlService "PLCnext Info Center"
+[device-info-info]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceInfoService "PLCnext Info Center"
+[device-settings-info]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceSettingsService "PLCnext Info Center"
+[device-status-info]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_device_interface_services.htm#IDeviceStatusService "PLCnext Info Center"
 [file-sys-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileSystemInfoService.html "API description"
 [dir-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IDirectoryService.html "API description"
 [file-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Io_1_1IFileService.html "API description"
 [device-id-info]: https://api.plcnext.help/api_docs_2021-0-LTS/classArp_1_1System_1_1Commons_1_1Services_1_1Security_1_1IDeviceIdentityValidatorService.html "API description"
-[rsc-info]: https://www.plcnext.help/te/Service_Components/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm "PLCnext Info Center"
+[rsc-info]: https://www.plcnext.help/te/Communication_interfaces/Remote_Service_Calls_RSC/RSC_Remote_Service_Calls.htm "PLCnext Info Center"
 [um-info]: https://www.plcnext.help/te/WBM/Security_User_authentication.htm "PLCnext Info Center"
 [eclr-info]: https://www.plcnext.help/te/Programming/Csharp/eCLR_Programming_System.htm "PLCnext Info Center"
-[plm-info]: https://www.plcnext.help/te/Programming/Cpp/Cpp_program_structure/PLM_Program_Library_Manager.htm "PLCnext Info Center"
+[plm-info]: https://www.plcnext.help/te/Programming/Cplusplus/PLM_Program_Library_Manager.htm "PLCnext Info Center"
 [esm-info]: https://www.plcnext.help/te/PLCnext_Runtime/ESM.htm "PLCnext Info Center"
 [gds-info]: https://www.plcnext.help/te/PLCnext_Runtime/GDS_Global_Data_Space.htm "PLCnext Info Center"
-[alarms-info]: https://www.plcnext.help/te/Service_Components/Alarms/Alarms.htm "PLCnext Info Center"
+[alarms-info]: https://plcnext.help/te/Functions_and_applications/Alarms.htm "PLCnext Info Center"
 [fwm-info]: https://www.plcnext.help/te/WBM/Security_Firewall.htm "PLCnext Info Center"
 [wbm-info]: https://www.plcnext.help/te/WBM/WBM.htm "PLCnext Info Center"
-[ehmi-info]: https://www.plcnext.help/te/Programming/IEC_61131-3/Creating_a_PLCnext_Engineer_HMI_application.htm "PLCnext Info Center"
-[opc-info]: https://www.plcnext.help/te/Service_Components/OPC_UA_Server/OPC_UA_server_eUA.htm "PLCnext Info Center"
-[tsd-info]: https://www.plcnext.help/te/Service_Components/PROFICLOUD/Transferring_values_to_PROFICLOUD.htm "PLCnext Info Center"
-[nl-info]: https://www.plcnext.help/te/Service_Components/Notifications/Notification_Logger.htm "PLCnext Info Center"
+[ehmi-info]: https://plcnext.help/te/PLCnext_Engineer/Creating_a_PLCnext_Engineer_HMI_application.htm "PLCnext Info Center"
+[opc-info]: https://plcnext.help/te/Communication_interfaces/OPC_UA/OPC_UA_server.htm "PLCnext Info Center"
+[nl-info]: https://plcnext.help/te/Functions_and_applications/Notification_Logger.htm "PLCnext Info Center"
 [trace-info]: https://lttng.org/  "LTTng"
 [nm-info]: https://www.plcnext.help/te/Service_Components/Notifications/Notification_manager.htm "PLCnext Info Center"
-[dl-info]: https://www.plcnext.help/te/Service_Components/DataLogger/DataLogger.htm "PLCnext Info Center"
+[dl-info]: https://plcnext.help/te/Functions_and_applications/DataLogger_concept.htm "PLCnext Info Center"
 [app-info]: https://www.plcnext.help/te/WBM/Administration_PLCnext_Apps.htm "PLCnext Info Center"
-[proficloud-info]: https://www.plcnext.help/te/Service_Components/PROFICLOUD/Proficloud_V3_Introduction.htm "PLCnext Info Center"
+[proficloud-info]: https://plcnext.help/te/Functions_and_applications/Proficloud_Connecting_to_the_service.htm "PLCnext Info Center"
